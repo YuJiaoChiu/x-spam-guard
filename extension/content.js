@@ -2,6 +2,7 @@
   const PROCESSED_KEY = "spamGuardSeen";
   const pendingBridgeRequests = new Map();
   const blockedHandles = new Set();
+  let dynamicRules = [];
   const scanStats = {
     scanned: 0,
     extracted: 0,
@@ -81,7 +82,7 @@
       sourceUrl: location.href
     };
 
-    const rule = SpamRules.scoreCandidate(candidate);
+    const rule = SpamRules.scoreCandidate(candidate, { dynamicRules });
     return { candidate, rule };
   }
 
@@ -227,6 +228,7 @@
       return;
     }
     if (message.type === "BLACKLIST_SYNCED") {
+      dynamicRules = Array.isArray(message.dynamicRules) ? message.dynamicRules : [];
       for (const handle of [...(message.handles || []), ...(message.suspected || [])]) {
         hideByHandle(handle);
       }
@@ -239,6 +241,9 @@
 
   ensureStyles();
   ensureBridgeInjected();
+  chrome.runtime.sendMessage({ type: "GET_DYNAMIC_RULES" }).then((response) => {
+    dynamicRules = Array.isArray(response?.dynamicRules) ? response.dynamicRules : [];
+  }).catch(() => {});
   scanExistingArticles();
   observeDom();
 })();

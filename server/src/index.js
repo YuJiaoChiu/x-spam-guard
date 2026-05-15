@@ -202,6 +202,7 @@ function isEmojiOnly(text) {
 function patternKind(value) {
   if (/https?:\/\/|www\.|\.com|\.cn|t\.me/i.test(value)) return "url";
   if (/(telegram|tg|电报|飞机|t\.me)/i.test(value)) return "tg";
+  if (/(资源入口|进群选人|同城约p|约p|1-5线|真实对接|真实约见|同城资源|看我置顶|看我简介|点我头像)/i.test(value)) return "resource_lure";
   if (/(夸克|网盘|提取码|资源|全集|下载)/i.test(value)) return "netdisk";
   if (/(dd|线下|同城|附近|私信|主页|联系|加我)/i.test(value)) return "contact_lure";
   if (/(免费破处|破处|男大|骚|sao|福利|裸舞|绿帽)/i.test(value)) return "adult_lure";
@@ -252,6 +253,11 @@ function extractPatternCandidates(rawText) {
     add(p, "line");
   }
 
+  const knownPatternMatches = compact.match(/(?:1-5线(?:真实对接|覆盖)|同城约p|真实可靠约见|真实约见|同城资源自取|线下资源入口|点我头像进群选人|进群选人)/gi) || [];
+  for (const item of knownPatternMatches) {
+    add(item, "known_pattern");
+  }
+
   const tokenMatches = compact.match(/[\u4e00-\u9fff]{2,12}|[a-z0-9_]{3,20}/g) || [];
   for (const token of tokenMatches) {
     add(token, "token");
@@ -268,6 +274,62 @@ function extractPatternCandidates(rawText) {
 
 function extractFeedbackFragments(rawText) {
   return extractPatternCandidates(rawText).map((pattern) => pattern.value);
+}
+
+function parsePastedXAccounts(rawText) {
+  const lines = String(rawText || "")
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const accounts = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const handleMatch = lines[i].match(/^@([A-Za-z0-9_]{1,15})$/);
+    if (!handleMatch) continue;
+    const displayName = lines[i - 1] && !lines[i - 1].startsWith("@") ? lines[i - 1] : "";
+    const commentLines = [];
+    for (let j = i + 1; j < lines.length; j += 1) {
+      if (/^@([A-Za-z0-9_]{1,15})$/.test(lines[j])) break;
+      if (lines[j] === "·" || /^\d+\s*(分钟|小时|天)/.test(lines[j])) continue;
+      if (j > i + 1 && lines[j + 1] && /^@([A-Za-z0-9_]{1,15})$/.test(lines[j + 1])) break;
+      commentLines.push(lines[j]);
+    }
+    const candidate = sanitizeCandidate({
+      screenName: handleMatch[1],
+      displayName,
+      commentText: commentLines.join("\n")
+    });
+    if (candidate) accounts.push(candidate);
+  }
+  return accounts;
+}
+
+function isSafeDynamicPattern(pattern, kind = "") {
+  const normalized = normalizeForMatch(pattern);
+  if (!normalized || normalized.length < 4 || normalized.length > 60) return false;
+  if (/^\d+$/.test(normalized)) return false;
+  if (/^@[a-z0-9_]{1,15}$/i.test(normalized)) return false;
+  if (["handle_like"].includes(String(kind))) return false;
+  const emojiHits = normalized.match(/[\u{1F300}-\u{1FAFF}\u2600-\u27BF]/gu) || [];
+  if (emojiHits.length > 1) return false;
+  const generic = new Set(["看我置顶", "看我简介", "真实可靠", "真实", "资源", "同城"]);
+  if (generic.has(normalized)) return false;
+  const lettersOrCjk = normalized.match(/[a-z\u4e00-\u9fff]/gi) || [];
+  return lettersOrCjk.length >= 2 && !isEmojiOnly(normalized);
+}
+
+function dynamicRuleScoreForKind(kind, pattern) {
+  const value = normalizeForMatch(pattern);
+  if (kind === "resource_lure") return 5;
+  if (kind === "adult_lure" || kind === "contact_lure") return 4;
+  if (/(资源入口|进群选人|同城约p|约p|1-5线|真实对接|真实约见|同城资源)/i.test(value)) return 5;
+  return 3;
+}
+
+function fieldsForDynamicRule(kind, pattern) {
+  const value = normalizeForMatch(pattern);
+  if (/(看我置顶|看我简介|点我头像)/i.test(value)) return ["displayName", "commentText", "profileBio"];
+  if (kind === "resource_lure" || kind === "adult_lure" || kind === "contact_lure") return ["displayName", "commentText", "profileBio"];
+  return ["displayName", "commentText", "profileBio"];
 }
 
 function candidateFromPublicReport(input = {}) {
@@ -314,6 +376,11 @@ async function getEffectiveClassifierEnv() {
   };
 }
 
+async function getActiveDynamicRules(limit = 500) {
+  const result = await store.listDynamicRules({ status: "active", limit, offset: 0 });
+  return result.items || result || [];
+}
+
 const requireClient = requireToken(config.clientToken, "x-client-token");
 const requireAdmin = requireToken(config.adminToken, "x-admin-token");
 const classifyRateLimiter = createRateLimiter({
@@ -331,11 +398,13 @@ async function classifyForReview(candidate) {
   const allFeedback = await store.listFeedbackSamples(400);
   const spamFeedback = allFeedback.filter((row) => row.label === "spam");
   const effectiveEnv = await getEffectiveClassifierEnv();
+  const dynamicRules = await getActiveDynamicRules();
   return await classifyCandidate(candidate, {
     env: effectiveEnv,
     strongRuleThreshold: config.strongRuleThreshold,
     autoBlockConfidence: config.autoBlockConfidence,
-    feedbackSamples: spamFeedback
+    feedbackSamples: spamFeedback,
+    dynamicRules
   });
 }
 
@@ -530,6 +599,23 @@ app.get("/api/blacklist", async (req, res) => {
   res.json({ ...result, count: result.total });
 });
 
+app.get("/api/rules/active", async (req, res) => {
+  const { limit, offset } = parsePagination(req.query, { limit: 500, offset: 0 });
+  const result = await store.listDynamicRules({ status: "active", limit, offset });
+  const items = (result.items || []).map((rule) => ({
+    id: rule.id,
+    pattern: rule.pattern,
+    kind: rule.kind,
+    fields: rule.fields,
+    score: rule.score,
+    confidence: rule.confidence,
+    reason: rule.reason,
+    status: rule.status,
+    updatedAt: rule.updatedAt
+  }));
+  res.json({ ...result, items });
+});
+
 app.get("/api/public/export", async (req, res) => {
   const data = await buildPublicExport(store);
   res.setHeader("cache-control", "public, max-age=60");
@@ -665,7 +751,8 @@ app.post("/api/classify", requireClient, classifyRateLimiter, async (req, res) =
   const allFeedback = await store.listFeedbackSamples(400);
   const spamFeedback = allFeedback.filter((row) => row.label === "spam");
   const feedbackHit = hasFeedbackHint(candidate, spamFeedback);
-  const fastRule = scoreCandidate(candidate);
+  const dynamicRules = await getActiveDynamicRules();
+  const fastRule = scoreCandidate(candidate, { dynamicRules });
   if (fastRule.score < config.aiReviewRuleThreshold && !feedbackHit) {
     const fallback = {
       candidate,
@@ -703,7 +790,8 @@ app.post("/api/classify", requireClient, classifyRateLimiter, async (req, res) =
     env: effectiveEnv,
     strongRuleThreshold: config.strongRuleThreshold,
     autoBlockConfidence: config.autoBlockConfidence,
-    feedbackSamples: spamFeedback
+    feedbackSamples: spamFeedback,
+    dynamicRules
   });
 
   await store.addDecision({
@@ -911,11 +999,13 @@ app.post("/api/admin/runtime-config/test", requireAdmin, async (req, res) => {
   const effectiveEnv = await getEffectiveClassifierEnv();
   const allFeedback = await store.listFeedbackSamples(400);
   const spamFeedback = allFeedback.filter((row) => row.label === "spam");
+  const dynamicRules = await getActiveDynamicRules();
   const result = await classifyCandidate(sample, {
     env: effectiveEnv,
     strongRuleThreshold: config.strongRuleThreshold,
     autoBlockConfidence: config.autoBlockConfidence,
-    feedbackSamples: spamFeedback
+    feedbackSamples: spamFeedback,
+    dynamicRules
   });
   res.json({ ok: true, result });
 });
@@ -947,11 +1037,146 @@ app.post("/api/admin/feedback-samples", requireAdmin, async (req, res) => {
   res.json({ ok: true, row });
 });
 
+app.post("/api/admin/ai-rule-ingest", requireAdmin, async (req, res) => {
+  const body = req.body || {};
+  const rawText = normalizeString(body.rawText || "", 12000);
+  if (!rawText) {
+    res.status(400).json({ error: "rawText is required" });
+    return;
+  }
+
+  const model = normalizeString(body.model || "gpt-5.4", 120);
+  const label = body.label === "ham" ? "ham" : "spam";
+  const autoApply = body.autoApply !== false;
+  const confirmAccounts = body.confirmAccounts !== false && label === "spam";
+  const patterns = extractPatternCandidates(rawText);
+  const row = await store.addFeedbackSample({
+    label,
+    screenName: normalizeScreenName(body.screenName || ""),
+    displayName: normalizeString(body.displayName || "", 120),
+    rawText,
+    normalizedText: normalizeForMatch(rawText),
+    fragments: patterns.map((pattern) => pattern.value),
+    patternCandidates: patterns,
+    note: normalizeString(body.note || `ai_rule_ingest:${model}`, 300),
+    source: "admin_ai_rule_ingest"
+  });
+
+  const effectiveEnv = await getEffectiveClassifierEnv();
+  const result = await suggestRulesFromFeedback([row], {
+    env: {
+      ...effectiveEnv,
+      AI_PROVIDER: "openai",
+      CHEAP_AI_MODEL: model
+    }
+  });
+
+  const suggestions = Array.isArray(result.suggestions) ? result.suggestions : [];
+  const appliedRules = [];
+  if (autoApply && label === "spam") {
+    const candidates = [
+      ...suggestions
+        .filter((item) => item.action === "candidate_rule" || Number(item.confidence || 0) >= 0.7)
+        .map((item) => ({
+          pattern: item.pattern,
+          kind: item.kind || "phrase",
+          confidence: Number(item.confidence || 0.7),
+          reason: item.reason || "ai_suggested_rule",
+          examples: item.examples || []
+        })),
+      ...patterns
+        .filter((item) => ["resource_lure", "adult_lure", "contact_lure", "netdisk", "tg"].includes(item.kind) || item.score >= 5)
+        .map((item) => ({
+          pattern: item.value,
+          kind: item.kind,
+          confidence: Math.min(0.92, 0.55 + Number(item.score || 1) * 0.06),
+          reason: `pattern_candidate:${item.source || "sample"}`,
+          examples: [rawText.slice(0, 240)]
+        }))
+    ];
+
+    const seen = new Set();
+    for (const item of candidates) {
+      const pattern = normalizeForMatch(item.pattern);
+      const key = `${item.kind}:${pattern}`;
+      if (seen.has(key) || !isSafeDynamicPattern(pattern, item.kind)) continue;
+      seen.add(key);
+      const rule = await store.upsertDynamicRule({
+        pattern,
+        kind: item.kind || patternKind(pattern),
+        fields: fieldsForDynamicRule(item.kind, pattern),
+        score: dynamicRuleScoreForKind(item.kind, pattern),
+        confidence: item.confidence,
+        reason: item.reason,
+        source: `admin_ai_ingest:${model}`,
+        examples: item.examples,
+        status: "active"
+      });
+      if (rule) appliedRules.push(rule);
+      if (appliedRules.length >= 20) break;
+    }
+  }
+
+  const parsedAccounts = parsePastedXAccounts(rawText);
+  const confirmedAccounts = [];
+  if (confirmAccounts) {
+    for (const candidate of parsedAccounts.slice(0, 100)) {
+      const blacklistRow = await store.upsertBlacklistEntry({
+        screenName: candidate.screenName,
+        displayName: candidate.displayName,
+        reason: "admin_ai_ingest_confirmed_spam",
+        confidence: 0.96,
+        tags: normalizeTags(["admin_confirmed", "ai_rule_ingest", ...appliedRules.slice(0, 5).map((rule) => `rule:${rule.kind}`)]),
+        reasonDetails: {
+          ruleScore: 0,
+          ruleHumanReasons: ["admin pasted spam sample"],
+          aiProvider: result.provider || "",
+          aiReason: `AI/model-assisted ingest via ${model}`,
+          patternCandidates: patterns.slice(0, 12)
+        },
+        source: "admin_ai_rule_ingest",
+        status: "confirmed"
+      });
+      if (blacklistRow) confirmedAccounts.push(blacklistRow);
+    }
+  }
+
+  await store.addEvent({
+    type: "ai_rule_ingest",
+    reason: `model=${model}`,
+    metadata: {
+      provider: result.provider || "",
+      sampleId: row.id,
+      suggestions: suggestions.length,
+      appliedRules: appliedRules.length,
+      confirmedAccounts: confirmedAccounts.length
+    }
+  });
+
+  res.json({
+    ok: true,
+    model,
+    provider: result.provider || "",
+    sample: row,
+    suggestions,
+    appliedRules,
+    confirmedAccounts
+  });
+});
+
 app.get("/api/admin/feedback-samples", requireAdmin, async (req, res) => {
   const label = String(req.query.label || "all");
   const query = normalizeString(req.query.query || "", 120);
   const { limit, offset } = parsePagination(req.query, { limit: 100, offset: 0 });
   const result = await store.listFeedbackSamples({ label, query, limit, offset });
+  res.json(result);
+});
+
+app.get("/api/admin/dynamic-rules", requireAdmin, async (req, res) => {
+  const status = String(req.query.status || "all");
+  const query = normalizeString(req.query.query || "", 120);
+  const { limit, offset } = parsePagination(req.query, { limit: 200, offset: 0 });
+  const result = await store.listDynamicRules({ status, query, limit, offset });
   res.json(result);
 });
 

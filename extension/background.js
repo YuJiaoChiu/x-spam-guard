@@ -29,6 +29,7 @@ const state = {
   localBlacklist: new Map(),
   localSuspected: new Map(),
   localWhitelist: new Set(),
+  dynamicRules: [],
   queue: [],
   queueKeys: new Set(),
   activeTasks: new Map(),
@@ -119,7 +120,7 @@ function markError(error) {
 }
 
 async function loadState() {
-  const storage = await chrome.storage.local.get(["settings", "localBlacklistCache", "localSuspectedCache", "localWhitelistCache"]);
+  const storage = await chrome.storage.local.get(["settings", "localBlacklistCache", "localSuspectedCache", "localWhitelistCache", "dynamicRulesCache"]);
   state.settings = hydrateSettings(storage.settings || {});
   if (
     !storage.settings ||
@@ -142,6 +143,7 @@ async function loadState() {
     const normalized = keyOfHandle(key);
     if (normalized) state.localWhitelist.add(normalized);
   }
+  state.dynamicRules = Array.isArray(storage.dynamicRulesCache) ? storage.dynamicRulesCache : [];
   state.stats.blacklistCount = state.localBlacklist.size;
 }
 
@@ -161,7 +163,8 @@ async function persistLocalBlacklist() {
   await chrome.storage.local.set({
     localBlacklistCache: obj,
     localSuspectedCache: suspected,
-    localWhitelistCache: Array.from(state.localWhitelist)
+    localWhitelistCache: Array.from(state.localWhitelist),
+    dynamicRulesCache: state.dynamicRules
   });
 }
 
@@ -209,18 +212,21 @@ async function syncBlacklist() {
     headers["x-client-token"] = state.settings.clientToken;
   }
   try {
-    const [confirmedResponse, suspectedResponse, whitelistResponse] = await Promise.all([
+    const [confirmedResponse, suspectedResponse, whitelistResponse, dynamicRulesResponse] = await Promise.all([
       fetch(`${base}/api/blacklist?status=confirmed&limit=1000`, { headers }),
       fetch(`${base}/api/blacklist?status=suspected&limit=1000`, { headers }),
-      fetch(`${base}/api/blacklist?status=whitelist&limit=1000`, { headers })
+      fetch(`${base}/api/blacklist?status=whitelist&limit=1000`, { headers }),
+      fetch(`${base}/api/rules/active?limit=500`, { headers })
     ]);
     if (!confirmedResponse.ok) return;
     const confirmedData = await confirmedResponse.json();
     const suspectedData = suspectedResponse.ok ? await suspectedResponse.json() : { items: [] };
     const whitelistData = whitelistResponse.ok ? await whitelistResponse.json() : { items: [] };
+    const dynamicRulesData = dynamicRulesResponse.ok ? await dynamicRulesResponse.json() : { items: [] };
     const confirmedItems = Array.isArray(confirmedData.items) ? confirmedData.items : [];
     const suspectedItems = Array.isArray(suspectedData.items) ? suspectedData.items : [];
     const whitelistItems = Array.isArray(whitelistData.items) ? whitelistData.items : [];
+    state.dynamicRules = Array.isArray(dynamicRulesData.items) ? dynamicRulesData.items : [];
 
     state.localWhitelist = new Set();
     for (const item of whitelistItems) {
@@ -312,13 +318,15 @@ async function notifyHide(screenName) {
 async function notifyBlacklistSynced() {
   const handles = Array.from(state.localBlacklist.keys()).slice(0, 1000);
   const suspected = Array.from(state.localSuspected.keys()).slice(0, 1000);
+  const dynamicRules = state.dynamicRules.slice(0, 500);
   const tabs = await chrome.tabs.query({ url: ["https://x.com/*", "https://twitter.com/*"] });
   await Promise.all(
     tabs.map((tab) =>
       chrome.tabs.sendMessage(tab.id, {
         type: "BLACKLIST_SYNCED",
         handles,
-        suspected
+        suspected,
+        dynamicRules
       }).catch(() => {})
     )
   );
@@ -649,6 +657,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       settings: state.settings,
       stats: state.stats
     });
+    return;
+  }
+
+  if (message.type === "GET_DYNAMIC_RULES") {
+    sendResponse({ dynamicRules: state.dynamicRules.slice(0, 500) });
     return;
   }
 

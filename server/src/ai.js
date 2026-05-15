@@ -261,6 +261,7 @@ function aggregatePatternCandidates(feedbackSamples = []) {
   function fallbackKind(value) {
     if (/https?:\/\/|www\.|\.com|\.cn|t\.me/i.test(value)) return "url";
     if (/(telegram|tg|电报|飞机|t\.me)/i.test(value)) return "tg";
+    if (/(资源入口|进群选人|同城约p|约p|1-5线|真实对接|真实约见|同城资源|看我置顶|看我简介|点我头像)/i.test(value)) return "resource_lure";
     if (/(夸克|网盘|提取码|资源|全集|下载)/i.test(value)) return "netdisk";
     if (/(dd|线下|同城|附近|私信|主页|联系|加我)/i.test(value)) return "contact_lure";
     if (/(免费破处|破处|男大|骚|sao|福利|裸舞|绿帽)/i.test(value)) return "adult_lure";
@@ -311,7 +312,7 @@ function heuristicRuleSuggestions(feedbackSamples = []) {
     kind: item.kind,
     confidence: Math.min(0.95, 0.45 + item.score * 0.06 + item.count * 0.04),
     reason: `seen ${item.count} time(s), kind=${item.kind}, aggregateScore=${item.score}`,
-    action: ["adult_lure", "contact_lure", "netdisk", "tg", "handle_like"].includes(item.kind) ? "candidate_rule" : "review_first",
+    action: ["adult_lure", "contact_lure", "resource_lure", "netdisk", "tg", "handle_like"].includes(item.kind) ? "candidate_rule" : "review_first",
     examples: item.examples
   }));
 }
@@ -390,9 +391,10 @@ export async function classifyCandidate(candidate, options = {}) {
   const autoBlockConfidence = Number(options.autoBlockConfidence || 0.8);
   const providerMode = String(env.AI_PROVIDER || "auto").toLowerCase();
   const feedbackSamples = Array.isArray(options.feedbackSamples) ? options.feedbackSamples : [];
+  const dynamicRules = Array.isArray(options.dynamicRules) ? options.dynamicRules : [];
   const diagnostics = [];
 
-  const ruleResult = scoreCandidate(candidate);
+  const ruleResult = scoreCandidate(candidate, { dynamicRules });
   const ruleSpam = ruleResult.score >= strongRuleThreshold;
   const ruleConfidence = Math.min(0.96, Math.max(0.1, ruleResult.score * 0.14));
 

@@ -1,122 +1,119 @@
 {
-  "generatedAt": "2026-05-15T08:54:20.017Z",
+  "generatedAt": "2026-05-15T09:32:29.627Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 27,
-    "blacklistConfirmed": 27,
+    "blacklistTotal": 50,
+    "blacklistConfirmed": 50,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 23,
+    "contributionTotal": 42,
     "contributionPending": 0,
-    "eventsTotal": 276,
-    "blocked24h": 18,
+    "dynamicRuleTotal": 8,
+    "dynamicRuleActive": 8,
+    "eventsTotal": 545,
+    "blocked24h": 41,
     "blockFailed24h": 0,
-    "decisions24h": 237,
+    "decisions24h": 486,
     "blockTaskPending": 7,
-    "generatedAt": "2026-05-15T08:54:20.017Z"
+    "generatedAt": "2026-05-15T09:32:29.615Z"
   },
   "blacklist": [
     {
-      "screenName": "bertoni13460",
-      "displayName": "绵绵🍑",
-      "reason": "soft_lure_bot_combo_admin_confirmed",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "soft_lure_bot_combo",
-        "mixed_short_code_lure"
-      ],
-      "source": "admin_sample_batch",
-      "updatedAt": "2026-05-15T08:54:10.091Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [],
-        "aiProvider": "",
-        "aiReason": "",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "jillphilli76344",
-      "displayName": "晴栀🍑",
-      "reason": "soft_lure_bot_combo_admin_confirmed",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "soft_lure_bot_combo",
-        "mixed_short_code_lure"
-      ],
-      "source": "admin_sample_batch",
-      "updatedAt": "2026-05-15T08:54:10.066Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [],
-        "aiProvider": "",
-        "aiReason": "",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "carvalho_d8816",
-      "displayName": "夏日柠🍑",
-      "reason": "soft_lure_bot_combo_admin_confirmed",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "soft_lure_bot_combo",
-        "mixed_short_code_lure"
-      ],
-      "source": "admin_sample_batch",
-      "updatedAt": "2026-05-15T08:54:10.043Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [],
-        "aiProvider": "",
-        "aiReason": "",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "fletcherge61335",
-      "displayName": "陌心🍑",
-      "reason": "soft_lure_bot_combo_admin_confirmed",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "soft_lure_bot_combo",
-        "mixed_short_code_lure"
-      ],
-      "source": "admin_sample_batch",
-      "updatedAt": "2026-05-15T08:54:09.991Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [],
-        "aiProvider": "",
-        "aiReason": "",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "franklinha49873",
-      "displayName": "屈谨洋免费破处",
-      "reason": "reported_spam_pattern",
-      "confidence": 0.88,
+      "screenName": "_nasaarmstrong",
+      "displayName": "千娇百媚",
+      "reason": "The comment contains explicit adult content promotion and external links, which is a clear indicator of a spam lure.",
+      "confidence": 0.895,
       "tags": [
         "auto_ai_review",
+        "quark_lure_combo",
+        "adult_content",
+        "spam_lure",
+        "url_spam"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "quark_lure_combo [commentText] => 下载"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains explicit adult content promotion and external links, which is a clear indicator of a spam lure.",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "下载"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "wolfetienn10508",
+      "displayName": "心动猫",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.905,
+      "tags": [
+        "auto_ai_review",
+        "obfuscated_dd_contact_combo",
+        "contact_lure_signal",
         "random_handle",
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
-        "ruleScore": 2,
+        "ruleScore": 6,
         "ruleHumanReasons": [
-          "random_handle [screenName] => franklinha49873"
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, 线下",
+          "contact_lure_signal [commentText] => 线下",
+          "random_handle [screenName] => wolfetienn10508"
         ],
         "aiProvider": "feedback-memory(fallback)",
         "aiReason": "reported_spam_pattern",
         "ruleMatchDetails": [
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
           {
             "rule": "random_handle",
             "fields": [
@@ -132,25 +129,474 @@
       }
     },
     {
-      "screenName": "mantu_baitha",
-      "displayName": "Mantu Baitha",
-      "reason": "high_rule_score",
-      "confidence": 0.869,
+      "screenName": "gillese12329",
+      "displayName": "梦游记",
+      "reason": "The comment contains clear contact lure patterns ('D.D', '线下') and the account uses a machine-generated screen name, which is characteristic of spam bots.",
+      "confidence": 0.944,
+      "tags": [
+        "auto_ai_review",
+        "obfuscated_dd_contact_combo",
+        "contact_lure_signal",
+        "random_handle",
+        "spam",
+        "contact_lure",
+        "bot"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, 线下",
+          "contact_lure_signal [commentText] => 线下",
+          "random_handle [screenName] => gillese12329"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains clear contact lure patterns ('D.D', '线下') and the account uses a machine-generated screen name, which is characteristic of spam bots.",
+        "ruleMatchDetails": [
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "politztoma25154",
+      "displayName": "梦游记",
+      "reason": "The comment contains 'D.D' and '线下' (offline), which are well-known indicators for spam lures directing users to external platforms. The screen name is also machine-generated.",
+      "confidence": 0.931,
+      "tags": [
+        "auto_ai_review",
+        "obfuscated_dd_contact_combo",
+        "contact_lure_signal",
+        "random_handle",
+        "spam",
+        "lure",
+        "contact_lure",
+        "bot"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, 线下",
+          "contact_lure_signal [commentText] => 线下",
+          "random_handle [screenName] => politztoma25154"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains 'D.D' and '线下' (offline), which are well-known indicators for spam lures directing users to external platforms. The screen name is also machine-generated.",
+        "ruleMatchDetails": [
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "liamwhiteh61767",
+      "displayName": "苏苏",
+      "reason": "The account exhibits classic spam bot behavior, including a relationship lure phrase ('有弟弟想认识吗') paired with a random alphanumeric code ('38fF') and a machine-generated screen name. This pattern is consistent with numerous reported spam samples.",
+      "confidence": 0.9794999999999999,
+      "tags": [
+        "auto_ai_review",
+        "soft_lure_bot_combo",
+        "mixed_short_code_lure",
+        "random_handle",
+        "spam",
+        "lure",
+        "bot",
+        "relationship_lure"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "soft_lure_bot_combo [commentText,screenName] => 有弟弟想认识吗, 弟弟想认识, 想认识吗, mixed short code",
+          "mixed_short_code_lure [commentText] => mixed short code",
+          "random_handle [screenName] => liamwhiteh61767"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The account exhibits classic spam bot behavior, including a relationship lure phrase ('有弟弟想认识吗') paired with a random alphanumeric code ('38fF') and a machine-generated screen name. This pattern is consistent with numerous reported spam samples.",
+        "ruleMatchDetails": [
+          {
+            "rule": "soft_lure_bot_combo",
+            "fields": [
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "有弟弟想认识吗"
+              },
+              {
+                "field": "commentText",
+                "term": "弟弟想认识"
+              },
+              {
+                "field": "commentText",
+                "term": "想认识吗"
+              },
+              {
+                "field": "commentText",
+                "term": "mixed short code"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Soft relationship lure combined with bot-like account markers"
+          },
+          {
+            "rule": "mixed_short_code_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "mixed short code"
+              }
+            ],
+            "evidence": [],
+            "reason": "Comment contains mixed digit-letter code next to lure text"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "maritbleij73007",
+      "displayName": "月亮岛",
+      "reason": "The comment contains clear spam indicators including obfuscated contact solicitation ('D.D', '线下的哥哥') and a machine-generated screen name, matching known spam patterns.",
+      "confidence": 0.9375,
+      "tags": [
+        "auto_ai_review",
+        "obfuscated_dd_contact_combo",
+        "contact_lure_signal",
+        "random_handle",
+        "spam_lure",
+        "contact_solicitation",
+        "bot_account"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, 线下",
+          "contact_lure_signal [commentText] => 线下",
+          "random_handle [screenName] => maritbleij73007"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains clear spam indicators including obfuscated contact solicitation ('D.D', '线下的哥哥') and a machine-generated screen name, matching known spam patterns.",
+        "ruleMatchDetails": [
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "daniellewo83528",
+      "displayName": "云朵朵",
+      "reason": "The comment contains high-intent contact lure phrases ('线下的哥哥') and obfuscated 'D.D' tokens, which are characteristic of spam bots soliciting offline services. The screen name is also machine-generated.",
+      "confidence": 0.9375,
+      "tags": [
+        "auto_ai_review",
+        "obfuscated_dd_contact_combo",
+        "contact_lure_signal",
+        "random_handle",
+        "spam",
+        "contact_lure",
+        "obfuscated_contact"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, 线下",
+          "contact_lure_signal [commentText] => 线下",
+          "random_handle [screenName] => daniellewo83528"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains high-intent contact lure phrases ('线下的哥哥') and obfuscated 'D.D' tokens, which are characteristic of spam bots soliciting offline services. The screen name is also machine-generated.",
+        "ruleMatchDetails": [
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "jones_geof81146",
+      "displayName": "小绵羊",
+      "reason": "The comment contains a classic obfuscated contact lure ('D.D', '线下') combined with a likely contact code ('25aJ'), and the screen name follows a machine-generated pattern consistent with known spam accounts.",
+      "confidence": 0.9375,
+      "tags": [
+        "auto_ai_review",
+        "obfuscated_dd_contact_combo",
+        "contact_lure_signal",
+        "random_handle",
+        "spam_lure",
+        "contact_lure",
+        "bot_account",
+        "obfuscated_contact"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, 线下",
+          "contact_lure_signal [commentText] => 线下",
+          "random_handle [screenName] => jones_geof81146"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains a classic obfuscated contact lure ('D.D', '线下') combined with a likely contact code ('25aJ'), and the screen name follows a machine-generated pattern consistent with known spam accounts.",
+        "ruleMatchDetails": [
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "karenjaybeckett",
+      "displayName": "Karen beckett",
+      "reason": "The comment uses a classic 'full version' lure ('完整版来了') combined with a Quark Pan link, which is a highly characteristic pattern for spam bots distributing adult or pirated content.",
+      "confidence": 0.9794999999999999,
       "tags": [
         "auto_ai_review",
         "quark_pan_direct_link",
-        "quark_lure_combo"
+        "quark_lure_combo",
+        "quark_pan",
+        "spam_lure",
+        "adult_content_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
           "quark_pan_direct_link [commentText] => pan.quark.cn/",
           "quark_lure_combo [commentText] => quark"
         ],
-        "aiProvider": "mock-ai(fallback)",
-        "aiReason": "high_rule_score",
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment uses a classic 'full version' lure ('完整版来了') combined with a Quark Pan link, which is a highly characteristic pattern for spam bots distributing adult or pirated content.",
         "ruleMatchDetails": [
           {
             "rule": "quark_pan_direct_link",
@@ -184,41 +630,166 @@
       }
     },
     {
-      "screenName": "grace46856",
-      "displayName": "",
-      "reason": "manual_upsert",
-      "confidence": 0.9,
-      "tags": [],
-      "source": "manual",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "screenName": "bucknbasscat",
+      "displayName": "turkey shawn",
+      "reason": "The comment uses explicit adult lure language ('sao货') and directs traffic to another account, which is a characteristic pattern of adult spam solicitation.",
+      "confidence": 0.8460000000000001,
+      "tags": [
+        "auto_ai_review",
+        "adult_lure_combo",
+        "adult_lure",
+        "spam_lure",
+        "sexual_content"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [],
-        "aiProvider": "",
-        "aiReason": "",
-        "ruleMatchDetails": []
+        "ruleScore": 4,
+        "ruleHumanReasons": [
+          "adult_lure_combo [commentText] => sao, 线下"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment uses explicit adult lure language ('sao货') and directs traffic to another account, which is a characteristic pattern of adult spam solicitation.",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "sao"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          }
+        ]
       }
     },
     {
-      "screenName": "kabriand14",
-      "displayName": "حب",
-      "reason": "reported_spam_pattern",
-      "confidence": 0.88,
+      "screenName": "kraskicom",
+      "displayName": "КолорКом",
+      "reason": "The comment uses explicit adult lure terminology ('sao') and follows a known spam pattern for directing users to adult content, often associated with bot tagging.",
+      "confidence": 0.8885,
       "tags": [
         "auto_ai_review",
-        "random_handle",
-        "feedback_memory"
+        "adult_lure_combo",
+        "mixed_short_code_lure",
+        "adult_lure",
+        "spam_bot",
+        "chinese_spam"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
-        "ruleScore": 2,
+        "ruleScore": 5,
         "ruleHumanReasons": [
-          "random_handle [screenName] => kabriand14"
+          "adult_lure_combo [commentText] => sao, 线下",
+          "mixed_short_code_lure [commentText] => mixed short code"
         ],
-        "aiProvider": "feedback-memory(fallback)",
-        "aiReason": "reported_spam_pattern",
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment uses explicit adult lure terminology ('sao') and follows a known spam pattern for directing users to adult content, often associated with bot tagging.",
         "ruleMatchDetails": [
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "sao"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          },
+          {
+            "rule": "mixed_short_code_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "mixed short code"
+              }
+            ],
+            "evidence": [],
+            "reason": "Comment contains mixed digit-letter code next to lure text"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "patriciafr63304",
+      "displayName": "梦游记",
+      "reason": "The comment contains a classic 'D.D' and '线下' (offline) contact lure pattern, which is highly indicative of spam bots attempting to redirect users to external messaging platforms. The screen name is also machine-generated.",
+      "confidence": 0.9375,
+      "tags": [
+        "auto_ai_review",
+        "obfuscated_dd_contact_combo",
+        "contact_lure_signal",
+        "random_handle",
+        "spam",
+        "contact_lure",
+        "bot",
+        "offline_lure"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, 线下",
+          "contact_lure_signal [commentText] => 线下",
+          "random_handle [screenName] => patriciafr63304"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains a classic 'D.D' and '线下' (offline) contact lure pattern, which is highly indicative of spam bots attempting to redirect users to external messaging platforms. The screen name is also machine-generated.",
+        "ruleMatchDetails": [
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
           {
             "rule": "random_handle",
             "fields": [
@@ -234,25 +805,433 @@
       }
     },
     {
-      "screenName": "staci1968",
-      "displayName": "TOM 2",
-      "reason": "reported_spam_pattern",
-      "confidence": 0.88,
+      "screenName": "middleto66",
+      "displayName": "شام",
+      "reason": "The comment contains explicit adult lure language ('推特第一骚') and uses a common spam tactic of tagging another account to drive traffic. The screen name is also characteristic of machine-generated spam accounts.",
+      "confidence": 0.931,
       "tags": [
         "auto_ai_review",
+        "adult_lure_combo",
         "random_handle",
-        "feedback_memory"
+        "adult_lure",
+        "spam_bot",
+        "traffic_redirection"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
-        "ruleScore": 2,
+        "ruleScore": 6,
         "ruleHumanReasons": [
-          "random_handle [screenName] => staci1968"
+          "adult_lure_combo [commentText,screenName] => 骚, dd",
+          "random_handle [screenName] => middleto66"
         ],
-        "aiProvider": "feedback-memory(fallback)",
-        "aiReason": "reported_spam_pattern",
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains explicit adult lure language ('推特第一骚') and uses a common spam tactic of tagging another account to drive traffic. The screen name is also characteristic of machine-generated spam accounts.",
         "ruleMatchDetails": [
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              },
+              {
+                "field": "screenName",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "bbosshard87844",
+      "displayName": "樱桃",
+      "reason": "The comment contains a classic relationship solicitation lure combined with a random alphanumeric code, which is a hallmark of spam bots. The screen name is also machine-generated.",
+      "confidence": 0.986,
+      "tags": [
+        "auto_ai_review",
+        "soft_lure_bot_combo",
+        "mixed_short_code_lure",
+        "random_handle",
+        "spam",
+        "lure",
+        "bot",
+        "solicitation"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "soft_lure_bot_combo [commentText,screenName] => 有弟弟想认识吗, 弟弟想认识, 想认识吗, mixed short code",
+          "mixed_short_code_lure [commentText] => mixed short code",
+          "random_handle [screenName] => bbosshard87844"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains a classic relationship solicitation lure combined with a random alphanumeric code, which is a hallmark of spam bots. The screen name is also machine-generated.",
+        "ruleMatchDetails": [
+          {
+            "rule": "soft_lure_bot_combo",
+            "fields": [
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "有弟弟想认识吗"
+              },
+              {
+                "field": "commentText",
+                "term": "弟弟想认识"
+              },
+              {
+                "field": "commentText",
+                "term": "想认识吗"
+              },
+              {
+                "field": "commentText",
+                "term": "mixed short code"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Soft relationship lure combined with bot-like account markers"
+          },
+          {
+            "rule": "mixed_short_code_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "mixed short code"
+              }
+            ],
+            "evidence": [],
+            "reason": "Comment contains mixed digit-letter code next to lure text"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "tarjaj31163",
+      "displayName": "云朵朵",
+      "reason": "The account exhibits classic spam bot behavior, including a machine-generated username and a solicitation comment containing an alphanumeric code, which is a common pattern for directing users to external scam or adult content platforms.",
+      "confidence": 0.973,
+      "tags": [
+        "auto_ai_review",
+        "soft_lure_bot_combo",
+        "mixed_short_code_lure",
+        "random_handle",
+        "spam",
+        "lure",
+        "bot",
+        "solicitation",
+        "short-code"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "soft_lure_bot_combo [commentText,screenName] => 有弟弟想认识吗, 弟弟想认识, 想认识吗, mixed short code",
+          "mixed_short_code_lure [commentText] => mixed short code",
+          "random_handle [screenName] => tarjaj31163"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The account exhibits classic spam bot behavior, including a machine-generated username and a solicitation comment containing an alphanumeric code, which is a common pattern for directing users to external scam or adult content platforms.",
+        "ruleMatchDetails": [
+          {
+            "rule": "soft_lure_bot_combo",
+            "fields": [
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "有弟弟想认识吗"
+              },
+              {
+                "field": "commentText",
+                "term": "弟弟想认识"
+              },
+              {
+                "field": "commentText",
+                "term": "想认识吗"
+              },
+              {
+                "field": "commentText",
+                "term": "mixed short code"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Soft relationship lure combined with bot-like account markers"
+          },
+          {
+            "rule": "mixed_short_code_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "mixed short code"
+              }
+            ],
+            "evidence": [],
+            "reason": "Comment contains mixed digit-letter code next to lure text"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "stinemikke65644",
+      "displayName": "奶盖兔",
+      "reason": "The comment contains a highly specific, known spam pattern ('D.D个线下的哥哥') used for offline contact solicitation, combined with a machine-generated screen name.",
+      "confidence": 0.9375,
+      "tags": [
+        "auto_ai_review",
+        "obfuscated_dd_contact_combo",
+        "contact_lure_signal",
+        "random_handle",
+        "spam_lure",
+        "contact_lure",
+        "offline_solicitation"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, 线下",
+          "contact_lure_signal [commentText] => 线下",
+          "random_handle [screenName] => stinemikke65644"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains a highly specific, known spam pattern ('D.D个线下的哥哥') used for offline contact solicitation, combined with a machine-generated screen name.",
+        "ruleMatchDetails": [
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "monikajons35857",
+      "displayName": "梦游记",
+      "reason": "The comment contains high-intent contact lure keywords ('D.D', '线下') and the screen name follows a machine-generated pattern, matching known spam bot behavior.",
+      "confidence": 0.9375,
+      "tags": [
+        "auto_ai_review",
+        "obfuscated_dd_contact_combo",
+        "contact_lure_signal",
+        "random_handle",
+        "spam",
+        "contact_lure",
+        "bot"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, 线下",
+          "contact_lure_signal [commentText] => 线下",
+          "random_handle [screenName] => monikajons35857"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains high-intent contact lure keywords ('D.D', '线下') and the screen name follows a machine-generated pattern, matching known spam bot behavior.",
+        "ruleMatchDetails": [
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "sgilbert22690",
+      "displayName": "绵绵",
+      "reason": "The comment contains clear indicators of an offline solicitation lure ('D.D', '线下的哥哥') combined with an obfuscated contact code ('49mQ') and a machine-generated screen name, matching known spam patterns.",
+      "confidence": 0.931,
+      "tags": [
+        "auto_ai_review",
+        "obfuscated_dd_contact_combo",
+        "contact_lure_signal",
+        "random_handle",
+        "spam_lure",
+        "offline_solicitation",
+        "obfuscated_contact"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, 线下",
+          "contact_lure_signal [commentText] => 线下",
+          "random_handle [screenName] => sgilbert22690"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The comment contains clear indicators of an offline solicitation lure ('D.D', '线下的哥哥') combined with an obfuscated contact code ('49mQ') and a machine-generated screen name, matching known spam patterns.",
+        "ruleMatchDetails": [
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
           {
             "rule": "random_handle",
             "fields": [
@@ -278,7 +1257,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -319,7 +1298,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -353,7 +1332,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -388,7 +1367,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 13,
         "ruleHumanReasons": [
@@ -452,7 +1431,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -504,7 +1483,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -556,7 +1535,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -609,7 +1588,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -662,7 +1641,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -714,7 +1693,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -772,7 +1751,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -830,7 +1809,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -883,7 +1862,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -939,7 +1918,7 @@
         "hard_signal"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 15,
         "ruleHumanReasons": [
@@ -1018,7 +1997,7 @@
         "random_handle"
       ],
       "source": "contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -1037,7 +2016,7 @@
         "emoji_flood"
       ],
       "source": "contribution",
-      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
       "reasonDetails": {
         "ruleScore": 3,
         "ruleHumanReasons": [
@@ -1067,6 +2046,498 @@
           }
         ]
       }
+    },
+    {
+      "screenName": "bertoni13460",
+      "displayName": "绵绵🍑",
+      "reason": "soft_lure_bot_combo_admin_confirmed",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "soft_lure_bot_combo",
+        "mixed_short_code_lure"
+      ],
+      "source": "admin_sample_batch",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "jillphilli76344",
+      "displayName": "晴栀🍑",
+      "reason": "soft_lure_bot_combo_admin_confirmed",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "soft_lure_bot_combo",
+        "mixed_short_code_lure"
+      ],
+      "source": "admin_sample_batch",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "carvalho_d8816",
+      "displayName": "夏日柠🍑",
+      "reason": "soft_lure_bot_combo_admin_confirmed",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "soft_lure_bot_combo",
+        "mixed_short_code_lure"
+      ],
+      "source": "admin_sample_batch",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "fletcherge61335",
+      "displayName": "陌心🍑",
+      "reason": "soft_lure_bot_combo_admin_confirmed",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "soft_lure_bot_combo",
+        "mixed_short_code_lure"
+      ],
+      "source": "admin_sample_batch",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "franklinha49873",
+      "displayName": "屈谨洋免费破处",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => franklinha49873"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "mantu_baitha",
+      "displayName": "Mantu Baitha",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "quark_pan_direct_link",
+        "quark_lure_combo"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "quark_pan_direct_link [commentText] => pan.quark.cn/",
+          "quark_lure_combo [commentText] => quark"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_pan_direct_link",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "pan.quark.cn/"
+              }
+            ],
+            "evidence": [],
+            "reason": "Direct Quark pan share link"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "quark"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "grace46856",
+      "displayName": "",
+      "reason": "manual_upsert",
+      "confidence": 0.9,
+      "tags": [],
+      "source": "manual",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "kabriand14",
+      "displayName": "حب",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => kabriand14"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "staci1968",
+      "displayName": "TOM 2",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => staci1968"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "jennie49518",
+      "displayName": "🌟真实约见🎀同城资源自取🔥看我简介",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:netdisk",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "peter265600",
+      "displayName": "💎1-5线覆盖🙌真实可靠约见🎀看我置顶",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:netdisk",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "elizabe77226595",
+      "displayName": "🎁同城约P❤️1-5线真实对接🧐看我置顶",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:netdisk",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "sophia1819830",
+      "displayName": "🚀线下资源入口☔️点我头像进群选人😚",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:netdisk",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "sxgun66",
+      "displayName": "三上悠亚视频,天天更新最新视频,主页更多视频",
+      "reason": "The account promotes adult content and external links to download apps/websites, which is a classic spam lure pattern.",
+      "confidence": 0.895,
+      "tags": [
+        "auto_ai_review",
+        "quark_lure_combo",
+        "adult_content",
+        "spam_lure",
+        "external_link"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "quark_lure_combo [commentText,displayName] => 下载, 主页"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The account promotes adult content and external links to download apps/websites, which is a classic spam lure pattern.",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText",
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "下载"
+              },
+              {
+                "field": "displayName",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    }
+  ],
+  "dynamicRules": [
+    {
+      "pattern": "同城约p",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.86,
+      "reason": "admin_resource_lure_cleanup",
+      "updatedAt": "2026-05-15T09:32:15.770Z"
+    },
+    {
+      "pattern": "真实可靠约见",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.86,
+      "reason": "admin_resource_lure_cleanup",
+      "updatedAt": "2026-05-15T09:32:15.770Z"
+    },
+    {
+      "pattern": "1-5线覆盖",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.86,
+      "reason": "admin_resource_lure_cleanup",
+      "updatedAt": "2026-05-15T09:32:15.770Z"
+    },
+    {
+      "pattern": "1-5线真实对接",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.86,
+      "reason": "admin_resource_lure_cleanup",
+      "updatedAt": "2026-05-15T09:32:15.770Z"
+    },
+    {
+      "pattern": "点我头像进群选人",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "seen 1 time(s), kind=resource_lure, aggregateScore=3",
+      "updatedAt": "2026-05-15T09:32:15.770Z"
+    },
+    {
+      "pattern": "真实约见",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "seen 1 time(s), kind=resource_lure, aggregateScore=3",
+      "updatedAt": "2026-05-15T09:32:15.770Z"
+    },
+    {
+      "pattern": "同城资源自取",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.8500000000000001,
+      "reason": "seen 1 time(s), kind=netdisk, aggregateScore=6",
+      "updatedAt": "2026-05-15T09:32:15.770Z"
+    },
+    {
+      "pattern": "线下资源入口",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.8500000000000001,
+      "reason": "seen 1 time(s), kind=netdisk, aggregateScore=6",
+      "updatedAt": "2026-05-15T09:32:15.770Z"
     }
   ],
   "analysis": {
@@ -1077,7 +2548,11 @@
       },
       {
         "value": "reported_spam_pattern",
-        "count": 6
+        "count": 7
+      },
+      {
+        "value": "admin_ai_ingest_confirmed_spam",
+        "count": 4
       },
       {
         "value": "soft_lure_bot_combo_admin_confirmed",
@@ -1094,36 +2569,166 @@
       {
         "value": "manual_upsert",
         "count": 1
+      },
+      {
+        "value": "The account exhibits classic spam bot behavior, including a machine-generated username and a solicitation comment containing an alphanumeric code, which is a common pattern for directing users to external scam or adult content platforms.",
+        "count": 1
+      },
+      {
+        "value": "The account exhibits classic spam bot behavior, including a relationship lure phrase ('有弟弟想认识吗') paired with a random alphanumeric code ('38fF') and a machine-generated screen name. This pattern is consistent with numerous reported spam samples.",
+        "count": 1
+      },
+      {
+        "value": "The account promotes adult content and external links to download apps/websites, which is a classic spam lure pattern.",
+        "count": 1
+      },
+      {
+        "value": "The comment contains 'D.D' and '线下' (offline), which are well-known indicators for spam lures directing users to external platforms. The screen name is also machine-generated.",
+        "count": 1
+      },
+      {
+        "value": "The comment contains a classic 'D.D' and '线下' (offline) contact lure pattern, which is highly indicative of spam bots attempting to redirect users to external messaging platforms. The screen name is also machine-generated.",
+        "count": 1
+      },
+      {
+        "value": "The comment contains a classic obfuscated contact lure ('D.D', '线下') combined with a likely contact code ('25aJ'), and the screen name follows a machine-generated pattern consistent with known spam accounts.",
+        "count": 1
+      },
+      {
+        "value": "The comment contains a classic relationship solicitation lure combined with a random alphanumeric code, which is a hallmark of spam bots. The screen name is also machine-generated.",
+        "count": 1
+      },
+      {
+        "value": "The comment contains a highly specific, known spam pattern ('D.D个线下的哥哥') used for offline contact solicitation, combined with a machine-generated screen name.",
+        "count": 1
+      },
+      {
+        "value": "The comment contains clear contact lure patterns ('D.D', '线下') and the account uses a machine-generated screen name, which is characteristic of spam bots.",
+        "count": 1
       }
     ],
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 18
+        "count": 37
       },
       {
         "value": "random_handle",
-        "count": 15
+        "count": 29
       },
       {
         "value": "adult_lure_combo",
-        "count": 8
+        "count": 11
       },
       {
-        "value": "feedback_memory",
-        "count": 6
+        "value": "contact_lure_signal",
+        "count": 10
+      },
+      {
+        "value": "obfuscated_dd_contact_combo",
+        "count": 10
       },
       {
         "value": "quark_lure_combo",
-        "count": 6
-      },
-      {
-        "value": "quark_pan_direct_link",
-        "count": 6
+        "count": 9
       },
       {
         "value": "admin_confirmed",
+        "count": 8
+      },
+      {
+        "value": "mixed_short_code_lure",
+        "count": 8
+      },
+      {
+        "value": "spam",
+        "count": 8
+      },
+      {
+        "value": "spam_lure",
+        "count": 8
+      },
+      {
+        "value": "bot",
+        "count": 7
+      },
+      {
+        "value": "contact_lure",
+        "count": 7
+      },
+      {
+        "value": "feedback_memory",
+        "count": 7
+      },
+      {
+        "value": "quark_pan_direct_link",
+        "count": 7
+      },
+      {
+        "value": "soft_lure_bot_combo",
+        "count": 7
+      },
+      {
+        "value": "ai_rule_ingest",
         "count": 4
+      },
+      {
+        "value": "lure",
+        "count": 4
+      },
+      {
+        "value": "rule:netdisk",
+        "count": 4
+      },
+      {
+        "value": "rule:resource_lure",
+        "count": 4
+      },
+      {
+        "value": "adult_lure",
+        "count": 3
+      },
+      {
+        "value": "obfuscated_contact",
+        "count": 3
+      },
+      {
+        "value": "adult_content",
+        "count": 2
+      },
+      {
+        "value": "bot_account",
+        "count": 2
+      },
+      {
+        "value": "offline_solicitation",
+        "count": 2
+      }
+    ],
+    "topRules": [
+      {
+        "value": "random_handle",
+        "count": 28
+      },
+      {
+        "value": "adult_lure_combo",
+        "count": 10
+      },
+      {
+        "value": "contact_lure_signal",
+        "count": 10
+      },
+      {
+        "value": "obfuscated_dd_contact_combo",
+        "count": 10
+      },
+      {
+        "value": "quark_lure_combo",
+        "count": 9
+      },
+      {
+        "value": "quark_pan_direct_link",
+        "count": 7
       },
       {
         "value": "mixed_short_code_lure",
@@ -1131,37 +2736,7 @@
       },
       {
         "value": "soft_lure_bot_combo",
-        "count": 4
-      },
-      {
-        "value": "emoji_flood",
-        "count": 1
-      },
-      {
-        "value": "hard_signal",
-        "count": 1
-      },
-      {
-        "value": "link_drop",
-        "count": 1
-      }
-    ],
-    "topRules": [
-      {
-        "value": "random_handle",
-        "count": 14
-      },
-      {
-        "value": "adult_lure_combo",
-        "count": 7
-      },
-      {
-        "value": "quark_lure_combo",
-        "count": 6
-      },
-      {
-        "value": "quark_pan_direct_link",
-        "count": 6
+        "count": 3
       },
       {
         "value": "emoji_flood",
@@ -1175,15 +2750,15 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 21
+        "count": 55
       },
       {
         "value": "screenName",
-        "count": 14
+        "count": 32
       },
       {
         "value": "displayName",
-        "count": 2
+        "count": 3
       }
     ],
     "topPatterns": [
@@ -1196,7 +2771,15 @@
         "count": 3
       },
       {
+        "value": "@elizabe77226595",
+        "count": 3
+      },
+      {
         "value": "@fletcherge61335",
+        "count": 3
+      },
+      {
+        "value": "@jennie49518",
         "count": 3
       },
       {
@@ -1204,7 +2787,31 @@
         "count": 3
       },
       {
+        "value": "@peter265600",
+        "count": 3
+      },
+      {
+        "value": "@sophia1819830",
+        "count": 3
+      },
+      {
+        "value": "🌟真实约见🎀同城资源自取🔥看我简介",
+        "count": 3
+      },
+      {
+        "value": "🎁同城约p❤️1-5线真实对接🧐看我置顶",
+        "count": 3
+      },
+      {
+        "value": "💎1-5线覆盖🙌真实可靠约见🎀看我置顶",
+        "count": 3
+      },
+      {
         "value": "😰26yv😭",
+        "count": 3
+      },
+      {
+        "value": "🚀线下资源入口☔️点我头像进群选人😚",
         "count": 3
       },
       {
@@ -1213,6 +2820,10 @@
       },
       {
         "value": "32yj",
+        "count": 3
+      },
+      {
+        "value": "38分钟",
         "count": 3
       },
       {
@@ -1232,11 +2843,27 @@
         "count": 3
       },
       {
+        "value": "elizabe77226595",
+        "count": 3
+      },
+      {
         "value": "fletcherge61335",
         "count": 3
       },
       {
+        "value": "jennie49518",
+        "count": 3
+      },
+      {
         "value": "jillphilli76344",
+        "count": 3
+      },
+      {
+        "value": "peter265600",
+        "count": 3
+      },
+      {
+        "value": "sophia1819830",
         "count": 3
       },
       {
@@ -1257,6 +2884,10 @@
       },
       {
         "value": "刚分手想被爱🤓32yj😨",
+        "count": 3
+      },
+      {
+        "value": "同城资源自取",
         "count": 3
       },
       {
@@ -1290,75 +2921,27 @@
       {
         "value": "有弟弟想认识吗",
         "count": 3
-      },
-      {
-        "value": "来个真人认识一下",
-        "count": 3
-      },
-      {
-        "value": "来个真人认识一下😚😨z54😡",
-        "count": 3
-      },
-      {
-        "value": "比她好看的没她骚",
-        "count": 3
-      },
-      {
-        "value": "比她骚的没她好看",
-        "count": 3
-      },
-      {
-        "value": "线下sao货没人比她sao",
-        "count": 3
-      },
-      {
-        "value": "绵绵🍑",
-        "count": 3
-      },
-      {
-        "value": "绵绵🍑@bertoni13460小狗求抱抱🤐4fm🤭",
-        "count": 3
-      },
-      {
-        "value": "货没人比她",
-        "count": 3
-      },
-      {
-        "value": "陌心🍑",
-        "count": 3
-      },
-      {
-        "value": "陌心🍑@fletcherge61335有弟弟想认识吗？😰26yv😭",
-        "count": 3
-      },
-      {
-        "value": ".⬆️👽若玥🌸附近的dd🌸8⁠7👀s6g",
-        "count": 1
-      },
-      {
-        "value": "@brian135553",
-        "count": 1
-      },
-      {
-        "value": "@sarahsherm83232",
-        "count": 1
-      },
-      {
-        "value": "🍫🪕^",
-        "count": 1
       }
     ],
     "patternKinds": [
       {
         "value": "phrase",
-        "count": 46
+        "count": 58
+      },
+      {
+        "value": "handle_like",
+        "count": 16
       },
       {
         "value": "contact_lure",
         "count": 14
       },
       {
-        "value": "handle_like",
+        "value": "resource_lure",
+        "count": 14
+      },
+      {
+        "value": "netdisk",
         "count": 8
       },
       {
@@ -1367,9 +2950,10 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 25,
-      "spamSamples": 12,
-      "approvedReports": 22,
+      "confirmedBlacklist": 48,
+      "spamSamples": 13,
+      "approvedReports": 41,
+      "dynamicRules": 8,
       "pendingReports": 0
     }
   }

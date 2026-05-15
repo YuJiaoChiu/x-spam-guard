@@ -9,13 +9,15 @@ const FILES = {
   decisions: "decisions.json",
   runtimeConfig: "runtime-config.json",
   feedbackSamples: "feedback-samples.json",
-  blockTasks: "block-tasks.json"
+  blockTasks: "block-tasks.json",
+  dynamicRules: "dynamic-rules.json"
 };
 
 const MAX_EVENTS = 15000;
 const MAX_DECISIONS = 50000;
 const BLACKLIST_STATUSES = new Set(["confirmed", "suspected", "reported", "whitelist"]);
 const BLOCK_TASK_STATUSES = new Set(["pending", "running", "success", "failed", "cooldown", "skipped"]);
+const DYNAMIC_RULE_STATUSES = new Set(["active", "disabled"]);
 
 function defaultRuntimeConfig() {
   return {
@@ -100,7 +102,8 @@ export async function createStore(dataDir) {
     decisions: path.join(dataDir, FILES.decisions),
     runtimeConfig: path.join(dataDir, FILES.runtimeConfig),
     feedbackSamples: path.join(dataDir, FILES.feedbackSamples),
-    blockTasks: path.join(dataDir, FILES.blockTasks)
+    blockTasks: path.join(dataDir, FILES.blockTasks),
+    dynamicRules: path.join(dataDir, FILES.dynamicRules)
   };
 
   const state = {
@@ -110,7 +113,8 @@ export async function createStore(dataDir) {
     decisions: [],
     runtimeConfig: defaultRuntimeConfig(),
     feedbackSamples: [],
-    blockTasks: []
+    blockTasks: [],
+    dynamicRules: []
   };
 
   let lock = Promise.resolve();
@@ -129,7 +133,8 @@ export async function createStore(dataDir) {
       atomicWriteJson(paths.decisions, { updatedAt: nowIso(), items: state.decisions }),
       atomicWriteJson(paths.runtimeConfig, state.runtimeConfig),
       atomicWriteJson(paths.feedbackSamples, { updatedAt: nowIso(), items: state.feedbackSamples }),
-      atomicWriteJson(paths.blockTasks, { updatedAt: nowIso(), items: state.blockTasks })
+      atomicWriteJson(paths.blockTasks, { updatedAt: nowIso(), items: state.blockTasks }),
+      atomicWriteJson(paths.dynamicRules, { updatedAt: nowIso(), items: state.dynamicRules })
     ]);
   }
 
@@ -160,6 +165,10 @@ export async function createStore(dataDir) {
     }
     if (key === "blockTasks") {
       await atomicWriteJson(paths.blockTasks, { updatedAt: nowIso(), items: state.blockTasks });
+      return;
+    }
+    if (key === "dynamicRules") {
+      await atomicWriteJson(paths.dynamicRules, { updatedAt: nowIso(), items: state.dynamicRules });
     }
   }
 
@@ -198,19 +207,45 @@ export async function createStore(dataDir) {
     };
   }
 
+  function normalizeDynamicRule(rule = {}) {
+    const statusRaw = String(rule.status || "active").toLowerCase().trim();
+    const fields = Array.isArray(rule.fields) && rule.fields.length
+      ? rule.fields.map((field) => String(field)).filter((field) => ["commentText", "displayName", "profileBio", "screenName"].includes(field))
+      : ["displayName", "commentText", "profileBio"];
+    return {
+      id: String(rule.id || crypto.randomUUID()),
+      pattern: String(rule.pattern || rule.value || "").trim(),
+      kind: String(rule.kind || "phrase").trim() || "phrase",
+      fields: fields.length ? fields : ["displayName", "commentText", "profileBio"],
+      score: Math.max(1, Math.min(8, Number(rule.score || 4))),
+      confidence: Math.max(0, Math.min(1, Number(rule.confidence || 0.7))),
+      reason: String(rule.reason || "ai_learned_rule").trim(),
+      source: String(rule.source || "admin_ai").trim(),
+      examples: Array.isArray(rule.examples) ? rule.examples.map(String).slice(0, 5) : [],
+      status: DYNAMIC_RULE_STATUSES.has(statusRaw) ? statusRaw : "active",
+      createdAt: String(rule.createdAt || nowIso()),
+      updatedAt: nowIso()
+    };
+  }
+
+  function dynamicRuleKey(rule) {
+    return normalizeText(`${(rule.fields || []).join(",")}:${rule.kind}:${rule.pattern}`);
+  }
+
   function buildBlacklistKey(entry) {
     return normalizeText(entry.screenName || entry.userId);
   }
 
   async function init() {
-    const [blacklistRaw, contributionsRaw, eventsRaw, decisionsRaw, runtimeConfigRaw, feedbackSamplesRaw, blockTasksRaw] = await Promise.all([
+    const [blacklistRaw, contributionsRaw, eventsRaw, decisionsRaw, runtimeConfigRaw, feedbackSamplesRaw, blockTasksRaw, dynamicRulesRaw] = await Promise.all([
       safeReadJson(paths.blacklist, { items: [] }),
       safeReadJson(paths.contributions, { items: [] }),
       safeReadJson(paths.events, { items: [] }),
       safeReadJson(paths.decisions, { items: [] }),
       safeReadJson(paths.runtimeConfig, defaultRuntimeConfig()),
       safeReadJson(paths.feedbackSamples, { items: [] }),
-      safeReadJson(paths.blockTasks, { items: [] })
+      safeReadJson(paths.blockTasks, { items: [] }),
+      safeReadJson(paths.dynamicRules, { items: [] })
     ]);
 
     state.blacklist = asArray(blacklistRaw).map((row) => normalizeBlacklistEntry(row)).filter((row) => buildBlacklistKey(row));
@@ -276,6 +311,10 @@ export async function createStore(dataDir) {
       }))
       .filter((row) => row.screenName)
       .slice(0, 50000);
+    state.dynamicRules = asArray(dynamicRulesRaw)
+      .map((row) => normalizeDynamicRule(row))
+      .filter((row) => row.pattern)
+      .slice(0, 5000);
 
     await persistAll();
   }
@@ -478,6 +517,8 @@ export async function createStore(dataDir) {
       blacklistWhitelist: state.blacklist.filter((row) => row.status === "whitelist").length,
       contributionTotal: state.contributions.length,
       contributionPending: pendingContrib,
+      dynamicRuleTotal: state.dynamicRules.length,
+      dynamicRuleActive: state.dynamicRules.filter((row) => row.status === "active").length,
       eventsTotal: state.events.length,
       blocked24h,
       blockFailed24h: failed24h,
@@ -642,6 +683,43 @@ export async function createStore(dataDir) {
     return paginate(rows, options);
   }
 
+  async function upsertDynamicRule(rule = {}) {
+    return await withWriteLock(async () => {
+      const normalized = normalizeDynamicRule(rule);
+      if (!normalized.pattern) return null;
+      const key = dynamicRuleKey(normalized);
+      const index = state.dynamicRules.findIndex((row) => dynamicRuleKey(row) === key);
+      if (index >= 0) {
+        normalized.id = state.dynamicRules[index].id || normalized.id;
+        normalized.createdAt = state.dynamicRules[index].createdAt || normalized.createdAt;
+        state.dynamicRules[index] = { ...state.dynamicRules[index], ...normalized, updatedAt: nowIso() };
+      } else {
+        state.dynamicRules.unshift(normalized);
+      }
+      state.dynamicRules = sortByTimeDesc(state.dynamicRules, "updatedAt").slice(0, 5000);
+      await persistOne("dynamicRules");
+      return normalized;
+    });
+  }
+
+  async function listDynamicRules(input = {}) {
+    const options = typeof input === "number" ? { limit: input } : { ...(input || {}) };
+    const status = String(options.status || "active");
+    const query = normalizeText(options.query || "");
+    let rows = state.dynamicRules;
+    if (status !== "all") {
+      rows = rows.filter((row) => row.status === status);
+    }
+    if (query) {
+      rows = rows.filter((row) => normalizeText(`${row.pattern} ${row.kind} ${row.reason} ${row.source}`).includes(query));
+    }
+    rows = sortByTimeDesc(rows, "updatedAt");
+    if (typeof input === "number" || Object.keys(options).length === 0) {
+      return rows;
+    }
+    return paginate(rows, options);
+  }
+
   return {
     init,
     listBlacklist,
@@ -662,6 +740,8 @@ export async function createStore(dataDir) {
     listFeedbackSamples,
     upsertBlockTask,
     updateBlockTask,
-    listBlockTasks
+    listBlockTasks,
+    upsertDynamicRule,
+    listDynamicRules
   };
 }

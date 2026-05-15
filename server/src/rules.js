@@ -6,6 +6,21 @@ const MARKETING_TERMS = ["投稿", "推广", "互推", "代理", "拉新"];
 const ROLEPLAY_TERMS = ["老师", "女王", "少妇", "人妻"];
 const SOFT_LURE_TERMS = ["有弟弟想认识吗", "弟弟想认识", "想认识吗", "刚分手想被爱", "小狗求抱抱", "求抱抱", "线下的哥哥", "线下哥哥"];
 const ADULT_PLATFORM_BIO_TERMS = ["已入驻曰泡平台", "已入驻日泡平台", "曰泡平台", "日泡平台"];
+const RESOURCE_LURE_TERMS = [
+  "线下资源入口",
+  "资源入口",
+  "点我头像进群选人",
+  "进群选人",
+  "同城约p",
+  "同城约P",
+  "1-5线真实对接",
+  "1-5线覆盖",
+  "真实可靠约见",
+  "真实约见",
+  "同城资源自取",
+  "看我置顶",
+  "看我简介"
+];
 const URL_RE = /(https?:\/\/|www\.|\.cn\/|\.com\/)/i;
 const QUARK_PAN_RE = /(?:https?:\/\/)?pan\.quark\.cn\//i;
 const OBFUSCATED_DD_RE = /d[\W_]{0,3}d/i;
@@ -123,13 +138,38 @@ function buildReadableReasons(matchDetails) {
   });
 }
 
-export function scoreCandidate(candidate) {
+function getDynamicRuleHits(dynamicRules = [], fields) {
+  const hits = [];
+  const allowedFields = new Set(["commentText", "displayName", "profileBio", "screenName"]);
+  for (const rule of dynamicRules) {
+    if (!rule || rule.status === "disabled") continue;
+    const pattern = normalizeTerm(rule.pattern || rule.value || "");
+    if (!pattern || pattern.length < 4 || pattern.length > 80) continue;
+    const ruleFields = Array.isArray(rule.fields) && rule.fields.length ? rule.fields : ["displayName", "commentText", "profileBio"];
+    for (const field of ruleFields) {
+      if (!allowedFields.has(field)) continue;
+      const text = fields[field] || "";
+      if (text && text.includes(pattern)) {
+        hits.push({
+          rule,
+          field,
+          term: rule.pattern || rule.value || pattern,
+          value: text
+        });
+      }
+    }
+  }
+  return hits;
+}
+
+export function scoreCandidate(candidate, options = {}) {
   const fields = fieldMap(candidate);
   const all = concatFields(fields);
 
   let score = 0;
   const matchedRules = [];
   const matchDetails = [];
+  const dynamicRules = Array.isArray(options.dynamicRules) ? options.dynamicRules : [];
 
   const contactHits = findTermHits(CONTACT_TERMS, fields);
   const tgHits = findTermHits(TG_TERMS, fields);
@@ -138,6 +178,11 @@ export function scoreCandidate(candidate) {
   const marketingHits = findTermHits(MARKETING_TERMS, fields);
   const roleplayHits = findTermHits(ROLEPLAY_TERMS, fields);
   const adultPlatformBioHits = findTermHits(ADULT_PLATFORM_BIO_TERMS, { profileBio: fields.profileBio });
+  const resourceLureHits = findTermHits(RESOURCE_LURE_TERMS, {
+    displayName: fields.displayName,
+    commentText: fields.commentText,
+    profileBio: fields.profileBio
+  });
   const softLureHits = findTermHits(SOFT_LURE_TERMS, {
     commentText: fields.commentText,
     displayName: fields.displayName,
@@ -228,6 +273,17 @@ export function scoreCandidate(candidate) {
     });
   }
 
+  if (resourceLureHits.length) {
+    score += 6;
+    matchedRules.push("resource_lure_combo");
+    pushDetail(matchDetails, {
+      rule: "resource_lure_combo",
+      fields: fieldsOf(resourceLureHits),
+      hits: resourceLureHits,
+      reason: "Offline resource/group/person-selection lure phrase"
+    });
+  }
+
   if (obfuscatedDdHits.length && contactHits.some((hit) => hit.field === "commentText")) {
     score += 3;
     matchedRules.push("obfuscated_dd_contact_combo");
@@ -274,6 +330,29 @@ export function scoreCandidate(candidate) {
       hits: peachNameHits,
       reason: "Peach display marker paired with lure wording"
     });
+  }
+
+  const dynamicHits = getDynamicRuleHits(dynamicRules, fields);
+  if (dynamicHits.length) {
+    const grouped = new Map();
+    for (const hit of dynamicHits) {
+      const key = hit.rule.id || hit.rule.pattern || hit.term;
+      const current = grouped.get(key) || { rule: hit.rule, hits: [] };
+      current.hits.push(hit);
+      grouped.set(key, current);
+    }
+    for (const group of grouped.values()) {
+      const ruleScore = Math.max(1, Math.min(8, Number(group.rule.score || 3)));
+      const ruleName = `dynamic_${String(group.rule.kind || "pattern").replace(/[^a-z0-9_:-]/gi, "_")}`;
+      score += ruleScore;
+      matchedRules.push(ruleName);
+      pushDetail(matchDetails, {
+        rule: ruleName,
+        fields: fieldsOf(group.hits),
+        hits: group.hits,
+        reason: group.rule.reason || "Admin/AI learned dynamic rule"
+      });
+    }
   }
 
   if (contactHits.length && hasHighIntentContact(contactHits) && !matchedRules.includes("adult_lure_combo") && !matchedRules.includes("tg_contact_combo")) {
@@ -390,7 +469,7 @@ export function mockAiJudge(candidate, ruleResult, options = {}) {
   const hasHardSignal =
     (findTermHits(TG_TERMS, { all }).length && findTermHits(CONTACT_TERMS, { all }).length) ||
     (findTermHits(QUARK_TERMS, { all }).length && findTermHits(CONTACT_TERMS, { all }).length) ||
-    /(来个男大|线下dd|看我主页|主页私信|私信领福利|点击领取1t空间|已入驻曰泡平台|已入驻日泡平台|曰泡平台|日泡平台)/i.test(all);
+    /(来个男大|线下dd|看我主页|主页私信|私信领福利|点击领取1t空间|已入驻曰泡平台|已入驻日泡平台|曰泡平台|日泡平台|资源入口|进群选人|同城约p|1-5线|真实约见|同城资源自取)/i.test(all);
 
   if (hasHardSignal && score >= 5) {
     return {

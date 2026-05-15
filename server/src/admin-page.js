@@ -211,7 +211,9 @@ export function renderAdminPage() {
       </div>
       <div class="actions">
         <button id="submitReport">提交样本</button>
+        <button id="aiIngestSample" class="secondary">AI 吸收并启用规则</button>
         <span id="reportStatus" class="muted"></span>
+        <span id="aiIngestStatus" class="muted"></span>
       </div>
     </div>
 
@@ -290,6 +292,7 @@ export function renderAdminPage() {
         </div>
       </div>
       <div class="table-scroll" style="margin-bottom:12px"><table id="ruleSuggestionTable"></table></div>
+      <div class="table-scroll" style="margin-bottom:12px"><table id="dynamicRuleTable"></table></div>
       <div class="table-scroll"><table id="feedbackTable"></table></div>
     </section>
 
@@ -325,6 +328,7 @@ export function renderAdminPage() {
       whitelist: "白名单",
       blockTaskPending: "待处理任务",
       contributionPending: "待审贡献",
+      dynamicRuleActive: "动态规则",
       blocked24h: "24h 已拉黑",
       blockFailed24h: "24h 失败",
       decisions24h: "24h 判定",
@@ -424,6 +428,7 @@ export function renderAdminPage() {
         ["whitelist", stats.blacklistWhitelist],
         ["blockTaskPending", stats.blockTaskPending],
         ["contributionPending", stats.contributionPending],
+        ["dynamicRuleActive", stats.dynamicRuleActive],
         ["blocked24h", stats.blocked24h],
         ["blockFailed24h", stats.blockFailed24h],
         ["decisions24h", stats.decisions24h],
@@ -516,6 +521,20 @@ export function renderAdminPage() {
       document.getElementById("ruleSuggestionTable").innerHTML =
         '<tr><th>来源</th><th>建议动作</th><th>类型</th><th>模式</th><th>置信度</th><th>原因</th></tr>' + (rows || emptyRow(6, "点击“总结规则建议”后显示"));
     }
+    function renderDynamicRules(items) {
+      const rows = items.map(function(item) {
+        return '<tr>' +
+          '<td>' + escapeHtml(item.updatedAt || "") + '</td>' +
+          '<td><span class="pill">' + escapeHtml(item.status || "") + '</span></td>' +
+          '<td>' + escapeHtml(item.kind || "") + '</td>' +
+          '<td class="mono">' + escapeHtml(item.pattern || "") + '</td>' +
+          '<td>' + escapeHtml(String(item.score || "")) + ' / ' + escapeHtml(String(Number(item.confidence || 0).toFixed(2))) + '</td>' +
+          '<td class="mono">' + escapeHtml((Array.isArray(item.fields) ? item.fields.join(",") : "") + "\\n" + (item.reason || "")) + '</td>' +
+        '</tr>';
+      }).join("");
+      document.getElementById("dynamicRuleTable").innerHTML =
+        '<tr><th>更新时间</th><th>状态</th><th>类型</th><th>动态规则 pattern</th><th>分/置信</th><th>字段/原因</th></tr>' + (rows || emptyRow(6, "暂无动态规则"));
+    }
     function renderEvents(items) {
       const rows = items.map(function(row) {
         return '<tr><td>' + escapeHtml(row.at || "") + '</td><td>' + escapeHtml(row.type || "") + '</td><td>@' + escapeHtml(row.screenName || "") + '</td><td>' + escapeHtml(row.reason || "") + '</td><td>' + escapeHtml(String(row.status || "")) + '</td></tr>';
@@ -590,6 +609,27 @@ export function renderAdminPage() {
       document.getElementById('reportRawText').value = '';
       await loadAll();
     }
+    async function aiIngestSample() {
+      const rawText = document.getElementById('reportRawText').value;
+      if (!rawText) {
+        setText('aiIngestStatus', '请先粘贴样本文本');
+        return;
+      }
+      setText('aiIngestStatus', 'AI 吸收中...');
+      const resp = await jpost('/api/admin/ai-rule-ingest', {
+        label: document.getElementById('reportLabel').value,
+        screenName: document.getElementById('reportScreenName').value.trim(),
+        displayName: document.getElementById('reportDisplayName').value.trim(),
+        rawText,
+        note: document.getElementById('reportNote').value.trim() || 'admin_ai_ingest',
+        model: 'gpt-5.4',
+        autoApply: true,
+        confirmAccounts: true
+      });
+      setText('aiIngestStatus', '模型=' + (resp.provider || resp.model || 'gpt-5.4') + '，启用规则 ' + ((resp.appliedRules || []).length) + '，确认账号 ' + ((resp.confirmedAccounts || []).length));
+      document.getElementById('reportRawText').value = '';
+      await loadAll();
+    }
     async function manualUpsertLayer() {
       const payload = {
         screenName: document.getElementById('manualScreenName').value.trim(),
@@ -646,6 +686,7 @@ export function renderAdminPage() {
           jget('/api/admin/blacklist?status=' + encodeURIComponent(blacklistStatus) + '&query=' + encodeURIComponent(blacklistQuery) + '&limit=120'),
           jget('/api/admin/block-tasks?status=' + encodeURIComponent(taskStatus) + '&query=' + encodeURIComponent(taskQuery) + '&limit=120'),
           jget('/api/admin/feedback-samples?label=all&limit=60'),
+          jget('/api/admin/dynamic-rules?status=all&limit=80'),
           jget('/api/admin/contributions?decision=pending&limit=50'),
           jget('/api/admin/events?limit=80'),
           jget('/api/admin/decisions?limit=80')
@@ -654,9 +695,10 @@ export function renderAdminPage() {
         renderBlacklist(responses[1].items || []);
         renderTasks(responses[2].items || []);
         renderFeedback(responses[3].items || []);
-        renderContrib(responses[4].items || []);
-        renderEvents(responses[5].items || []);
-        renderDecisions(responses[6].items || []);
+        renderDynamicRules(responses[4].items || []);
+        renderContrib(responses[5].items || []);
+        renderEvents(responses[6].items || []);
+        renderDecisions(responses[7].items || []);
         setStatus('已刷新：' + new Date().toLocaleTimeString(), false);
       } catch (e) {
         setStatus('加载失败：' + e.message, true);
@@ -674,6 +716,7 @@ export function renderAdminPage() {
     document.getElementById('saveAiConfig').onclick = saveRuntimeConfig;
     document.getElementById('testAiConfig').onclick = testRuntimeConfig;
     document.getElementById('submitReport').onclick = submitReportSample;
+    document.getElementById('aiIngestSample').onclick = aiIngestSample;
     document.getElementById('manualUpsert').onclick = manualUpsertLayer;
     document.getElementById('loadRuleSuggestions').onclick = loadRuleSuggestions;
     document.getElementById('autoReviewContrib').onclick = autoReviewContributions;

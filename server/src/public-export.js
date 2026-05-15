@@ -99,12 +99,13 @@ function aggregatePatterns(feedbackSamples = [], approvedReports = []) {
 }
 
 export async function buildPublicExport(store) {
-  const [stats, blacklistResult, feedbackResult, approvedResult, pendingResult] = await Promise.all([
+  const [stats, blacklistResult, feedbackResult, approvedResult, pendingResult, dynamicRulesResult] = await Promise.all([
     store.getStats(),
     store.listBlacklist({ status: "confirmed", limit: 5000, offset: 0 }),
     store.listFeedbackSamples({ label: "spam", limit: 1000, offset: 0 }),
     store.listContributions({ decision: "approve", limit: 1000, offset: 0 }),
-    store.listContributions({ decision: "pending", limit: 1, offset: 0 })
+    store.listContributions({ decision: "pending", limit: 1, offset: 0 }),
+    store.listDynamicRules({ status: "active", limit: 1000, offset: 0 })
   ]);
 
   const blacklist = (blacklistResult.items || blacklistResult || [])
@@ -122,6 +123,15 @@ export async function buildPublicExport(store) {
 
   const feedbackSamples = feedbackResult.items || feedbackResult || [];
   const approvedReports = approvedResult.items || approvedResult || [];
+  const dynamicRules = (dynamicRulesResult.items || dynamicRulesResult || []).map((rule) => ({
+    pattern: rule.pattern || "",
+    kind: rule.kind || "",
+    fields: Array.isArray(rule.fields) ? rule.fields.slice(0, 6).map(String) : [],
+    score: Number(rule.score || 0),
+    confidence: Number(rule.confidence || 0),
+    reason: normalizeText(rule.reason || ""),
+    updatedAt: rule.updatedAt || rule.createdAt || ""
+  }));
   const analysis = {
     ...aggregateFromBlacklist(blacklist),
     ...aggregatePatterns(feedbackSamples, approvedReports),
@@ -129,6 +139,7 @@ export async function buildPublicExport(store) {
       confirmedBlacklist: blacklist.length,
       spamSamples: feedbackSamples.length,
       approvedReports: approvedReports.length,
+      dynamicRules: dynamicRules.length,
       pendingReports: pendingResult.total || 0
     }
   };
@@ -138,6 +149,7 @@ export async function buildPublicExport(store) {
     project: "X Spam Guard",
     stats,
     blacklist,
+    dynamicRules,
     analysis
   };
 }
