@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-15T08:52:08.661Z",
+  "generatedAt": "2026-05-15T08:54:20.017Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 23,
-    "blacklistConfirmed": 23,
+    "blacklistTotal": 27,
+    "blacklistConfirmed": 27,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
@@ -12,11 +12,91 @@
     "eventsTotal": 276,
     "blocked24h": 18,
     "blockFailed24h": 0,
-    "decisions24h": 236,
+    "decisions24h": 237,
     "blockTaskPending": 7,
-    "generatedAt": "2026-05-15T08:52:08.650Z"
+    "generatedAt": "2026-05-15T08:54:20.017Z"
   },
   "blacklist": [
+    {
+      "screenName": "bertoni13460",
+      "displayName": "绵绵🍑",
+      "reason": "soft_lure_bot_combo_admin_confirmed",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "soft_lure_bot_combo",
+        "mixed_short_code_lure"
+      ],
+      "source": "admin_sample_batch",
+      "updatedAt": "2026-05-15T08:54:10.091Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "jillphilli76344",
+      "displayName": "晴栀🍑",
+      "reason": "soft_lure_bot_combo_admin_confirmed",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "soft_lure_bot_combo",
+        "mixed_short_code_lure"
+      ],
+      "source": "admin_sample_batch",
+      "updatedAt": "2026-05-15T08:54:10.066Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "carvalho_d8816",
+      "displayName": "夏日柠🍑",
+      "reason": "soft_lure_bot_combo_admin_confirmed",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "soft_lure_bot_combo",
+        "mixed_short_code_lure"
+      ],
+      "source": "admin_sample_batch",
+      "updatedAt": "2026-05-15T08:54:10.043Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "fletcherge61335",
+      "displayName": "陌心🍑",
+      "reason": "soft_lure_bot_combo_admin_confirmed",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "soft_lure_bot_combo",
+        "mixed_short_code_lure"
+      ],
+      "source": "admin_sample_batch",
+      "updatedAt": "2026-05-15T08:54:09.991Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
     {
       "screenName": "franklinha49873",
       "displayName": "屈谨洋免费破处",
@@ -1000,6 +1080,10 @@
         "count": 6
       },
       {
+        "value": "soft_lure_bot_combo_admin_confirmed",
+        "count": 4
+      },
+      {
         "value": "below_strong_rule_threshold",
         "count": 1
       },
@@ -1036,6 +1120,18 @@
       {
         "value": "quark_pan_direct_link",
         "count": 6
+      },
+      {
+        "value": "admin_confirmed",
+        "count": 4
+      },
+      {
+        "value": "mixed_short_code_lure",
+        "count": 4
+      },
+      {
+        "value": "soft_lure_bot_combo",
+        "count": 4
       },
       {
         "value": "emoji_flood",
@@ -1271,7 +1367,7 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 21,
+      "confirmedBlacklist": 25,
       "spamSamples": 12,
       "approvedReports": 22,
       "pendingReports": 0
