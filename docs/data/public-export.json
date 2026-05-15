@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-15T09:32:29.627Z",
+  "generatedAt": "2026-05-15T10:37:19.906Z",
   "project": "X Spam Guard",
   "stats": {
     "blacklistTotal": 50,
@@ -16,7 +16,7 @@
     "blockFailed24h": 0,
     "decisions24h": 486,
     "blockTaskPending": 7,
-    "generatedAt": "2026-05-15T09:32:29.615Z"
+    "generatedAt": "2026-05-15T10:37:19.894Z"
   },
   "blacklist": [
     {
@@ -32,7 +32,7 @@
         "url_spam"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 5,
         "ruleHumanReasons": [
@@ -71,7 +71,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -143,7 +143,7 @@
         "bot"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -216,7 +216,7 @@
         "bot"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -289,7 +289,7 @@
         "relationship_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -372,7 +372,7 @@
         "bot_account"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -444,7 +444,7 @@
         "obfuscated_contact"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -517,7 +517,7 @@
         "obfuscated_contact"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -588,7 +588,7 @@
         "adult_content_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -642,7 +642,7 @@
         "sexual_content"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -686,7 +686,7 @@
         "chinese_spam"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 5,
         "ruleHumanReasons": [
@@ -747,7 +747,7 @@
         "offline_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -818,7 +818,7 @@
         "traffic_redirection"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -877,7 +877,7 @@
         "solicitation"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -962,7 +962,7 @@
         "short-code"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -1045,7 +1045,7 @@
         "offline_solicitation"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1117,7 +1117,7 @@
         "bot"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1189,7 +1189,7 @@
         "obfuscated_contact"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1257,7 +1257,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -1298,7 +1298,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -1332,7 +1332,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -1367,7 +1367,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 13,
         "ruleHumanReasons": [
@@ -1431,7 +1431,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -1483,7 +1483,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -1535,7 +1535,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1588,7 +1588,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1641,7 +1641,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -1693,7 +1693,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1751,7 +1751,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1809,7 +1809,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1862,7 +1862,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1918,7 +1918,7 @@
         "hard_signal"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 15,
         "ruleHumanReasons": [
@@ -1997,7 +1997,7 @@
         "random_handle"
       ],
       "source": "contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -2016,7 +2016,7 @@
         "emoji_flood"
       ],
       "source": "contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 3,
         "ruleHumanReasons": [
@@ -2058,7 +2058,7 @@
         "mixed_short_code_lure"
       ],
       "source": "admin_sample_batch",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -2078,7 +2078,7 @@
         "mixed_short_code_lure"
       ],
       "source": "admin_sample_batch",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -2098,7 +2098,7 @@
         "mixed_short_code_lure"
       ],
       "source": "admin_sample_batch",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -2118,7 +2118,7 @@
         "mixed_short_code_lure"
       ],
       "source": "admin_sample_batch",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -2138,7 +2138,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -2172,7 +2172,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -2220,7 +2220,7 @@
       "confidence": 0.9,
       "tags": [],
       "source": "manual",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -2240,7 +2240,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -2274,7 +2274,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -2309,7 +2309,7 @@
         "rule:resource_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -2332,7 +2332,7 @@
         "rule:resource_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -2355,7 +2355,7 @@
         "rule:resource_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -2378,7 +2378,7 @@
         "rule:resource_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -2402,7 +2402,7 @@
         "external_link"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T09:32:15.766Z",
+      "updatedAt": "2026-05-15T10:01:07.160Z",
       "reasonDetails": {
         "ruleScore": 5,
         "ruleHumanReasons": [
@@ -2446,7 +2446,7 @@
       "score": 5,
       "confidence": 0.86,
       "reason": "admin_resource_lure_cleanup",
-      "updatedAt": "2026-05-15T09:32:15.770Z"
+      "updatedAt": "2026-05-15T10:01:07.164Z"
     },
     {
       "pattern": "真实可靠约见",
@@ -2459,7 +2459,7 @@
       "score": 5,
       "confidence": 0.86,
       "reason": "admin_resource_lure_cleanup",
-      "updatedAt": "2026-05-15T09:32:15.770Z"
+      "updatedAt": "2026-05-15T10:01:07.164Z"
     },
     {
       "pattern": "1-5线覆盖",
@@ -2472,7 +2472,7 @@
       "score": 5,
       "confidence": 0.86,
       "reason": "admin_resource_lure_cleanup",
-      "updatedAt": "2026-05-15T09:32:15.770Z"
+      "updatedAt": "2026-05-15T10:01:07.164Z"
     },
     {
       "pattern": "1-5线真实对接",
@@ -2485,7 +2485,7 @@
       "score": 5,
       "confidence": 0.86,
       "reason": "admin_resource_lure_cleanup",
-      "updatedAt": "2026-05-15T09:32:15.770Z"
+      "updatedAt": "2026-05-15T10:01:07.164Z"
     },
     {
       "pattern": "点我头像进群选人",
@@ -2498,7 +2498,7 @@
       "score": 5,
       "confidence": 0.67,
       "reason": "seen 1 time(s), kind=resource_lure, aggregateScore=3",
-      "updatedAt": "2026-05-15T09:32:15.770Z"
+      "updatedAt": "2026-05-15T10:01:07.164Z"
     },
     {
       "pattern": "真实约见",
@@ -2511,7 +2511,7 @@
       "score": 5,
       "confidence": 0.67,
       "reason": "seen 1 time(s), kind=resource_lure, aggregateScore=3",
-      "updatedAt": "2026-05-15T09:32:15.770Z"
+      "updatedAt": "2026-05-15T10:01:07.164Z"
     },
     {
       "pattern": "同城资源自取",
@@ -2524,7 +2524,7 @@
       "score": 5,
       "confidence": 0.8500000000000001,
       "reason": "seen 1 time(s), kind=netdisk, aggregateScore=6",
-      "updatedAt": "2026-05-15T09:32:15.770Z"
+      "updatedAt": "2026-05-15T10:01:07.164Z"
     },
     {
       "pattern": "线下资源入口",
@@ -2537,7 +2537,7 @@
       "score": 5,
       "confidence": 0.8500000000000001,
       "reason": "seen 1 time(s), kind=netdisk, aggregateScore=6",
-      "updatedAt": "2026-05-15T09:32:15.770Z"
+      "updatedAt": "2026-05-15T10:01:07.164Z"
     }
   ],
   "analysis": {
