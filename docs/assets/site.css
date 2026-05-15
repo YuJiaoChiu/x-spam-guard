@@ -142,6 +142,12 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(1);
+  opacity: 0.48;
+}
+
 .button.ghost {
   border: 1px solid rgba(255, 255, 255, 0.24);
   background: transparent;

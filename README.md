@@ -97,6 +97,8 @@ npm run public:update
 
 `/api/public/reports`
 
+当前 `docs/config.js` 已把 `reportEndpoint` 留空，所以 GitHub Pages 只展示公开黑名单和样本分析，暂不开放在线提交。
+
 注意：GitHub Pages 是 HTTPS。如果后端仍是 `http://124.221.11.190`，浏览器会拦截表单提交。正式上线需要给 VPS 绑定域名并配置 HTTPS，然后修改 `docs/config.js` 里的 `reportEndpoint`。
 
 公开上报只进入待审队列，不会自动加入黑名单。管理员在后台点击“通过”后才会进入 `confirmed`。

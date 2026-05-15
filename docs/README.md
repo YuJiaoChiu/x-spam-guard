@@ -4,7 +4,7 @@
 
 - `index.html`：公开黑名单、样本分析、spam 上报表单。
 - `data/public-export.json`：公开数据快照，由 GitHub Actions 定时更新。
-- `config.js`：页面配置。正式公开提交需要把 `reportEndpoint` 改成 HTTPS 后端地址。
+- `config.js`：页面配置。当前 `reportEndpoint` 留空，公开页暂不开放在线提交。正式公开提交需要把它改成 HTTPS 后端地址。
 
 ## GitHub Pages 设置
 

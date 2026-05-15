@@ -109,14 +109,18 @@ function renderBlacklist(items) {
 
 function updateReportEndpointStatus() {
   const status = $("reportStatus");
+  const button = document.querySelector('#reportForm button[type="submit"]');
   if (!reportEndpoint) {
-    status.textContent = "未配置提交接口";
+    status.textContent = "暂未开放在线提交，等待 HTTPS 后端";
+    if (button) button.disabled = true;
     return;
   }
   if (location.protocol === "https:" && reportEndpoint.startsWith("http://")) {
     status.textContent = "当前后端是 HTTP，GitHub Pages 上提交会被浏览器拦截；请配置 HTTPS 域名";
+    if (button) button.disabled = true;
     return;
   }
+  if (button) button.disabled = false;
   status.textContent = "提交后进入管理员待审";
 }
 
@@ -137,7 +141,7 @@ async function submitReport(event) {
   event.preventDefault();
   const status = $("reportStatus");
   if (!reportEndpoint) {
-    status.textContent = "未配置提交接口";
+    status.textContent = "暂未开放在线提交，等待 HTTPS 后端";
     return;
   }
   if (location.protocol === "https:" && reportEndpoint.startsWith("http://")) {
