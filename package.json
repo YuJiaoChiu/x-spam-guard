@@ -1,0 +1,12 @@
+{
+  "name": "x-spam-guard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "server:install": "npm --prefix server install",
+    "server:dev": "npm --prefix server run dev",
+    "public:update": "node scripts/update-public-data.js",
+    "check": "node --check server/src/index.js && node --check server/src/rules.js && node --check server/src/admin-page.js && node --check server/src/public-export.js && node --check extension/background.js && node --check extension/content.js && node --check extension/popup.js"
+  }
+}

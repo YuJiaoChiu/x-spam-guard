@@ -1,0 +1,13 @@
+node_modules/
+server/node_modules/
+server/src/data/*.json
+server/.server.pid
+server/.env
+.env
+*.log
+*.tmp
+
+# Local scratch / unrelated extracted projects in this workspace.
+aws-builder-id/
+cloudflare_temp_email/
+_kiro_asar_extract/

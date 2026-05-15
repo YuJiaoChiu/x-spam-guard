@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>X Spam Guard 黑名单公开页</title>
+    <meta
+      name="description"
+      content="X Spam Guard 公开黑名单、垃圾样本分析和 spam 账号上报入口。"
+    />
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <span class="eyebrow">X Spam Guard Public Ledger</span>
+          <h1>公开黑名单与垃圾样本雷达</h1>
+          <p>
+            这里展示管理员审核通过的 spam 账号、命中原因和样本趋势。用户可以提交新的
+            spam 账号和评论块，进入待审队列，审核通过后才会加入公共黑名单。
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#report">提交 spam 样本</a>
+            <a class="button ghost" href="#blacklist">查看黑名单</a>
+          </div>
+        </div>
+        <aside class="status-card">
+          <span>数据更新时间</span>
+          <strong id="generatedAt">加载中</strong>
+          <small id="sourceStatus">正在读取 GitHub Pages 数据文件</small>
+        </aside>
+      </section>
+
+      <section class="cards" id="metricCards"></section>
+
+      <section class="panel split">
+        <div>
+          <div class="section-title">
+            <span>Spam 样本分析</span>
+            <h2>高频命中规则与模式</h2>
+          </div>
+          <div id="ruleBars" class="bars"></div>
+        </div>
+        <div>
+          <div class="section-title">
+            <span>Pattern Candidates</span>
+            <h2>上报样本中常见片段</h2>
+          </div>
+          <div id="patternCloud" class="pattern-cloud"></div>
+        </div>
+      </section>
+
+      <section id="report" class="panel report-panel">
+        <div class="section-title">
+          <span>Submit Report</span>
+          <h2>提交 spam 账号/评论样本</h2>
+          <p>提交后只会进入待审列表，不会自动拉黑。管理员在后台点击通过后才会加入 confirmed 黑名单。</p>
+        </div>
+        <form id="reportForm" class="report-form">
+          <label>
+            <span>账号 handle</span>
+            <input name="screenName" placeholder="@spam_user" required />
+          </label>
+          <label>
+            <span>昵称</span>
+            <input name="displayName" placeholder="可选" />
+          </label>
+          <label>
+            <span>来源链接</span>
+            <input name="sourceUrl" placeholder="https://x.com/..." />
+          </label>
+          <label>
+            <span>备注</span>
+            <input name="note" placeholder="例如：夸克网盘引流 / 黄色引流" />
+          </label>
+          <label class="wide">
+            <span>评论文本或账号块</span>
+            <textarea
+              name="commentText"
+              placeholder="粘贴垃圾评论、昵称、账号信息，例如：附近DD / pan.quark.cn / 免费破处 / 线下dd"
+              required
+            ></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit">提交待审</button>
+            <strong id="reportStatus">等待提交</strong>
+          </div>
+        </form>
+      </section>
+
+      <section id="blacklist" class="panel">
+        <div class="table-head">
+          <div class="section-title">
+            <span>Confirmed Blacklist</span>
+            <h2>已确认黑名单</h2>
+          </div>
+          <label class="search">
+            <span>搜索</span>
+            <input id="blacklistSearch" placeholder="@user / reason / tag" />
+          </label>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>账号</th>
+                <th>原因</th>
+                <th>置信度</th>
+                <th>命中字段</th>
+                <th>更新时间</th>
+              </tr>
+            </thead>
+            <tbody id="blacklistRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="config.js"></script>
+    <script src="assets/site.js"></script>
+  </body>
+</html>

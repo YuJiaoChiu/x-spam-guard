@@ -1,0 +1,1114 @@
+{
+  "generatedAt": "2026-05-15T07:12:19.911Z",
+  "project": "X Spam Guard",
+  "stats": {
+    "blacklistTotal": 21,
+    "blacklistConfirmed": 21,
+    "blacklistSuspected": 0,
+    "blacklistReported": 0,
+    "blacklistWhitelist": 0,
+    "contributionTotal": 21,
+    "contributionPending": 0,
+    "eventsTotal": 182,
+    "blocked24h": 18,
+    "blockFailed24h": 0,
+    "decisions24h": 144,
+    "blockTaskPending": 5,
+    "generatedAt": "2026-05-15T07:12:19.910Z"
+  },
+  "blacklist": [
+    {
+      "screenName": "grace46856",
+      "displayName": "",
+      "reason": "manual_upsert",
+      "confidence": 0.9,
+      "tags": [],
+      "source": "manual",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "kabriand14",
+      "displayName": "حب",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => kabriand14"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "staci1968",
+      "displayName": "TOM 2",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => staci1968"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "josephineperret",
+      "displayName": "(T＿T)",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "adult_lure_combo",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 4,
+        "ruleHumanReasons": [
+          "adult_lure_combo [commentText] => sao, 线下"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "sao"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "riansyahrs21",
+      "displayName": "riansyah",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => riansyahrs21"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "jamielee1970",
+      "displayName": "بحر",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => jamielee1970"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "4hqom0fa5ank6lp",
+      "displayName": "鼎鼎",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "quark_pan_direct_link",
+        "quark_lure_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 13,
+        "ruleHumanReasons": [
+          "quark_pan_direct_link [commentText] => pan.quark.cn/",
+          "quark_lure_combo [commentText] => quark",
+          "random_handle [screenName] => 4hqom0fa5ank6lp"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_pan_direct_link",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "pan.quark.cn/"
+              }
+            ],
+            "evidence": [],
+            "reason": "Direct Quark pan share link"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "quark"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "rajbharprahlad",
+      "displayName": "Prahlad rajbhar",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "quark_pan_direct_link",
+        "quark_lure_combo"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "quark_pan_direct_link [commentText] => pan.quark.cn/",
+          "quark_lure_combo [commentText] => quark"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_pan_direct_link",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "pan.quark.cn/"
+              }
+            ],
+            "evidence": [],
+            "reason": "Direct Quark pan share link"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "quark"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "bbylcc",
+      "displayName": "BBYLCC",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "quark_pan_direct_link",
+        "quark_lure_combo"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "quark_pan_direct_link [commentText] => pan.quark.cn/",
+          "quark_lure_combo [commentText] => quark"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_pan_direct_link",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "pan.quark.cn/"
+              }
+            ],
+            "evidence": [],
+            "reason": "Direct Quark pan share link"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "quark"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "michelle2503197",
+      "displayName": "ch",
+      "reason": "high_rule_score",
+      "confidence": 0.827,
+      "tags": [
+        "auto_ai_review",
+        "adult_lure_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "adult_lure_combo [commentText] => sao, 线下",
+          "random_handle [screenName] => michelle2503197"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "sao"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "stacey0218",
+      "displayName": "stacey labell",
+      "reason": "high_rule_score",
+      "confidence": 0.827,
+      "tags": [
+        "auto_ai_review",
+        "adult_lure_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "adult_lure_combo [commentText] => sao, 线下",
+          "random_handle [screenName] => stacey0218"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "sao"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "flmdongtianfudi",
+      "displayName": "Fang知识分享",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "quark_pan_direct_link",
+        "quark_lure_combo"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "quark_pan_direct_link [commentText] => pan.quark.cn/",
+          "quark_lure_combo [commentText] => quark"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_pan_direct_link",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "pan.quark.cn/"
+              }
+            ],
+            "evidence": [],
+            "reason": "Direct Quark pan share link"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "quark"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "1776illuminat",
+      "displayName": "每日更新成人视频主页查看更多视频Porn movies",
+      "reason": "high_rule_score",
+      "confidence": 0.827,
+      "tags": [
+        "auto_ai_review",
+        "adult_lure_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "adult_lure_combo [displayName,commentText] => 成人视频, 主页",
+          "random_handle [screenName] => 1776illuminat"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "displayName",
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "成人视频"
+              },
+              {
+                "field": "commentText",
+                "term": "主页"
+              },
+              {
+                "field": "displayName",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "trnpnfv19970154",
+      "displayName": "海角天涯每日更新成人视频主页查看更多视频Porn movies",
+      "reason": "high_rule_score",
+      "confidence": 0.827,
+      "tags": [
+        "auto_ai_review",
+        "adult_lure_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "adult_lure_combo [displayName,commentText] => 成人视频, 主页",
+          "random_handle [screenName] => trnpnfv19970154"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "displayName",
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "成人视频"
+              },
+              {
+                "field": "commentText",
+                "term": "主页"
+              },
+              {
+                "field": "displayName",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "postliminy_1980",
+      "displayName": "成人漫画饭",
+      "reason": "high_rule_score",
+      "confidence": 0.827,
+      "tags": [
+        "auto_ai_review",
+        "adult_lure_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "adult_lure_combo [commentText] => 成人视频, 主页",
+          "random_handle [screenName] => postliminy_1980"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "成人视频"
+              },
+              {
+                "field": "commentText",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "sonority_yt_8",
+      "displayName": "成人漫画团",
+      "reason": "high_rule_score",
+      "confidence": 0.827,
+      "tags": [
+        "auto_ai_review",
+        "adult_lure_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "adult_lure_combo [commentText] => 成人视频, 主页",
+          "random_handle [screenName] => sonority_yt_8"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "成人视频"
+              },
+              {
+                "field": "commentText",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "cj3214567667",
+      "displayName": "白骏知识分享",
+      "reason": "hard_signal_match",
+      "confidence": 0.921,
+      "tags": [
+        "auto_ai_review",
+        "quark_pan_direct_link",
+        "quark_lure_combo",
+        "link_drop",
+        "random_handle",
+        "hard_signal"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 15,
+        "ruleHumanReasons": [
+          "quark_pan_direct_link [commentText] => pan.quark.cn/",
+          "quark_lure_combo [commentText] => quark, d1",
+          "link_drop [commentText] => 曾经的我不屑一顾，现在的我逐帧学习渣男秘籍http://pan.quark.cn/s/731791d1c6ca",
+          "random_handle [screenName] => cj3214567667"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "hard_signal_match",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_pan_direct_link",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "pan.quark.cn/"
+              }
+            ],
+            "evidence": [],
+            "reason": "Direct Quark pan share link"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "quark"
+              },
+              {
+                "field": "commentText",
+                "term": "d1"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "stlmissy05",
+      "displayName": "lyndie lappas",
+      "reason": "high_rule_score",
+      "confidence": 0.827,
+      "tags": [
+        "adult_lure_combo",
+        "random_handle"
+      ],
+      "source": "contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "brian135553",
+      "displayName": "司泽蔷♥免费破处♥",
+      "reason": "below_strong_rule_threshold",
+      "confidence": 0.05,
+      "tags": [
+        "random_handle",
+        "emoji_flood"
+      ],
+      "source": "contribution",
+      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "reasonDetails": {
+        "ruleScore": 3,
+        "ruleHumanReasons": [
+          "random_handle [screenName]",
+          "emoji_flood [commentText]"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_below_threshold",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [],
+            "reason": "screen name looks machine-generated"
+          },
+          {
+            "rule": "emoji_flood",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [],
+            "evidence": [],
+            "reason": "comment has emoji flood pattern"
+          }
+        ]
+      }
+    }
+  ],
+  "analysis": {
+    "topReasons": [
+      {
+        "value": "high_rule_score",
+        "count": 11
+      },
+      {
+        "value": "reported_spam_pattern",
+        "count": 5
+      },
+      {
+        "value": "below_strong_rule_threshold",
+        "count": 1
+      },
+      {
+        "value": "hard_signal_match",
+        "count": 1
+      },
+      {
+        "value": "manual_upsert",
+        "count": 1
+      }
+    ],
+    "topTags": [
+      {
+        "value": "auto_ai_review",
+        "count": 16
+      },
+      {
+        "value": "random_handle",
+        "count": 14
+      },
+      {
+        "value": "adult_lure_combo",
+        "count": 8
+      },
+      {
+        "value": "feedback_memory",
+        "count": 5
+      },
+      {
+        "value": "quark_lure_combo",
+        "count": 5
+      },
+      {
+        "value": "quark_pan_direct_link",
+        "count": 5
+      },
+      {
+        "value": "emoji_flood",
+        "count": 1
+      },
+      {
+        "value": "hard_signal",
+        "count": 1
+      },
+      {
+        "value": "link_drop",
+        "count": 1
+      }
+    ],
+    "topRules": [
+      {
+        "value": "random_handle",
+        "count": 13
+      },
+      {
+        "value": "adult_lure_combo",
+        "count": 7
+      },
+      {
+        "value": "quark_lure_combo",
+        "count": 5
+      },
+      {
+        "value": "quark_pan_direct_link",
+        "count": 5
+      },
+      {
+        "value": "emoji_flood",
+        "count": 1
+      },
+      {
+        "value": "link_drop",
+        "count": 1
+      }
+    ],
+    "topFields": [
+      {
+        "value": "commentText",
+        "count": 19
+      },
+      {
+        "value": "screenName",
+        "count": 13
+      },
+      {
+        "value": "displayName",
+        "count": 2
+      }
+    ],
+    "topPatterns": [
+      {
+        "value": "主页能打",
+        "count": 3
+      },
+      {
+        "value": "主页能打✈️了",
+        "count": 3
+      },
+      {
+        "value": "就她的主页能打",
+        "count": 3
+      },
+      {
+        "value": "来个真人认识一下",
+        "count": 3
+      },
+      {
+        "value": "来个真人认识一下😚😨z54😡",
+        "count": 3
+      },
+      {
+        "value": "比她好看的没她骚",
+        "count": 3
+      },
+      {
+        "value": "比她骚的没她好看",
+        "count": 3
+      },
+      {
+        "value": "线下sao货没人比她sao",
+        "count": 3
+      },
+      {
+        "value": "货没人比她",
+        "count": 3
+      },
+      {
+        "value": ".⬆️👽若玥🌸附近的dd🌸8⁠7👀s6g",
+        "count": 1
+      },
+      {
+        "value": "@brian135553",
+        "count": 1
+      },
+      {
+        "value": "@sarahsherm83232",
+        "count": 1
+      },
+      {
+        "value": "🍫🪕^",
+        "count": 1
+      },
+      {
+        "value": "🍫🪕^,.⬆️👽若玥🌸附近的dd🌸8⁠7👀s6g",
+        "count": 1
+      },
+      {
+        "value": "8⁠7👀",
+        "count": 1
+      },
+      {
+        "value": "brian135553",
+        "count": 1
+      },
+      {
+        "value": "sarahsherm83232",
+        "count": 1
+      },
+      {
+        "value": "免费破处",
+        "count": 1
+      },
+      {
+        "value": "司泽蔷♥免费破处♥",
+        "count": 1
+      },
+      {
+        "value": "司泽蔷♥免费破处♥@brian135553·1小时🍫🪕^,.⬆️👽若玥🌸附近的dd🌸@sarahsherm83232·1小时🤞💟w🥰8⁠7👀s6g",
+        "count": 1
+      },
+      {
+        "value": "若玥🌸附近的dd🌸",
+        "count": 1
+      }
+    ],
+    "patternKinds": [
+      {
+        "value": "contact_lure",
+        "count": 8
+      },
+      {
+        "value": "phrase",
+        "count": 6
+      },
+      {
+        "value": "adult_lure",
+        "count": 4
+      }
+    ],
+    "totals": {
+      "confirmedBlacklist": 19,
+      "spamSamples": 8,
+      "approvedReports": 20,
+      "pendingReports": 0
+    }
+  }
+}

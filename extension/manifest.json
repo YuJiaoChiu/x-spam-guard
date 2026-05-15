@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "X Spam Guard (Local MVP)",
+  "version": "0.1.0",
+  "description": "强规则 + AI 二次判定，自动同步黑名单并随机节奏拉黑。",
+  "permissions": ["storage", "alarms", "tabs"],
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*",
+    "http://124.221.11.190/*",
+    "http://127.0.0.1/*",
+    "http://localhost/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "X Spam Guard",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["rules.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["page-bridge.js"],
+      "matches": ["https://x.com/*", "https://twitter.com/*"]
+    }
+  ]
+}

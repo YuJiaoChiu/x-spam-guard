@@ -1,0 +1,27 @@
+name: Update Public Spam Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-public-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Fetch public export
+        env:
+          PUBLIC_EXPORT_URL: ${{ vars.PUBLIC_EXPORT_URL || 'http://124.221.11.190/x-spam-guard/api/public/export' }}
+        run: node scripts/update-public-data.js
+      - name: Commit updated data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update public spam data"
+          file_pattern: docs/data/public-export.json

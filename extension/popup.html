@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X Spam Guard</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="topline">
+          <span class="badge">云端版</span>
+          <span class="connection">云端同步已启用</span>
+        </div>
+        <h1>X Spam Guard</h1>
+        <p class="desc">同步公共黑名单，强规则召回，再由 AI 二次确认，随机节奏执行拉黑。</p>
+      </section>
+
+      <input id="backendBaseUrl" type="hidden" />
+      <input id="clientToken" type="hidden" />
+
+      <section class="panel run-panel">
+        <div>
+          <span class="label">运行状态</span>
+          <strong id="runningStateText">等待开始</strong>
+        </div>
+        <button id="toggleRunning" type="button">开始</button>
+      </section>
+
+      <section class="panel">
+        <label class="switch-row">
+          <input id="syncEnabled" type="checkbox" />
+          <span>同步黑名单</span>
+        </label>
+
+        <label class="switch-row">
+          <input id="shareEnabled" type="checkbox" />
+          <span>共享命中样本（待后台审核）</span>
+        </label>
+
+        <label class="switch-row">
+          <input id="autoBlockEnabled" type="checkbox" />
+          <span>自动拉黑</span>
+        </label>
+      </section>
+
+      <section class="stats">
+        <div>
+          <span>已扫描</span>
+          <strong id="scannedArticles">0</strong>
+        </div>
+        <div>
+          <span>本地候选</span>
+          <strong id="extractedCandidates">0</strong>
+        </div>
+        <div>
+          <span>规则命中</span>
+          <strong id="localRuleHits">0</strong>
+        </div>
+        <div>
+          <span>后端判定</span>
+          <strong id="decisions">0</strong>
+        </div>
+        <div>
+          <span>队列中</span>
+          <strong id="queuedCount">0</strong>
+        </div>
+        <div>
+          <span>本地黑名单</span>
+          <strong id="blacklistCount">0</strong>
+        </div>
+        <div>
+          <span>已拉黑</span>
+          <strong id="blockedSuccess">0</strong>
+        </div>
+        <div>
+          <span>失败</span>
+          <strong id="blockedFailed">0</strong>
+        </div>
+      </section>
+
+      <section class="panel diagnostics">
+        <div>
+          <span>同步</span>
+          <strong id="lastSyncAt">未同步</strong>
+        </div>
+        <div>
+          <span>最后扫描</span>
+          <strong id="lastScannedAt">未扫描</strong>
+        </div>
+        <div>
+          <span>最后候选</span>
+          <strong id="lastCandidateAt">无</strong>
+        </div>
+        <div>
+          <span>最后错误</span>
+          <strong id="lastError">无</strong>
+        </div>
+      </section>
+
+      <details class="panel advanced">
+        <summary>
+          <span>判定与节奏</span>
+          <small>建议默认</small>
+        </summary>
+
+        <p class="hint">普通用户不用改。这里主要用于调试误伤率和拉黑节奏。</p>
+
+        <label class="field">
+          <span>送审阈值</span>
+          <input id="ruleScoreThreshold" type="number" min="1" max="10" step="1" />
+        </label>
+
+        <label class="field">
+          <span>AI 阈值</span>
+          <input id="autoBlockConfidence" type="number" min="0.5" max="0.99" step="0.01" />
+        </label>
+
+        <label class="field">
+          <span>最小延迟毫秒</span>
+          <input id="minDelayMs" type="number" min="1000" step="500" />
+        </label>
+
+        <label class="field">
+          <span>最大延迟毫秒</span>
+          <input id="maxDelayMs" type="number" min="1000" step="500" />
+        </label>
+      </details>
+
+      <div class="actions">
+        <button id="saveBtn" type="button">保存设置</button>
+        <button id="syncBtn" type="button">立即同步</button>
+      </div>
+
+      <p id="statusLine" class="status"></p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
