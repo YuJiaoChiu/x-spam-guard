@@ -6,6 +6,7 @@
   const MARKETING_TERMS = ["投稿", "推广", "互推", "代理", "拉新"];
   const ROLEPLAY_TERMS = ["老师", "女王", "少妇", "人妻"];
   const SOFT_LURE_TERMS = ["有弟弟想认识吗", "弟弟想认识", "想认识吗", "刚分手想被爱", "小狗求抱抱", "求抱抱", "线下的哥哥", "线下哥哥"];
+  const ADULT_PLATFORM_BIO_TERMS = ["已入驻曰泡平台", "已入驻日泡平台", "曰泡平台", "日泡平台"];
   const URL_RE = /(https?:\/\/|www\.|\.cn\/|\.com\/)/i;
   const QUARK_PAN_RE = /(?:https?:\/\/)?pan\.quark\.cn\//i;
   const OBFUSCATED_DD_RE = /d[\W_]{0,3}d/i;
@@ -91,6 +92,7 @@
     const adultHits = findTermHits(ADULT_TERMS, fields);
     const marketingHits = findTermHits(MARKETING_TERMS, fields);
     const roleplayHits = findTermHits(ROLEPLAY_TERMS, fields);
+    const adultPlatformBioHits = findTermHits(ADULT_PLATFORM_BIO_TERMS, { profileBio: fields.profileBio });
     const softLureHits = findTermHits(SOFT_LURE_TERMS, {
       commentText: fields.commentText,
       displayName: fields.displayName,
@@ -130,6 +132,7 @@
     if (quarkHits.length && (contactHits.length || URL_RE.test(all))) add("quark_lure_combo", 5, [...quarkHits, ...contactHits]);
     if (adultHits.length && contactHits.length) add("adult_lure_combo", 4, [...adultHits, ...contactHits]);
     if (marketingHits.length && (adultHits.length || quarkHits.length)) add("marketing_combo", 3, [...marketingHits, ...adultHits, ...quarkHits]);
+    if (adultPlatformBioHits.length) add("adult_platform_bio", 8, adultPlatformBioHits, ["profileBio"]);
 
     if (obfuscatedDdHits.length && contactHits.some((hit) => hit.field === "commentText")) {
       add("obfuscated_dd_contact_combo", 3, [...obfuscatedDdHits, ...contactHits.filter((hit) => hit.field === "commentText")], ["commentText"]);
