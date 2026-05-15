@@ -1,22 +1,108 @@
 {
-  "generatedAt": "2026-05-15T07:12:19.911Z",
+  "generatedAt": "2026-05-15T08:52:08.661Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 21,
-    "blacklistConfirmed": 21,
+    "blacklistTotal": 23,
+    "blacklistConfirmed": 23,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 21,
+    "contributionTotal": 23,
     "contributionPending": 0,
-    "eventsTotal": 182,
+    "eventsTotal": 276,
     "blocked24h": 18,
     "blockFailed24h": 0,
-    "decisions24h": 144,
-    "blockTaskPending": 5,
-    "generatedAt": "2026-05-15T07:12:19.910Z"
+    "decisions24h": 236,
+    "blockTaskPending": 7,
+    "generatedAt": "2026-05-15T08:52:08.650Z"
   },
   "blacklist": [
+    {
+      "screenName": "franklinha49873",
+      "displayName": "屈谨洋免费破处",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => franklinha49873"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "mantu_baitha",
+      "displayName": "Mantu Baitha",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "quark_pan_direct_link",
+        "quark_lure_combo"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "quark_pan_direct_link [commentText] => pan.quark.cn/",
+          "quark_lure_combo [commentText] => quark"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_pan_direct_link",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "pan.quark.cn/"
+              }
+            ],
+            "evidence": [],
+            "reason": "Direct Quark pan share link"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "quark"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
     {
       "screenName": "grace46856",
       "displayName": "",
@@ -24,7 +110,7 @@
       "confidence": 0.9,
       "tags": [],
       "source": "manual",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -44,7 +130,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -78,7 +164,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -112,7 +198,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -153,7 +239,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -187,7 +273,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -222,7 +308,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 13,
         "ruleHumanReasons": [
@@ -286,7 +372,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -338,7 +424,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -390,7 +476,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -443,7 +529,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -496,7 +582,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -548,7 +634,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -606,7 +692,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -664,7 +750,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -717,7 +803,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -773,7 +859,7 @@
         "hard_signal"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 15,
         "ruleHumanReasons": [
@@ -852,7 +938,7 @@
         "random_handle"
       ],
       "source": "contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -871,7 +957,7 @@
         "emoji_flood"
       ],
       "source": "contribution",
-      "updatedAt": "2026-05-15T07:11:19.893Z",
+      "updatedAt": "2026-05-15T08:52:00.031Z",
       "reasonDetails": {
         "ruleScore": 3,
         "ruleHumanReasons": [
@@ -907,11 +993,11 @@
     "topReasons": [
       {
         "value": "high_rule_score",
-        "count": 11
+        "count": 12
       },
       {
         "value": "reported_spam_pattern",
-        "count": 5
+        "count": 6
       },
       {
         "value": "below_strong_rule_threshold",
@@ -929,11 +1015,11 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 16
+        "count": 18
       },
       {
         "value": "random_handle",
-        "count": 14
+        "count": 15
       },
       {
         "value": "adult_lure_combo",
@@ -941,15 +1027,15 @@
       },
       {
         "value": "feedback_memory",
-        "count": 5
+        "count": 6
       },
       {
         "value": "quark_lure_combo",
-        "count": 5
+        "count": 6
       },
       {
         "value": "quark_pan_direct_link",
-        "count": 5
+        "count": 6
       },
       {
         "value": "emoji_flood",
@@ -967,7 +1053,7 @@
     "topRules": [
       {
         "value": "random_handle",
-        "count": 13
+        "count": 14
       },
       {
         "value": "adult_lure_combo",
@@ -975,11 +1061,11 @@
       },
       {
         "value": "quark_lure_combo",
-        "count": 5
+        "count": 6
       },
       {
         "value": "quark_pan_direct_link",
-        "count": 5
+        "count": 6
       },
       {
         "value": "emoji_flood",
@@ -993,11 +1079,11 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 19
+        "count": 21
       },
       {
         "value": "screenName",
-        "count": 13
+        "count": 14
       },
       {
         "value": "displayName",
@@ -1005,6 +1091,62 @@
       }
     ],
     "topPatterns": [
+      {
+        "value": "@bertoni13460",
+        "count": 3
+      },
+      {
+        "value": "@carvalho_d8816",
+        "count": 3
+      },
+      {
+        "value": "@fletcherge61335",
+        "count": 3
+      },
+      {
+        "value": "@jillphilli76344",
+        "count": 3
+      },
+      {
+        "value": "😰26yv😭",
+        "count": 3
+      },
+      {
+        "value": "26yv",
+        "count": 3
+      },
+      {
+        "value": "32yj",
+        "count": 3
+      },
+      {
+        "value": "95ss",
+        "count": 3
+      },
+      {
+        "value": "bertoni13460",
+        "count": 3
+      },
+      {
+        "value": "carvalho_d8816d",
+        "count": 3
+      },
+      {
+        "value": "d.d个线下的哥哥👏95ss🤝",
+        "count": 3
+      },
+      {
+        "value": "fletcherge61335",
+        "count": 3
+      },
+      {
+        "value": "jillphilli76344",
+        "count": 3
+      },
+      {
+        "value": "个线下的哥哥",
+        "count": 3
+      },
       {
         "value": "主页能打",
         "count": 3
@@ -1014,7 +1156,43 @@
         "count": 3
       },
       {
+        "value": "刚分手想被爱",
+        "count": 3
+      },
+      {
+        "value": "刚分手想被爱🤓32yj😨",
+        "count": 3
+      },
+      {
+        "value": "夏日柠🍑",
+        "count": 3
+      },
+      {
+        "value": "夏日柠🍑@carvalho_d8816d.d个线下的哥哥👏95ss🤝",
+        "count": 3
+      },
+      {
+        "value": "小狗求抱抱",
+        "count": 3
+      },
+      {
+        "value": "小狗求抱抱🤐4fm🤭",
+        "count": 3
+      },
+      {
         "value": "就她的主页能打",
+        "count": 3
+      },
+      {
+        "value": "晴栀🍑",
+        "count": 3
+      },
+      {
+        "value": "晴栀🍑@jillphilli76344刚分手想被爱🤓32yj😨",
+        "count": 3
+      },
+      {
+        "value": "有弟弟想认识吗",
         "count": 3
       },
       {
@@ -1038,7 +1216,23 @@
         "count": 3
       },
       {
+        "value": "绵绵🍑",
+        "count": 3
+      },
+      {
+        "value": "绵绵🍑@bertoni13460小狗求抱抱🤐4fm🤭",
+        "count": 3
+      },
+      {
         "value": "货没人比她",
+        "count": 3
+      },
+      {
+        "value": "陌心🍑",
+        "count": 3
+      },
+      {
+        "value": "陌心🍑@fletcherge61335有弟弟想认识吗？😰26yv😭",
         "count": 3
       },
       {
@@ -1056,48 +1250,20 @@
       {
         "value": "🍫🪕^",
         "count": 1
-      },
-      {
-        "value": "🍫🪕^,.⬆️👽若玥🌸附近的dd🌸8⁠7👀s6g",
-        "count": 1
-      },
-      {
-        "value": "8⁠7👀",
-        "count": 1
-      },
-      {
-        "value": "brian135553",
-        "count": 1
-      },
-      {
-        "value": "sarahsherm83232",
-        "count": 1
-      },
-      {
-        "value": "免费破处",
-        "count": 1
-      },
-      {
-        "value": "司泽蔷♥免费破处♥",
-        "count": 1
-      },
-      {
-        "value": "司泽蔷♥免费破处♥@brian135553·1小时🍫🪕^,.⬆️👽若玥🌸附近的dd🌸@sarahsherm83232·1小时🤞💟w🥰8⁠7👀s6g",
-        "count": 1
-      },
-      {
-        "value": "若玥🌸附近的dd🌸",
-        "count": 1
       }
     ],
     "patternKinds": [
       {
-        "value": "contact_lure",
-        "count": 8
+        "value": "phrase",
+        "count": 46
       },
       {
-        "value": "phrase",
-        "count": 6
+        "value": "contact_lure",
+        "count": 14
+      },
+      {
+        "value": "handle_like",
+        "count": 8
       },
       {
         "value": "adult_lure",
@@ -1105,9 +1271,9 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 19,
-      "spamSamples": 8,
-      "approvedReports": 20,
+      "confirmedBlacklist": 21,
+      "spamSamples": 12,
+      "approvedReports": 22,
       "pendingReports": 0
     }
   }

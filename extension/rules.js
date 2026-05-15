@@ -5,8 +5,12 @@
   const ADULT_TERMS = ["来个男大", "男大", "没他sao", "没他骚", "sao", "骚", "约炮", "福利", "反差", "裸舞", "pmv", "绿帽", "成人视频", "色图", "免费破处", "破处"];
   const MARKETING_TERMS = ["投稿", "推广", "互推", "代理", "拉新"];
   const ROLEPLAY_TERMS = ["老师", "女王", "少妇", "人妻"];
+  const SOFT_LURE_TERMS = ["有弟弟想认识吗", "弟弟想认识", "想认识吗", "刚分手想被爱", "小狗求抱抱", "求抱抱", "线下的哥哥", "线下哥哥"];
   const URL_RE = /(https?:\/\/|www\.|\.cn\/|\.com\/)/i;
   const QUARK_PAN_RE = /(?:https?:\/\/)?pan\.quark\.cn\//i;
+  const OBFUSCATED_DD_RE = /d[\W_]{0,3}d/i;
+  const SHORT_CODE_RE = /(?:^|[^a-z0-9\u4e00-\u9fff])\d{1,3}[a-z]{1,3}(?=$|[^a-z0-9\u4e00-\u9fff])/i;
+  const PEACH_NAME_RE = /🍑/u;
 
   function normalizeText(input) {
     return String(input || "")
@@ -34,6 +38,18 @@
         if (normalized && text.includes(normalized)) {
           hits.push({ field, term, value: text });
         }
+      }
+    }
+    return hits;
+  }
+
+  function findRegexHits(regex, fields, term) {
+    const hits = [];
+    for (const [field, text] of Object.entries(fields)) {
+      if (!text) continue;
+      const match = String(text).match(regex);
+      if (match) {
+        hits.push({ field, term, value: text });
       }
     }
     return hits;
@@ -75,6 +91,22 @@
     const adultHits = findTermHits(ADULT_TERMS, fields);
     const marketingHits = findTermHits(MARKETING_TERMS, fields);
     const roleplayHits = findTermHits(ROLEPLAY_TERMS, fields);
+    const softLureHits = findTermHits(SOFT_LURE_TERMS, {
+      commentText: fields.commentText,
+      displayName: fields.displayName,
+      profileBio: fields.profileBio
+    });
+    const obfuscatedDdHits = findRegexHits(OBFUSCATED_DD_RE, { commentText: fields.commentText }, "D.D / obfuscated dd");
+    const shortCodeHits = findRegexHits(SHORT_CODE_RE, { commentText: fields.commentText }, "mixed short code");
+    const peachNameHits = PEACH_NAME_RE.test(fields.displayName || "") ? [{ field: "displayName", term: "🍑", value: fields.displayName }] : [];
+    const randomHandle = isLikelyRandomHandle(fields.screenName);
+    const emojiTotal = emojiCount(fields.commentText);
+    const softLureBotMarkerCount = [
+      randomHandle,
+      shortCodeHits.length > 0,
+      peachNameHits.length > 0,
+      emojiTotal >= 2
+    ].filter(Boolean).length;
 
     function add(rule, points, hits, fieldsOverride) {
       score += points;
@@ -98,16 +130,34 @@
     if (quarkHits.length && (contactHits.length || URL_RE.test(all))) add("quark_lure_combo", 5, [...quarkHits, ...contactHits]);
     if (adultHits.length && contactHits.length) add("adult_lure_combo", 4, [...adultHits, ...contactHits]);
     if (marketingHits.length && (adultHits.length || quarkHits.length)) add("marketing_combo", 3, [...marketingHits, ...adultHits, ...quarkHits]);
+
+    if (obfuscatedDdHits.length && contactHits.some((hit) => hit.field === "commentText")) {
+      add("obfuscated_dd_contact_combo", 3, [...obfuscatedDdHits, ...contactHits.filter((hit) => hit.field === "commentText")], ["commentText"]);
+    }
+    if (softLureHits.length && softLureBotMarkerCount >= 2) {
+      add(
+        "soft_lure_bot_combo",
+        4,
+        [...softLureHits, ...shortCodeHits, ...peachNameHits],
+        [...fieldsOf([...softLureHits, ...shortCodeHits, ...peachNameHits]), ...(randomHandle ? ["screenName"] : [])]
+      );
+    }
+    if (shortCodeHits.length && (softLureHits.length || obfuscatedDdHits.length || contactHits.length)) {
+      add("mixed_short_code_lure", 1, shortCodeHits, ["commentText"]);
+    }
+    if (peachNameHits.length && (softLureHits.length || contactHits.length || adultHits.length)) {
+      add("peach_display_lure", 1, peachNameHits, ["displayName"]);
+    }
+
     if (contactHits.length && hasHighIntentContact(contactHits) && !matchedRules.includes("adult_lure_combo") && !matchedRules.includes("tg_contact_combo")) add("contact_lure_signal", 1, contactHits);
     if (URL_RE.test(fields.commentText || "") && (findTermHits(CONTACT_TERMS, { commentText: fields.commentText }).length || findTermHits(TG_TERMS, { commentText: fields.commentText }).length)) add("link_drop", 2, [], ["commentText"]);
 
-    if (isLikelyRandomHandle(fields.screenName)) {
+    if (randomHandle) {
       score += 2;
       matchedRules.push("random_handle");
       matchDetails.push({ rule: "random_handle", fields: ["screenName"], evidence: [fields.screenName] });
     }
 
-    const emojiTotal = emojiCount(fields.commentText);
     if (emojiTotal >= 4) {
       score += 1;
       matchedRules.push("emoji_flood");
