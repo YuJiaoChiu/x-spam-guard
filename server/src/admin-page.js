@@ -400,6 +400,19 @@ export function renderAdminPage() {
         lines.push("字段命中：" + hitLines.join(" ; "));
       }
       if (details.aiReason) lines.push("AI：" + details.aiReason);
+      const aiAttempts = details.aiDetails && Array.isArray(details.aiDetails.aiAttempts) ? details.aiDetails.aiAttempts : [];
+      if (aiAttempts.length) {
+        const attemptLines = aiAttempts.map(function(attempt) {
+          const provider = attempt.provider || "unknown";
+          const status = attempt.httpStatus ? (" HTTP " + attempt.httpStatus) : "";
+          const model = attempt.model ? (" model=" + attempt.model) : "";
+          const err = attempt.error ? (" error=" + attempt.error) : "";
+          const skipped = attempt.skippedReason ? (" skipped=" + attempt.skippedReason) : "";
+          const ok = attempt.ok ? " ok" : "";
+          return provider + model + status + ok + err + skipped;
+        });
+        lines.push("AI 调用：" + attemptLines.join(" | "));
+      }
       return escapeHtml(lines.join("\\n"));
     }
     function renderStats(stats) {
@@ -549,7 +562,16 @@ export function renderAdminPage() {
       const result = resp.result || {};
       const provider = result.aiResult?.provider || 'unknown';
       const final = result.final || {};
-      setText('aiStatus', '来源=' + provider + '，是否拉黑=' + Boolean(final.shouldBlock) + '，置信度=' + Number(final.confidence || 0).toFixed(2));
+      const details = result.aiResult?.details || {};
+      const attempts = Array.isArray(details.aiAttempts) ? details.aiAttempts : [];
+      const attemptText = attempts.map(function(attempt) {
+        return (attempt.provider || 'unknown') +
+          (attempt.httpStatus ? (' HTTP ' + attempt.httpStatus) : '') +
+          (attempt.ok ? ' ok' : '') +
+          (attempt.error ? (' error=' + attempt.error) : '') +
+          (attempt.skippedReason ? (' skipped=' + attempt.skippedReason) : '');
+      }).join(' | ');
+      setText('aiStatus', '来源=' + provider + '，是否拉黑=' + Boolean(final.shouldBlock) + '，置信度=' + Number(final.confidence || 0).toFixed(2) + (attemptText ? '，调用=' + attemptText : ''));
     }
     async function submitReportSample() {
       const payload = {

@@ -14,30 +14,144 @@ function parseJsonSafe(text) {
   }
 }
 
-async function callExternalClassifier(url, payload) {
+function nowMs() {
+  return Date.now();
+}
+
+function sanitizeDiagnosticText(value, maxLen = 800) {
+  return String(value || "").replace(/\s+/g, " ").trim().slice(0, maxLen);
+}
+
+function sanitizeDiagnosticJson(value) {
+  return sanitizeDiagnosticText(JSON.stringify(value, (key, val) => (key === "reasoning_content" ? "[omitted]" : val)));
+}
+
+function finishAttempt(attempt, startedAt) {
+  attempt.durationMs = Math.max(0, nowMs() - startedAt);
+  return attempt;
+}
+
+async function fetchWithTimeout(url, options = {}, timeoutMs = 12000) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(new Error(`timeout_${timeoutMs}ms`)), timeoutMs);
   try {
-    const response = await fetch(url, {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function extractAssistantContent(data) {
+  if (typeof data?.output_text === "string" && data.output_text.trim()) return data.output_text;
+
+  const choice = data?.choices?.[0];
+  if (typeof choice?.text === "string" && choice.text.trim()) return choice.text;
+
+  const messageContent = choice?.message?.content;
+  if (typeof messageContent === "string" && messageContent.trim()) return messageContent;
+  if (Array.isArray(messageContent)) {
+    const joined = messageContent
+      .map((part) => {
+        if (typeof part === "string") return part;
+        if (typeof part?.text === "string") return part.text;
+        if (typeof part?.content === "string") return part.content;
+        return "";
+      })
+      .filter(Boolean)
+      .join("\n")
+      .trim();
+    if (joined) return joined;
+  }
+
+  if (Array.isArray(data?.output)) {
+    const joined = data.output
+      .flatMap((item) => (Array.isArray(item?.content) ? item.content : [item]))
+      .map((part) => {
+        if (typeof part?.text === "string") return part.text;
+        if (typeof part?.content === "string") return part.content;
+        return "";
+      })
+      .filter(Boolean)
+      .join("\n")
+      .trim();
+    if (joined) return joined;
+  }
+
+  return "";
+}
+
+async function callExternalClassifier(url, payload, diagnostics = []) {
+  const startedAt = nowMs();
+  const attempt = {
+    provider: "external",
+    url: String(url || "").slice(0, 300),
+    attempted: Boolean(url)
+  };
+  diagnostics.push(attempt);
+
+  if (!url) {
+    attempt.skippedReason = "missing_url";
+    finishAttempt(attempt, startedAt);
+    return null;
+  }
+
+  try {
+    const response = await fetchWithTimeout(url, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(payload)
-    });
-    if (!response.ok) return null;
-    return await response.json();
-  } catch {
+    }, 12000);
+    attempt.httpStatus = response.status;
+    const text = await response.text();
+    if (!response.ok) {
+      attempt.error = `http_${response.status}`;
+      attempt.responseSnippet = sanitizeDiagnosticText(text);
+      finishAttempt(attempt, startedAt);
+      return null;
+    }
+    const parsed = parseJsonSafe(text);
+    if (!parsed) {
+      attempt.error = "invalid_json";
+      attempt.responseSnippet = sanitizeDiagnosticText(text);
+      finishAttempt(attempt, startedAt);
+      return null;
+    }
+    attempt.ok = true;
+    finishAttempt(attempt, startedAt);
+    return parsed;
+  } catch (error) {
+    attempt.error = sanitizeDiagnosticText(error?.message || error);
+    finishAttempt(attempt, startedAt);
     return null;
   }
 }
 
 async function callOpenAIClassifier(candidate, ruleResult, env, options = {}) {
-  if (!env.OPENAI_API_KEY) return null;
-
   const apiBase = env.OPENAI_BASE_URL || "https://api.openai.com/v1";
   const model = env.CHEAP_AI_MODEL || "gpt-4o-mini";
+  const timeoutMs = Math.max(1000, Number(env.AI_TIMEOUT_MS || 15000));
+  const maxTokens = Math.max(32, Number(env.CHEAP_AI_MAX_TOKENS || 800));
   const url = `${apiBase.replace(/\/$/, "")}/chat/completions`;
+  const diagnostics = Array.isArray(options.diagnostics) ? options.diagnostics : [];
+
+  if (!env.OPENAI_API_KEY) {
+    const startedAt = nowMs();
+    const attempt = {
+      provider: "openai-compatible",
+      baseUrl: apiBase,
+      model,
+      attempted: false,
+      skippedReason: "missing_api_key"
+    };
+    diagnostics.push(attempt);
+    attempt.skippedReason = "missing_api_key";
+    finishAttempt(attempt, startedAt);
+    return null;
+  }
 
   const systemPrompt =
     "You classify whether a social reply account is spam lure. " +
-    "Output strict JSON only: {\"isSpam\":boolean,\"confidence\":0..1,\"reason\":string,\"tags\":string[]}." +
+    "Return json only. Output strict JSON only: {\"isSpam\":boolean,\"confidence\":0..1,\"reason\":string,\"tags\":string[]}." +
     "Be conservative: if uncertain, set isSpam=false.";
 
   const feedbackSamples = Array.isArray(options.feedbackSamples) ? options.feedbackSamples.slice(0, 20) : [];
@@ -55,8 +169,19 @@ async function callOpenAIClassifier(candidate, ruleResult, env, options = {}) {
     }))
   };
 
-  try {
-    const response = await fetch(url, {
+  async function runRequest(mode) {
+    const startedAt = nowMs();
+    const attempt = {
+      provider: "openai-compatible",
+      baseUrl: apiBase,
+      model,
+      mode,
+      attempted: true
+    };
+    diagnostics.push(attempt);
+
+    try {
+    const response = await fetchWithTimeout(url, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -65,31 +190,70 @@ async function callOpenAIClassifier(candidate, ruleResult, env, options = {}) {
       body: JSON.stringify({
         model,
         temperature: 0,
-        response_format: { type: "json_object" },
+        max_completion_tokens: maxTokens,
+        ...(mode === "json_object" ? { response_format: { type: "json_object" } } : {}),
         messages: [
           { role: "system", content: systemPrompt },
-          { role: "user", content: JSON.stringify(userPayload) }
+          { role: "user", content: `Return json only.\n${JSON.stringify(userPayload)}` }
         ]
       })
-    });
+    }, timeoutMs);
 
-    if (!response.ok) return null;
-    const data = await response.json();
-    const content = data?.choices?.[0]?.message?.content;
-    if (!content) return null;
+    attempt.httpStatus = response.status;
+    const text = await response.text();
+    if (!response.ok) {
+      attempt.error = `http_${response.status}`;
+      attempt.responseSnippet = sanitizeDiagnosticText(text);
+      finishAttempt(attempt, startedAt);
+      return null;
+    }
+    const data = parseJsonSafe(text);
+    if (!data) {
+      attempt.error = "invalid_json";
+      attempt.responseSnippet = sanitizeDiagnosticText(text);
+      finishAttempt(attempt, startedAt);
+      return null;
+    }
+    const content = extractAssistantContent(data);
+    if (!content) {
+      attempt.error = "missing_message_content";
+      attempt.responseSnippet = sanitizeDiagnosticJson(data);
+      finishAttempt(attempt, startedAt);
+      return null;
+    }
     const parsed = parseJsonSafe(content);
-    if (!parsed || typeof parsed.isSpam !== "boolean") return null;
+    if (!parsed || typeof parsed.isSpam !== "boolean") {
+      attempt.error = "invalid_classifier_json";
+      attempt.responseSnippet = sanitizeDiagnosticText(content);
+      finishAttempt(attempt, startedAt);
+      return null;
+    }
+    attempt.ok = true;
+    finishAttempt(attempt, startedAt);
     return {
       provider: `openai:${model}`,
       isSpam: parsed.isSpam,
       confidence: clampConfidence(parsed.confidence),
       reason: String(parsed.reason || "ai_reason_missing"),
       tags: Array.isArray(parsed.tags) ? parsed.tags.map(String) : [],
-      details: parsed.details && typeof parsed.details === "object" ? parsed.details : {}
+      details: {
+        ...(parsed.details && typeof parsed.details === "object" ? parsed.details : {}),
+        aiAttempts: diagnostics
+      }
     };
-  } catch {
-    return null;
+    } catch (error) {
+      attempt.error = sanitizeDiagnosticText(error?.message || error);
+      finishAttempt(attempt, startedAt);
+      return null;
+    }
   }
+
+  for (const mode of ["json_object", "prompt_json"]) {
+    const result = await runRequest(mode);
+    if (result) return result;
+  }
+
+  return null;
 }
 
 function aggregatePatternCandidates(feedbackSamples = []) {
@@ -157,17 +321,19 @@ async function callOpenAIRuleSuggestions(feedbackSamples, env) {
 
   const apiBase = env.OPENAI_BASE_URL || "https://api.openai.com/v1";
   const model = env.CHEAP_AI_MODEL || "gpt-4o-mini";
+  const timeoutMs = Math.max(1000, Number(env.AI_TIMEOUT_MS || 20000));
+  const maxTokens = Math.max(64, Number(env.CHEAP_AI_MAX_TOKENS || 700));
   const url = `${apiBase.replace(/\/$/, "")}/chat/completions`;
   const patterns = aggregatePatternCandidates(feedbackSamples).slice(0, 40);
   if (!patterns.length) return { provider: "openai:none", suggestions: [] };
 
   const systemPrompt =
     "You summarize spam pattern candidates into conservative detection rule suggestions. " +
-    "Output strict JSON only: {\"suggestions\":[{\"type\":string,\"pattern\":string,\"kind\":string,\"confidence\":0..1,\"reason\":string,\"action\":\"candidate_rule\"|\"review_first\"}]}." +
+    "Return json only. Output strict JSON only: {\"suggestions\":[{\"type\":string,\"pattern\":string,\"kind\":string,\"confidence\":0..1,\"reason\":string,\"action\":\"candidate_rule\"|\"review_first\"}]}." +
     "Avoid generic normal words, pure emoji, and too-short fragments. Prefer precise phrases.";
 
   try {
-    const response = await fetch(url, {
+    const response = await fetchWithTimeout(url, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -176,16 +342,17 @@ async function callOpenAIRuleSuggestions(feedbackSamples, env) {
       body: JSON.stringify({
         model,
         temperature: 0,
+        max_completion_tokens: maxTokens,
         response_format: { type: "json_object" },
         messages: [
           { role: "system", content: systemPrompt },
-          { role: "user", content: JSON.stringify({ patterns }) }
+          { role: "user", content: `Return json only.\n${JSON.stringify({ patterns })}` }
         ]
       })
-    });
+    }, timeoutMs);
     if (!response.ok) return null;
     const data = await response.json();
-    const parsed = parseJsonSafe(data?.choices?.[0]?.message?.content || "");
+    const parsed = parseJsonSafe(extractAssistantContent(data));
     if (!parsed || !Array.isArray(parsed.suggestions)) return null;
     return {
       provider: `openai:${model}`,
@@ -223,6 +390,7 @@ export async function classifyCandidate(candidate, options = {}) {
   const autoBlockConfidence = Number(options.autoBlockConfidence || 0.8);
   const providerMode = String(env.AI_PROVIDER || "auto").toLowerCase();
   const feedbackSamples = Array.isArray(options.feedbackSamples) ? options.feedbackSamples : [];
+  const diagnostics = [];
 
   const ruleResult = scoreCandidate(candidate);
   const ruleSpam = ruleResult.score >= strongRuleThreshold;
@@ -230,14 +398,18 @@ export async function classifyCandidate(candidate, options = {}) {
 
   let aiResult = null;
   if ((providerMode === "auto" || providerMode === "external") && env.CHEAP_AI_URL) {
-    aiResult = await callExternalClassifier(env.CHEAP_AI_URL, { candidate, ruleResult });
+    aiResult = await callExternalClassifier(env.CHEAP_AI_URL, { candidate, ruleResult }, diagnostics);
     if (aiResult && typeof aiResult.isSpam === "boolean") {
       aiResult = {
         provider: "external-ai",
         isSpam: aiResult.isSpam,
         confidence: clampConfidence(aiResult.confidence),
         reason: String(aiResult.reason || "external_ai"),
-        tags: Array.isArray(aiResult.tags) ? aiResult.tags.map(String) : []
+        tags: Array.isArray(aiResult.tags) ? aiResult.tags.map(String) : [],
+        details: {
+          ...(aiResult.details && typeof aiResult.details === "object" ? aiResult.details : {}),
+          aiAttempts: diagnostics
+        }
       };
     } else {
       aiResult = null;
@@ -245,14 +417,19 @@ export async function classifyCandidate(candidate, options = {}) {
   }
 
   if (!aiResult && (providerMode === "auto" || providerMode === "openai")) {
-    aiResult = await callOpenAIClassifier(candidate, ruleResult, env, { feedbackSamples });
+    aiResult = await callOpenAIClassifier(candidate, ruleResult, env, { feedbackSamples, diagnostics });
   }
 
   if (!aiResult) {
     const mock = mockAiJudge(candidate, ruleResult, { feedbackSamples });
     aiResult = {
       ...mock,
-      provider: providerMode === "mock" ? "mock-ai" : `${mock.provider || "mock-ai"}(fallback)`
+      provider: providerMode === "mock" ? "mock-ai" : `${mock.provider || "mock-ai"}(fallback)`,
+      details: {
+        ...(mock.details && typeof mock.details === "object" ? mock.details : {}),
+        aiAttempts: diagnostics,
+        fallbackReason: diagnostics.length ? "real_ai_unavailable" : "real_ai_not_configured"
+      }
     };
   }
 

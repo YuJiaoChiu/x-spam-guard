@@ -15,6 +15,7 @@ const dataDir = process.env.DATA_DIR || path.join(__dirname, "data");
 
 const config = {
   strongRuleThreshold: Number(process.env.STRONG_RULE_THRESHOLD || 4),
+  aiReviewRuleThreshold: Number(process.env.AI_REVIEW_RULE_THRESHOLD || 2),
   autoBlockConfidence: Number(process.env.AUTO_BLOCK_CONFIDENCE || 0.8),
   classifyRatePerMinute: Number(process.env.CLASSIFY_RATE_PER_MINUTE || 240),
   adminToken: process.env.ADMIN_TOKEN || "",
@@ -511,6 +512,7 @@ app.get("/health", async (req, res) => {
     now: new Date().toISOString(),
     config: {
       strongRuleThreshold: config.strongRuleThreshold,
+      aiReviewRuleThreshold: config.aiReviewRuleThreshold,
       autoBlockConfidence: config.autoBlockConfidence,
       classifyRatePerMinute: config.classifyRatePerMinute,
       aiProvider: runtime.aiProvider,
@@ -664,7 +666,7 @@ app.post("/api/classify", requireClient, classifyRateLimiter, async (req, res) =
   const spamFeedback = allFeedback.filter((row) => row.label === "spam");
   const feedbackHit = hasFeedbackHint(candidate, spamFeedback);
   const fastRule = scoreCandidate(candidate);
-  if (fastRule.score < config.strongRuleThreshold && !feedbackHit) {
+  if (fastRule.score < config.aiReviewRuleThreshold && !feedbackHit) {
     const fallback = {
       candidate,
       ruleResult: fastRule,
@@ -673,14 +675,14 @@ app.post("/api/classify", requireClient, classifyRateLimiter, async (req, res) =
         isSpam: false,
         confidence: 0.05,
         shouldBlock: false,
-        reason: "below_strong_rule_threshold",
+        reason: "below_ai_review_threshold",
         tags: [...fastRule.matchedRules],
         details: {
           ruleScore: fastRule.score,
           ruleHumanReasons: fastRule.humanReasons || [],
           ruleMatchDetails: fastRule.matchDetails || [],
           aiProvider: "none",
-          aiReason: "skipped_below_threshold",
+          aiReason: "skipped_below_ai_review_threshold",
           aiDetails: {}
         }
       }
