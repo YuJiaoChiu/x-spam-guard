@@ -14,7 +14,7 @@
           <span class="connection">云端同步已启用</span>
         </div>
         <h1>X Spam Guard</h1>
-        <p class="desc">同步公共黑名单，强规则召回，再由 AI 二次确认，随机节奏执行拉黑。</p>
+        <p class="desc">同步云端 confirmed 黑名单，强规则召回，AI 二次确认，再按随机节奏执行拉黑。</p>
       </section>
 
       <input id="backendBaseUrl" type="hidden" />
@@ -31,7 +31,7 @@
       <section class="panel">
         <label class="switch-row">
           <input id="syncEnabled" type="checkbox" />
-          <span>同步黑名单</span>
+          <span>同步云端黑名单</span>
         </label>
 
         <label class="switch-row">
@@ -67,8 +67,16 @@
           <strong id="queuedCount">0</strong>
         </div>
         <div>
-          <span>本地黑名单</span>
+          <span>已同步黑名单</span>
           <strong id="blacklistCount">0</strong>
+        </div>
+        <div>
+          <span>待拉黑云端账号</span>
+          <strong id="syncBlockPending">0</strong>
+        </div>
+        <div>
+          <span>云端入队</span>
+          <strong id="syncedBlockQueued">0</strong>
         </div>
         <div>
           <span>已拉黑</span>
@@ -127,6 +135,11 @@
           <input id="maxDelayMs" type="number" min="1000" step="500" />
         </label>
       </details>
+
+      <section class="panel note">
+        <strong>说明</strong>
+        <p>“已同步黑名单”就是本机缓存的云端 confirmed 大表。点击开始后，会把这些账号加入本机拉黑队列；如果当前没打开 X 页面，任务会等待重试。</p>
+      </section>
 
       <div class="actions">
         <button id="saveBtn" type="button">保存设置</button>

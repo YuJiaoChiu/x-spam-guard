@@ -86,6 +86,8 @@ function renderStats(stats) {
   $("decisions").textContent = String(stats.decisions || 0);
   $("queuedCount").textContent = String(stats.queuedCount || 0);
   $("blacklistCount").textContent = String(stats.blacklistCount || 0);
+  $("syncBlockPending").textContent = String(stats.syncBlockPending || 0);
+  $("syncedBlockQueued").textContent = String(stats.syncedBlockQueued || 0);
   $("blockedSuccess").textContent = String(stats.blockedSuccess || 0);
   $("blockedFailed").textContent = String(stats.blockedFailed || 0);
   $("lastSyncAt").textContent = stats.lastSyncAt ? formatTime(stats.lastSyncAt) : "未同步";

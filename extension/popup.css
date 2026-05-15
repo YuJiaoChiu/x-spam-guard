@@ -261,6 +261,19 @@ button:hover {
   line-height: 1.55;
 }
 
+.note strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.note p {
+  margin: 0;
+  color: #68766d;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
 .status {
   margin: 8px 0 0 0;
   font-size: 12px;

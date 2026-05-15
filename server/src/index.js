@@ -954,6 +954,7 @@ app.post("/api/block-tasks/:id/status", requireClient, async (req, res) => {
   const status = normalizeBlockTaskStatus(patch.status);
   const row = await store.updateBlockTask(id, {
     status,
+    scheduledAt: patch.scheduledAt ? normalizeString(patch.scheduledAt, 80) : undefined,
     startedAt: patch.startedAt ? normalizeString(patch.startedAt, 80) : undefined,
     finishedAt: patch.finishedAt ? normalizeString(patch.finishedAt, 80) : undefined,
     retries: patch.retries === undefined ? undefined : Math.max(0, Math.trunc(normalizeNumber(patch.retries, 0))),

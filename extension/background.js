@@ -9,6 +9,12 @@ const LEGACY_DEFAULT_BACKENDS = new Set([
 ]);
 const SETTINGS_VERSION = 2;
 const DEFAULT_REVIEW_RULE_SCORE_THRESHOLD = 2;
+const SYNC_BLACKLIST_PAGE_SIZE = 1000;
+const DYNAMIC_RULES_LIMIT = 500;
+const SYNC_BLACKLIST_ALARM = "sync-blacklist";
+const BLOCK_QUEUE_ALARM = "process-block-queue";
+const NO_ACTIVE_X_TAB_RETRY_MS = 60 * 1000;
+const COOLDOWN_RETRY_BASE_MS = 5 * 60 * 1000;
 
 const DEFAULT_SETTINGS = {
   settingsVersion: SETTINGS_VERSION,
@@ -33,6 +39,7 @@ const state = {
   queue: [],
   queueKeys: new Set(),
   activeTasks: new Map(),
+  blockAttemptCache: new Map(),
   processingQueue: false,
   recentSeen: new Map(),
   stats: {
@@ -55,6 +62,9 @@ const state = {
     blockedFailed: 0,
     decisions: 0,
     blacklistCount: 0,
+    syncBlockPending: 0,
+    syncedBlockQueued: 0,
+    syncedBlockSkipped: 0,
     lastSyncAt: "",
     lastScannedAt: "",
     lastCandidateAt: "",
@@ -101,10 +111,6 @@ function sanitizeBaseUrl(baseUrl) {
   return normalizeBaseUrl(baseUrl || DEFAULT_SETTINGS.backendBaseUrl);
 }
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 function randomDelay(minMs, maxMs) {
   const min = Math.max(1000, Number(minMs || 8000));
   const max = Math.max(min, Number(maxMs || 45000));
@@ -119,8 +125,92 @@ function markError(error) {
   state.stats.lastError = String(error && error.message ? error.message : error || "");
 }
 
+function nowIso() {
+  return new Date().toISOString();
+}
+
+function getRetryDelayMs(task, fallbackMs) {
+  const retries = Math.max(1, Number(task?.retries || 1));
+  const jitter = randomDelay(5000, 20000);
+  return Math.max(1000, Number(fallbackMs || 0)) * retries + jitter;
+}
+
+function scheduleQueueProcessing(delayMs = 0) {
+  const when = Date.now() + Math.max(1000, Number(delayMs || 1000));
+  chrome.alarms.create(BLOCK_QUEUE_ALARM, { when });
+}
+
+function sortQueueBySchedule() {
+  state.queue.sort((a, b) => {
+    const left = new Date(a.scheduledAt || 0).getTime();
+    const right = new Date(b.scheduledAt || 0).getTime();
+    return (Number.isFinite(left) ? left : 0) - (Number.isFinite(right) ? right : 0);
+  });
+}
+
+function isSyncedBlacklistEntry(entry) {
+  return entry && entry.source === "sync" && keyOfHandle(entry.screenName || entry.userId);
+}
+
+function updateSyncBlockPending() {
+  let pending = 0;
+  for (const [key, item] of state.localBlacklist.entries()) {
+    if (!isSyncedBlacklistEntry(item)) continue;
+    if (state.localWhitelist.has(key)) continue;
+    const attempt = state.blockAttemptCache.get(key);
+    if (attempt && ["queued", "running", "success", "failed", "cooldown"].includes(String(attempt.status || ""))) continue;
+    pending += 1;
+  }
+  state.stats.syncBlockPending = pending;
+}
+
+async function purgeQueueAfterSync() {
+  const before = state.queue.length;
+  state.queue = state.queue.filter((task) => {
+    const key = keyOfHandle(task.screenName);
+    if (!key) return false;
+    if (state.localWhitelist.has(key)) return false;
+    if (task.source === "synced_blacklist" && !state.localBlacklist.has(key)) return false;
+    return true;
+  });
+  state.queueKeys = new Set(state.queue.map((task) => keyOfHandle(task.screenName)).filter(Boolean));
+  sortQueueBySchedule();
+  state.stats.queuedCount = state.queue.length;
+  if (state.queue.length !== before) {
+    await persistQueue();
+  }
+}
+
+async function persistBlockAttemptCache() {
+  const entries = Array.from(state.blockAttemptCache.entries())
+    .sort((a, b) => String(b[1]?.updatedAt || "").localeCompare(String(a[1]?.updatedAt || "")))
+    .slice(0, 100000);
+  await chrome.storage.local.set({ syncedBlockAttemptCache: Object.fromEntries(entries) });
+}
+
+async function setBlockAttemptStatus(screenName, status, patch = {}) {
+  const key = keyOfHandle(screenName);
+  if (!key || !state.blockAttemptCache.has(key)) return;
+  state.blockAttemptCache.set(key, {
+    ...state.blockAttemptCache.get(key),
+    ...patch,
+    status,
+    updatedAt: nowIso()
+  });
+  await persistBlockAttemptCache();
+  updateSyncBlockPending();
+}
+
 async function loadState() {
-  const storage = await chrome.storage.local.get(["settings", "localBlacklistCache", "localSuspectedCache", "localWhitelistCache", "dynamicRulesCache"]);
+  const storage = await chrome.storage.local.get([
+    "settings",
+    "localBlacklistCache",
+    "localSuspectedCache",
+    "localWhitelistCache",
+    "dynamicRulesCache",
+    "syncedBlockAttemptCache",
+    "blockQueueCache"
+  ]);
   state.settings = hydrateSettings(storage.settings || {});
   if (
     !storage.settings ||
@@ -144,7 +234,24 @@ async function loadState() {
     if (normalized) state.localWhitelist.add(normalized);
   }
   state.dynamicRules = Array.isArray(storage.dynamicRulesCache) ? storage.dynamicRulesCache : [];
+  if (Array.isArray(storage.blockQueueCache)) {
+    for (const task of storage.blockQueueCache) {
+      const key = keyOfHandle(task?.screenName);
+      if (!key || state.queueKeys.has(key)) continue;
+      state.queue.push({ ...task, screenName: key });
+      state.queueKeys.add(key);
+    }
+    sortQueueBySchedule();
+  }
+  for (const [key, value] of Object.entries(storage.syncedBlockAttemptCache || {})) {
+    const normalized = keyOfHandle(key);
+    if (normalized) {
+      state.blockAttemptCache.set(normalized, value && typeof value === "object" ? value : { status: "attempted" });
+    }
+  }
   state.stats.blacklistCount = state.localBlacklist.size;
+  state.stats.queuedCount = state.queue.length;
+  updateSyncBlockPending();
 }
 
 async function persistSettings() {
@@ -165,6 +272,12 @@ async function persistLocalBlacklist() {
     localSuspectedCache: suspected,
     localWhitelistCache: Array.from(state.localWhitelist),
     dynamicRulesCache: state.dynamicRules
+  });
+}
+
+async function persistQueue() {
+  await chrome.storage.local.set({
+    blockQueueCache: state.queue.slice(0, 100000)
   });
 }
 
@@ -204,6 +317,27 @@ async function postJsonResult(path, payload) {
   return await response.json();
 }
 
+async function fetchBlacklistLayer(base, status, headers) {
+  const items = [];
+  let offset = 0;
+  for (let page = 0; page < 100; page += 1) {
+    const url = `${base}/api/blacklist?status=${encodeURIComponent(status)}&limit=${SYNC_BLACKLIST_PAGE_SIZE}&offset=${offset}`;
+    const response = await fetch(url, { headers });
+    if (!response.ok) {
+      throw new Error(`sync_${status}_failed_${response.status}`);
+    }
+    const data = await response.json();
+    const pageItems = Array.isArray(data.items) ? data.items : [];
+    items.push(...pageItems);
+    const total = Number(data.total ?? data.count ?? 0);
+    if (pageItems.length < SYNC_BLACKLIST_PAGE_SIZE) break;
+    if (total > 0 && items.length >= total) break;
+    offset += pageItems.length;
+    if (pageItems.length === 0) break;
+  }
+  return items;
+}
+
 async function syncBlacklist() {
   if (!state.settings.syncEnabled) return;
   const base = sanitizeBaseUrl(state.settings.backendBaseUrl);
@@ -212,26 +346,25 @@ async function syncBlacklist() {
     headers["x-client-token"] = state.settings.clientToken;
   }
   try {
-    const [confirmedResponse, suspectedResponse, whitelistResponse, dynamicRulesResponse] = await Promise.all([
-      fetch(`${base}/api/blacklist?status=confirmed&limit=1000`, { headers }),
-      fetch(`${base}/api/blacklist?status=suspected&limit=1000`, { headers }),
-      fetch(`${base}/api/blacklist?status=whitelist&limit=1000`, { headers }),
-      fetch(`${base}/api/rules/active?limit=500`, { headers })
+    const [confirmedItems, suspectedItems, whitelistItems, dynamicRulesResponse] = await Promise.all([
+      fetchBlacklistLayer(base, "confirmed", headers),
+      fetchBlacklistLayer(base, "suspected", headers),
+      fetchBlacklistLayer(base, "whitelist", headers),
+      fetch(`${base}/api/rules/active?limit=${DYNAMIC_RULES_LIMIT}`, { headers })
     ]);
-    if (!confirmedResponse.ok) return;
-    const confirmedData = await confirmedResponse.json();
-    const suspectedData = suspectedResponse.ok ? await suspectedResponse.json() : { items: [] };
-    const whitelistData = whitelistResponse.ok ? await whitelistResponse.json() : { items: [] };
     const dynamicRulesData = dynamicRulesResponse.ok ? await dynamicRulesResponse.json() : { items: [] };
-    const confirmedItems = Array.isArray(confirmedData.items) ? confirmedData.items : [];
-    const suspectedItems = Array.isArray(suspectedData.items) ? suspectedData.items : [];
-    const whitelistItems = Array.isArray(whitelistData.items) ? whitelistData.items : [];
     state.dynamicRules = Array.isArray(dynamicRulesData.items) ? dynamicRulesData.items : [];
 
     state.localWhitelist = new Set();
     for (const item of whitelistItems) {
       const key = keyOfHandle(item.screenName || item.userId);
       if (key) state.localWhitelist.add(key);
+    }
+
+    for (const key of state.localWhitelist) {
+      if (state.blockAttemptCache.has(key)) {
+        state.blockAttemptCache.delete(key);
+      }
     }
 
     for (const [key, item] of [...state.localBlacklist.entries()]) {
@@ -260,10 +393,16 @@ async function syncBlacklist() {
       });
     }
     state.stats.blacklistCount = state.localBlacklist.size;
-    state.stats.lastSyncAt = new Date().toISOString();
+    updateSyncBlockPending();
+    state.stats.lastSyncAt = nowIso();
     state.stats.lastError = "";
     await persistLocalBlacklist();
+    await persistBlockAttemptCache();
+    await purgeQueueAfterSync();
     await notifyBlacklistSynced();
+    if (state.settings.running && state.settings.autoBlockEnabled) {
+      await enqueueSyncedBlacklistBlocks("sync");
+    }
   } catch (error) {
     markError(`sync_failed:${String(error && error.message ? error.message : error)}`);
   }
@@ -332,25 +471,108 @@ async function notifyBlacklistSynced() {
   );
 }
 
-function enqueueBlock(task) {
+async function enqueueBlock(task, options = {}) {
   const key = keyOfHandle(task.screenName);
-  if (!key) return;
-  if (state.queueKeys.has(key)) return;
+  if (!key) return null;
+  if (state.queueKeys.has(key) || Array.from(state.activeTasks.values()).some((item) => keyOfHandle(item.screenName) === key)) return null;
   state.queueKeys.add(key);
-  const delay = randomDelay(state.settings.minDelayMs, state.settings.maxDelayMs);
+  const now = Date.now();
+  const scheduledMs = Number(options.scheduledAtMs || 0);
+  const delay = Math.max(1000, scheduledMs > now ? scheduledMs - now : randomDelay(state.settings.minDelayMs, state.settings.maxDelayMs));
   const queuedTask = {
     ...task,
     screenName: key,
     taskId: task.taskId || `${key}_${Date.now()}_${Math.random().toString(36).slice(2)}`,
-    scheduledAt: new Date(Date.now() + delay).toISOString(),
+    scheduledAt: new Date(now + delay).toISOString(),
     delayMs: delay,
     retries: Number(task.retries || 0),
     maxRetries: Number(task.maxRetries || 2)
   };
   state.queue.push(queuedTask);
+  sortQueueBySchedule();
   state.stats.queuedCount = state.queue.length;
+  await persistQueue();
   reportBlockTask(queuedTask, "pending").catch(() => {});
   processQueue();
+  return queuedTask;
+}
+
+async function enqueueSyncedBlacklistBlocks(trigger = "sync") {
+  if (!state.settings.syncEnabled || !state.settings.running || !state.settings.autoBlockEnabled) {
+    updateSyncBlockPending();
+    return { queued: 0, skipped: 0 };
+  }
+
+  let queued = 0;
+  let skipped = 0;
+  const scheduledTimes = state.queue
+    .map((task) => new Date(task.scheduledAt || 0).getTime())
+    .filter((value) => Number.isFinite(value) && value > 0);
+  let scheduledAtMs = Math.max(Date.now(), ...scheduledTimes);
+  const activeHandles = new Set(Array.from(state.activeTasks.values()).map((task) => keyOfHandle(task.screenName)).filter(Boolean));
+
+  for (const [key, item] of state.localBlacklist.entries()) {
+    if (!isSyncedBlacklistEntry(item)) continue;
+    if (state.localWhitelist.has(key)) {
+      skipped += 1;
+      continue;
+    }
+    const attempt = state.blockAttemptCache.get(key);
+    if (
+      attempt &&
+      ["queued", "running", "success", "failed", "cooldown"].includes(String(attempt.status || ""))
+    ) {
+      skipped += 1;
+      continue;
+    }
+    if (state.queueKeys.has(key) || activeHandles.has(key)) {
+      skipped += 1;
+      continue;
+    }
+
+    scheduledAtMs += randomDelay(state.settings.minDelayMs, state.settings.maxDelayMs);
+    const task = await enqueueBlock({
+      screenName: key,
+      userId: item.userId || null,
+      displayName: item.displayName || "",
+      reason: item.reason || "synced_confirmed_blacklist",
+      confidence: Number(item.confidence || 0.98),
+      source: "synced_blacklist",
+      sourceUrl: item.sourceUrl || "",
+      metadata: {
+        trigger,
+        blacklistStatus: item.status || "confirmed",
+        blacklistSource: item.source || "sync",
+        blacklistReason: item.reason || "",
+        tags: Array.isArray(item.tags) ? item.tags : []
+      }
+    }, {
+      scheduledAtMs
+    });
+
+    if (!task) {
+      skipped += 1;
+      continue;
+    }
+
+    state.blockAttemptCache.set(key, {
+      status: "queued",
+      taskId: task.taskId,
+      trigger,
+      queuedAt: nowIso(),
+      updatedAt: nowIso()
+    });
+    queued += 1;
+  }
+
+  if (queued > 0) {
+    state.stats.syncedBlockQueued += queued;
+    await persistBlockAttemptCache();
+    await persistQueue();
+  }
+  state.stats.syncedBlockSkipped += skipped;
+  updateSyncBlockPending();
+  return { queued, skipped };
 }
 
 async function reportBlockTask(task, status, patch = {}) {
@@ -375,10 +597,7 @@ async function reportBlockTask(task, status, patch = {}) {
   };
   try {
     if (payload.id) {
-      const created = await postJsonResult("/api/block-tasks", payload);
-      if (created?.row?.id) {
-        task.taskId = created.row.id;
-      }
+      await postJsonResult("/api/block-tasks", payload);
     }
   } catch {
     // local queue should continue even if telemetry fails
@@ -398,6 +617,35 @@ async function updateBlockTaskStatus(task, status, patch = {}) {
   } catch {
     await reportBlockTask(task, status, patch);
   }
+}
+
+async function requeueTask(task, status, delayMs, error, patch = {}) {
+  const key = keyOfHandle(task.screenName);
+  const scheduledTimes = state.queue
+    .map((item) => new Date(item.scheduledAt || 0).getTime())
+    .filter((value) => Number.isFinite(value) && value > 0);
+  const retryDelay = Math.max(getRetryDelayMs(task, delayMs), Math.max(0, ...scheduledTimes, Date.now()) - Date.now());
+  task.scheduledAt = new Date(Date.now() + retryDelay).toISOString();
+  state.queue.unshift(task);
+  sortQueueBySchedule();
+  if (key) {
+    state.queueKeys.add(key);
+  }
+  state.stats.queuedCount = state.queue.length;
+  await persistQueue();
+  await updateBlockTaskStatus(task, status, {
+    scheduledAt: task.scheduledAt,
+    retries: task.retries,
+    lastError: error || status,
+    ...patch
+  });
+  await setBlockAttemptStatus(key, status, {
+    lastError: error || status,
+    scheduledAt: task.scheduledAt,
+    taskId: task.taskId,
+    ...patch
+  });
+  scheduleQueueProcessing(retryDelay);
 }
 
 async function sendBlockCommand(task) {
@@ -425,7 +673,10 @@ async function sendBlockCommand(task) {
         confidence: Number(task.confidence || 0)
       });
       return true;
-    } catch {
+    } catch (error) {
+      if (/receiving end does not exist|could not establish connection|message port closed/i.test(String(error && error.message ? error.message : error))) {
+        continue;
+      }
       // try next tab
     }
   }
@@ -434,6 +685,7 @@ async function sendBlockCommand(task) {
 
 async function processQueue() {
   if (state.processingQueue) return;
+  if (!state.settings.running || !state.settings.autoBlockEnabled || state.queue.length === 0) return;
   state.processingQueue = true;
   try {
     while (state.queue.length > 0) {
@@ -443,28 +695,45 @@ async function processQueue() {
       const task = state.queue.shift();
       state.queueKeys.delete(task.screenName);
       state.stats.queuedCount = state.queue.length;
+      await persistQueue();
 
       const waitMs = Math.max(0, new Date(task.scheduledAt).getTime() - Date.now());
-      await sleep(waitMs || Number(task.delayMs || 0));
+      if (waitMs > 0) {
+        state.queue.unshift(task);
+        sortQueueBySchedule();
+        state.queueKeys.add(task.screenName);
+        state.stats.queuedCount = state.queue.length;
+        await persistQueue();
+        scheduleQueueProcessing(waitMs);
+        break;
+      }
       task.retries = Number(task.retries || 0) + 1;
       await updateBlockTaskStatus(task, "running", {
-        startedAt: new Date().toISOString(),
+        startedAt: nowIso(),
+        retries: task.retries
+      });
+      await setBlockAttemptStatus(task.screenName, "running", {
+        taskId: task.taskId,
+        startedAt: nowIso(),
         retries: task.retries
       });
       state.activeTasks.set(task.taskId, task);
       const sent = await sendBlockCommand(task);
       if (!sent) {
         state.activeTasks.delete(task.taskId);
-        await updateBlockTaskStatus(task, "skipped", {
-          finishedAt: new Date().toISOString(),
-          lastError: "no_active_x_tab"
-        });
+        await requeueTask(task, "cooldown", NO_ACTIVE_X_TAB_RETRY_MS, "waiting_for_x_tab");
+        state.stats.lastError = "waiting_for_x_tab";
         await postJson("/api/events", {
-          type: "block_skipped_no_active_tab",
+          type: "block_waiting_for_x_tab",
           screenName: task.screenName,
-          reason: task.reason || "no_tab"
+          reason: task.reason || "no_tab",
+          metadata: {
+            nextRetryAt: task.scheduledAt
+          }
         });
+        break;
       }
+      break;
     }
   } finally {
     state.processingQueue = false;
@@ -501,15 +770,36 @@ async function processCandidate(candidate, sender) {
   const existing = state.localBlacklist.get(screenName);
   if (existing) {
     state.stats.blacklistHits += 1;
-    enqueueBlock({
-      screenName,
-      reason: existing.reason || "blacklist_hit",
-      confidence: Number(existing.confidence || 0.9),
-      tabId: sender?.tab?.id || null,
-      displayName: candidate.displayName || existing.displayName || "",
-      userId: candidate.userId || null,
-      sourceUrl: candidate.sourceUrl || ""
-    });
+    const attempt = state.blockAttemptCache.get(screenName);
+    const shouldQueueExisting = !attempt || !["queued", "running", "success", "failed", "cooldown"].includes(String(attempt.status || ""));
+    if (shouldQueueExisting) {
+      const task = await enqueueBlock({
+        screenName,
+        reason: existing.reason || "blacklist_hit",
+        confidence: Number(existing.confidence || 0.9),
+        tabId: sender?.tab?.id || null,
+        displayName: candidate.displayName || existing.displayName || "",
+        userId: candidate.userId || existing.userId || null,
+        sourceUrl: candidate.sourceUrl || "",
+        metadata: {
+          trigger: "browsed_blacklist_hit",
+          blacklistSource: existing.source || "",
+          blacklistStatus: existing.status || "confirmed"
+        }
+      });
+      if (task) {
+        state.stats.syncedBlockQueued += 1;
+        state.blockAttemptCache.set(screenName, {
+          status: "queued",
+          taskId: task.taskId,
+          trigger: "browsed_blacklist_hit",
+          queuedAt: nowIso(),
+          updatedAt: nowIso()
+        });
+        await persistBlockAttemptCache();
+        updateSyncBlockPending();
+      }
+    }
     return;
   }
 
@@ -566,7 +856,7 @@ async function processCandidate(candidate, sender) {
     state.stats.sharedContributions += 1;
   }
 
-  enqueueBlock({
+  await enqueueBlock({
     screenName,
     reason: verdict.reason || "ai_spam",
     confidence: Number(verdict.confidence || 0),
@@ -594,7 +884,11 @@ async function handleBlockResult(message) {
     state.stats.blockedSuccess += 1;
     if (task) {
       await updateBlockTaskStatus(task, "success", {
-        finishedAt: new Date().toISOString(),
+        finishedAt: nowIso(),
+        xStatusCode: statusCode
+      });
+      await setBlockAttemptStatus(task.screenName, "success", {
+        finishedAt: nowIso(),
         xStatusCode: statusCode
       });
     }
@@ -612,11 +906,22 @@ async function handleBlockResult(message) {
       statusCode === 403 ||
       /rate|limit|cooldown|csrf|auth|forbidden|too_many/i.test(error);
     if (task) {
-      await updateBlockTaskStatus(task, isCooldown ? "cooldown" : "failed", {
-        finishedAt: new Date().toISOString(),
-        xStatusCode: statusCode,
-        lastError: error || "block_failed"
-      });
+      if (isCooldown && task.retries < Number(task.maxRetries || 2)) {
+        await requeueTask(task, "cooldown", COOLDOWN_RETRY_BASE_MS, error || "block_cooldown", {
+          xStatusCode: statusCode
+        });
+      } else {
+        await updateBlockTaskStatus(task, isCooldown ? "cooldown" : "failed", {
+          finishedAt: nowIso(),
+          xStatusCode: statusCode,
+          lastError: error || "block_failed"
+        });
+        await setBlockAttemptStatus(task.screenName, isCooldown ? "cooldown" : "failed", {
+          finishedAt: nowIso(),
+          xStatusCode: statusCode,
+          lastError: error || "block_failed"
+        });
+      }
     }
     await postJson("/api/events", {
       type: "block_failed",
@@ -631,8 +936,11 @@ async function handleBlockResult(message) {
 
 async function initialize() {
   await loadState();
-  chrome.alarms.create("sync-blacklist", { periodInMinutes: 15 });
+  chrome.alarms.create(SYNC_BLACKLIST_ALARM, { periodInMinutes: 15 });
   await syncBlacklist();
+  if (state.queue.length > 0) {
+    processQueue();
+  }
 }
 
 chrome.runtime.onInstalled.addListener(() => {
@@ -644,8 +952,11 @@ chrome.runtime.onStartup.addListener(() => {
 });
 
 chrome.alarms.onAlarm.addListener((alarm) => {
-  if (alarm.name === "sync-blacklist") {
+  if (alarm.name === SYNC_BLACKLIST_ALARM) {
     syncBlacklist();
+  }
+  if (alarm.name === BLOCK_QUEUE_ALARM) {
+    processQueue();
   }
 });
 
@@ -667,8 +978,23 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   if (message.type === "SAVE_SETTINGS") {
     (async () => {
+      const wasRunning = Boolean(state.settings.running);
       state.settings = { ...state.settings, ...(message.settings || {}) };
       await persistSettings();
+      const isRunning = Boolean(state.settings.running);
+      if (state.settings.syncEnabled && isRunning) {
+        await syncBlacklist();
+      } else {
+        updateSyncBlockPending();
+      }
+      if (!wasRunning && isRunning) {
+        await enqueueSyncedBlacklistBlocks("start");
+      } else if (isRunning && state.settings.autoBlockEnabled) {
+        await enqueueSyncedBlacklistBlocks("settings");
+      }
+      if (isRunning && state.settings.autoBlockEnabled) {
+        processQueue();
+      }
       sendResponse({ ok: true, settings: state.settings });
     })();
     return true;
