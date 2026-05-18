@@ -19,8 +19,10 @@ const COOLDOWN_RETRY_BASE_MS = 5 * 60 * 1000;
 const AI_REVIEW_RETRY_BASE_MS = 2 * 60 * 1000;
 const FAST_BLOCK_MIN_DELAY_MS = 1500;
 const FAST_BLOCK_MAX_DELAY_MS = 8000;
-const FAST_AI_REVIEW_MIN_DELAY_MS = 1500;
-const FAST_AI_REVIEW_MAX_DELAY_MS = 6000;
+const AI_REVIEW_FAST_MIN_DELAY_MS = 1000;
+const AI_REVIEW_FAST_MAX_DELAY_MS = 2500;
+const AI_REVIEW_BATCH_LIMIT = 10;
+const AI_REVIEW_BATCH_TIME_BUDGET_MS = 20000;
 
 const DEFAULT_SETTINGS = {
   settingsVersion: SETTINGS_VERSION,
@@ -36,8 +38,8 @@ const DEFAULT_SETTINGS = {
   maxDelayMs: 45000,
   syncedBlockMinDelayMs: 3000,
   syncedBlockMaxDelayMs: 12000,
-  aiReviewMinDelayMs: 12000,
-  aiReviewMaxDelayMs: 60000
+  aiReviewMinDelayMs: AI_REVIEW_FAST_MIN_DELAY_MS,
+  aiReviewMaxDelayMs: AI_REVIEW_FAST_MAX_DELAY_MS
 };
 
 const state = {
@@ -119,6 +121,8 @@ function hydrateSettings(storedSettings = {}) {
   if (storedVersion < SETTINGS_VERSION && Number(storedSettings.ruleScoreThreshold || 4) === 4) {
     next.ruleScoreThreshold = DEFAULT_REVIEW_RULE_SCORE_THRESHOLD;
   }
+  next.aiReviewMinDelayMs = AI_REVIEW_FAST_MIN_DELAY_MS;
+  next.aiReviewMaxDelayMs = AI_REVIEW_FAST_MAX_DELAY_MS;
   next.settingsVersion = SETTINGS_VERSION;
 
   return next;
@@ -264,6 +268,26 @@ async function reprioritizePendingSyncedBlocks() {
   sortQueueBySchedule();
   state.stats.queuedCount = state.queue.length;
   await persistQueue();
+}
+
+async function reprioritizePendingAiReviews() {
+  if (!state.aiReviewQueue.length) return;
+  const now = Date.now();
+  let touched = false;
+  for (const task of state.aiReviewQueue) {
+    const scheduledAtMs = new Date(task.scheduledAt || 0).getTime();
+    const shouldMoveForward =
+      !Number.isFinite(scheduledAtMs) ||
+      scheduledAtMs > now + AI_REVIEW_FAST_MAX_DELAY_MS;
+    if (!shouldMoveForward) continue;
+    const delay = randomDelay(AI_REVIEW_FAST_MIN_DELAY_MS, AI_REVIEW_FAST_MAX_DELAY_MS);
+    task.scheduledAt = new Date(now + delay).toISOString();
+    task.delayMs = delay;
+    touched = true;
+  }
+  if (!touched) return;
+  sortAiReviewQueueBySchedule();
+  await persistAiReviewQueue();
 }
 
 async function persistBlockAttemptCache() {
@@ -718,14 +742,8 @@ async function enqueueAiReview(candidate, sender, trigger = "rule_hit") {
   if (!screenName) return null;
   if (state.aiReviewKeys.has(screenName)) return null;
 
-  const scheduledTimes = state.aiReviewQueue
-    .map((item) => new Date(item.scheduledAt || 0).getTime())
-    .filter((value) => Number.isFinite(value) && value > 0);
-  const baseAt = Math.max(Date.now(), ...scheduledTimes);
-  const fastLane = trigger === "hard_rule_hit";
-  const delay = fastLane
-    ? randomDelay(FAST_AI_REVIEW_MIN_DELAY_MS, FAST_AI_REVIEW_MAX_DELAY_MS)
-    : randomDelay(state.settings.aiReviewMinDelayMs, state.settings.aiReviewMaxDelayMs);
+  const baseAt = Date.now();
+  const delay = randomDelay(AI_REVIEW_FAST_MIN_DELAY_MS, AI_REVIEW_FAST_MAX_DELAY_MS);
   const task = {
     screenName,
     candidate: {
@@ -1030,40 +1048,46 @@ async function processAiReviewQueue() {
   if (!state.settings.running || !state.settings.autoBlockEnabled || state.aiReviewQueue.length === 0) return;
   state.processingAiReviewQueue = true;
   try {
-    sortAiReviewQueueBySchedule();
-    const task = state.aiReviewQueue.shift();
-    state.aiReviewKeys.delete(task.screenName);
-    state.stats.aiReviewQueueCount = state.aiReviewQueue.length;
-    await persistAiReviewQueue();
-
-    const waitMs = Math.max(0, new Date(task.scheduledAt).getTime() - Date.now());
-    if (waitMs > 0) {
-      state.aiReviewQueue.unshift(task);
-      state.aiReviewKeys.add(task.screenName);
+    const startedAt = Date.now();
+    let processed = 0;
+    while (state.aiReviewQueue.length > 0 && processed < AI_REVIEW_BATCH_LIMIT) {
+      if (Date.now() - startedAt > AI_REVIEW_BATCH_TIME_BUDGET_MS) break;
       sortAiReviewQueueBySchedule();
+      const task = state.aiReviewQueue.shift();
+      state.aiReviewKeys.delete(task.screenName);
       state.stats.aiReviewQueueCount = state.aiReviewQueue.length;
       await persistAiReviewQueue();
-      scheduleAiReviewProcessing(waitMs);
-      return;
-    }
 
-    try {
-      await reviewCandidateWithAi(task.candidate || {}, { tab: { id: task.tabId } });
-    } catch (error) {
-      state.stats.remoteClassifyFailed += 1;
-      task.retries = Number(task.retries || 0) + 1;
-      if (task.retries <= Number(task.maxRetries || 2)) {
-        const retryDelay = getRetryDelayMs(task, AI_REVIEW_RETRY_BASE_MS);
-        task.scheduledAt = new Date(Date.now() + retryDelay).toISOString();
-        task.lastError = String(error && error.message ? error.message : error);
-        state.aiReviewQueue.push(task);
+      const waitMs = Math.max(0, new Date(task.scheduledAt).getTime() - Date.now());
+      if (waitMs > 0) {
+        state.aiReviewQueue.unshift(task);
         state.aiReviewKeys.add(task.screenName);
         sortAiReviewQueueBySchedule();
         state.stats.aiReviewQueueCount = state.aiReviewQueue.length;
         await persistAiReviewQueue();
-        scheduleAiReviewProcessing(retryDelay);
-      } else {
-        markError(`ai_review_failed:${String(error && error.message ? error.message : error)}`);
+        scheduleAiReviewProcessing(waitMs);
+        return;
+      }
+
+      try {
+        await reviewCandidateWithAi(task.candidate || {}, { tab: { id: task.tabId } });
+        processed += 1;
+      } catch (error) {
+        state.stats.remoteClassifyFailed += 1;
+        task.retries = Number(task.retries || 0) + 1;
+        if (task.retries <= Number(task.maxRetries || 2)) {
+          const retryDelay = getRetryDelayMs(task, AI_REVIEW_RETRY_BASE_MS);
+          task.scheduledAt = new Date(Date.now() + retryDelay).toISOString();
+          task.lastError = String(error && error.message ? error.message : error);
+          state.aiReviewQueue.push(task);
+          state.aiReviewKeys.add(task.screenName);
+          sortAiReviewQueueBySchedule();
+          state.stats.aiReviewQueueCount = state.aiReviewQueue.length;
+          await persistAiReviewQueue();
+        } else {
+          markError(`ai_review_failed:${String(error && error.message ? error.message : error)}`);
+        }
+        break;
       }
     }
   } catch (error) {
@@ -1243,7 +1267,8 @@ async function initialize() {
     processQueue();
   }
   if (state.aiReviewQueue.length > 0) {
-    scheduleNextAiReviewItem();
+    await reprioritizePendingAiReviews();
+    scheduleAiReviewProcessing(1000);
   }
 }
 
