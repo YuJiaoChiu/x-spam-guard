@@ -140,6 +140,14 @@ function scheduleQueueProcessing(delayMs = 0) {
   chrome.alarms.create(BLOCK_QUEUE_ALARM, { when });
 }
 
+function scheduleNextQueueItem() {
+  if (!state.settings.running || !state.settings.autoBlockEnabled || state.queue.length === 0) return;
+  sortQueueBySchedule();
+  const nextAt = new Date(state.queue[0]?.scheduledAt || 0).getTime();
+  const delayMs = Number.isFinite(nextAt) && nextAt > Date.now() ? nextAt - Date.now() : 1000;
+  scheduleQueueProcessing(delayMs);
+}
+
 function sortQueueBySchedule() {
   state.queue.sort((a, b) => {
     const left = new Date(a.scheduledAt || 0).getTime();
@@ -737,6 +745,9 @@ async function processQueue() {
     }
   } finally {
     state.processingQueue = false;
+    if (state.activeTasks.size === 0) {
+      scheduleNextQueueItem();
+    }
   }
 }
 
@@ -899,6 +910,7 @@ async function handleBlockResult(message) {
       confidence: Number(message.confidence || 0),
       status: statusCode
     });
+    scheduleNextQueueItem();
   } else {
     state.stats.blockedFailed += 1;
     const isCooldown =
@@ -931,6 +943,7 @@ async function handleBlockResult(message) {
       status: statusCode,
       error
     });
+    scheduleNextQueueItem();
   }
 }
 
