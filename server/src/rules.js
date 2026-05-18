@@ -6,7 +6,33 @@ const MARKETING_TERMS = ["投稿", "推广", "互推", "代理", "拉新"];
 const ROLEPLAY_TERMS = ["老师", "女王", "少妇", "人妻"];
 const SOFT_LURE_TERMS = ["有弟弟想认识吗", "弟弟想认识", "想认识吗", "刚分手想被爱", "小狗求抱抱", "求抱抱", "线下的哥哥", "线下哥哥"];
 const EXPLICIT_ADULT_NAME_TERMS = ["哥哥我要", "母狗待调", "想被扇巴掌", "大胸妹", "听主人话", "爱吃肉棒", "肉棒", "待调", "母狗", "大胸"];
-const ADULT_PLATFORM_BIO_TERMS = ["已入驻曰泡平台", "已入驻日泡平台", "曰泡平台", "日泡平台"];
+const ADULT_PLATFORM_BIO_TERMS = [
+  "已入驻曰泡平台",
+  "已入驻日泡平台",
+  "入驻曰泡平台",
+  "入驻日泡平台",
+  "曰泡平台",
+  "日泡平台",
+  "已入驻曰p平台",
+  "已入驻日p平台",
+  "入驻曰p平台",
+  "入驻日p平台",
+  "曰p平台",
+  "日p平台"
+];
+const ADULT_BIO_LURE_TERMS = [
+  "只在平台上约",
+  "平台上约",
+  "涩涩",
+  "视频照片",
+  "成人视频",
+  "浮力",
+  "福利视频",
+  "距离近",
+  "加绿泡泡",
+  "绿泡泡",
+  "大号在这里"
+];
 const RESOURCE_LURE_TERMS = [
   "线下资源入口",
   "资源入口",
@@ -23,6 +49,7 @@ const RESOURCE_LURE_TERMS = [
   "看我简介"
 ];
 const URL_RE = /(https?:\/\/|www\.|\.cn\/|\.com\/)/i;
+const ADULT_BIO_URL_RE = /(?:https?:\/\/)?[a-z0-9-]{3,}\.(?:top|xyz|vip|icu|shop|site|cyou|cc|fun|club|link|live|ink)(?:\/|$|[^a-z0-9.-])/i;
 const QUARK_PAN_RE = /(?:https?:\/\/)?pan\.quark\.cn\//i;
 const OBFUSCATED_DD_RE = /d[\W_]{0,3}d/i;
 const SHORT_CODE_RE = /(?:^|[^a-z0-9\u4e00-\u9fff])\d{1,3}[a-z]{1,3}(?=$|[^a-z0-9\u4e00-\u9fff])/i;
@@ -188,6 +215,8 @@ export function scoreCandidate(candidate, options = {}) {
   const roleplayHits = findTermHits(ROLEPLAY_TERMS, fields);
   const explicitAdultNameHits = findTermHits(EXPLICIT_ADULT_NAME_TERMS, { displayName: fields.displayName });
   const adultPlatformBioHits = findTermHits(ADULT_PLATFORM_BIO_TERMS, { profileBio: fields.profileBio });
+  const adultBioLureHits = findTermHits(ADULT_BIO_LURE_TERMS, { profileBio: fields.profileBio });
+  const adultBioUrlHits = findRegexHits(ADULT_BIO_URL_RE, { profileBio: fields.profileBio }, "adult landing URL");
   const resourceLureHits = findTermHits(RESOURCE_LURE_TERMS, {
     displayName: fields.displayName,
     commentText: fields.commentText,
@@ -281,6 +310,34 @@ export function scoreCandidate(candidate, options = {}) {
       fields: ["profileBio"],
       hits: adultPlatformBioHits,
       reason: "Profile bio contains adult platform onboarding phrase"
+    });
+  }
+
+  if (adultBioUrlHits.length && adultBioLureHits.length >= 2) {
+    score += 8;
+    matchedRules.push("adult_bio_lure_url_combo");
+    pushDetail(matchDetails, {
+      rule: "adult_bio_lure_url_combo",
+      fields: ["profileBio"],
+      hits: [...adultBioLureHits, ...adultBioUrlHits],
+      reason: "Profile bio combines adult lure wording with suspicious landing URL"
+    });
+  }
+
+  if (
+    adultBioLureHits.length >= 3 ||
+    (
+      adultBioLureHits.some((hit) => ["绿泡泡", "加绿泡泡", "涩涩"].includes(hit.term)) &&
+      adultBioLureHits.some((hit) => ["只在平台上约", "平台上约", "视频照片", "浮力", "福利视频", "距离近"].includes(hit.term))
+    )
+  ) {
+    score += 6;
+    matchedRules.push("adult_bio_lure_combo");
+    pushDetail(matchDetails, {
+      rule: "adult_bio_lure_combo",
+      fields: ["profileBio"],
+      hits: adultBioLureHits,
+      reason: "Profile bio contains clustered adult dating/video lure phrases"
     });
   }
 
@@ -492,7 +549,7 @@ export function mockAiJudge(candidate, ruleResult, options = {}) {
   const hasHardSignal =
     (findTermHits(TG_TERMS, { all }).length && findTermHits(CONTACT_TERMS, { all }).length) ||
     (findTermHits(QUARK_TERMS, { all }).length && findTermHits(CONTACT_TERMS, { all }).length) ||
-    /(来个男大|线下dd|看我主页|主页私信|私信领福利|点击领取1t空间|已入驻曰泡平台|已入驻日泡平台|曰泡平台|日泡平台|资源入口|进群选人|同城约p|1-5线|真实约见|同城资源自取)/i.test(all);
+    /(来个男大|线下dd|看我主页|主页私信|私信领福利|点击领取1t空间|已入驻曰泡平台|已入驻日泡平台|入驻曰p平台|入驻日p平台|曰泡平台|日泡平台|曰p平台|日p平台|只在平台上约|平台上约|涩涩|绿泡泡|视频照片|资源入口|进群选人|同城约p|1-5线|真实约见|同城资源自取)/i.test(all);
 
   if (hasHardSignal && score >= 5) {
     return {

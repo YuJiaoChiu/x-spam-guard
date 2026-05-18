@@ -210,6 +210,8 @@ function isHardSpamCandidate(candidate) {
   const hardRules = [
     "quark_pan_direct_link",
     "adult_platform_bio",
+    "adult_bio_lure_url_combo",
+    "adult_bio_lure_combo",
     "resource_lure_combo",
     "tg_contact_combo",
     "quark_lure_combo",

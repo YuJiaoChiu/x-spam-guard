@@ -7,7 +7,33 @@
   const ROLEPLAY_TERMS = ["老师", "女王", "少妇", "人妻"];
   const SOFT_LURE_TERMS = ["有弟弟想认识吗", "弟弟想认识", "想认识吗", "刚分手想被爱", "小狗求抱抱", "求抱抱", "线下的哥哥", "线下哥哥"];
   const EXPLICIT_ADULT_NAME_TERMS = ["哥哥我要", "母狗待调", "想被扇巴掌", "大胸妹", "听主人话", "爱吃肉棒", "肉棒", "待调", "母狗", "大胸"];
-  const ADULT_PLATFORM_BIO_TERMS = ["已入驻曰泡平台", "已入驻日泡平台", "曰泡平台", "日泡平台"];
+  const ADULT_PLATFORM_BIO_TERMS = [
+    "已入驻曰泡平台",
+    "已入驻日泡平台",
+    "入驻曰泡平台",
+    "入驻日泡平台",
+    "曰泡平台",
+    "日泡平台",
+    "已入驻曰p平台",
+    "已入驻日p平台",
+    "入驻曰p平台",
+    "入驻日p平台",
+    "曰p平台",
+    "日p平台"
+  ];
+  const ADULT_BIO_LURE_TERMS = [
+    "只在平台上约",
+    "平台上约",
+    "涩涩",
+    "视频照片",
+    "成人视频",
+    "浮力",
+    "福利视频",
+    "距离近",
+    "加绿泡泡",
+    "绿泡泡",
+    "大号在这里"
+  ];
   const RESOURCE_LURE_TERMS = [
     "线下资源入口",
     "资源入口",
@@ -24,6 +50,7 @@
     "看我简介"
   ];
   const URL_RE = /(https?:\/\/|www\.|\.cn\/|\.com\/)/i;
+  const ADULT_BIO_URL_RE = /(?:https?:\/\/)?[a-z0-9-]{3,}\.(?:top|xyz|vip|icu|shop|site|cyou|cc|fun|club|link|live|ink)(?:\/|$|[^a-z0-9.-])/i;
   const QUARK_PAN_RE = /(?:https?:\/\/)?pan\.quark\.cn\//i;
   const OBFUSCATED_DD_RE = /d[\W_]{0,3}d/i;
   const SHORT_CODE_RE = /(?:^|[^a-z0-9\u4e00-\u9fff])\d{1,3}[a-z]{1,3}(?=$|[^a-z0-9\u4e00-\u9fff])/i;
@@ -137,6 +164,8 @@
     const roleplayHits = findTermHits(ROLEPLAY_TERMS, fields);
     const explicitAdultNameHits = findTermHits(EXPLICIT_ADULT_NAME_TERMS, { displayName: fields.displayName });
     const adultPlatformBioHits = findTermHits(ADULT_PLATFORM_BIO_TERMS, { profileBio: fields.profileBio });
+    const adultBioLureHits = findTermHits(ADULT_BIO_LURE_TERMS, { profileBio: fields.profileBio });
+    const adultBioUrlHits = findRegexHits(ADULT_BIO_URL_RE, { profileBio: fields.profileBio }, "adult landing URL");
     const resourceLureHits = findTermHits(RESOURCE_LURE_TERMS, {
       displayName: fields.displayName,
       commentText: fields.commentText,
@@ -183,6 +212,18 @@
     if (adultHits.length && contactHits.length) add("adult_lure_combo", 4, [...adultHits, ...contactHits]);
     if (marketingHits.length && (adultHits.length || quarkHits.length)) add("marketing_combo", 3, [...marketingHits, ...adultHits, ...quarkHits]);
     if (adultPlatformBioHits.length) add("adult_platform_bio", 8, adultPlatformBioHits, ["profileBio"]);
+    if (adultBioUrlHits.length && adultBioLureHits.length >= 2) {
+      add("adult_bio_lure_url_combo", 8, [...adultBioLureHits, ...adultBioUrlHits], ["profileBio"]);
+    }
+    if (
+      adultBioLureHits.length >= 3 ||
+      (
+        adultBioLureHits.some((hit) => ["绿泡泡", "加绿泡泡", "涩涩"].includes(hit.term)) &&
+        adultBioLureHits.some((hit) => ["只在平台上约", "平台上约", "视频照片", "浮力", "福利视频", "距离近"].includes(hit.term))
+      )
+    ) {
+      add("adult_bio_lure_combo", 6, adultBioLureHits, ["profileBio"]);
+    }
     if (resourceLureHits.length) add("resource_lure_combo", 6, resourceLureHits, fieldsOf(resourceLureHits));
     if (explicitAdultNameHits.length && randomHandle && shortBotCodeComment) {
       add("adult_name_bot_comment_combo", 7, explicitAdultNameHits, ["displayName", "commentText", "screenName"]);
