@@ -1,4 +1,9 @@
 (function initContent() {
+  if (window.__xSpamGuardContentLoaded) {
+    return;
+  }
+  window.__xSpamGuardContentLoaded = true;
+
   const PROCESSED_KEY = "spamGuardSeen";
   const pendingBridgeRequests = new Map();
   const blockedHandles = new Set();

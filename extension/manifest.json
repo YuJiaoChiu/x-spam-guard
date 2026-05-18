@@ -3,7 +3,7 @@
   "name": "X Spam Guard (Local MVP)",
   "version": "0.1.0",
   "description": "强规则 + AI 二次判定，自动同步黑名单并随机节奏拉黑。",
-  "permissions": ["storage", "alarms", "tabs"],
+  "permissions": ["storage", "alarms", "tabs", "scripting"],
   "host_permissions": [
     "https://x.com/*",
     "https://twitter.com/*",

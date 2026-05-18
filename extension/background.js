@@ -533,6 +533,23 @@ async function notifyBlacklistSynced() {
   );
 }
 
+async function injectContentScriptsIntoOpenTabs() {
+  const tabs = await chrome.tabs.query({ url: ["https://x.com/*", "https://twitter.com/*"] });
+  await Promise.all(
+    tabs.map(async (tab) => {
+      if (!tab.id) return;
+      try {
+        await chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          files: ["rules.js", "content.js"]
+        });
+      } catch (error) {
+        markError(`inject_failed:${String(error && error.message ? error.message : error)}`);
+      }
+    })
+  );
+}
+
 async function enqueueBlock(task, options = {}) {
   const key = keyOfHandle(task.screenName);
   if (!key) return null;
@@ -1093,6 +1110,7 @@ async function handleBlockResult(message) {
 
 async function initialize() {
   await loadState();
+  await injectContentScriptsIntoOpenTabs();
   chrome.alarms.create(SYNC_BLACKLIST_ALARM, { periodInMinutes: 15 });
   await syncBlacklist();
   if (state.queue.length > 0) {
