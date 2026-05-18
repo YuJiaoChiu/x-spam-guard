@@ -13,8 +13,10 @@ const SYNC_BLACKLIST_PAGE_SIZE = 1000;
 const DYNAMIC_RULES_LIMIT = 500;
 const SYNC_BLACKLIST_ALARM = "sync-blacklist";
 const BLOCK_QUEUE_ALARM = "process-block-queue";
+const AI_REVIEW_QUEUE_ALARM = "process-ai-review-queue";
 const NO_ACTIVE_X_TAB_RETRY_MS = 60 * 1000;
 const COOLDOWN_RETRY_BASE_MS = 5 * 60 * 1000;
+const AI_REVIEW_RETRY_BASE_MS = 2 * 60 * 1000;
 
 const DEFAULT_SETTINGS = {
   settingsVersion: SETTINGS_VERSION,
@@ -27,7 +29,9 @@ const DEFAULT_SETTINGS = {
   ruleScoreThreshold: DEFAULT_REVIEW_RULE_SCORE_THRESHOLD,
   autoBlockConfidence: 0.8,
   minDelayMs: 8000,
-  maxDelayMs: 45000
+  maxDelayMs: 45000,
+  aiReviewMinDelayMs: 12000,
+  aiReviewMaxDelayMs: 60000
 };
 
 const state = {
@@ -38,9 +42,12 @@ const state = {
   dynamicRules: [],
   queue: [],
   queueKeys: new Set(),
+  aiReviewQueue: [],
+  aiReviewKeys: new Set(),
   activeTasks: new Map(),
   blockAttemptCache: new Map(),
   processingQueue: false,
+  processingAiReviewQueue: false,
   recentSeen: new Map(),
   stats: {
     scannedArticles: 0,
@@ -56,6 +63,8 @@ const state = {
     blacklistHits: 0,
     remoteClassifyRequests: 0,
     remoteClassifyFailed: 0,
+    aiReviewQueued: 0,
+    aiReviewQueueCount: 0,
     sharedContributions: 0,
     queuedCount: 0,
     blockedSuccess: 0,
@@ -140,12 +149,33 @@ function scheduleQueueProcessing(delayMs = 0) {
   chrome.alarms.create(BLOCK_QUEUE_ALARM, { when });
 }
 
+function scheduleAiReviewProcessing(delayMs = 0) {
+  const when = Date.now() + Math.max(1000, Number(delayMs || 1000));
+  chrome.alarms.create(AI_REVIEW_QUEUE_ALARM, { when });
+}
+
 function scheduleNextQueueItem() {
   if (!state.settings.running || !state.settings.autoBlockEnabled || state.queue.length === 0) return;
   sortQueueBySchedule();
   const nextAt = new Date(state.queue[0]?.scheduledAt || 0).getTime();
   const delayMs = Number.isFinite(nextAt) && nextAt > Date.now() ? nextAt - Date.now() : 1000;
   scheduleQueueProcessing(delayMs);
+}
+
+function sortAiReviewQueueBySchedule() {
+  state.aiReviewQueue.sort((a, b) => {
+    const left = new Date(a.scheduledAt || 0).getTime();
+    const right = new Date(b.scheduledAt || 0).getTime();
+    return (Number.isFinite(left) ? left : 0) - (Number.isFinite(right) ? right : 0);
+  });
+}
+
+function scheduleNextAiReviewItem() {
+  if (!state.settings.running || !state.settings.autoBlockEnabled || state.aiReviewQueue.length === 0) return;
+  sortAiReviewQueueBySchedule();
+  const nextAt = new Date(state.aiReviewQueue[0]?.scheduledAt || 0).getTime();
+  const delayMs = Number.isFinite(nextAt) && nextAt > Date.now() ? nextAt - Date.now() : 1000;
+  scheduleAiReviewProcessing(delayMs);
 }
 
 function sortQueueBySchedule() {
@@ -217,7 +247,8 @@ async function loadState() {
     "localWhitelistCache",
     "dynamicRulesCache",
     "syncedBlockAttemptCache",
-    "blockQueueCache"
+    "blockQueueCache",
+    "aiReviewQueueCache"
   ]);
   state.settings = hydrateSettings(storage.settings || {});
   if (
@@ -251,6 +282,22 @@ async function loadState() {
     }
     sortQueueBySchedule();
   }
+  if (Array.isArray(storage.aiReviewQueueCache)) {
+    for (const task of storage.aiReviewQueueCache) {
+      const key = keyOfHandle(task?.candidate?.screenName || task?.screenName);
+      if (!key || state.aiReviewKeys.has(key)) continue;
+      state.aiReviewQueue.push({
+        ...task,
+        screenName: key,
+        candidate: {
+          ...(task.candidate || {}),
+          screenName: key
+        }
+      });
+      state.aiReviewKeys.add(key);
+    }
+    sortAiReviewQueueBySchedule();
+  }
   for (const [key, value] of Object.entries(storage.syncedBlockAttemptCache || {})) {
     const normalized = keyOfHandle(key);
     if (normalized) {
@@ -259,6 +306,7 @@ async function loadState() {
   }
   state.stats.blacklistCount = state.localBlacklist.size;
   state.stats.queuedCount = state.queue.length;
+  state.stats.aiReviewQueueCount = state.aiReviewQueue.length;
   updateSyncBlockPending();
 }
 
@@ -286,6 +334,12 @@ async function persistLocalBlacklist() {
 async function persistQueue() {
   await chrome.storage.local.set({
     blockQueueCache: state.queue.slice(0, 100000)
+  });
+}
+
+async function persistAiReviewQueue() {
+  await chrome.storage.local.set({
+    aiReviewQueueCache: state.aiReviewQueue.slice(0, 10000)
   });
 }
 
@@ -583,6 +637,41 @@ async function enqueueSyncedBlacklistBlocks(trigger = "sync") {
   return { queued, skipped };
 }
 
+async function enqueueAiReview(candidate, sender, trigger = "rule_hit") {
+  const screenName = keyOfHandle(candidate.screenName);
+  if (!screenName) return null;
+  if (state.aiReviewKeys.has(screenName)) return null;
+
+  const scheduledTimes = state.aiReviewQueue
+    .map((item) => new Date(item.scheduledAt || 0).getTime())
+    .filter((value) => Number.isFinite(value) && value > 0);
+  const baseAt = Math.max(Date.now(), ...scheduledTimes);
+  const delay = randomDelay(state.settings.aiReviewMinDelayMs, state.settings.aiReviewMaxDelayMs);
+  const task = {
+    screenName,
+    candidate: {
+      ...candidate,
+      screenName
+    },
+    tabId: sender?.tab?.id || null,
+    trigger,
+    scheduledAt: new Date(baseAt + delay).toISOString(),
+    delayMs: delay,
+    retries: 0,
+    maxRetries: 2,
+    queuedAt: nowIso()
+  };
+
+  state.aiReviewKeys.add(screenName);
+  state.aiReviewQueue.push(task);
+  sortAiReviewQueueBySchedule();
+  state.stats.aiReviewQueued += 1;
+  state.stats.aiReviewQueueCount = state.aiReviewQueue.length;
+  await persistAiReviewQueue();
+  scheduleNextAiReviewItem();
+  return task;
+}
+
 async function reportBlockTask(task, status, patch = {}) {
   const payload = {
     id: task.taskId || task.id,
@@ -751,6 +840,116 @@ async function processQueue() {
   }
 }
 
+async function reviewCandidateWithAi(candidate, sender) {
+  const screenName = keyOfHandle(candidate.screenName);
+  if (!screenName) return;
+  state.stats.remoteClassifyRequests += 1;
+  const verdictResult = await classifyCandidateRemote(candidate);
+  const verdict = verdictResult?.final || {};
+  const ruleResult = verdictResult?.ruleResult || {};
+  state.stats.decisions += 1;
+  state.stats.lastDecisionAt = new Date().toISOString();
+  state.stats.lastError = "";
+
+  await postJson("/api/events", {
+    type: "ai_decision",
+    screenName,
+    reason: verdict.reason || "",
+    confidence: Number(verdict.confidence || 0),
+    shouldBlock: Boolean(verdict.shouldBlock),
+    metadata: {
+      ruleScore: Number(ruleResult.score || 0),
+      matchedRules: Array.isArray(ruleResult.matchedRules) ? ruleResult.matchedRules : [],
+      details: verdict.details || {}
+    }
+  });
+
+  if (!verdict.shouldBlock) {
+    state.stats.skippedByAi += 1;
+    if (verdict.shouldHide) {
+      await notifyHide(screenName);
+    }
+    return;
+  }
+
+  await addToLocalBlacklist(candidate, verdict, "local_ai");
+
+  if (state.settings.shareEnabled) {
+    await postJson("/api/contributions", {
+      candidate,
+      verdict: {
+        ...verdict,
+        details: verdict.details || {}
+      }
+    });
+    state.stats.sharedContributions += 1;
+  }
+
+  await enqueueBlock({
+    screenName,
+    reason: verdict.reason || "ai_spam",
+    confidence: Number(verdict.confidence || 0),
+    tabId: sender?.tab?.id || null,
+    displayName: candidate.displayName || "",
+    userId: candidate.userId || null,
+    sourceUrl: candidate.sourceUrl || "",
+    metadata: {
+      tags: Array.isArray(verdict.tags) ? verdict.tags : [],
+      details: verdict.details || {}
+    }
+  });
+  await notifyHide(screenName);
+}
+
+async function processAiReviewQueue() {
+  if (state.processingAiReviewQueue) return;
+  if (!state.settings.running || !state.settings.autoBlockEnabled || state.aiReviewQueue.length === 0) return;
+  state.processingAiReviewQueue = true;
+  try {
+    sortAiReviewQueueBySchedule();
+    const task = state.aiReviewQueue.shift();
+    state.aiReviewKeys.delete(task.screenName);
+    state.stats.aiReviewQueueCount = state.aiReviewQueue.length;
+    await persistAiReviewQueue();
+
+    const waitMs = Math.max(0, new Date(task.scheduledAt).getTime() - Date.now());
+    if (waitMs > 0) {
+      state.aiReviewQueue.unshift(task);
+      state.aiReviewKeys.add(task.screenName);
+      sortAiReviewQueueBySchedule();
+      state.stats.aiReviewQueueCount = state.aiReviewQueue.length;
+      await persistAiReviewQueue();
+      scheduleAiReviewProcessing(waitMs);
+      return;
+    }
+
+    try {
+      await reviewCandidateWithAi(task.candidate || {}, { tab: { id: task.tabId } });
+    } catch (error) {
+      state.stats.remoteClassifyFailed += 1;
+      task.retries = Number(task.retries || 0) + 1;
+      if (task.retries <= Number(task.maxRetries || 2)) {
+        const retryDelay = getRetryDelayMs(task, AI_REVIEW_RETRY_BASE_MS);
+        task.scheduledAt = new Date(Date.now() + retryDelay).toISOString();
+        task.lastError = String(error && error.message ? error.message : error);
+        state.aiReviewQueue.push(task);
+        state.aiReviewKeys.add(task.screenName);
+        sortAiReviewQueueBySchedule();
+        state.stats.aiReviewQueueCount = state.aiReviewQueue.length;
+        await persistAiReviewQueue();
+        scheduleAiReviewProcessing(retryDelay);
+      } else {
+        markError(`ai_review_failed:${String(error && error.message ? error.message : error)}`);
+      }
+    }
+  } catch (error) {
+    markError(`ai_review_failed:${String(error && error.message ? error.message : error)}`);
+  } finally {
+    state.processingAiReviewQueue = false;
+    scheduleNextAiReviewItem();
+  }
+}
+
 async function processCandidate(candidate, sender) {
   const screenName = keyOfHandle(candidate.screenName);
   if (!screenName) return;
@@ -825,62 +1024,7 @@ async function processCandidate(candidate, sender) {
     return;
   }
 
-  state.stats.remoteClassifyRequests += 1;
-  const verdictResult = await classifyCandidateRemote(candidate);
-  const verdict = verdictResult?.final || {};
-  const ruleResult = verdictResult?.ruleResult || {};
-  state.stats.decisions += 1;
-  state.stats.lastDecisionAt = new Date().toISOString();
-  state.stats.lastError = "";
-
-  await postJson("/api/events", {
-    type: "ai_decision",
-    screenName,
-    reason: verdict.reason || "",
-    confidence: Number(verdict.confidence || 0),
-    shouldBlock: Boolean(verdict.shouldBlock),
-    metadata: {
-      ruleScore: Number(ruleResult.score || 0),
-      matchedRules: Array.isArray(ruleResult.matchedRules) ? ruleResult.matchedRules : [],
-      details: verdict.details || {}
-    }
-  });
-
-  if (!verdict.shouldBlock) {
-    state.stats.skippedByAi += 1;
-    if (verdict.shouldHide) {
-      await notifyHide(screenName);
-    }
-    return;
-  }
-
-  await addToLocalBlacklist(candidate, verdict, "local_ai");
-
-  if (state.settings.shareEnabled) {
-    await postJson("/api/contributions", {
-      candidate,
-      verdict: {
-        ...verdict,
-        details: verdict.details || {}
-      }
-    });
-    state.stats.sharedContributions += 1;
-  }
-
-  await enqueueBlock({
-    screenName,
-    reason: verdict.reason || "ai_spam",
-    confidence: Number(verdict.confidence || 0),
-    tabId: sender?.tab?.id || null,
-    displayName: candidate.displayName || "",
-    userId: candidate.userId || null,
-    sourceUrl: candidate.sourceUrl || "",
-    metadata: {
-      tags: Array.isArray(verdict.tags) ? verdict.tags : [],
-      details: verdict.details || {}
-    }
-  });
-  await notifyHide(screenName);
+  await enqueueAiReview(candidate, sender);
 }
 
 async function handleBlockResult(message) {
@@ -954,6 +1098,9 @@ async function initialize() {
   if (state.queue.length > 0) {
     processQueue();
   }
+  if (state.aiReviewQueue.length > 0) {
+    scheduleNextAiReviewItem();
+  }
 }
 
 chrome.runtime.onInstalled.addListener(() => {
@@ -970,6 +1117,9 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   }
   if (alarm.name === BLOCK_QUEUE_ALARM) {
     processQueue();
+  }
+  if (alarm.name === AI_REVIEW_QUEUE_ALARM) {
+    processAiReviewQueue();
   }
 });
 
@@ -1007,6 +1157,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       }
       if (isRunning && state.settings.autoBlockEnabled) {
         processQueue();
+        scheduleNextAiReviewItem();
       }
       sendResponse({ ok: true, settings: state.settings });
     })();

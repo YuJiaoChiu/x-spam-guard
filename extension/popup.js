@@ -84,6 +84,7 @@ function renderStats(stats) {
   $("extractedCandidates").textContent = String(stats.extractedCandidates || 0);
   $("localRuleHits").textContent = String(stats.localRuleHits || 0);
   $("decisions").textContent = String(stats.decisions || 0);
+  $("aiReviewQueueCount").textContent = String(stats.aiReviewQueueCount || 0);
   $("queuedCount").textContent = String(stats.queuedCount || 0);
   $("blacklistCount").textContent = String(stats.blacklistCount || 0);
   $("syncBlockPending").textContent = String(stats.syncBlockPending || 0);

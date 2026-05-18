@@ -17,7 +17,7 @@ const config = {
   strongRuleThreshold: Number(process.env.STRONG_RULE_THRESHOLD || 4),
   aiReviewRuleThreshold: Number(process.env.AI_REVIEW_RULE_THRESHOLD || 2),
   autoBlockConfidence: Number(process.env.AUTO_BLOCK_CONFIDENCE || 0.8),
-  classifyRatePerMinute: Number(process.env.CLASSIFY_RATE_PER_MINUTE || 240),
+  classifyRatePerMinute: Number(process.env.CLASSIFY_RATE_PER_MINUTE || 30),
   adminToken: process.env.ADMIN_TOKEN || "",
   clientToken: process.env.CLIENT_TOKEN || ""
 };
