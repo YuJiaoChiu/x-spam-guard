@@ -9,11 +9,16 @@
   }
 
   const PROCESSED_KEY = "spamGuardSeen";
+  const PROFILE_BIO_CACHE_TTL_MS = 30 * 60 * 1000;
+  const PROFILE_BIO_FAILURE_CACHE_TTL_MS = 2 * 60 * 1000;
   const pendingBridgeRequests = new Map();
+  const profileBioCache = new Map();
+  const profileBioInFlight = new Map();
   const blockedHandles = new Set();
   let destroyed = false;
   let observer = null;
   let rescanTimer = null;
+  let profileLookupTail = Promise.resolve();
   let dynamicRules = [];
   let scanPass = `${Date.now()}_${Math.random().toString(36).slice(2)}`;
   const scanStats = {
@@ -67,6 +72,7 @@
       resolve({ ok: false, error: "content_destroyed" });
     }
     pendingBridgeRequests.clear();
+    profileBioInFlight.clear();
   }
 
   window.__xSpamGuardRuntime = { destroy };
@@ -99,12 +105,12 @@
   }
 
   function ensureBridgeInjected() {
-    if (document.getElementById("spam-guard-bridge-script")) return;
+    if (document.getElementById("spam-guard-bridge-script-v2")) return;
     const src = safeRuntimeUrl("page-bridge.js");
     if (!src) return;
     const script = document.createElement("script");
-    script.id = "spam-guard-bridge-script";
-    script.src = src;
+    script.id = "spam-guard-bridge-script-v2";
+    script.src = `${src}?v=2`;
     script.async = false;
     document.documentElement.appendChild(script);
   }
@@ -168,7 +174,7 @@
     const requestId = `${Date.now()}_${Math.random().toString(36).slice(2)}`;
     const payload = {
       source: "spam-guard-extension",
-      type: "SPAM_GUARD_BLOCK",
+      type: "SPAM_GUARD_BLOCK_V2",
       requestId,
       taskId: taskId || "",
       screenName
@@ -187,6 +193,98 @@
 
     window.postMessage(payload, "*");
     return await resultPromise;
+  }
+
+  function randomDelay(minMs, maxMs) {
+    const min = Math.max(0, Number(minMs || 0));
+    const max = Math.max(min, Number(maxMs || min));
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async function bridgeFetchProfileBio(screenName) {
+    const requestId = `${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const payload = {
+      source: "spam-guard-extension",
+      type: "SPAM_GUARD_PROFILE_BIO",
+      requestId,
+      screenName
+    };
+
+    const resultPromise = new Promise((resolve) => {
+      const timer = setTimeout(() => {
+        pendingBridgeRequests.delete(requestId);
+        resolve({ ok: false, error: "profile_bio_timeout" });
+      }, 12000);
+      pendingBridgeRequests.set(requestId, (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      });
+    });
+
+    window.postMessage(payload, "*");
+    return await resultPromise;
+  }
+
+  function shouldLookupProfileBio(candidate, rule) {
+    if (!candidate || candidate.profileBio) return false;
+    const score = Number(rule?.score || 0);
+    if (score < 2) return false;
+    const matched = new Set(Array.isArray(rule?.matchedRules) ? rule.matchedRules : []);
+    if (matched.has("random_handle")) return true;
+    if (matched.has("soft_lure_bot_combo")) return true;
+    if (matched.has("peach_display_lure")) return true;
+    return false;
+  }
+
+  async function getProfileBio(screenName) {
+    const key = String(screenName || "").toLowerCase();
+    if (!key) return "";
+
+    const cached = profileBioCache.get(key);
+    const cacheTtl = cached?.ok ? PROFILE_BIO_CACHE_TTL_MS : PROFILE_BIO_FAILURE_CACHE_TTL_MS;
+    if (cached && Date.now() - cached.at < cacheTtl) {
+      return cached.bio || "";
+    }
+
+    const existing = profileBioInFlight.get(key);
+    if (existing) return await existing;
+
+    const task = profileLookupTail
+      .catch(() => {})
+      .then(async () => {
+        await sleep(randomDelay(700, 2200));
+        const result = await bridgeFetchProfileBio(key);
+        const bio = result && result.ok ? String(result.profileBio || "").trim() : "";
+        profileBioCache.set(key, { bio, at: Date.now(), ok: Boolean(result?.ok), error: result?.error || "" });
+        return bio;
+      })
+      .finally(() => {
+        profileBioInFlight.delete(key);
+      });
+
+    profileLookupTail = task.catch(() => {});
+    profileBioInFlight.set(key, task);
+    return await task;
+  }
+
+  async function enrichCandidateWithProfileBio(candidate, rule) {
+    if (!shouldLookupProfileBio(candidate, rule)) {
+      return { candidate, rule };
+    }
+
+    try {
+      const profileBio = await getProfileBio(candidate.screenName);
+      if (!profileBio || destroyed) return { candidate, rule };
+      const enriched = { ...candidate, profileBio };
+      const enrichedRule = SpamRules.scoreCandidate(enriched, { dynamicRules });
+      return { candidate: enriched, rule: enrichedRule };
+    } catch {
+      return { candidate, rule };
+    }
   }
 
   async function blockAndReport(message) {
@@ -210,7 +308,7 @@
     });
   }
 
-  function processArticle(article) {
+  async function processArticle(article) {
     if (destroyed) return;
     if (!(article instanceof HTMLElement)) return;
     if (article.dataset[PROCESSED_KEY] === scanPass) return;
@@ -223,7 +321,6 @@
       return;
     }
     scanStats.extracted += 1;
-    scanStats.lastRuleScore = Number(info.rule.score || 0);
 
     const handle = info.candidate.screenName;
     if (blockedHandles.has(handle)) {
@@ -232,14 +329,18 @@
       return;
     }
 
-    if (info.rule.score >= 2) {
+    const enriched = await enrichCandidateWithProfileBio(info.candidate, info.rule);
+    if (destroyed) return;
+    scanStats.lastRuleScore = Number(enriched.rule.score || 0);
+
+    if (enriched.rule.score >= 2) {
       scanStats.localRuleHits += 1;
       safeSendMessage({
         type: "CANDIDATE_DETECTED",
         candidate: {
-          ...info.candidate,
-          ruleScore: info.rule.score,
-          matchedRules: info.rule.matchedRules
+          ...enriched.candidate,
+          ruleScore: enriched.rule.score,
+          matchedRules: enriched.rule.matchedRules
         }
       }).catch(() => {});
     } else {
@@ -287,7 +388,7 @@
     if (event.source !== window) return;
     const data = event.data || {};
     if (data.source !== "spam-guard-page") return;
-    if (data.type !== "SPAM_GUARD_BLOCK_RESULT") return;
+    if (data.type !== "SPAM_GUARD_BLOCK_RESULT" && data.type !== "SPAM_GUARD_PROFILE_BIO_RESULT") return;
     const resolver = pendingBridgeRequests.get(data.requestId);
     if (!resolver) return;
     pendingBridgeRequests.delete(data.requestId);

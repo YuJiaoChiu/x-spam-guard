@@ -1082,12 +1082,25 @@ async function processCandidate(candidate, sender) {
   state.stats.lastCandidateAt = new Date(now).toISOString();
   state.stats.lastLocalRuleScore = Number(candidate.ruleScore || 0);
 
-  const prevSeen = state.recentSeen.get(screenName) || 0;
-  if (now - prevSeen < 10 * 60 * 1000) {
+  const currentRuleScore = Number(candidate.ruleScore || 0);
+  const currentHasProfileBio = Boolean(String(candidate.profileBio || "").trim());
+  const prevSeen = state.recentSeen.get(screenName);
+  const prevSeenAt = typeof prevSeen === "object" ? Number(prevSeen.at || 0) : Number(prevSeen || 0);
+  const prevRuleScore = typeof prevSeen === "object" ? Number(prevSeen.ruleScore || 0) : 0;
+  const prevHasProfileBio = typeof prevSeen === "object" ? Boolean(prevSeen.hasProfileBio) : false;
+  const improvedCandidate =
+    currentRuleScore > prevRuleScore ||
+    (currentHasProfileBio && !prevHasProfileBio) ||
+    isHardSpamCandidate(candidate);
+  if (now - prevSeenAt < 10 * 60 * 1000 && !improvedCandidate) {
     state.stats.skippedDuplicate += 1;
     return;
   }
-  state.recentSeen.set(screenName, now);
+  state.recentSeen.set(screenName, {
+    at: now,
+    ruleScore: currentRuleScore,
+    hasProfileBio: currentHasProfileBio
+  });
 
   if (state.localWhitelist.has(screenName)) {
     state.stats.lastError = `skip_whitelist:@${screenName}`;
