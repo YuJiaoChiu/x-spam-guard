@@ -17,6 +17,10 @@ const AI_REVIEW_QUEUE_ALARM = "process-ai-review-queue";
 const NO_ACTIVE_X_TAB_RETRY_MS = 60 * 1000;
 const COOLDOWN_RETRY_BASE_MS = 5 * 60 * 1000;
 const AI_REVIEW_RETRY_BASE_MS = 2 * 60 * 1000;
+const FAST_BLOCK_MIN_DELAY_MS = 1500;
+const FAST_BLOCK_MAX_DELAY_MS = 8000;
+const FAST_AI_REVIEW_MIN_DELAY_MS = 1500;
+const FAST_AI_REVIEW_MAX_DELAY_MS = 6000;
 
 const DEFAULT_SETTINGS = {
   settingsVersion: SETTINGS_VERSION,
@@ -30,6 +34,8 @@ const DEFAULT_SETTINGS = {
   autoBlockConfidence: 0.8,
   minDelayMs: 8000,
   maxDelayMs: 45000,
+  syncedBlockMinDelayMs: 3000,
+  syncedBlockMaxDelayMs: 12000,
   aiReviewMinDelayMs: 12000,
   aiReviewMaxDelayMs: 60000
 };
@@ -190,6 +196,28 @@ function isSyncedBlacklistEntry(entry) {
   return entry && entry.source === "sync" && keyOfHandle(entry.screenName || entry.userId);
 }
 
+function matchedRulesOf(candidate) {
+  return Array.isArray(candidate?.matchedRules) ? candidate.matchedRules.map((rule) => String(rule || "")) : [];
+}
+
+function isHardSpamCandidate(candidate) {
+  const score = Number(candidate?.ruleScore || 0);
+  const matched = new Set(matchedRulesOf(candidate));
+  const hardRules = [
+    "quark_pan_direct_link",
+    "adult_platform_bio",
+    "resource_lure_combo",
+    "tg_contact_combo",
+    "quark_lure_combo",
+    "adult_lure_combo",
+    "obfuscated_dd_contact_combo"
+  ];
+  if (hardRules.some((rule) => matched.has(rule))) return true;
+  if (score >= 8) return true;
+  if (score >= 6 && matched.has("random_handle")) return true;
+  return false;
+}
+
 function updateSyncBlockPending() {
   let pending = 0;
   for (const [key, item] of state.localBlacklist.entries()) {
@@ -217,6 +245,23 @@ async function purgeQueueAfterSync() {
   if (state.queue.length !== before) {
     await persistQueue();
   }
+}
+
+async function reprioritizePendingSyncedBlocks() {
+  const pending = state.queue.filter((task) => task?.metadata?.trigger === "sync" && Number(task.retries || 0) === 0);
+  if (!pending.length) return;
+  const others = state.queue.filter((task) => !(task?.metadata?.trigger === "sync" && Number(task.retries || 0) === 0));
+  let scheduledAtMs = Date.now();
+  for (const task of pending) {
+    scheduledAtMs += randomDelay(state.settings.syncedBlockMinDelayMs, state.settings.syncedBlockMaxDelayMs);
+    task.scheduledAt = new Date(scheduledAtMs).toISOString();
+    task.delayMs = scheduledAtMs - Date.now();
+  }
+  state.queue = [...others, ...pending];
+  state.queueKeys = new Set(state.queue.map((task) => keyOfHandle(task.screenName)).filter(Boolean));
+  sortQueueBySchedule();
+  state.stats.queuedCount = state.queue.length;
+  await persistQueue();
 }
 
 async function persistBlockAttemptCache() {
@@ -557,7 +602,9 @@ async function enqueueBlock(task, options = {}) {
   state.queueKeys.add(key);
   const now = Date.now();
   const scheduledMs = Number(options.scheduledAtMs || 0);
-  const delay = Math.max(1000, scheduledMs > now ? scheduledMs - now : randomDelay(state.settings.minDelayMs, state.settings.maxDelayMs));
+  const minDelay = Number(options.minDelayMs || state.settings.minDelayMs);
+  const maxDelay = Number(options.maxDelayMs || state.settings.maxDelayMs);
+  const delay = Math.max(1000, scheduledMs > now ? scheduledMs - now : randomDelay(minDelay, maxDelay));
   const queuedTask = {
     ...task,
     screenName: key,
@@ -597,9 +644,16 @@ async function enqueueSyncedBlacklistBlocks(trigger = "sync") {
       continue;
     }
     const attempt = state.blockAttemptCache.get(key);
+    const attemptStatus = String(attempt?.status || "");
+    const retryableCooldown =
+      attemptStatus === "cooldown" &&
+      /waiting_for_x_tab/i.test(String(attempt?.lastError || "")) &&
+      !state.queueKeys.has(key) &&
+      !activeHandles.has(key);
     if (
       attempt &&
-      ["queued", "running", "success", "failed", "cooldown"].includes(String(attempt.status || ""))
+      !retryableCooldown &&
+      ["queued", "running", "success", "failed", "cooldown"].includes(attemptStatus)
     ) {
       skipped += 1;
       continue;
@@ -609,7 +663,7 @@ async function enqueueSyncedBlacklistBlocks(trigger = "sync") {
       continue;
     }
 
-    scheduledAtMs += randomDelay(state.settings.minDelayMs, state.settings.maxDelayMs);
+    scheduledAtMs += randomDelay(state.settings.syncedBlockMinDelayMs, state.settings.syncedBlockMaxDelayMs);
     const task = await enqueueBlock({
       screenName: key,
       userId: item.userId || null,
@@ -626,7 +680,9 @@ async function enqueueSyncedBlacklistBlocks(trigger = "sync") {
         tags: Array.isArray(item.tags) ? item.tags : []
       }
     }, {
-      scheduledAtMs
+      scheduledAtMs,
+      minDelayMs: state.settings.syncedBlockMinDelayMs,
+      maxDelayMs: state.settings.syncedBlockMaxDelayMs
     });
 
     if (!task) {
@@ -635,6 +691,7 @@ async function enqueueSyncedBlacklistBlocks(trigger = "sync") {
     }
 
     state.blockAttemptCache.set(key, {
+      ...((attempt && typeof attempt === "object") ? attempt : {}),
       status: "queued",
       taskId: task.taskId,
       trigger,
@@ -663,7 +720,10 @@ async function enqueueAiReview(candidate, sender, trigger = "rule_hit") {
     .map((item) => new Date(item.scheduledAt || 0).getTime())
     .filter((value) => Number.isFinite(value) && value > 0);
   const baseAt = Math.max(Date.now(), ...scheduledTimes);
-  const delay = randomDelay(state.settings.aiReviewMinDelayMs, state.settings.aiReviewMaxDelayMs);
+  const fastLane = trigger === "hard_rule_hit";
+  const delay = fastLane
+    ? randomDelay(FAST_AI_REVIEW_MIN_DELAY_MS, FAST_AI_REVIEW_MAX_DELAY_MS)
+    : randomDelay(state.settings.aiReviewMinDelayMs, state.settings.aiReviewMaxDelayMs);
   const task = {
     screenName,
     candidate: {
@@ -735,10 +795,7 @@ async function updateBlockTaskStatus(task, status, patch = {}) {
 
 async function requeueTask(task, status, delayMs, error, patch = {}) {
   const key = keyOfHandle(task.screenName);
-  const scheduledTimes = state.queue
-    .map((item) => new Date(item.scheduledAt || 0).getTime())
-    .filter((value) => Number.isFinite(value) && value > 0);
-  const retryDelay = Math.max(getRetryDelayMs(task, delayMs), Math.max(0, ...scheduledTimes, Date.now()) - Date.now());
+  const retryDelay = getRetryDelayMs(task, delayMs);
   task.scheduledAt = new Date(Date.now() + retryDelay).toISOString();
   state.queue.unshift(task);
   sortQueueBySchedule();
@@ -918,6 +975,54 @@ async function reviewCandidateWithAi(candidate, sender) {
   await notifyHide(screenName);
 }
 
+async function fastBlockHardSpam(candidate, sender) {
+  const screenName = keyOfHandle(candidate.screenName);
+  if (!screenName) return;
+  await addToLocalBlacklist(candidate, {
+    reason: "hard_rule_fast_block",
+    confidence: 0.96,
+    tags: matchedRulesOf(candidate)
+  }, "local_rule_fast");
+
+  if (state.settings.shareEnabled) {
+    await postJson("/api/contributions", {
+      candidate,
+      verdict: {
+        isSpam: true,
+        shouldBlock: true,
+        confidence: 0.96,
+        reason: "hard_rule_fast_block",
+        tags: matchedRulesOf(candidate),
+        details: {
+          ruleScore: Number(candidate.ruleScore || 0),
+          matchedRules: matchedRulesOf(candidate),
+          fastLane: true
+        }
+      }
+    });
+    state.stats.sharedContributions += 1;
+  }
+
+  await enqueueBlock({
+    screenName,
+    reason: "hard_rule_fast_block",
+    confidence: 0.96,
+    tabId: sender?.tab?.id || null,
+    displayName: candidate.displayName || "",
+    userId: candidate.userId || null,
+    sourceUrl: candidate.sourceUrl || "",
+    metadata: {
+      trigger: "hard_rule_fast_block",
+      ruleScore: Number(candidate.ruleScore || 0),
+      matchedRules: matchedRulesOf(candidate)
+    }
+  }, {
+    minDelayMs: FAST_BLOCK_MIN_DELAY_MS,
+    maxDelayMs: FAST_BLOCK_MAX_DELAY_MS
+  });
+  await notifyHide(screenName);
+}
+
 async function processAiReviewQueue() {
   if (state.processingAiReviewQueue) return;
   if (!state.settings.running || !state.settings.autoBlockEnabled || state.aiReviewQueue.length === 0) return;
@@ -1041,6 +1146,11 @@ async function processCandidate(candidate, sender) {
     return;
   }
 
+  if (isHardSpamCandidate(candidate)) {
+    await fastBlockHardSpam(candidate, sender);
+    return;
+  }
+
   await enqueueAiReview(candidate, sender);
 }
 
@@ -1114,6 +1224,7 @@ async function initialize() {
   chrome.alarms.create(SYNC_BLACKLIST_ALARM, { periodInMinutes: 15 });
   await syncBlacklist();
   if (state.queue.length > 0) {
+    await reprioritizePendingSyncedBlocks();
     processQueue();
   }
   if (state.aiReviewQueue.length > 0) {
