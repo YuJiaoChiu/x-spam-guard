@@ -376,7 +376,8 @@ async function getEffectiveClassifierEnv() {
     CHEAP_AI_URL: runtime.cheapAiUrl || process.env.CHEAP_AI_URL || "",
     OPENAI_BASE_URL: runtime.openaiBaseUrl || process.env.OPENAI_BASE_URL || "https://api.openai.com/v1",
     CHEAP_AI_MODEL: runtime.cheapAiModel || process.env.CHEAP_AI_MODEL || "gpt-4o-mini",
-    OPENAI_API_KEY: runtime.openaiApiKey || process.env.OPENAI_API_KEY || ""
+    OPENAI_API_KEY: runtime.openaiApiKey || process.env.OPENAI_API_KEY || "",
+    AI_TIMEOUT_MS: process.env.AI_TIMEOUT_MS || "45000"
   };
 }
 
@@ -757,6 +758,76 @@ app.post("/api/classify", requireClient, classifyRateLimiter, async (req, res) =
   const feedbackHit = hasFeedbackHint(candidate, spamFeedback);
   const dynamicRules = await getActiveDynamicRules();
   const fastRule = scoreCandidate(candidate, { dynamicRules });
+  const onlyWeakRandomHandle =
+    fastRule.score === 2 &&
+    fastRule.matchedRules.length === 1 &&
+    fastRule.matchedRules[0] === "random_handle" &&
+    !feedbackHit;
+  if (fastRule.score >= config.strongRuleThreshold) {
+    const confidence = Math.min(0.98, Math.max(config.autoBlockConfidence, fastRule.score * 0.12));
+    const result = {
+      candidate,
+      ruleResult: fastRule,
+      aiResult: null,
+      final: {
+        isSpam: true,
+        confidence,
+        shouldBlock: confidence >= config.autoBlockConfidence,
+        reason: "strong_rule_direct_block",
+        tags: [...fastRule.matchedRules, "server_strong_rule"],
+        details: {
+          ruleScore: fastRule.score,
+          ruleHumanReasons: fastRule.humanReasons || [],
+          ruleMatchDetails: fastRule.matchDetails || [],
+          aiProvider: "none",
+          aiReason: "skipped_strong_rule",
+          aiDetails: {}
+        }
+      }
+    };
+    await store.addDecision({
+      type: "classify",
+      screenName: candidate.screenName,
+      ruleScore: fastRule.score,
+      matchedRules: fastRule.matchedRules,
+      aiProvider: "none",
+      final: result.final
+    });
+    res.json(result);
+    return;
+  }
+  if (onlyWeakRandomHandle) {
+    const fallback = {
+      candidate,
+      ruleResult: fastRule,
+      aiResult: null,
+      final: {
+        isSpam: false,
+        confidence: 0.05,
+        shouldBlock: false,
+        reason: "random_handle_only_skip_ai",
+        tags: [...fastRule.matchedRules],
+        details: {
+          ruleScore: fastRule.score,
+          ruleHumanReasons: fastRule.humanReasons || [],
+          ruleMatchDetails: fastRule.matchDetails || [],
+          aiProvider: "none",
+          aiReason: "skipped_random_handle_only",
+          aiDetails: {}
+        }
+      }
+    };
+    await store.addDecision({
+      type: "classify",
+      screenName: candidate.screenName,
+      ruleScore: fastRule.score,
+      matchedRules: fastRule.matchedRules,
+      aiProvider: "none",
+      final: fallback.final
+    });
+    res.json(fallback);
+    return;
+  }
   if (fastRule.score < config.aiReviewRuleThreshold && !feedbackHit) {
     const fallback = {
       candidate,
