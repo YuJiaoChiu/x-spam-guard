@@ -19,6 +19,8 @@ const COOLDOWN_RETRY_BASE_MS = 5 * 60 * 1000;
 const AI_REVIEW_RETRY_BASE_MS = 2 * 60 * 1000;
 const FAST_BLOCK_MIN_DELAY_MS = 1500;
 const FAST_BLOCK_MAX_DELAY_MS = 8000;
+const BLOCK_RESULT_TIMEOUT_MS = 30 * 1000;
+const BLOCK_RESULT_TIMEOUT_ALARM_PREFIX = "block-result-timeout:";
 const AI_REVIEW_BATCH_LIMIT = 1000;
 const AI_REVIEW_CONCURRENCY = 20;
 
@@ -73,6 +75,7 @@ const state = {
     aiReviewQueueCount: 0,
     sharedContributions: 0,
     queuedCount: 0,
+    activeTaskCount: 0,
     blockedSuccess: 0,
     blockedFailed: 0,
     decisions: 0,
@@ -86,6 +89,8 @@ const state = {
     lastScannedAt: "",
     lastCandidateAt: "",
     lastDecisionAt: "",
+    lastBlockAttemptAt: "",
+    lastBlockTarget: "",
     lastError: "",
     lastLocalRuleScore: 0,
     lastLocalRuleHitAt: ""
@@ -157,6 +162,14 @@ function getRetryDelayMs(task, fallbackMs) {
 function scheduleQueueProcessing(delayMs = 0) {
   const when = Date.now() + Math.max(1000, Number(delayMs || 1000));
   chrome.alarms.create(BLOCK_QUEUE_ALARM, { when });
+}
+
+function blockResultTimeoutAlarmName(taskId) {
+  return `${BLOCK_RESULT_TIMEOUT_ALARM_PREFIX}${taskId}`;
+}
+
+function updateActiveTaskCount() {
+  state.stats.activeTaskCount = state.activeTasks.size;
 }
 
 function scheduleAiReviewProcessing(delayMs = 0) {
@@ -419,13 +432,18 @@ async function postJson(path, payload) {
     headers["x-client-token"] = state.settings.clientToken;
   }
   try {
-    await fetch(url, {
+    const response = await fetch(url, {
       method: "POST",
       headers,
       body: JSON.stringify(payload || {})
     });
-  } catch {
-    // best effort
+    if (!response.ok) {
+      throw new Error(`post_failed_${response.status}`);
+    }
+    return await response.json().catch(() => ({ ok: true }));
+  } catch (error) {
+    markError(`post_failed:${path}:${String(error && error.message ? error.message : error)}`);
+    return null;
   }
 }
 
@@ -836,14 +854,62 @@ async function requeueTask(task, status, delayMs, error, patch = {}) {
   scheduleQueueProcessing(retryDelay);
 }
 
+async function startActiveBlockTask(task) {
+  state.activeTasks.set(task.taskId, task);
+  updateActiveTaskCount();
+  await chrome.alarms.clear(blockResultTimeoutAlarmName(task.taskId));
+  chrome.alarms.create(blockResultTimeoutAlarmName(task.taskId), {
+    when: Date.now() + BLOCK_RESULT_TIMEOUT_MS
+  });
+}
+
+async function clearActiveBlockTask(taskId) {
+  if (!taskId) return;
+  state.activeTasks.delete(taskId);
+  updateActiveTaskCount();
+  await chrome.alarms.clear(blockResultTimeoutAlarmName(taskId));
+}
+
+async function handleBlockResultTimeout(taskId) {
+  const task = state.activeTasks.get(taskId);
+  if (!task) return;
+  await clearActiveBlockTask(taskId);
+  state.stats.blockedFailed += 1;
+  state.stats.lastError = `block_result_timeout:@${task.screenName}`;
+  await postJson("/api/events", {
+    type: "block_result_timeout",
+    screenName: task.screenName,
+    reason: task.reason || "block_timeout",
+    confidence: Number(task.confidence || 0),
+    error: "content_script_or_x_api_did_not_return"
+  });
+  if (task.retries < Number(task.maxRetries || 2)) {
+    await requeueTask(task, "cooldown", NO_ACTIVE_X_TAB_RETRY_MS, "block_result_timeout");
+  } else {
+    await updateBlockTaskStatus(task, "failed", {
+      finishedAt: nowIso(),
+      lastError: "block_result_timeout"
+    });
+    await setBlockAttemptStatus(task.screenName, "failed", {
+      finishedAt: nowIso(),
+      lastError: "block_result_timeout"
+    });
+  }
+  scheduleNextQueueItem();
+}
+
 async function sendBlockCommand(task) {
   const candidateTabs = [];
+  const seenTabs = new Set();
   if (task.tabId) {
     candidateTabs.push(task.tabId);
-  } else {
-    const tabs = await chrome.tabs.query({ url: ["https://x.com/*", "https://twitter.com/*"] });
-    for (const tab of tabs) {
+    seenTabs.add(task.tabId);
+  }
+  const tabs = await chrome.tabs.query({ url: ["https://x.com/*", "https://twitter.com/*"] });
+  for (const tab of tabs) {
+    if (tab.id && !seenTabs.has(tab.id)) {
       candidateTabs.push(tab.id);
+      seenTabs.add(tab.id);
     }
   }
 
@@ -905,10 +971,12 @@ async function processQueue() {
         startedAt: nowIso(),
         retries: task.retries
       });
-      state.activeTasks.set(task.taskId, task);
+      await startActiveBlockTask(task);
+      state.stats.lastBlockAttemptAt = nowIso();
+      state.stats.lastBlockTarget = `@${task.screenName}`;
       const sent = await sendBlockCommand(task);
       if (!sent) {
-        state.activeTasks.delete(task.taskId);
+        await clearActiveBlockTask(task.taskId);
         await requeueTask(task, "cooldown", NO_ACTIVE_X_TAB_RETRY_MS, "waiting_for_x_tab");
         state.stats.lastError = "waiting_for_x_tab";
         await postJson("/api/events", {
@@ -1211,11 +1279,12 @@ async function handleBlockResult(message) {
   const taskId = message.taskId || "";
   const task = taskId ? state.activeTasks.get(taskId) : null;
   if (taskId) {
-    state.activeTasks.delete(taskId);
+    await clearActiveBlockTask(taskId);
   }
   const statusCode = Number(message.status || 0);
   const error = String(message.error || "");
   if (message.ok) {
+    state.stats.lastError = "";
     state.stats.blockedSuccess += 1;
     if (task) {
       await updateBlockTaskStatus(task, "success", {
@@ -1237,6 +1306,7 @@ async function handleBlockResult(message) {
     scheduleNextQueueItem();
   } else {
     state.stats.blockedFailed += 1;
+    state.stats.lastError = `block_failed:@${keyOfHandle(message.screenName)}:${error || statusCode || "unknown"}`;
     const isCooldown =
       statusCode === 429 ||
       statusCode === 403 ||
@@ -1303,6 +1373,9 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   }
   if (alarm.name === AI_REVIEW_QUEUE_ALARM) {
     processAiReviewQueue();
+  }
+  if (alarm.name && alarm.name.startsWith(BLOCK_RESULT_TIMEOUT_ALARM_PREFIX)) {
+    handleBlockResultTimeout(alarm.name.slice(BLOCK_RESULT_TIMEOUT_ALARM_PREFIX.length));
   }
 });
 

@@ -86,6 +86,7 @@ function renderStats(stats) {
   $("decisions").textContent = String(stats.decisions || 0);
   $("aiReviewQueueCount").textContent = String(stats.aiReviewQueueCount || 0);
   $("queuedCount").textContent = String(stats.queuedCount || 0);
+  $("activeTaskCount").textContent = String(stats.activeTaskCount || 0);
   $("blacklistCount").textContent = String(stats.blacklistCount || 0);
   $("syncBlockPending").textContent = String(stats.syncBlockPending || 0);
   $("syncedBlockQueued").textContent = String(stats.syncedBlockQueued || 0);
@@ -95,6 +96,9 @@ function renderStats(stats) {
   $("lastScannedAt").textContent = stats.lastScannedAt ? formatTime(stats.lastScannedAt) : "未扫描";
   $("lastContentReadyAt").textContent = stats.lastContentReadyAt ? formatTime(stats.lastContentReadyAt) : "未注入";
   $("lastCandidateAt").textContent = stats.lastCandidateAt ? `${formatTime(stats.lastCandidateAt)} / 分 ${stats.lastLocalRuleScore || 0}` : "无";
+  $("lastBlockTarget").textContent = stats.lastBlockTarget
+    ? `${stats.lastBlockTarget} / ${formatTime(stats.lastBlockAttemptAt)}`
+    : "无";
   $("lastError").textContent = stats.lastError || "无";
 }
 

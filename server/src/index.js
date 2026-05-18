@@ -404,6 +404,30 @@ async function classifyForReview(candidate) {
   const spamFeedback = allFeedback.filter((row) => row.label === "spam");
   const effectiveEnv = await getEffectiveClassifierEnv();
   const dynamicRules = await getActiveDynamicRules();
+  const fastRule = scoreCandidate(candidate, { dynamicRules });
+  if (fastRule.score >= config.strongRuleThreshold) {
+    const confidence = Math.min(0.98, Math.max(config.autoBlockConfidence, fastRule.score * 0.12));
+    return {
+      candidate,
+      ruleResult: fastRule,
+      aiResult: null,
+      final: {
+        isSpam: true,
+        confidence,
+        shouldBlock: confidence >= config.autoBlockConfidence,
+        reason: "strong_rule_direct_block",
+        tags: [...fastRule.matchedRules, "server_strong_rule"],
+        details: {
+          ruleScore: fastRule.score,
+          ruleHumanReasons: fastRule.humanReasons || [],
+          ruleMatchDetails: fastRule.matchDetails || [],
+          aiProvider: "none",
+          aiReason: "skipped_strong_rule",
+          aiDetails: {}
+        }
+      }
+    };
+  }
   return await classifyCandidate(candidate, {
     env: effectiveEnv,
     strongRuleThreshold: config.strongRuleThreshold,

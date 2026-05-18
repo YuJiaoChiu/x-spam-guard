@@ -395,7 +395,7 @@
     resolver(data);
   }
 
-  function handleRuntimeMessage(message) {
+  function handleRuntimeMessage(message, sender, sendResponse) {
     if (destroyed) return;
     if (!message || !message.type) return;
     if (message.type === "HIDE_USER") {
@@ -412,7 +412,11 @@
       return;
     }
     if (message.type === "BLOCK_USER") {
+      if (typeof sendResponse === "function") {
+        sendResponse({ ok: true, accepted: true });
+      }
       blockAndReport(message);
+      return true;
     }
   }
 
