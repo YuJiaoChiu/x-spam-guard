@@ -1,24 +1,773 @@
 {
-  "generatedAt": "2026-05-18T04:41:24.185Z",
+  "generatedAt": "2026-05-18T08:53:13.713Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 197,
-    "blacklistConfirmed": 197,
+    "blacklistTotal": 231,
+    "blacklistConfirmed": 231,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 165,
+    "contributionTotal": 200,
     "contributionPending": 0,
-    "dynamicRuleTotal": 41,
-    "dynamicRuleActive": 41,
-    "eventsTotal": 2072,
-    "blocked24h": 495,
-    "blockFailed24h": 43,
-    "decisions24h": 916,
-    "blockTaskPending": 0,
-    "generatedAt": "2026-05-18T04:41:24.172Z"
+    "dynamicRuleTotal": 50,
+    "dynamicRuleActive": 50,
+    "eventsTotal": 3106,
+    "blocked24h": 570,
+    "blockFailed24h": 51,
+    "decisions24h": 1547,
+    "blockTaskPending": 26,
+    "generatedAt": "2026-05-18T08:53:13.699Z"
   },
   "blacklist": [
+    {
+      "screenName": "kabriand14",
+      "displayName": "حب",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => kabriand14"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "staci1968",
+      "displayName": "TOM 2",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => staci1968"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "jennie49518",
+      "displayName": "🌟真实约见🎀同城资源自取🔥看我简介",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:netdisk",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "peter265600",
+      "displayName": "💎1-5线覆盖🙌真实可靠约见🎀看我置顶",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:netdisk",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "elizabe77226595",
+      "displayName": "🎁同城约P❤️1-5线真实对接🧐看我置顶",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:netdisk",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "sophia1819830",
+      "displayName": "🚀线下资源入口☔️点我头像进群选人😚",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:netdisk",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "sxgun66",
+      "displayName": "三上悠亚视频,天天更新最新视频,主页更多视频",
+      "reason": "The account promotes adult content and external links to download apps/websites, which is a classic spam lure pattern.",
+      "confidence": 0.895,
+      "tags": [
+        "auto_ai_review",
+        "quark_lure_combo",
+        "adult_content",
+        "spam_lure",
+        "external_link"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "quark_lure_combo [commentText,displayName] => 下载, 主页"
+        ],
+        "aiProvider": "openai:gemini-3-flash-preview",
+        "aiReason": "The account promotes adult content and external links to download apps/websites, which is a classic spam lure pattern.",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText",
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "下载"
+              },
+              {
+                "field": "displayName",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "guiller29654963",
+      "displayName": "روقان",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => guiller29654963"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "abbyturner43179",
+      "displayName": "💎专业牵线💟全国1-5线覆盖⚡️看主页",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "martinjodi55128",
+      "displayName": "🌟真实约见☘️同城资源自取✨看我简介",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "lorainesta37415",
+      "displayName": "卢童昀♥免费破处♥",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "cwaguespac26603",
+      "displayName": "Cheryl♥chu男无偿♥",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "majkrzak10306",
+      "displayName": "姚惟星♥免费破处♥",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "marylandwe40471",
+      "displayName": "🚀线下资源入口🤍点我头像进群选人",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "apriltorre95872",
+      "displayName": "💎看我主页🆚全是附近真实约见资源😚",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "rosemaryfr55747",
+      "displayName": "💎真实约见❗️附近好友匹配💓",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "lok_melani3966",
+      "displayName": "苹苹，♥处男免费♥",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "melaniedav8960",
+      "displayName": "今晚准时涩播⭐️",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:resource_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "domingomon65387",
+      "displayName": "呆呆兔",
+      "reason": "The account exhibits multiple characteristics of spam, including dynamic sexual solicitation and a machine-generated screen name. The comment text suggests a romantic/sexual solicitation, which is commonly associated with spam accounts.",
+      "confidence": 0.8300000000000001,
+      "tags": [
+        "auto_ai_review",
+        "dynamic_sexual_solicitation",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "dynamic_sexual_solicitation [commentText] => 想找会疼人的哥哥",
+          "random_handle [screenName] => domingomon65387"
+        ],
+        "aiProvider": "openai:gpt-4o-mini",
+        "aiReason": "The account exhibits multiple characteristics of spam, including dynamic sexual solicitation and a machine-generated screen name. The comment text suggests a romantic/sexual solicitation, which is commonly associated with spam accounts.",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_sexual_solicitation",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "想找会疼人的哥哥"
+              }
+            ],
+            "evidence": [],
+            "reason": "Romantic/sexual solicitation phrase that appears in spam-style bait copy; usable but broader, so moderate confidence."
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "vargas_dan67488",
+      "displayName": "鹿宝宝无线下点击主页",
+      "reason": "The display name contains high-intent contact lure terms ('点击主页', '线下'), the screen name appears machine-generated, and multiple reported spam samples show similar contact lure patterns and adult-oriented phrasing.",
+      "confidence": 0.9534999999999999,
+      "tags": [
+        "auto_ai_review",
+        "dynamic_contact_lure",
+        "contact_lure_signal",
+        "random_handle",
+        "contact_lure",
+        "adult_lure"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "dynamic_contact_lure [displayName] => 点击主页",
+          "contact_lure_signal [displayName] => 主页, 线下",
+          "random_handle [screenName] => vargas_dan67488"
+        ],
+        "aiProvider": "openai:gpt-4o-mini",
+        "aiReason": "The display name contains high-intent contact lure terms ('点击主页', '线下'), the screen name appears machine-generated, and multiple reported spam samples show similar contact lure patterns and adult-oriented phrasing.",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "点击主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "pattern_candidate:token"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "主页"
+              },
+              {
+                "field": "displayName",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "contreras_83322",
+      "displayName": "月亮岛🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:sexual_solicitation"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "justice_ra99467",
+      "displayName": "浅浅🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:sexual_solicitation"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "schneider_69879",
+      "displayName": "云朵朵🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:sexual_solicitation"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "wheeler_ga28084",
+      "displayName": "樱草莓🍑蹲一个弟弟🍑点击主页🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:sexual_solicitation"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "aldogoodwi73676",
+      "displayName": "暖橘🍑附近的DD🍑点击主页🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:sexual_solicitation"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "thompson_l98182",
+      "displayName": "茶米粒🍑无🚪线下🍑点击主页🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:sexual_solicitation"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "albertodav98197",
+      "displayName": "林清禾🍑蹲一个弟弟🍑点击主页🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure",
+        "rule:sexual_solicitation"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
     {
       "screenName": "dunnmichae34952",
       "displayName": "暖暖",
@@ -35,7 +784,7 @@
         "spam_pattern_match"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:38:09.409Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -119,7 +868,7 @@
         "spam_pattern"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:38:03.992Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -207,7 +956,7 @@
         "spam_pattern"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:38:02.774Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -295,7 +1044,7 @@
         "spam_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:38:02.271Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -383,7 +1132,7 @@
         "high_intent_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:37:58.213Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -471,7 +1220,7 @@
         "adult_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:37:58.117Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -554,7 +1303,7 @@
         "spam_patterns"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:37:58.002Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 13,
         "ruleHumanReasons": [
@@ -622,7 +1371,7 @@
         "external_link"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:37:57.649Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 13,
         "ruleHumanReasons": [
@@ -688,7 +1437,7 @@
         "spam_patterns"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:28:30.694Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 8,
         "ruleHumanReasons": [
@@ -743,7 +1492,7 @@
         "spam_patterns"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:25:52.274Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -782,7 +1531,7 @@
         "profile_redirection"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:25:21.138Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -821,7 +1570,7 @@
         "sexual_content"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:24:49.470Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 8,
         "ruleHumanReasons": [
@@ -875,7 +1624,7 @@
         "sexualized_content"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T03:24:13.233Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 8,
         "ruleHumanReasons": [
@@ -927,7 +1676,7 @@
         "dynamic_contact_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:32:34.440Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 5,
         "ruleHumanReasons": [
@@ -982,7 +1731,7 @@
         "spam_pattern"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:28:32.486Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1040,7 +1789,7 @@
         "high_risk"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:28:19.789Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 12,
         "ruleHumanReasons": [
@@ -1113,7 +1862,7 @@
         "spam_pattern"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:27:51.280Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -1159,7 +1908,7 @@
         "engagement_spam"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:27:17.322Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -1226,7 +1975,7 @@
         "spam_pattern_match"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:26:59.156Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1284,7 +2033,7 @@
         "offensive_language"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:26:18.895Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 12,
         "ruleHumanReasons": [
@@ -1357,7 +2106,7 @@
         "contact_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:25:39.739Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -1421,7 +2170,7 @@
         "rule:phrase"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -1443,7 +2192,7 @@
         "rule:phrase"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -1465,7 +2214,7 @@
         "rule:phrase"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -1487,7 +2236,7 @@
         "rule:phrase"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -1510,7 +2259,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -1574,7 +2323,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -1618,7 +2367,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 14,
         "ruleHumanReasons": [
@@ -1703,7 +2452,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 12,
         "ruleHumanReasons": [
@@ -1774,7 +2523,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -1815,7 +2564,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -1853,7 +2602,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -1906,7 +2655,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 8,
         "ruleHumanReasons": [
@@ -1958,7 +2707,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 8,
         "ruleHumanReasons": [
@@ -2010,7 +2759,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -2051,7 +2800,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -2093,7 +2842,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -2147,7 +2896,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -2211,7 +2960,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 8,
         "ruleHumanReasons": [
@@ -2264,7 +3013,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -2328,7 +3077,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 8,
         "ruleHumanReasons": [
@@ -2380,7 +3129,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -2418,7 +3167,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -2484,7 +3233,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 12,
         "ruleHumanReasons": [
@@ -2556,7 +3305,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -2605,7 +3354,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -2654,7 +3403,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 14,
         "ruleHumanReasons": [
@@ -2737,7 +3486,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 8,
         "ruleHumanReasons": [
@@ -2791,7 +3540,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 12,
         "ruleHumanReasons": [
@@ -2862,7 +3611,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -2899,7 +3648,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -2940,7 +3689,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 8,
         "ruleHumanReasons": [
@@ -2992,7 +3741,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3029,7 +3778,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3067,7 +3816,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -3116,7 +3865,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 8,
         "ruleHumanReasons": [
@@ -3169,7 +3918,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -3218,7 +3967,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3255,7 +4004,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3293,7 +4042,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -3342,7 +4091,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3383,7 +4132,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3422,7 +4171,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 12,
         "ruleHumanReasons": [
@@ -3493,7 +4242,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3531,7 +4280,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 5,
         "ruleHumanReasons": [
@@ -3583,7 +4332,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3621,7 +4370,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -3685,7 +4434,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3722,7 +4471,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3760,7 +4509,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -3809,7 +4558,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3854,7 +4603,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 14,
         "ruleHumanReasons": [
@@ -3937,7 +4686,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -3975,7 +4724,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -4035,7 +4784,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -4076,7 +4825,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -4114,7 +4863,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 5,
         "ruleHumanReasons": [
@@ -4166,7 +4915,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -4205,7 +4954,7 @@
         "hard_signal"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 13,
         "ruleHumanReasons": [
@@ -4273,7 +5022,7 @@
         "spam_pattern"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -4360,7 +5109,7 @@
         "contact_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -4444,7 +5193,7 @@
         "spam_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -4532,7 +5281,7 @@
         "resource_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -4604,7 +5353,7 @@
         "soft_lure_bot"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -4686,7 +5435,7 @@
         "obfuscated_dd"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 5,
         "ruleHumanReasons": [
@@ -4741,7 +5490,7 @@
         "spam"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -4785,7 +5534,7 @@
         "netdisk_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 5,
         "ruleHumanReasons": [
@@ -4830,7 +5579,7 @@
       "confidence": 0.9,
       "tags": [],
       "source": "manual",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -4852,7 +5601,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 12,
         "ruleHumanReasons": [
@@ -4927,7 +5676,7 @@
         "rule_match"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -4979,7 +5728,7 @@
         "spam_pattern"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 14,
         "ruleHumanReasons": [
@@ -5067,7 +5816,7 @@
         "offline_meetup"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 12,
         "ruleHumanReasons": [
@@ -5140,7 +5889,7 @@
         "contact_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 10,
         "ruleHumanReasons": [
@@ -5208,7 +5957,7 @@
         "offline_solicitation"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 12,
         "ruleHumanReasons": [
@@ -5280,7 +6029,7 @@
         "contact_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -5326,7 +6075,7 @@
         "coordinated_spam_pattern"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -5380,7 +6129,7 @@
         "explicit_contact"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 12,
         "ruleHumanReasons": [
@@ -5455,7 +6204,7 @@
         "coordinated_spam"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -5511,7 +6260,7 @@
         "sexual_spam"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 12,
         "ruleHumanReasons": [
@@ -5584,7 +6333,7 @@
         "contact_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -5641,7 +6390,7 @@
         "pattern_match"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -5684,7 +6433,7 @@
         "spam_pattern"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -5728,7 +6477,7 @@
         "social_engagement"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -5770,7 +6519,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -5793,7 +6542,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -5816,7 +6565,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -5839,7 +6588,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -5862,7 +6611,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -5885,7 +6634,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -5908,7 +6657,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -5931,7 +6680,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -5954,7 +6703,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -5977,7 +6726,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6000,7 +6749,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6023,7 +6772,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6046,7 +6795,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6069,7 +6818,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6092,7 +6841,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6115,7 +6864,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6138,7 +6887,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6161,7 +6910,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6184,7 +6933,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6207,7 +6956,7 @@
         "rule:adult_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6231,7 +6980,7 @@
         "spam_pattern"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -6276,7 +7025,7 @@
         "spam_patterns"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 13,
         "ruleHumanReasons": [
@@ -6343,7 +7092,7 @@
         "spam_pattern"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -6398,7 +7147,7 @@
         "spam_pattern"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -6439,7 +7188,7 @@
         "rule:contact_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6451,205 +7200,267 @@
       }
     },
     {
-      "screenName": "leroy_clar26478",
-      "displayName": "奶盖兔🍑",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
+      "screenName": "josiahscho40188",
+      "displayName": "严嫣侃免费破处",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.905,
       "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:contact_lure"
+        "auto_ai_review",
+        "dynamic_adult_lure",
+        "random_handle",
+        "feedback_memory"
       ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
-        "ruleScore": 0,
+        "ruleScore": 6,
         "ruleHumanReasons": [
-          "admin pasted spam sample"
+          "dynamic_adult_lure [displayName] => 免费破处",
+          "random_handle [screenName] => josiahscho40188"
         ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "免费破处"
+              }
+            ],
+            "evidence": [],
+            "reason": "Explicit sexual bait phrase with very low benign usage likelihood."
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
       }
     },
     {
-      "screenName": "dennygriff21852",
-      "displayName": "奶茶🍑",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
+      "screenName": "lashawndar87690",
+      "displayName": "温婉宁寻男大固泡点击主页",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.947,
       "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:contact_lure"
+        "auto_ai_review",
+        "adult_lure_combo",
+        "dynamic_contact_lure",
+        "random_handle",
+        "feedback_memory"
       ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
-        "ruleScore": 0,
+        "ruleScore": 10,
         "ruleHumanReasons": [
-          "admin pasted spam sample"
+          "adult_lure_combo [displayName] => 男大, 主页",
+          "dynamic_contact_lure [displayName] => 点击主页",
+          "random_handle [screenName] => lashawndar87690"
         ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "男大"
+              },
+              {
+                "field": "displayName",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "点击主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "pattern_candidate:token"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
       }
     },
     {
-      "screenName": "durhamlamo28740",
-      "displayName": "云朵朵🍑",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
+      "screenName": "lavernaw8613",
+      "displayName": "小樱桃无线下点击主页",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.947,
       "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:contact_lure"
+        "auto_ai_review",
+        "dynamic_contact_lure",
+        "contact_lure_signal",
+        "random_handle",
+        "feedback_memory"
       ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
-        "ruleScore": 0,
+        "ruleScore": 7,
         "ruleHumanReasons": [
-          "admin pasted spam sample"
+          "dynamic_contact_lure [displayName] => 点击主页",
+          "contact_lure_signal [displayName] => 主页, 线下",
+          "random_handle [screenName] => lavernaw8613"
         ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "点击主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "pattern_candidate:token"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "主页"
+              },
+              {
+                "field": "displayName",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
       }
     },
     {
-      "screenName": "jeremy_ree97991",
-      "displayName": "暖暖🍑",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
+      "screenName": "lawsonosva80428",
+      "displayName": "林清禾蹲一个弟弟点击主页",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.905,
       "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:contact_lure"
+        "auto_ai_review",
+        "dynamic_contact_lure",
+        "random_handle",
+        "feedback_memory"
       ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
-        "ruleScore": 0,
+        "ruleScore": 6,
         "ruleHumanReasons": [
-          "admin pasted spam sample"
+          "dynamic_contact_lure [displayName] => 点击主页",
+          "random_handle [screenName] => lawsonosva80428"
         ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "点击主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "pattern_candidate:token"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
       }
     },
     {
-      "screenName": "crawford_y92120",
-      "displayName": "晚晚🍑",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:contact_lure"
-      ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [
-          "admin pasted spam sample"
-        ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "dominiceri91564",
-      "displayName": "苏苏🍑",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:contact_lure"
-      ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [
-          "admin pasted spam sample"
-        ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "dyanc90373",
-      "displayName": "风铃响🍑",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:contact_lure"
-      ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [
-          "admin pasted spam sample"
-        ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "eingram18008",
-      "displayName": "奶茶🍑",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:contact_lure"
-      ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [
-          "admin pasted spam sample"
-        ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "irenedfr",
-      "displayName": "Нyper Liquid Х",
-      "reason": "The comment contains a direct Quark pan link and matches known lure patterns for spreading external file links, consistent with reported spam samples.",
-      "confidence": 0.9534999999999999,
+      "screenName": "adrian35335044",
+      "displayName": "Adrian",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
       "tags": [
         "auto_ai_review",
         "quark_pan_direct_link",
         "quark_lure_combo",
-        "quark_pan",
-        "link_lure",
-        "spam_pattern",
-        "netdisk_lure"
+        "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
-        "ruleScore": 11,
+        "ruleScore": 13,
         "ruleHumanReasons": [
           "quark_pan_direct_link [commentText] => pan.quark.cn/",
-          "quark_lure_combo [commentText] => quark"
+          "quark_lure_combo [commentText] => quark",
+          "random_handle [screenName] => adrian35335044"
         ],
-        "aiProvider": "openai:gpt-4o",
-        "aiReason": "The comment contains a direct Quark pan link and matches known lure patterns for spreading external file links, consistent with reported spam samples.",
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
         "ruleMatchDetails": [
           {
             "rule": "quark_pan_direct_link",
@@ -6678,30 +7489,19 @@
             ],
             "evidence": [],
             "reason": "Quark/netdisk lure with contact or URL"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
           }
         ]
-      }
-    },
-    {
-      "screenName": "gibson_gre42451",
-      "displayName": "欣艺~❀同城上门",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:contact_lure"
-      ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [
-          "admin pasted spam sample"
-        ],
-        "aiProvider": "openai:gpt-5.4",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
       }
     },
     {
@@ -6719,7 +7519,7 @@
         "offline_hookup"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -6787,7 +7587,7 @@
         "rule:contact_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6812,7 +7612,7 @@
         "hookup_spam"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -6864,7 +7664,7 @@
         "bot"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -6913,7 +7713,774 @@
         "rule:contact_lure"
       ],
       "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.912Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "openai:gpt-5.4",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "amgdlp16076",
+      "displayName": "母狗待调",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "adult_name_bot_comment_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "adult_name_bot_comment_combo [displayName,commentText,screenName] => 母狗待调, 待调, 母狗",
+          "random_handle [screenName] => amgdlp16076"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_name_bot_comment_combo",
+            "fields": [
+              "displayName",
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "母狗待调"
+              },
+              {
+                "field": "displayName",
+                "term": "待调"
+              },
+              {
+                "field": "displayName",
+                "term": "母狗"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Explicit adult display name with random handle and bot-like short code/emoji comment"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "bywtduva53243",
+      "displayName": "母狗待调教",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "adult_name_bot_comment_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "adult_name_bot_comment_combo [displayName,commentText,screenName] => 母狗待调, 待调, 母狗",
+          "random_handle [screenName] => bywtduva53243"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_name_bot_comment_combo",
+            "fields": [
+              "displayName",
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "母狗待调"
+              },
+              {
+                "field": "displayName",
+                "term": "待调"
+              },
+              {
+                "field": "displayName",
+                "term": "母狗"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Explicit adult display name with random handle and bot-like short code/emoji comment"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "ajbncd54208",
+      "displayName": "爱吃肉棒（重生推特",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "adult_name_bot_comment_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "adult_name_bot_comment_combo [displayName,commentText,screenName] => 爱吃肉棒, 肉棒",
+          "random_handle [screenName] => ajbncd54208"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_name_bot_comment_combo",
+            "fields": [
+              "displayName",
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "爱吃肉棒"
+              },
+              {
+                "field": "displayName",
+                "term": "肉棒"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Explicit adult display name with random handle and bot-like short code/emoji comment"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "nrsdaxz3661",
+      "displayName": "哥哥我要",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "adult_name_bot_comment_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "adult_name_bot_comment_combo [displayName,commentText,screenName] => 哥哥我要",
+          "random_handle [screenName] => nrsdaxz3661"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_name_bot_comment_combo",
+            "fields": [
+              "displayName",
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "哥哥我要"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Explicit adult display name with random handle and bot-like short code/emoji comment"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "cgsxpb63351",
+      "displayName": "想被扇巴掌",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "adult_name_bot_comment_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "adult_name_bot_comment_combo [displayName,commentText,screenName] => 想被扇巴掌",
+          "random_handle [screenName] => cgsxpb63351"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_name_bot_comment_combo",
+            "fields": [
+              "displayName",
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "想被扇巴掌"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Explicit adult display name with random handle and bot-like short code/emoji comment"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "uwxsqdri28997",
+      "displayName": "母狗待调",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "adult_name_bot_comment_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "adult_name_bot_comment_combo [displayName,commentText,screenName] => 母狗待调, 待调, 母狗",
+          "random_handle [screenName] => uwxsqdri28997"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_name_bot_comment_combo",
+            "fields": [
+              "displayName",
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "母狗待调"
+              },
+              {
+                "field": "displayName",
+                "term": "待调"
+              },
+              {
+                "field": "displayName",
+                "term": "母狗"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Explicit adult display name with random handle and bot-like short code/emoji comment"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "pocndk44873",
+      "displayName": "哥哥我要",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "adult_name_bot_comment_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "adult_name_bot_comment_combo [displayName,commentText,screenName] => 哥哥我要",
+          "random_handle [screenName] => pocndk44873"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_name_bot_comment_combo",
+            "fields": [
+              "displayName",
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "哥哥我要"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Explicit adult display name with random handle and bot-like short code/emoji comment"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "hnaqdf41660",
+      "displayName": "爱吃肉棒（重生推特",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "adult_name_bot_comment_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "adult_name_bot_comment_combo [displayName,commentText,screenName] => 爱吃肉棒, 肉棒",
+          "random_handle [screenName] => hnaqdf41660"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_name_bot_comment_combo",
+            "fields": [
+              "displayName",
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "爱吃肉棒"
+              },
+              {
+                "field": "displayName",
+                "term": "肉棒"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Explicit adult display name with random handle and bot-like short code/emoji comment"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "jawzmx13663",
+      "displayName": "爱吃肉棒（重生推特",
+      "reason": "high_rule_score",
+      "confidence": 0.869,
+      "tags": [
+        "auto_ai_review",
+        "adult_name_bot_comment_combo",
+        "random_handle"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "adult_name_bot_comment_combo [displayName,commentText,screenName] => 爱吃肉棒, 肉棒",
+          "random_handle [screenName] => jawzmx13663"
+        ],
+        "aiProvider": "mock-ai(fallback)",
+        "aiReason": "high_rule_score",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_name_bot_comment_combo",
+            "fields": [
+              "displayName",
+              "commentText",
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "爱吃肉棒"
+              },
+              {
+                "field": "displayName",
+                "term": "肉棒"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Explicit adult display name with random handle and bot-like short code/emoji comment"
+          },
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "leroy_clar26478",
+      "displayName": "奶盖兔🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "dennygriff21852",
+      "displayName": "奶茶🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "durhamlamo28740",
+      "displayName": "云朵朵🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "jeremy_ree97991",
+      "displayName": "暖暖🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "crawford_y92120",
+      "displayName": "晚晚🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "dominiceri91564",
+      "displayName": "苏苏🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "dyanc90373",
+      "displayName": "风铃响🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "eingram18008",
+      "displayName": "奶茶🍑",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [
+          "admin pasted spam sample"
+        ],
+        "aiProvider": "heuristic",
+        "aiReason": "AI/model-assisted ingest via gpt-5.4",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "irenedfr",
+      "displayName": "Нyper Liquid Х",
+      "reason": "The comment contains a direct Quark pan link and matches known lure patterns for spreading external file links, consistent with reported spam samples.",
+      "confidence": 0.9534999999999999,
+      "tags": [
+        "auto_ai_review",
+        "quark_pan_direct_link",
+        "quark_lure_combo",
+        "quark_pan",
+        "link_lure",
+        "spam_pattern",
+        "netdisk_lure"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "quark_pan_direct_link [commentText] => pan.quark.cn/",
+          "quark_lure_combo [commentText] => quark"
+        ],
+        "aiProvider": "openai:gpt-4o",
+        "aiReason": "The comment contains a direct Quark pan link and matches known lure patterns for spreading external file links, consistent with reported spam samples.",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_pan_direct_link",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "pan.quark.cn/"
+              }
+            ],
+            "evidence": [],
+            "reason": "Direct Quark pan share link"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "quark"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "gibson_gre42451",
+      "displayName": "欣艺~❀同城上门",
+      "reason": "admin_ai_ingest_confirmed_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_confirmed",
+        "ai_rule_ingest",
+        "rule:contact_lure"
+      ],
+      "source": "admin_ai_rule_ingest",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [
@@ -6940,7 +8507,7 @@
         "resource_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 14,
         "ruleHumanReasons": [
@@ -7032,7 +8599,7 @@
         "bot_account"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 14,
         "ruleHumanReasons": [
@@ -7122,7 +8689,7 @@
         "hookup_scam"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -7178,7 +8745,7 @@
         "offline_meetup_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -7233,7 +8800,7 @@
         "url_spam"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 5,
         "ruleHumanReasons": [
@@ -7272,7 +8839,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -7344,7 +8911,7 @@
         "bot"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -7417,7 +8984,7 @@
         "bot"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -7490,7 +9057,7 @@
         "relationship_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -7573,7 +9140,7 @@
         "bot_account"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -7645,7 +9212,7 @@
         "obfuscated_contact"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -7718,7 +9285,7 @@
         "obfuscated_contact"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -7789,7 +9356,7 @@
         "adult_content_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -7843,7 +9410,7 @@
         "sexual_content"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -7887,7 +9454,7 @@
         "chinese_spam"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 5,
         "ruleHumanReasons": [
@@ -7948,7 +9515,7 @@
         "offline_lure"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -8019,7 +9586,7 @@
         "traffic_redirection"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -8078,7 +9645,7 @@
         "solicitation"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -8163,7 +9730,7 @@
         "short-code"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 7,
         "ruleHumanReasons": [
@@ -8246,7 +9813,7 @@
         "offline_solicitation"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -8318,7 +9885,7 @@
         "bot"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -8390,7 +9957,7 @@
         "obfuscated_contact"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -8458,7 +10025,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 4,
         "ruleHumanReasons": [
@@ -8499,7 +10066,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -8533,7 +10100,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -8568,7 +10135,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 13,
         "ruleHumanReasons": [
@@ -8632,7 +10199,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -8684,7 +10251,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -8736,7 +10303,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -8789,7 +10356,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -8842,7 +10409,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -8894,7 +10461,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -8952,7 +10519,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -9010,7 +10577,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -9063,7 +10630,7 @@
         "random_handle"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 6,
         "ruleHumanReasons": [
@@ -9119,7 +10686,7 @@
         "hard_signal"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 15,
         "ruleHumanReasons": [
@@ -9198,7 +10765,7 @@
         "random_handle"
       ],
       "source": "contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -9217,7 +10784,7 @@
         "emoji_flood"
       ],
       "source": "contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 3,
         "ruleHumanReasons": [
@@ -9259,7 +10826,7 @@
         "mixed_short_code_lure"
       ],
       "source": "admin_sample_batch",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -9279,7 +10846,7 @@
         "mixed_short_code_lure"
       ],
       "source": "admin_sample_batch",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -9299,7 +10866,7 @@
         "mixed_short_code_lure"
       ],
       "source": "admin_sample_batch",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -9319,7 +10886,7 @@
         "mixed_short_code_lure"
       ],
       "source": "admin_sample_batch",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -9339,7 +10906,7 @@
         "feedback_memory"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 2,
         "ruleHumanReasons": [
@@ -9373,7 +10940,7 @@
         "quark_lure_combo"
       ],
       "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 11,
         "ruleHumanReasons": [
@@ -9421,7 +10988,7 @@
       "confidence": 0.9,
       "tags": [],
       "source": "manual",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
+      "updatedAt": "2026-05-18T08:49:50.911Z",
       "reasonDetails": {
         "ruleScore": 0,
         "ruleHumanReasons": [],
@@ -9429,213 +10996,191 @@
         "aiReason": "",
         "ruleMatchDetails": []
       }
-    },
-    {
-      "screenName": "kabriand14",
-      "displayName": "حب",
-      "reason": "reported_spam_pattern",
-      "confidence": 0.88,
-      "tags": [
-        "auto_ai_review",
-        "random_handle",
-        "feedback_memory"
-      ],
-      "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 2,
-        "ruleHumanReasons": [
-          "random_handle [screenName] => kabriand14"
-        ],
-        "aiProvider": "feedback-memory(fallback)",
-        "aiReason": "reported_spam_pattern",
-        "ruleMatchDetails": [
-          {
-            "rule": "random_handle",
-            "fields": [
-              "screenName"
-            ],
-            "hits": [],
-            "evidence": [
-              "redacted"
-            ],
-            "reason": "Screen name looks machine-generated or digit-heavy"
-          }
-        ]
-      }
-    },
-    {
-      "screenName": "staci1968",
-      "displayName": "TOM 2",
-      "reason": "reported_spam_pattern",
-      "confidence": 0.88,
-      "tags": [
-        "auto_ai_review",
-        "random_handle",
-        "feedback_memory"
-      ],
-      "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 2,
-        "ruleHumanReasons": [
-          "random_handle [screenName] => staci1968"
-        ],
-        "aiProvider": "feedback-memory(fallback)",
-        "aiReason": "reported_spam_pattern",
-        "ruleMatchDetails": [
-          {
-            "rule": "random_handle",
-            "fields": [
-              "screenName"
-            ],
-            "hits": [],
-            "evidence": [
-              "redacted"
-            ],
-            "reason": "Screen name looks machine-generated or digit-heavy"
-          }
-        ]
-      }
-    },
-    {
-      "screenName": "jennie49518",
-      "displayName": "🌟真实约见🎀同城资源自取🔥看我简介",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:netdisk",
-        "rule:resource_lure"
-      ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [
-          "admin pasted spam sample"
-        ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "peter265600",
-      "displayName": "💎1-5线覆盖🙌真实可靠约见🎀看我置顶",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:netdisk",
-        "rule:resource_lure"
-      ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [
-          "admin pasted spam sample"
-        ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "elizabe77226595",
-      "displayName": "🎁同城约P❤️1-5线真实对接🧐看我置顶",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:netdisk",
-        "rule:resource_lure"
-      ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [
-          "admin pasted spam sample"
-        ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "sophia1819830",
-      "displayName": "🚀线下资源入口☔️点我头像进群选人😚",
-      "reason": "admin_ai_ingest_confirmed_spam",
-      "confidence": 0.96,
-      "tags": [
-        "admin_confirmed",
-        "ai_rule_ingest",
-        "rule:netdisk",
-        "rule:resource_lure"
-      ],
-      "source": "admin_ai_rule_ingest",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 0,
-        "ruleHumanReasons": [
-          "admin pasted spam sample"
-        ],
-        "aiProvider": "heuristic",
-        "aiReason": "AI/model-assisted ingest via gpt-5.4",
-        "ruleMatchDetails": []
-      }
-    },
-    {
-      "screenName": "sxgun66",
-      "displayName": "三上悠亚视频,天天更新最新视频,主页更多视频",
-      "reason": "The account promotes adult content and external links to download apps/websites, which is a classic spam lure pattern.",
-      "confidence": 0.895,
-      "tags": [
-        "auto_ai_review",
-        "quark_lure_combo",
-        "adult_content",
-        "spam_lure",
-        "external_link"
-      ],
-      "source": "auto_ai_contribution",
-      "updatedAt": "2026-05-18T02:15:08.358Z",
-      "reasonDetails": {
-        "ruleScore": 5,
-        "ruleHumanReasons": [
-          "quark_lure_combo [commentText,displayName] => 下载, 主页"
-        ],
-        "aiProvider": "openai:gemini-3-flash-preview",
-        "aiReason": "The account promotes adult content and external links to download apps/websites, which is a classic spam lure pattern.",
-        "ruleMatchDetails": [
-          {
-            "rule": "quark_lure_combo",
-            "fields": [
-              "commentText",
-              "displayName"
-            ],
-            "hits": [
-              {
-                "field": "commentText",
-                "term": "下载"
-              },
-              {
-                "field": "displayName",
-                "term": "主页"
-              }
-            ],
-            "evidence": [],
-            "reason": "Quark/netdisk lure with contact or URL"
-          }
-        ]
-      }
     }
   ],
   "dynamicRules": [
+    {
+      "pattern": "1-5线覆盖",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "pattern_candidate:known_pattern",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "看我主页",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 4,
+      "confidence": 0.74,
+      "reason": "Profile-click redirection is common in spam, but phrase is broader and should be reviewed before standalone blocking.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "真实约见",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.72,
+      "reason": "Common spam lure in meetup/resource scams, but somewhat broader and may need contextual pairing.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "处男免费",
+      "kind": "adult_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 4,
+      "confidence": 0.92,
+      "reason": "Sexual bait phrasing targeting virgins/free offer; highly suspicious though may appear in varied formatting.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "免费破处",
+      "kind": "adult_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 4,
+      "confidence": 0.97,
+      "reason": "Explicit sexual bait phrase with very low benign usage likelihood.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "今晚准时涩播",
+      "kind": "phrase",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 3,
+      "confidence": 0.87,
+      "reason": "Sexualized live-broadcast teaser phrase that appears promotional and spam-oriented.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "全是附近真实约见资源",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.93,
+      "reason": "Composite phrase combining nearby, real meetup, and resource claims; highly specific spam lure.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "线下资源入口",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.9,
+      "reason": "Explicit offline-resource access wording, strongly associated with illicit lead-generation spam.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "同城资源自取",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.88,
+      "reason": "Specific local-resource solicitation wording commonly used in adult/spam acquisition posts.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "点我头像进群选人",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 5,
+      "confidence": 0.95,
+      "reason": "Strong call-to-action to enter a group and choose people; highly indicative of recruitment or trafficking-style spam.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "附近好友匹配",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 4,
+      "confidence": 0.9,
+      "reason": "Precise matchmaking-style lure phrase tied to nearby-contact spam and unlikely in benign contexts.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "点击主页",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "pattern_candidate:token",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "想找会疼人的哥哥",
+      "kind": "sexual_solicitation",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 3,
+      "confidence": 0.83,
+      "reason": "Romantic/sexual solicitation phrase that appears in spam-style bait copy; usable but broader, so moderate confidence.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
+    {
+      "pattern": "蹲一个弟弟🍑点击主页",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "commentText",
+        "profileBio"
+      ],
+      "score": 4,
+      "confidence": 0.94,
+      "reason": "Repeated lure structure combining flirtatious solicitation with a profile-click CTA; more precise than matching 点击主页 alone.",
+      "updatedAt": "2026-05-18T08:49:50.924Z"
+    },
     {
       "pattern": "推特，第一骚",
       "kind": "phrase",
@@ -9647,7 +11192,7 @@
       "score": 3,
       "confidence": 0.91,
       "reason": "Precise repeated Chinese phrase with explicit promotional/spam-like wording; more distinctive than timestamps or usernames.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "b比她好看的没她骚&比她骚的没她好看",
@@ -9660,7 +11205,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "⁬刷了半天的x.就她的主页能打✈️了",
@@ -9673,7 +11218,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "c刷了半天的x*就她的主页能打✈️了",
@@ -9686,7 +11231,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "n比她好看的没她骚c比她骚的没她好看",
@@ -9699,7 +11244,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "比她好看的没她骚=比她骚的没她好看",
@@ -9712,7 +11257,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "d线下我就曰过⁯q这个骚货👉",
@@ -9725,7 +11270,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "\\线下sao货没人比她sao",
@@ -9738,7 +11283,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "*线下我就曰过z这个骚货👉",
@@ -9751,7 +11296,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "l线下sao货没人比她sao",
@@ -9764,7 +11309,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "线下我就曰过^这个骚货👉",
@@ -9777,7 +11322,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "分钟线下我就曰过",
@@ -9790,7 +11335,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:token",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "这个骚货",
@@ -9803,7 +11348,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:token",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "她好涩.*我不行了",
@@ -9816,7 +11361,7 @@
       "score": 4,
       "confidence": 0.74,
       "reason": "Sexual arousal bait phrasing may indicate adult-engagement spam, but standalone use can be organic.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "比她好看的没她骚.*比她骚的没她好看",
@@ -9829,7 +11374,7 @@
       "score": 4,
       "confidence": 0.93,
       "reason": "Full paired slogan is more precise and lower risk than matching either half alone.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "比她骚的没她好看",
@@ -9842,7 +11387,7 @@
       "score": 4,
       "confidence": 0.86,
       "reason": "Sexualized comparative bait phrase recurring as part of lure copy.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "比她好看的没她骚",
@@ -9855,7 +11400,7 @@
       "score": 4,
       "confidence": 0.86,
       "reason": "Sexualized comparative bait phrase; specific enough to be a useful spam signal.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "刷了半天的.*就她的主页能打",
@@ -9868,7 +11413,7 @@
       "score": 4,
       "confidence": 0.88,
       "reason": "Longer redirect phrase is more specific than the shorter fragment and suggests profile-click bait.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "就她的主页能打",
@@ -9881,7 +11426,7 @@
       "score": 4,
       "confidence": 0.83,
       "reason": "Profile-redirection wording suggests directing users to a target profile, common in lure spam.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "线下我就曰过.*这个骚货",
@@ -9894,7 +11439,7 @@
       "score": 4,
       "confidence": 0.95,
       "reason": "Combined offline-contact boast with sexualized insult appears highly specific to abusive adult-spam bait.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "线下我就曰过",
@@ -9907,7 +11452,7 @@
       "score": 4,
       "confidence": 0.92,
       "reason": "Explicit offline sexual/contact claim; precise and strongly indicative of lure/spam language.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "个线下的哥哥",
@@ -9920,7 +11465,7 @@
       "score": 4,
       "confidence": 0.8500000000000001,
       "reason": "seen 1 time(s), kind=contact_lure, aggregateScore=6",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "同城上门+@handle",
@@ -9933,7 +11478,7 @@
       "score": 4,
       "confidence": 0.87,
       "reason": "Combination of a local meetup lure phrase with a social handle strongly indicates off-platform contact solicitation spam.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "欣艺~❀同城上门",
@@ -9946,7 +11491,7 @@
       "score": 4,
       "confidence": 0.78,
       "reason": "Specific display-name style variant combining a persona name with a local meetup lure; likely spam but narrower and based on one sample.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "同城上门",
@@ -9959,7 +11504,7 @@
       "score": 4,
       "confidence": 0.92,
       "reason": "Common explicit local meetup/service lure phrase; precise and high-signal in spam contexts.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "原味丝袜",
@@ -9972,7 +11517,7 @@
       "score": 3,
       "confidence": 0.9,
       "reason": "Precise phrase associated with fetish/used-stockings solicitation and sales spam.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "来一个长期搭子",
@@ -9985,7 +11530,7 @@
       "score": 3,
       "confidence": 0.71,
       "reason": "Common partner-seeking solicitation phrase in this context; potentially spammy but could appear in benign chat, so use cautiously.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "婷婷原味丝袜",
@@ -9998,7 +11543,7 @@
       "score": 3,
       "confidence": 0.93,
       "reason": "Specific fetish-oriented sales phrase indicating used stockings content; highly indicative of spam/solicitation.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "筠瑾~❀同城上门",
@@ -10011,7 +11556,7 @@
       "score": 4,
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "下app是木马",
@@ -10024,7 +11569,7 @@
       "score": 4,
       "confidence": 0.81,
       "reason": "Specific warning-like phrase tied to app-download bait context; potentially useful but less clearly a standalone spam trigger.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "同城约泡主页进群",
@@ -10037,7 +11582,7 @@
       "score": 4,
       "confidence": 0.98,
       "reason": "Combined hookup-solicitation plus profile/group redirection is a highly specific spam pattern.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "主页进群",
@@ -10050,7 +11595,7 @@
       "score": 4,
       "confidence": 0.92,
       "reason": "Direct call to visit profile and join a group, a common redirection tactic in spam/contact-lure content.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "同城约泡",
@@ -10063,7 +11608,7 @@
       "score": 4,
       "confidence": 0.96,
       "reason": "Explicit local hookup solicitation phrase strongly associated with spam/adult contact lures.",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "同城约p",
@@ -10076,7 +11621,7 @@
       "score": 5,
       "confidence": 0.86,
       "reason": "admin_resource_lure_cleanup",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "真实可靠约见",
@@ -10089,20 +11634,7 @@
       "score": 5,
       "confidence": 0.86,
       "reason": "admin_resource_lure_cleanup",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
-    },
-    {
-      "pattern": "1-5线覆盖",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.86,
-      "reason": "admin_resource_lure_cleanup",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     },
     {
       "pattern": "1-5线真实对接",
@@ -10115,74 +11647,22 @@
       "score": 5,
       "confidence": 0.86,
       "reason": "admin_resource_lure_cleanup",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
-    },
-    {
-      "pattern": "点我头像进群选人",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.67,
-      "reason": "seen 1 time(s), kind=resource_lure, aggregateScore=3",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
-    },
-    {
-      "pattern": "真实约见",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.67,
-      "reason": "seen 1 time(s), kind=resource_lure, aggregateScore=3",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
-    },
-    {
-      "pattern": "同城资源自取",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.8500000000000001,
-      "reason": "seen 1 time(s), kind=netdisk, aggregateScore=6",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
-    },
-    {
-      "pattern": "线下资源入口",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.8500000000000001,
-      "reason": "seen 1 time(s), kind=netdisk, aggregateScore=6",
-      "updatedAt": "2026-05-18T02:15:08.364Z"
+      "updatedAt": "2026-05-18T08:49:50.924Z"
     }
   ],
   "analysis": {
     "topReasons": [
       {
         "value": "reported_spam_pattern",
-        "count": 61
+        "count": 66
       },
       {
         "value": "admin_ai_ingest_confirmed_spam",
-        "count": 40
+        "count": 57
       },
       {
         "value": "high_rule_score",
-        "count": 12
+        "count": 22
       },
       {
         "value": "soft_lure_bot_combo_admin_confirmed",
@@ -10240,51 +11720,51 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 147
+        "count": 164
       },
       {
         "value": "random_handle",
-        "count": 78
+        "count": 95
       },
       {
         "value": "feedback_memory",
-        "count": 61
-      },
-      {
-        "value": "adult_lure_combo",
-        "count": 52
-      },
-      {
-        "value": "dynamic_contact_lure",
-        "count": 52
-      },
-      {
-        "value": "contact_lure",
-        "count": 47
+        "count": 66
       },
       {
         "value": "admin_confirmed",
-        "count": 44
+        "count": 61
       },
       {
         "value": "ai_rule_ingest",
-        "count": 40
+        "count": 57
       },
       {
-        "value": "adult_lure",
-        "count": 39
+        "value": "dynamic_contact_lure",
+        "count": 56
       },
       {
-        "value": "dynamic_adult_lure",
-        "count": 33
+        "value": "adult_lure_combo",
+        "count": 53
       },
       {
         "value": "rule:contact_lure",
-        "count": 32
+        "count": 49
+      },
+      {
+        "value": "contact_lure",
+        "count": 48
+      },
+      {
+        "value": "adult_lure",
+        "count": 40
+      },
+      {
+        "value": "dynamic_adult_lure",
+        "count": 34
       },
       {
         "value": "contact_lure_signal",
-        "count": 20
+        "count": 22
       },
       {
         "value": "rule:adult_lure",
@@ -10308,53 +11788,53 @@
       },
       {
         "value": "quark_lure_combo",
-        "count": 13
+        "count": 14
+      },
+      {
+        "value": "rule:resource_lure",
+        "count": 14
+      },
+      {
+        "value": "quark_pan_direct_link",
+        "count": 12
       },
       {
         "value": "spam",
         "count": 12
       },
       {
-        "value": "quark_pan_direct_link",
-        "count": 11
-      },
-      {
         "value": "soft_lure_bot_combo",
         "count": 11
       },
       {
+        "value": "adult_name_bot_comment_combo",
+        "count": 9
+      },
+      {
         "value": "bot",
         "count": 8
-      },
-      {
-        "value": "obfuscated_dd",
-        "count": 6
-      },
-      {
-        "value": "lure",
-        "count": 4
       }
     ],
     "topRules": [
       {
         "value": "random_handle",
-        "count": 77
+        "count": 94
       },
       {
         "value": "dynamic_contact_lure",
-        "count": 53
+        "count": 57
       },
       {
         "value": "adult_lure_combo",
-        "count": 51
+        "count": 52
       },
       {
         "value": "dynamic_adult_lure",
-        "count": 51
+        "count": 52
       },
       {
         "value": "contact_lure_signal",
-        "count": 20
+        "count": 22
       },
       {
         "value": "obfuscated_dd_contact_combo",
@@ -10362,15 +11842,19 @@
       },
       {
         "value": "quark_lure_combo",
-        "count": 13
+        "count": 14
+      },
+      {
+        "value": "quark_pan_direct_link",
+        "count": 12
       },
       {
         "value": "mixed_short_code_lure",
         "count": 11
       },
       {
-        "value": "quark_pan_direct_link",
-        "count": 11
+        "value": "adult_name_bot_comment_combo",
+        "count": 9
       },
       {
         "value": "soft_lure_bot_combo",
@@ -10383,6 +11867,10 @@
       {
         "value": "resource_lure_combo",
         "count": 3
+      },
+      {
+        "value": "dynamic_sexual_solicitation",
+        "count": 1
       },
       {
         "value": "dynamic_solicitation_phrase",
@@ -10400,15 +11888,15 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 228
+        "count": 240
       },
       {
         "value": "screenName",
-        "count": 88
+        "count": 114
       },
       {
         "value": "displayName",
-        "count": 20
+        "count": 37
       }
     ],
     "topPatterns": [
@@ -10425,7 +11913,15 @@
         "count": 6
       },
       {
+        "value": "云朵朵🍑",
+        "count": 6
+      },
+      {
         "value": "同城上门",
+        "count": 6
+      },
+      {
+        "value": "同城资源自取",
         "count": 6
       },
       {
@@ -10445,8 +11941,32 @@
         "count": 6
       },
       {
+        "value": "点我头像进群选人",
+        "count": 6
+      },
+      {
+        "value": "看我简介",
+        "count": 6
+      },
+      {
+        "value": "真实约见",
+        "count": 6
+      },
+      {
+        "value": "线下资源入口",
+        "count": 6
+      },
+      {
         "value": "货没人比她",
         "count": 6
+      },
+      {
+        "value": "免费破处",
+        "count": 4
+      },
+      {
+        "value": "@abbyturner43179",
+        "count": 3
       },
       {
         "value": "@acemasterjaan",
@@ -10457,7 +11977,19 @@
         "count": 3
       },
       {
+        "value": "@albertodav98197",
+        "count": 3
+      },
+      {
+        "value": "@aldogoodwi73676",
+        "count": 3
+      },
+      {
         "value": "@anthony11477858",
+        "count": 3
+      },
+      {
+        "value": "@apriltorre95872",
         "count": 3
       },
       {
@@ -10485,7 +12017,15 @@
         "count": 3
       },
       {
+        "value": "@contreras_83322",
+        "count": 3
+      },
+      {
         "value": "@crawford_y92120",
+        "count": 3
+      },
+      {
+        "value": "@cwaguespac26603",
         "count": 3
       },
       {
@@ -10519,80 +12059,28 @@
       {
         "value": "@elizabe77226595",
         "count": 3
-      },
-      {
-        "value": "@fireman762",
-        "count": 3
-      },
-      {
-        "value": "@fletcherge61335",
-        "count": 3
-      },
-      {
-        "value": "@gibson_gre42451",
-        "count": 3
-      },
-      {
-        "value": "@hasankocoglu08",
-        "count": 3
-      },
-      {
-        "value": "@irmkrdn",
-        "count": 3
-      },
-      {
-        "value": "@jennie49518",
-        "count": 3
-      },
-      {
-        "value": "@jeremy_ree97991",
-        "count": 3
-      },
-      {
-        "value": "@jillphilli76344",
-        "count": 3
-      },
-      {
-        "value": "@jvegaacoupe",
-        "count": 3
-      },
-      {
-        "value": "@lcrouch8135",
-        "count": 3
-      },
-      {
-        "value": "@leroy_clar26478",
-        "count": 3
-      },
-      {
-        "value": "@luisfer66734398",
-        "count": 3
-      },
-      {
-        "value": "@mirexo",
-        "count": 3
       }
     ],
     "patternKinds": [
       {
         "value": "phrase",
-        "count": 270
+        "count": 340
       },
       {
         "value": "handle_like",
-        "count": 68
+        "count": 102
       },
       {
         "value": "contact_lure",
-        "count": 64
-      },
-      {
-        "value": "adult_lure",
-        "count": 16
+        "count": 78
       },
       {
         "value": "resource_lure",
-        "count": 14
+        "count": 38
+      },
+      {
+        "value": "adult_lure",
+        "count": 22
       },
       {
         "value": "netdisk",
@@ -10600,10 +12088,10 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 195,
-      "spamSamples": 20,
-      "approvedReports": 164,
-      "dynamicRules": 41,
+      "confirmedBlacklist": 229,
+      "spamSamples": 22,
+      "approvedReports": 198,
+      "dynamicRules": 50,
       "pendingReports": 0
     }
   }
