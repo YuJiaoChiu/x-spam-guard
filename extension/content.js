@@ -1,12 +1,14 @@
 (function initContent() {
-  if (window.__xSpamGuardContentLoaded) {
-    return;
+  const previousRuntime = window.__xSpamGuardRuntime;
+  if (previousRuntime && typeof previousRuntime.destroy === "function") {
+    previousRuntime.destroy();
   }
-  window.__xSpamGuardContentLoaded = true;
 
   const PROCESSED_KEY = "spamGuardSeen";
   const pendingBridgeRequests = new Map();
   const blockedHandles = new Set();
+  let destroyed = false;
+  let observer = null;
   let dynamicRules = [];
   const scanStats = {
     scanned: 0,
@@ -17,16 +19,56 @@
   };
   let scanStatsTimer = null;
 
+  function safeRuntimeCall(task, fallback) {
+    if (destroyed) return fallback;
+    try {
+      if (!globalThis.chrome || !chrome.runtime || !chrome.runtime.id) return fallback;
+      return task();
+    } catch {
+      return fallback;
+    }
+  }
+
+  function safeSendMessage(message) {
+    return safeRuntimeCall(() => chrome.runtime.sendMessage(message).catch(() => {}), Promise.resolve());
+  }
+
+  function safeRuntimeUrl(path) {
+    return safeRuntimeCall(() => chrome.runtime.getURL(path), "");
+  }
+
+  function destroy() {
+    destroyed = true;
+    if (scanStatsTimer) {
+      clearTimeout(scanStatsTimer);
+      scanStatsTimer = null;
+    }
+    if (observer) {
+      observer.disconnect();
+      observer = null;
+    }
+    window.removeEventListener("message", handlePageMessage);
+    safeRuntimeCall(() => chrome.runtime.onMessage.removeListener(handleRuntimeMessage), null);
+    for (const resolve of pendingBridgeRequests.values()) {
+      resolve({ ok: false, error: "content_destroyed" });
+    }
+    pendingBridgeRequests.clear();
+  }
+
+  window.__xSpamGuardRuntime = { destroy };
+
   function flushScanStatsSoon() {
+    if (destroyed) return;
     if (scanStatsTimer) return;
     scanStatsTimer = setTimeout(() => {
+      if (destroyed) return;
       scanStatsTimer = null;
       const payload = { ...scanStats };
       scanStats.scanned = 0;
       scanStats.extracted = 0;
       scanStats.localRuleHits = 0;
       scanStats.lowScoreSkipped = 0;
-      chrome.runtime.sendMessage({ type: "SCAN_STATS", ...payload }).catch(() => {});
+      safeSendMessage({ type: "SCAN_STATS", ...payload });
     }, 800);
   }
 
@@ -44,9 +86,11 @@
 
   function ensureBridgeInjected() {
     if (document.getElementById("spam-guard-bridge-script")) return;
+    const src = safeRuntimeUrl("page-bridge.js");
+    if (!src) return;
     const script = document.createElement("script");
     script.id = "spam-guard-bridge-script";
-    script.src = chrome.runtime.getURL("page-bridge.js");
+    script.src = src;
     script.async = false;
     document.documentElement.appendChild(script);
   }
@@ -140,7 +184,7 @@
       hideByHandle(screenName);
     }
 
-    chrome.runtime.sendMessage({
+    await safeSendMessage({
       type: "BLOCK_RESULT",
       taskId: message.taskId || result.taskId || "",
       screenName,
@@ -153,6 +197,7 @@
   }
 
   function processArticle(article) {
+    if (destroyed) return;
     if (!(article instanceof HTMLElement)) return;
     if (article.dataset[PROCESSED_KEY] === "1") return;
     article.dataset[PROCESSED_KEY] = "1";
@@ -175,7 +220,7 @@
 
     if (info.rule.score >= 2) {
       scanStats.localRuleHits += 1;
-      chrome.runtime.sendMessage({
+      safeSendMessage({
         type: "CANDIDATE_DETECTED",
         candidate: {
           ...info.candidate,
@@ -197,7 +242,8 @@
   }
 
   function observeDom() {
-    const observer = new MutationObserver((mutations) => {
+    observer = new MutationObserver((mutations) => {
+      if (destroyed) return;
       for (const mutation of mutations) {
         for (const node of mutation.addedNodes) {
           if (!(node instanceof HTMLElement)) continue;
@@ -215,7 +261,7 @@
     observer.observe(document.documentElement, { childList: true, subtree: true });
   }
 
-  window.addEventListener("message", (event) => {
+  function handlePageMessage(event) {
     if (event.source !== window) return;
     const data = event.data || {};
     if (data.source !== "spam-guard-page") return;
@@ -224,9 +270,10 @@
     if (!resolver) return;
     pendingBridgeRequests.delete(data.requestId);
     resolver(data);
-  });
+  }
 
-  chrome.runtime.onMessage.addListener((message) => {
+  function handleRuntimeMessage(message) {
+    if (destroyed) return;
     if (!message || !message.type) return;
     if (message.type === "HIDE_USER") {
       hideByHandle(message.screenName);
@@ -242,11 +289,14 @@
     if (message.type === "BLOCK_USER") {
       blockAndReport(message);
     }
-  });
+  }
+
+  window.addEventListener("message", handlePageMessage);
+  safeRuntimeCall(() => chrome.runtime.onMessage.addListener(handleRuntimeMessage), null);
 
   ensureStyles();
   ensureBridgeInjected();
-  chrome.runtime.sendMessage({ type: "GET_DYNAMIC_RULES" }).then((response) => {
+  safeRuntimeCall(() => chrome.runtime.sendMessage({ type: "GET_DYNAMIC_RULES" }), Promise.resolve(null)).then((response) => {
     dynamicRules = Array.isArray(response?.dynamicRules) ? response.dynamicRules : [];
   }).catch(() => {});
   scanExistingArticles();
