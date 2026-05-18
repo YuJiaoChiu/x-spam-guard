@@ -44,6 +44,10 @@ function getIp(req) {
 }
 
 function createRateLimiter({ keyPrefix, windowMs, max }) {
+  const maxRequests = Number(max);
+  if (!Number.isFinite(maxRequests) || maxRequests <= 0) {
+    return (req, res, next) => next();
+  }
   const buckets = new Map();
   return (req, res, next) => {
     const now = Date.now();
@@ -57,7 +61,7 @@ function createRateLimiter({ keyPrefix, windowMs, max }) {
     current.count += 1;
     buckets.set(key, current);
 
-    if (current.count > max) {
+    if (current.count > maxRequests) {
       res.status(429).json({
         error: "rate_limited",
         message: "Too many requests",
