@@ -93,6 +93,7 @@ function renderStats(stats) {
   $("blockedFailed").textContent = String(stats.blockedFailed || 0);
   $("lastSyncAt").textContent = stats.lastSyncAt ? formatTime(stats.lastSyncAt) : "未同步";
   $("lastScannedAt").textContent = stats.lastScannedAt ? formatTime(stats.lastScannedAt) : "未扫描";
+  $("lastContentReadyAt").textContent = stats.lastContentReadyAt ? formatTime(stats.lastContentReadyAt) : "未注入";
   $("lastCandidateAt").textContent = stats.lastCandidateAt ? `${formatTime(stats.lastCandidateAt)} / 分 ${stats.lastLocalRuleScore || 0}` : "无";
   $("lastError").textContent = stats.lastError || "无";
 }

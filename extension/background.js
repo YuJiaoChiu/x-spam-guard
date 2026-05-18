@@ -81,6 +81,8 @@ const state = {
     syncedBlockQueued: 0,
     syncedBlockSkipped: 0,
     lastSyncAt: "",
+    lastContentReadyAt: "",
+    lastContentUrl: "",
     lastScannedAt: "",
     lastCandidateAt: "",
     lastDecisionAt: "",
@@ -1330,6 +1332,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (localRuleHits > 0) {
       state.stats.lastLocalRuleHitAt = state.stats.lastScannedAt;
     }
+    sendResponse({ ok: true });
+    return;
+  }
+
+  if (message.type === "CONTENT_READY") {
+    state.stats.lastContentReadyAt = new Date().toISOString();
+    state.stats.lastContentUrl = String(message.href || "");
+    state.stats.lastError = "";
     sendResponse({ ok: true });
     return;
   }

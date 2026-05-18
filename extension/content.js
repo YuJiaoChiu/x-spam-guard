@@ -1,7 +1,11 @@
 (function initContent() {
   const previousRuntime = window.__xSpamGuardRuntime;
   if (previousRuntime && typeof previousRuntime.destroy === "function") {
-    previousRuntime.destroy();
+    try {
+      previousRuntime.destroy();
+    } catch {
+      // Old content-script closures can throw after an extension reload.
+    }
   }
 
   const PROCESSED_KEY = "spamGuardSeen";
@@ -9,7 +13,9 @@
   const blockedHandles = new Set();
   let destroyed = false;
   let observer = null;
+  let rescanTimer = null;
   let dynamicRules = [];
+  let scanPass = `${Date.now()}_${Math.random().toString(36).slice(2)}`;
   const scanStats = {
     scanned: 0,
     extracted: 0,
@@ -37,6 +43,10 @@
     return safeRuntimeCall(() => chrome.runtime.getURL(path), "");
   }
 
+  function startNewScanPass() {
+    scanPass = `${Date.now()}_${Math.random().toString(36).slice(2)}`;
+  }
+
   function destroy() {
     destroyed = true;
     if (scanStatsTimer) {
@@ -46,6 +56,10 @@
     if (observer) {
       observer.disconnect();
       observer = null;
+    }
+    if (rescanTimer) {
+      clearInterval(rescanTimer);
+      rescanTimer = null;
     }
     window.removeEventListener("message", handlePageMessage);
     safeRuntimeCall(() => chrome.runtime.onMessage.removeListener(handleRuntimeMessage), null);
@@ -199,8 +213,8 @@
   function processArticle(article) {
     if (destroyed) return;
     if (!(article instanceof HTMLElement)) return;
-    if (article.dataset[PROCESSED_KEY] === "1") return;
-    article.dataset[PROCESSED_KEY] = "1";
+    if (article.dataset[PROCESSED_KEY] === scanPass) return;
+    article.dataset[PROCESSED_KEY] = scanPass;
     scanStats.scanned += 1;
 
     const info = extractCandidate(article);
@@ -261,6 +275,14 @@
     observer.observe(document.documentElement, { childList: true, subtree: true });
   }
 
+  function startPeriodicRescan() {
+    if (rescanTimer) return;
+    rescanTimer = setInterval(() => {
+      if (destroyed) return;
+      scanExistingArticles();
+    }, 4000);
+  }
+
   function handlePageMessage(event) {
     if (event.source !== window) return;
     const data = event.data || {};
@@ -284,6 +306,8 @@
       for (const handle of [...(message.handles || []), ...(message.suspected || [])]) {
         hideByHandle(handle);
       }
+      startNewScanPass();
+      scanExistingArticles();
       return;
     }
     if (message.type === "BLOCK_USER") {
@@ -298,7 +322,11 @@
   ensureBridgeInjected();
   safeRuntimeCall(() => chrome.runtime.sendMessage({ type: "GET_DYNAMIC_RULES" }), Promise.resolve(null)).then((response) => {
     dynamicRules = Array.isArray(response?.dynamicRules) ? response.dynamicRules : [];
+    startNewScanPass();
+    scanExistingArticles();
   }).catch(() => {});
+  safeSendMessage({ type: "CONTENT_READY", href: location.href });
   scanExistingArticles();
   observeDom();
+  startPeriodicRescan();
 })();
