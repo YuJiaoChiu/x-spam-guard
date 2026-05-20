@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>X Spam Guard Privacy Policy</title>
+    <meta
+      name="description"
+      content="Privacy Policy for X Spam Guard, a Chrome extension for spam account detection and blacklist management."
+    />
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body>
+    <main class="shell policy-shell">
+      <section class="panel policy-panel">
+        <a class="button ghost policy-back" href="./">Back to X Spam Guard</a>
+        <div class="section-title">
+          <span>Privacy Policy</span>
+          <h1>X Spam Guard Privacy Policy</h1>
+          <p>Last updated: May 20, 2026</p>
+        </div>
+
+        <h2>Overview</h2>
+        <p>
+          X Spam Guard is a Chrome extension designed to help users identify and manage spam accounts
+          on X/Twitter. The extension analyzes visible account names, profile bios, comment text, and
+          related page information to classify potential spam, sync a user-managed blacklist, and assist
+          with block-task execution through a user-configured backend service.
+        </p>
+
+        <h2>Information processed</h2>
+        <p>
+          Depending on the user's settings and usage, X Spam Guard may process the following data:
+        </p>
+        <ul>
+          <li>Visible account handles, display names, profile bios, and comment text on supported X/Twitter pages.</li>
+          <li>URLs or page context needed to associate a spam report or block task with the visible page.</li>
+          <li>Extension settings such as backend server URL, client token, sync status, blacklist cache, and user preferences.</li>
+          <li>Spam classification results, rule matches, confidence scores, task status, and user-approved reports.</li>
+        </ul>
+
+        <h2>How information is used</h2>
+        <p>
+          The extension uses this information only to provide its spam detection, blacklist synchronization,
+          and block-task management features. Data is used to score potential spam accounts, request
+          optional AI-assisted review from the configured backend, display reasons for decisions, and keep
+          block-task status in sync.
+        </p>
+
+        <h2>Data sharing and transfer</h2>
+        <p>
+          X Spam Guard does not sell user data. The extension sends data only to the backend service
+          configured by the user or administrator for the purpose of spam classification, blacklist sync,
+          contribution review, and task status updates. If the backend is configured to use an AI provider,
+          the backend may send the necessary classification payload to that provider according to the
+          user's backend configuration.
+        </p>
+
+        <h2>Remote code</h2>
+        <p>
+          The Chrome extension does not execute remote JavaScript or WebAssembly. Extension code is included
+          in the submitted extension package. Network requests to a backend API are used for data processing
+          and synchronization, not for loading executable extension code.
+        </p>
+
+        <h2>Storage</h2>
+        <p>
+          The extension stores settings and operational state locally in the browser, including backend
+          configuration, sync state, blacklist cache, and preferences. The backend may store blacklist entries,
+          reports, classification decisions, and task status so the user or administrator can review and manage
+          spam detection results.
+        </p>
+
+        <h2>User control</h2>
+        <p>
+          Users or administrators control the backend server configuration, AI provider configuration, blacklist
+          rules, and report review process. Users can disable the extension, remove it from Chrome, clear local
+          extension data, or request deletion of backend records from the administrator of the configured backend.
+        </p>
+
+        <h2>Security</h2>
+        <p>
+          X Spam Guard is designed to limit data use to its single purpose: spam detection and blacklist
+          management. Admin and client tokens should be kept private. Users should only configure backend
+          services they trust.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          For support or privacy questions, please open an issue on the project repository:
+          <a href="https://github.com/YuJiaoChiu/x-spam-guard/issues">https://github.com/YuJiaoChiu/x-spam-guard/issues</a>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

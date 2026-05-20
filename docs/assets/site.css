@@ -154,6 +154,50 @@ button:disabled {
   color: #fffaf0;
 }
 
+.policy-shell {
+  max-width: 920px;
+}
+
+.policy-panel {
+  line-height: 1.75;
+}
+
+.policy-panel .section-title h1 {
+  max-width: 820px;
+  color: var(--ink);
+  font-size: clamp(38px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.policy-panel h2 {
+  margin: 28px 0 8px;
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
+
+.policy-panel p,
+.policy-panel li {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.policy-panel ul {
+  margin: 10px 0 0;
+  padding-left: 22px;
+}
+
+.policy-panel a {
+  color: var(--brand);
+  font-weight: 800;
+}
+
+.policy-back {
+  margin-bottom: 22px;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
 .status-card {
   display: flex;
   flex-direction: column;
