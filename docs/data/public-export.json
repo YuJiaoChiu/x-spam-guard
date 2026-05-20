@@ -1,24 +1,2310 @@
 {
-  "generatedAt": "2026-05-20T05:15:46.255Z",
+  "generatedAt": "2026-05-20T08:36:42.065Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 298,
-    "blacklistConfirmed": 298,
+    "blacklistTotal": 328,
+    "blacklistConfirmed": 328,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 64,
+    "contributionTotal": 90,
     "contributionPending": 0,
-    "dynamicRuleTotal": 200,
-    "dynamicRuleActive": 200,
-    "eventsTotal": 8183,
-    "blocked24h": 317,
+    "dynamicRuleTotal": 252,
+    "dynamicRuleActive": 252,
+    "eventsTotal": 8681,
+    "blocked24h": 395,
     "blockFailed24h": 0,
-    "decisions24h": 1533,
+    "decisions24h": 1916,
     "blockTaskPending": 0,
-    "generatedAt": "2026-05-20T05:15:46.241Z"
+    "generatedAt": "2026-05-20T08:36:42.050Z"
   },
   "blacklist": [
+    {
+      "screenName": "chloe4493116278",
+      "displayName": "Chloe",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：chloe4493116278；评论[内置规则:contact_mention] 命中：线下；评论[学习规则:dynamic_contact_lure] 命中：线下朋友；评论[学习规则:dynamic_contact_lure] 命中：天呐，这个故事我听一个山西人讲过一模一样的，线下朋友。；评论[内置规则:contact_lure_signal] 命中：线下",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "dynamic_contact_lure",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:39:11.960Z",
+      "reasonDetails": {
+        "ruleScore": 12,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => chloe4493116278",
+          "contact_mention [commentText] => 线下",
+          "dynamic_contact_lure [commentText] => 线下朋友",
+          "dynamic_contact_lure [commentText] => 天呐，这个故事我听一个山西人讲过一模一样的，线下朋友。",
+          "contact_lure_signal [commentText] => 线下"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "chloe4493116278"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下朋友"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：chloe4493116278；评论[内置规则:contact_mention] 命中：线下；评论[内置规则:contact_lure_signal] 命中：线下"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "天呐，这个故事我听一个山西人讲过一模一样的，线下朋友。"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：chloe4493116278；评论[内置规则:contact_mention] 命中：线下；评论[内置规则:contact_lure_signal] 命中：线下"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "mistysalin29834",
+      "displayName": "静璇寻固炮点击主页",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：mistysalin29834；名字[动态规则:dynamic_contact_lure] 命中：点击主页",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_contact_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:37:37.163Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => mistysalin29834",
+          "dynamic_contact_lure [displayName] => 点击主页"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "mistysalin29834"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "点击主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "pattern_candidate:token"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "olgaonions68466",
+      "displayName": "OlgaOnions",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：olgaonions68466；评论[内置规则:quark_pan_direct_link] 命中：pan.quark.cn/；评论[内置规则:quark_lure_combo] 命中：quark",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "quark_pan_direct_link",
+        "quark_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:30:43.434Z",
+      "reasonDetails": {
+        "ruleScore": 13,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => olgaonions68466",
+          "quark_pan_direct_link [commentText] => pan.quark.cn/",
+          "quark_lure_combo [commentText] => quark"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "olgaonions68466"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "quark_pan_direct_link",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "pan.quark.cn/"
+              }
+            ],
+            "evidence": [],
+            "reason": "Direct Quark pan share link"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "quark"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "l9t8vjvgb310126",
+      "displayName": "Leila Walter",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：l9t8vjvgb310126；评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_contact_lure",
+        "contact_mention",
+        "dynamic_phrase",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:30:29.423Z",
+      "reasonDetails": {
+        "ruleScore": 18,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => l9t8vjvgb310126",
+          "dynamic_contact_lure [commentText] => 就她的主页能打",
+          "contact_mention [commentText] => 主页",
+          "dynamic_contact_lure [commentText] => 就她的主页能打了",
+          "dynamic_contact_lure [commentText] => 就她的主页能打",
+          "dynamic_phrase [commentText] => 刷了半天的"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "l9t8vjvgb310126"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打"
+              }
+            ],
+            "evidence": [],
+            "reason": "Profile-redirection wording suggests directing users to a target profile, common in lure spam."
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：wg73n5a4eg39096；评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:admin_submitted_spam"
+          },
+          {
+            "rule": "dynamic_phrase",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天的"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:admin_submitted_spam"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "wg73n5a4eg39096",
+      "displayName": "Susan Isaac",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：wg73n5a4eg39096；评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_contact_lure",
+        "contact_mention",
+        "dynamic_phrase",
+        "mixed_short_code_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:30:25.570Z",
+      "reasonDetails": {
+        "ruleScore": 19,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => wg73n5a4eg39096",
+          "dynamic_contact_lure [commentText] => 就她的主页能打",
+          "contact_mention [commentText] => 主页",
+          "dynamic_contact_lure [commentText] => 就她的主页能打了",
+          "dynamic_contact_lure [commentText] => 就她的主页能打",
+          "dynamic_phrase [commentText] => 刷了半天的",
+          "mixed_short_code_lure [commentText] => mixed short code"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "wg73n5a4eg39096"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打"
+              }
+            ],
+            "evidence": [],
+            "reason": "Profile-redirection wording suggests directing users to a target profile, common in lure spam."
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：nanalienne77；评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页、d1；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:admin_submitted_spam"
+          },
+          {
+            "rule": "dynamic_phrase",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天的"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:admin_submitted_spam"
+          },
+          {
+            "rule": "mixed_short_code_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "mixed short code"
+              }
+            ],
+            "evidence": [],
+            "reason": "Comment contains mixed digit-letter code next to lure text"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "pudzqd6wsu9408",
+      "displayName": "Chasel Joe",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：pudzqd6wsu9408；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:30:24.388Z",
+      "reasonDetails": {
+        "ruleScore": 19,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => pudzqd6wsu9408",
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "pudzqd6wsu9408"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：qf1ht6sqfz28028；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：qf1ht6sqfz28028；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "Sexualized comparative bait phrase recurring as part of lure copy."
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Sexualized comparative bait phrase; specific enough to be a useful spam signal."
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "qf1ht6sqfz28028",
+      "displayName": "Valentine Sophy",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：qf1ht6sqfz28028；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:30:22.693Z",
+      "reasonDetails": {
+        "ruleScore": 19,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => qf1ht6sqfz28028",
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "qf1ht6sqfz28028"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚\"比她骚的没她好看；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚\"比她骚的没她好看；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "Sexualized comparative bait phrase recurring as part of lure copy."
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Sexualized comparative bait phrase; specific enough to be a useful spam signal."
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "nanalienne77",
+      "displayName": "Tatacrypto",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：nanalienne77；评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页、d1；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_contact_lure",
+        "contact_mention",
+        "dynamic_phrase",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:30:19.038Z",
+      "reasonDetails": {
+        "ruleScore": 18,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => nanalienne77",
+          "dynamic_contact_lure [commentText] => 就她的主页能打",
+          "contact_mention [commentText] => 主页, d1",
+          "dynamic_contact_lure [commentText] => 就她的主页能打了",
+          "dynamic_contact_lure [commentText] => 就她的主页能打",
+          "dynamic_phrase [commentText] => 刷了半天的"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "nanalienne77"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打"
+              }
+            ],
+            "evidence": [],
+            "reason": "Profile-redirection wording suggests directing users to a target profile, common in lure spam."
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "主页"
+              },
+              {
+                "field": "commentText",
+                "term": "d1"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:strong_rule_direct_block"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:admin_submitted_spam"
+          },
+          {
+            "rule": "dynamic_phrase",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天的"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:admin_submitted_spam"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "macmohammad1",
+      "displayName": "离柒",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：macmohammad1；AI(feedback-memory(fallback))判spam 0.94：历史上报样本命中",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:30:18.036Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => macmohammad1"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "macmohammad1"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "gamitzarna",
+      "displayName": "Zarna Gamit",
+      "reason": "拉黑：规则命中：评论[内置规则:quark_pan_direct_link] 命中：pan.quark.cn/；评论[内置规则:quark_lure_combo] 命中：quark",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "quark_pan_direct_link",
+        "quark_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:30:08.500Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "quark_pan_direct_link [commentText] => pan.quark.cn/",
+          "quark_lure_combo [commentText] => quark"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_pan_direct_link",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "pan.quark.cn/"
+              }
+            ],
+            "evidence": [],
+            "reason": "Direct Quark pan share link"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "quark"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "maherjafal",
+      "displayName": "Maher Jaffal",
+      "reason": "拉黑：规则命中：评论[内置规则:quark_pan_direct_link] 命中：pan.quark.cn/；评论[内置规则:quark_lure_combo] 命中：quark",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "quark_pan_direct_link",
+        "quark_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:30:08.437Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "quark_pan_direct_link [commentText] => pan.quark.cn/",
+          "quark_lure_combo [commentText] => quark"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_pan_direct_link",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "pan.quark.cn/"
+              }
+            ],
+            "evidence": [],
+            "reason": "Direct Quark pan share link"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "quark"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "selvinulasali",
+      "displayName": "下雨天",
+      "reason": "拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚\"比她骚的没她好看；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:30:08.424Z",
+      "reasonDetails": {
+        "ruleScore": 21,
+        "ruleHumanReasons": [
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚\"比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:strong_rule_direct_block"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:strong_rule_direct_block"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚\"比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:strong_rule_direct_block"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "Sexualized comparative bait phrase recurring as part of lure copy."
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Sexualized comparative bait phrase; specific enough to be a useful spam signal."
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "tao1865453",
+      "displayName": "玩具",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：tao1865453；评论[内置规则:contact_mention] 命中：私信；评论[内置规则:adult_mention] 命中：福利；评论[内置规则:adult_lure_combo] 命中：福利、私信",
+      "confidence": 0.96,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "adult_mention",
+        "adult_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:29:08.493Z",
+      "reasonDetails": {
+        "ruleScore": 8,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => tao1865453",
+          "contact_mention [commentText] => 私信",
+          "adult_mention [commentText] => 福利",
+          "adult_lure_combo [commentText] => 福利, 私信"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "tao1865453"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "私信"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "福利"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "福利"
+              },
+              {
+                "field": "commentText",
+                "term": "私信"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "jack1129136",
+      "displayName": ".",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：jack1129136；AI(feedback-memory(fallback))判spam 0.94：历史上报样本命中",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T07:27:00.901Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => jack1129136"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "jack1129136"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "huljicumiwu_k",
+      "displayName": "青青🍑接主人任务",
+      "reason": "admin_submitted_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_submitted",
+        "user_paste"
+      ],
+      "source": "admin_absorb_submission",
+      "updatedAt": "2026-05-20T05:56:23.094Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "_now_fozuptil",
+      "displayName": "纯情小玲玲",
+      "reason": "admin_submitted_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_submitted",
+        "user_paste"
+      ],
+      "source": "admin_absorb_submission",
+      "updatedAt": "2026-05-20T05:56:23.093Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "_teyi_ckoxmit",
+      "displayName": "爱炒的佳佳🍑",
+      "reason": "admin_submitted_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_submitted",
+        "user_paste"
+      ],
+      "source": "admin_absorb_submission",
+      "updatedAt": "2026-05-20T05:56:23.092Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "xum_omlocaxse",
+      "displayName": "健身的珂珂🍑",
+      "reason": "admin_submitted_spam",
+      "confidence": 0.96,
+      "tags": [
+        "admin_submitted",
+        "user_paste"
+      ],
+      "source": "admin_absorb_submission",
+      "updatedAt": "2026-05-20T05:56:23.091Z",
+      "reasonDetails": {
+        "ruleScore": 0,
+        "ruleHumanReasons": [],
+        "aiProvider": "",
+        "aiReason": "",
+        "ruleMatchDetails": []
+      }
+    },
+    {
+      "screenName": "hamagang88",
+      "displayName": "Jack hml",
+      "reason": "reported_spam_pattern",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:55:03.406Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => hamagang88"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "hamagang88"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "woso_loni_xoz",
+      "displayName": "姚惟星免费破处",
+      "reason": "strong_rule_direct_block",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "dynamic_adult_lure",
+        "short_bot_code",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:54:43.526Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "dynamic_adult_lure [displayName] => 姚惟星免费破处",
+          "dynamic_adult_lure [displayName] => 免费破处",
+          "short_bot_code [commentText] => 5"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "姚惟星免费破处"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:strong_rule_direct_block"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "免费破处"
+              }
+            ],
+            "evidence": [],
+            "reason": "Explicit sexual bait phrase with very low benign usage likelihood."
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "5"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "_hu_yojuxyire",
+      "displayName": "水水姐姐免费破处",
+      "reason": "strong_rule_direct_block",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "dynamic_adult_lure",
+        "short_bot_code",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:54:43.248Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "dynamic_adult_lure [displayName] => 水水姐姐免费破处",
+          "dynamic_adult_lure [displayName] => 免费破处",
+          "short_bot_code [commentText] => 7"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "水水姐姐免费破处"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:strong_rule_direct_block"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "免费破处"
+              }
+            ],
+            "evidence": [],
+            "reason": "Explicit sexual bait phrase with very low benign usage likelihood."
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "7"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "qo_tpokpufkuv",
+      "displayName": "苹苹，处男免费",
+      "reason": "strong_rule_direct_block",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "short_bot_code",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:54:43.239Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "short_bot_code [commentText] => 5",
+          "dynamic_adult_lure [displayName] => 处男免费"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "5"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "处男免费"
+              }
+            ],
+            "evidence": [],
+            "reason": "Sexual bait phrasing targeting virgins/free offer; highly suspicious though may appear in varied formatting."
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "xom_ifyana_zu",
+      "displayName": "真实约见附近好友匹配",
+      "reason": "strong_rule_direct_block",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "dynamic_resource_lure",
+        "short_bot_code",
+        "resource_lure_comment",
+        "dynamic_contact_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:54:43.152Z",
+      "reasonDetails": {
+        "ruleScore": 19,
+        "ruleHumanReasons": [
+          "dynamic_resource_lure [displayName] => 真实约见",
+          "short_bot_code [commentText] => 3",
+          "resource_lure_comment [displayName] => 真实约见",
+          "dynamic_contact_lure [displayName] => 附近好友匹配",
+          "dynamic_resource_lure [displayName] => 真实约见"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:strong_rule_direct_block"
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "3"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "附近好友匹配"
+              }
+            ],
+            "evidence": [],
+            "reason": "Precise matchmaking-style lure phrase tied to nearby-contact spam and unlikely in benign contexts."
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "Common spam lure in meetup/resource scams, but somewhat broader and may need contextual pairing."
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "_kofgullegi_j",
+      "displayName": "真实约见同城资源自取看我简介",
+      "reason": "strong_rule_direct_block",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "dynamic_resource_lure",
+        "short_bot_code",
+        "resource_lure_comment",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:54:43.126Z",
+      "reasonDetails": {
+        "ruleScore": 21,
+        "ruleHumanReasons": [
+          "dynamic_resource_lure [displayName] => 真实约见",
+          "short_bot_code [commentText] => 2",
+          "resource_lure_comment [displayName] => 真实约见, 同城资源自取, 看我简介",
+          "dynamic_resource_lure [displayName] => 真实约见",
+          "dynamic_resource_lure [displayName] => 同城资源自取",
+          "contact_lure_signal [displayName] => 同城"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:strong_rule_direct_block"
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "2"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              },
+              {
+                "field": "displayName",
+                "term": "同城资源自取"
+              },
+              {
+                "field": "displayName",
+                "term": "看我简介"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "Common spam lure in meetup/resource scams, but somewhat broader and may need contextual pairing."
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城资源自取"
+              }
+            ],
+            "evidence": [],
+            "reason": "Specific local-resource solicitation wording commonly used in adult/spam acquisition posts."
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "v__ecdaqexred",
+      "displayName": "线下资源入口点我头像进群选人",
+      "reason": "strong_rule_direct_block",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "dynamic_resource_lure",
+        "short_bot_code",
+        "resource_lure_comment",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:54:43.117Z",
+      "reasonDetails": {
+        "ruleScore": 16,
+        "ruleHumanReasons": [
+          "dynamic_resource_lure [displayName] => 点我头像进群选人",
+          "short_bot_code [commentText] => 3",
+          "resource_lure_comment [displayName] => 线下资源入口, 资源入口, 点我头像进群选人, 进群选人",
+          "dynamic_resource_lure [displayName] => 线下资源入口",
+          "contact_lure_signal [displayName] => 线下"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "点我头像进群选人"
+              }
+            ],
+            "evidence": [],
+            "reason": "Strong call-to-action to enter a group and choose people; highly indicative of recruitment or trafficking-style spam."
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "3"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "线下资源入口"
+              },
+              {
+                "field": "displayName",
+                "term": "资源入口"
+              },
+              {
+                "field": "displayName",
+                "term": "点我头像进群选人"
+              },
+              {
+                "field": "displayName",
+                "term": "进群选人"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "线下资源入口"
+              }
+            ],
+            "evidence": [],
+            "reason": "Explicit offline-resource access wording, strongly associated with illicit lead-generation spam."
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "yu__hagavnehu",
+      "displayName": "看我主页全是附近真实约见资源",
+      "reason": "strong_rule_direct_block",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "dynamic_contact_lure",
+        "short_bot_code",
+        "resource_lure_comment",
+        "dynamic_resource_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:54:43.107Z",
+      "reasonDetails": {
+        "ruleScore": 19,
+        "ruleHumanReasons": [
+          "dynamic_contact_lure [displayName] => 看我主页",
+          "short_bot_code [commentText] => 3",
+          "resource_lure_comment [displayName] => 真实约见",
+          "dynamic_resource_lure [displayName] => 真实约见",
+          "dynamic_resource_lure [displayName] => 全是附近真实约见资源"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "看我主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Profile-click redirection is common in spam, but phrase is broader and should be reviewed before standalone blocking."
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "3"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "Common spam lure in meetup/resource scams, but somewhat broader and may need contextual pairing."
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "全是附近真实约见资源"
+              }
+            ],
+            "evidence": [],
+            "reason": "Composite phrase combining nearby, real meetup, and resource claims; highly specific spam lure."
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "_qiluwdiwizho",
+      "displayName": "李老师处男免费",
+      "reason": "strong_rule_direct_block",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "roleplay_name",
+        "short_bot_code",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:54:42.491Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "roleplay_name [displayName] => 老师",
+          "short_bot_code [commentText] => 2",
+          "dynamic_adult_lure [displayName] => 处男免费"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "roleplay_name",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "老师"
+              }
+            ],
+            "evidence": [],
+            "reason": "Roleplay-style display name"
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "2"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "处男免费"
+              }
+            ],
+            "evidence": [],
+            "reason": "Sexual bait phrasing targeting virgins/free offer; highly suspicious though may appear in varied formatting."
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "_y_uzjihorixn",
+      "displayName": "卢童昀免费破处",
+      "reason": "strong_rule_direct_block",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "dynamic_adult_lure",
+        "short_bot_code",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:54:42.276Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "dynamic_adult_lure [displayName] => 卢童昀免费破处",
+          "dynamic_adult_lure [displayName] => 免费破处",
+          "short_bot_code [commentText] => 3"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "卢童昀免费破处"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:strong_rule_direct_block"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "免费破处"
+              }
+            ],
+            "evidence": [],
+            "reason": "Explicit sexual bait phrase with very low benign usage likelihood."
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "3"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "stephenhaney",
+      "displayName": "Stephen",
+      "reason": "strong_rule_direct_block",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "tg_mention",
+        "obfuscated_dd",
+        "tg_contact_combo",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:44:34.802Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "tg_mention [commentText] => tg",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "tg_contact_combo [commentText] => tg, dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "tg_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "tg"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "tg_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "tg"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram/contact lure combination"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "chengzimiaoji1",
+      "displayName": "橙子汪酱",
+      "reason": "strong_rule_direct_block",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "link_drop",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-20T05:44:18.814Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => chengzimiaoji1",
+          "contact_mention [commentText] => 线下",
+          "link_drop [unknown] => 关于我本人橙子喵酱全网300w粉丝大网红(*≧▽≦)线下约会绿单一日女友门槛520/888/5888私人微信购入写真/微信发zfb口令红包给我就可以啦本人1比1倒膜淘宝链接：https://s.tb.cn/c.0x4g2cp2是想说的话p3是发送口令红包的方式",
+          "contact_lure_signal [commentText] => 线下"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "chengzimiaoji1"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
     {
       "screenName": "fernando_mende2",
       "displayName": "Fernandinhoo",
@@ -16375,6 +18661,639 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "线下朋友",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：chloe4493116278；评论[内置规则:contact_mention] 命中：线下；评论[学习规则:dynamic_contact_lure] 命中：线下朋友；评论[学习规则:dynamic_contact_lure] 命中：天呐，这个故事我听一个山西人讲过一模一样的，线下朋友。；评论[内置规则:contact_lure_signal] 命中：线下",
+      "updatedAt": "2026-05-20T07:39:11.960Z"
+    },
+    {
+      "pattern": "天呐，这个故事我听一个山西人讲过一模一样的，线下朋友。",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：chloe4493116278；评论[内置规则:contact_mention] 命中：线下；评论[学习规则:dynamic_contact_lure] 命中：线下朋友；评论[学习规则:dynamic_contact_lure] 命中：天呐，这个故事我听一个山西人讲过一模一样的，线下朋友。；评论[内置规则:contact_lure_signal] 命中：线下",
+      "updatedAt": "2026-05-20T07:39:11.960Z"
+    },
+    {
+      "pattern": "静璇寻固炮点击主页mistysalin29834",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：mistysalin29834；名字[动态规则:dynamic_contact_lure] 命中：点击主页",
+      "updatedAt": "2026-05-20T07:37:37.164Z"
+    },
+    {
+      "pattern": "静璇寻固炮点击主页",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：mistysalin29834；名字[动态规则:dynamic_contact_lure] 命中：点击主页",
+      "updatedAt": "2026-05-20T07:37:37.163Z"
+    },
+    {
+      "pattern": "pan.quark.cn/s/f2529b7b5806",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.6100000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：olgaonions68466；评论[内置规则:quark_pan_direct_link] 命中：pan.quark.cn/；评论[内置规则:quark_lure_combo] 命中：quark",
+      "updatedAt": "2026-05-20T07:30:43.435Z"
+    },
+    {
+      "pattern": "就她的主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：l9t8vjvgb310126；评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打",
+      "updatedAt": "2026-05-20T07:30:29.423Z"
+    },
+    {
+      "pattern": "刷了半天的xg就她的主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：l9t8vjvgb310126；评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打",
+      "updatedAt": "2026-05-20T07:30:29.423Z"
+    },
+    {
+      "pattern": "刷了半天的xg就她的主页能打了@mslmshn1907o",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：l9t8vjvgb310126；评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打",
+      "updatedAt": "2026-05-20T07:30:29.423Z"
+    },
+    {
+      "pattern": "o刷了半天的x~就她的主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：wg73n5a4eg39096；评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打",
+      "updatedAt": "2026-05-20T07:30:25.571Z"
+    },
+    {
+      "pattern": "比她好看的没她骚",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：pudzqd6wsu9408；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "updatedAt": "2026-05-20T07:30:24.389Z"
+    },
+    {
+      "pattern": "比她骚的没她好看",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：pudzqd6wsu9408；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "updatedAt": "2026-05-20T07:30:24.389Z"
+    },
+    {
+      "pattern": "}j比她好看的没她骚`n比她骚的没她好看",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：pudzqd6wsu9408；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "updatedAt": "2026-05-20T07:30:24.389Z"
+    },
+    {
+      "pattern": ";刷了半天的x>就她的主页能打了@2018d1*",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：nanalienne77；评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页、d1；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打",
+      "updatedAt": "2026-05-20T07:30:19.039Z"
+    },
+    {
+      "pattern": "刷了半天的x>就她的主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：nanalienne77；评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页、d1；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打",
+      "updatedAt": "2026-05-20T07:30:19.038Z"
+    },
+    {
+      "pattern": "pan.quark.cn/s/3d093a0a1935",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.6100000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:quark_pan_direct_link] 命中：pan.quark.cn/；评论[内置规则:quark_lure_combo] 命中：quark",
+      "updatedAt": "2026-05-20T07:30:08.501Z"
+    },
+    {
+      "pattern": "pan.quark.cn/s/da84cded8e66",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.6100000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:quark_pan_direct_link] 命中：pan.quark.cn/；评论[内置规则:quark_lure_combo] 命中：quark",
+      "updatedAt": "2026-05-20T07:30:08.438Z"
+    },
+    {
+      "pattern": "*比她好看的没她骚\"比她骚的没她好看",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚\"比她骚的没她好看；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "updatedAt": "2026-05-20T07:30:08.426Z"
+    },
+    {
+      "pattern": "这里给大家准备一点小福利",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：tao1865453；评论[内置规则:contact_mention] 命中：私信；评论[内置规则:adult_mention] 命中：福利；评论[内置规则:adult_lure_combo] 命中：福利、私信",
+      "updatedAt": "2026-05-20T07:29:08.496Z"
+    },
+    {
+      "pattern": "要注意看私信呦",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：tao1865453；评论[内置规则:contact_mention] 命中：私信；评论[内置规则:adult_mention] 命中：福利；评论[内置规则:adult_lure_combo] 命中：福利、私信",
+      "updatedAt": "2026-05-20T07:29:08.495Z"
+    },
+    {
+      "pattern": "青青🍑接主人任务",
+      "kind": "phrase",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.094Z"
+    },
+    {
+      "pattern": "接主人任务",
+      "kind": "phrase",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.094Z"
+    },
+    {
+      "pattern": "青青🍑接主人任务",
+      "kind": "phrase",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.094Z"
+    },
+    {
+      "pattern": "爱炒的佳佳",
+      "kind": "phrase",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.093Z"
+    },
+    {
+      "pattern": "爱炒的佳佳🍑",
+      "kind": "phrase",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.093Z"
+    },
+    {
+      "pattern": "纯情小玲玲",
+      "kind": "phrase",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.093Z"
+    },
+    {
+      "pattern": "❀©©5纯情小玲玲",
+      "kind": "phrase",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.093Z"
+    },
+    {
+      "pattern": "纯情小玲玲",
+      "kind": "phrase",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.093Z"
+    },
+    {
+      "pattern": "接主人任务",
+      "kind": "phrase",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.093Z"
+    },
+    {
+      "pattern": "健身的珂珂",
+      "kind": "phrase",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.092Z"
+    },
+    {
+      "pattern": "健身的珂珂🍑",
+      "kind": "phrase",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.092Z"
+    },
+    {
+      "pattern": "爱炒的佳佳",
+      "kind": "phrase",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.092Z"
+    },
+    {
+      "pattern": "爱炒的佳佳🍑",
+      "kind": "phrase",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.73,
+      "reason": "absorbed_from:admin_submitted_spam",
+      "updatedAt": "2026-05-20T05:56:23.092Z"
+    },
+    {
+      "pattern": "姚惟星免费破处",
+      "kind": "adult_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.527Z"
+    },
+    {
+      "pattern": "水水姐姐免费破处_hu_yojuxyire",
+      "kind": "adult_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.249Z"
+    },
+    {
+      "pattern": "水水姐姐免费破处",
+      "kind": "adult_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.248Z"
+    },
+    {
+      "pattern": "真实约见",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.153Z"
+    },
+    {
+      "pattern": "真实约见附近好友匹配",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.153Z"
+    },
+    {
+      "pattern": "真实约见附近好友匹配xom_ifyana_zu",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.153Z"
+    },
+    {
+      "pattern": "同城资源自取",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.127Z"
+    },
+    {
+      "pattern": "真实约见同城资源自取看我",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.127Z"
+    },
+    {
+      "pattern": "真实约见同城资源自取看我简介",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.127Z"
+    },
+    {
+      "pattern": "真实约见同城资源自取看我简介_kofgullegi_j",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.127Z"
+    },
+    {
+      "pattern": "点我头像进群选人",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.118Z"
+    },
+    {
+      "pattern": "线下资源入口点我头像进群",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.118Z"
+    },
+    {
+      "pattern": "线下资源入口点我头像进群选人",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.118Z"
+    },
+    {
+      "pattern": "线下资源入口点我头像进群选人v__ecdaqexred",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.118Z"
+    },
+    {
+      "pattern": "线下资源入口",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.117Z"
+    },
+    {
+      "pattern": "看我主页全是附近真实约见",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.108Z"
+    },
+    {
+      "pattern": "看我主页全是附近真实约见资源",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.108Z"
+    },
+    {
+      "pattern": "看我主页全是附近真实约见资源yu__hagavnehu",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:43.108Z"
+    },
+    {
+      "pattern": "卢童昀免费破处",
+      "kind": "adult_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:54:42.277Z"
+    },
+    {
+      "pattern": "superfastgenerations",
+      "kind": "tg",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:44:34.803Z"
+    },
+    {
+      "pattern": "wejustaddedgrok",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:44:34.802Z"
+    },
+    {
+      "pattern": "线下约会绿单一日女友门槛",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:44:18.815Z"
+    },
+    {
+      "pattern": "s.tb.cn/c.0x4g2c",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.67,
+      "reason": "absorbed_from:strong_rule_direct_block",
+      "updatedAt": "2026-05-20T05:44:18.815Z"
+    },
+    {
       "pattern": "推特/第一骚",
       "kind": "adult_lure",
       "fields": [
@@ -16441,17 +19360,6 @@
       "updatedAt": "2026-05-20T03:31:06.258Z"
     },
     {
-      "pattern": "就她的主页能打了",
-      "kind": "contact_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-20T03:31:04.267Z"
-    },
-    {
       "pattern": "'刷了半天的x;就她的主页能打了@danitinahd+",
       "kind": "contact_lure",
       "fields": [
@@ -16509,17 +19417,6 @@
       "updatedAt": "2026-05-20T03:30:31.308Z"
     },
     {
-      "pattern": "比她好看的没她骚",
-      "kind": "adult_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-20T03:30:31.297Z"
-    },
-    {
       "pattern": "[比她好看的没她骚",
       "kind": "adult_lure",
       "fields": [
@@ -16540,17 +19437,6 @@
       "confidence": 0.8500000000000001,
       "reason": "absorbed_from:strong_rule_direct_block",
       "updatedAt": "2026-05-20T03:30:31.297Z"
-    },
-    {
-      "pattern": "比她骚的没她好看",
-      "kind": "adult_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-20T03:30:31.296Z"
     },
     {
       "pattern": ">线下sao货没人比她sao)",
@@ -18704,15 +21590,15 @@
     "topReasons": [
       {
         "value": "reported_spam_pattern",
-        "count": 67
+        "count": 68
+      },
+      {
+        "value": "strong_rule_direct_block",
+        "count": 64
       },
       {
         "value": "admin_ai_ingest_confirmed_spam",
         "count": 57
-      },
-      {
-        "value": "strong_rule_direct_block",
-        "count": 53
       },
       {
         "value": "high_rule_score",
@@ -18720,7 +21606,7 @@
       },
       {
         "value": "admin_submitted_spam",
-        "count": 15
+        "count": 19
       },
       {
         "value": "soft_lure_bot_combo_admin_confirmed",
@@ -18732,6 +21618,10 @@
       },
       {
         "value": "manual_upsert",
+        "count": 2
+      },
+      {
+        "value": "拉黑：规则命中：评论[内置规则:quark_pan_direct_link] 命中：pan.quark.cn/；评论[内置规则:quark_lure_combo] 命中：quark",
         "count": 2
       },
       {
@@ -18761,36 +21651,40 @@
       {
         "value": "Comment contains mixed digit-letter code and profile-redirection wording, both common in lure spam.",
         "count": 1
-      },
-      {
-        "value": "Comment contains repeated sexualized lure phrases strongly matching known spam/adult-bait patterns, includes a tagged handle redirect, and uses a digit-suffixed random-looking screen name. Multiple high-confidence matches align with prior reported spam samples.",
-        "count": 1
       }
     ],
     "topTags": [
+      {
+        "value": "auto_ai_review",
+        "count": 244
+      },
       {
         "value": "imported",
         "count": 229
       },
       {
-        "value": "auto_ai_review",
-        "count": 218
-      },
-      {
         "value": "random_handle",
-        "count": 133
+        "count": 146
       },
       {
         "value": "dynamic_contact_lure",
-        "count": 72
+        "count": 79
+      },
+      {
+        "value": "server_strong_rule",
+        "count": 76
       },
       {
         "value": "feedback_memory",
-        "count": 67
+        "count": 70
+      },
+      {
+        "value": "dynamic_adult_lure",
+        "count": 64
       },
       {
         "value": "adult_lure_combo",
-        "count": 62
+        "count": 63
       },
       {
         "value": "admin_confirmed",
@@ -18799,14 +21693,6 @@
       {
         "value": "ai_rule_ingest",
         "count": 57
-      },
-      {
-        "value": "dynamic_adult_lure",
-        "count": 56
-      },
-      {
-        "value": "server_strong_rule",
-        "count": 53
       },
       {
         "value": "rule:contact_lure",
@@ -18822,100 +21708,108 @@
       },
       {
         "value": "contact_lure_signal",
-        "count": 25
+        "count": 29
+      },
+      {
+        "value": "contact_mention",
+        "count": 26
       },
       {
         "value": "quark_lure_combo",
-        "count": 23
-      },
-      {
-        "value": "obfuscated_dd_contact_combo",
-        "count": 22
+        "count": 26
       },
       {
         "value": "adult_mention",
-        "count": 21
+        "count": 25
+      },
+      {
+        "value": "obfuscated_dd_contact_combo",
+        "count": 23
       },
       {
         "value": "quark_pan_direct_link",
-        "count": 20
+        "count": 23
       },
       {
         "value": "rule:adult_lure",
         "count": 20
       },
       {
-        "value": "contact_mention",
+        "value": "admin_submitted",
         "count": 19
       },
       {
-        "value": "admin_submitted",
-        "count": 15
+        "value": "user_paste",
+        "count": 19
       },
       {
         "value": "mixed_short_code_lure",
-        "count": 15
+        "count": 16
       },
       {
         "value": "spam_lure",
-        "count": 15
-      },
-      {
-        "value": "spam_pattern",
         "count": 15
       }
     ],
     "topRules": [
       {
         "value": "random_handle",
-        "count": 132
+        "count": 145
       },
       {
         "value": "dynamic_adult_lure",
-        "count": 116
+        "count": 137
       },
       {
         "value": "dynamic_contact_lure",
-        "count": 82
+        "count": 96
       },
       {
         "value": "adult_lure_combo",
-        "count": 61
+        "count": 62
       },
       {
         "value": "contact_lure_signal",
-        "count": 25
-      },
-      {
-        "value": "quark_lure_combo",
-        "count": 23
-      },
-      {
-        "value": "obfuscated_dd_contact_combo",
-        "count": 22
-      },
-      {
-        "value": "adult_mention",
-        "count": 21
-      },
-      {
-        "value": "quark_pan_direct_link",
-        "count": 20
+        "count": 29
       },
       {
         "value": "contact_mention",
-        "count": 19
+        "count": 26
+      },
+      {
+        "value": "quark_lure_combo",
+        "count": 26
+      },
+      {
+        "value": "adult_mention",
+        "count": 25
+      },
+      {
+        "value": "obfuscated_dd_contact_combo",
+        "count": 23
+      },
+      {
+        "value": "quark_pan_direct_link",
+        "count": 23
       },
       {
         "value": "dynamic_phrase",
-        "count": 11
+        "count": 14
+      },
+      {
+        "value": "dynamic_resource_lure",
+        "count": 12
       },
       {
         "value": "mixed_short_code_lure",
-        "count": 11
+        "count": 12
       },
       {
         "value": "adult_name_bot_comment_combo",
+        "count": 9
+      },
+      {
+        "value": "short_bot_code",
         "count": 9
       },
       {
@@ -18923,23 +21817,27 @@
         "count": 7
       },
       {
+        "value": "link_drop",
+        "count": 6
+      },
+      {
         "value": "dynamic_tg",
         "count": 5
       },
       {
-        "value": "link_drop",
+        "value": "obfuscated_dd",
         "count": 5
       },
       {
-        "value": "obfuscated_dd",
+        "value": "resource_lure_comment",
         "count": 4
       },
       {
-        "value": "dynamic_resource_lure",
+        "value": "resource_lure_combo",
         "count": 3
       },
       {
-        "value": "resource_lure_combo",
+        "value": "tg_mention",
         "count": 3
       },
       {
@@ -18947,37 +21845,29 @@
         "count": 2
       },
       {
-        "value": "tg_mention",
-        "count": 2
-      },
-      {
         "value": "dynamic_sexual_solicitation",
-        "count": 1
-      },
-      {
-        "value": "dynamic_solicitation_phrase",
-        "count": 1
-      },
-      {
-        "value": "emoji_flood",
         "count": 1
       }
     ],
     "topFields": [
       {
         "value": "commentText",
-        "count": 409
+        "count": 470
       },
       {
         "value": "screenName",
-        "count": 152
+        "count": 165
       },
       {
         "value": "displayName",
-        "count": 54
+        "count": 81
       }
     ],
     "topPatterns": [
+      {
+        "value": "13小时",
+        "count": 4
+      },
       {
         "value": "比她骚的没她好看",
         "count": 4
@@ -18995,7 +21885,23 @@
         "count": 2
       },
       {
+        "value": "_now_fozuptil",
+        "count": 2
+      },
+      {
+        "value": "_teyi_ckoxmit",
+        "count": 2
+      },
+      {
         "value": ")刷了半天的x🫶就她的主页能打✈️了",
+        "count": 2
+      },
+      {
+        "value": "@_now_fozuptil",
+        "count": 2
+      },
+      {
+        "value": "@_teyi_ckoxmit",
         "count": 2
       },
       {
@@ -19028,6 +21934,10 @@
       },
       {
         "value": "@hspringhal54753",
+        "count": 2
+      },
+      {
+        "value": "@huljicumiwu_k",
         "count": 2
       },
       {
@@ -19087,11 +21997,11 @@
         "count": 2
       },
       {
-        "value": "\\-线下sao货没人比她sao",
+        "value": "@xum_omlocaxse",
         "count": 2
       },
       {
-        "value": "13小时",
+        "value": "\\-线下sao货没人比她sao",
         "count": 2
       },
       {
@@ -19113,36 +22023,12 @@
       {
         "value": "5月12日",
         "count": 2
-      },
-      {
-        "value": "5月5日",
-        "count": 2
-      },
-      {
-        "value": "77yxns27343",
-        "count": 2
-      },
-      {
-        "value": "alessandre_melo",
-        "count": 2
-      },
-      {
-        "value": "a线下我就曰过🤩这个骚货👉",
-        "count": 2
-      },
-      {
-        "value": "bbusradumanntracysaw",
-        "count": 2
-      },
-      {
-        "value": "dadi2412",
-        "count": 2
       }
     ],
     "patternKinds": [
       {
         "value": "phrase",
-        "count": 118
+        "count": 150
       },
       {
         "value": "contact_lure",
@@ -19162,10 +22048,10 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 298,
-      "spamSamples": 4,
-      "approvedReports": 64,
-      "dynamicRules": 200,
+      "confirmedBlacklist": 328,
+      "spamSamples": 5,
+      "approvedReports": 90,
+      "dynamicRules": 252,
       "pendingReports": 0
     }
   }
