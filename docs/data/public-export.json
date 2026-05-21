@@ -1,24 +1,913 @@
 {
-  "generatedAt": "2026-05-21T05:19:43.590Z",
+  "generatedAt": "2026-05-21T10:03:23.886Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 328,
-    "blacklistConfirmed": 328,
+    "blacklistTotal": 339,
+    "blacklistConfirmed": 339,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 90,
+    "contributionTotal": 101,
     "contributionPending": 0,
-    "dynamicRuleTotal": 252,
-    "dynamicRuleActive": 252,
-    "eventsTotal": 9078,
-    "blocked24h": 92,
+    "dynamicRuleTotal": 271,
+    "dynamicRuleActive": 271,
+    "eventsTotal": 9406,
+    "blocked24h": 23,
     "blockFailed24h": 0,
-    "decisions24h": 626,
+    "decisions24h": 369,
     "blockTaskPending": 0,
-    "generatedAt": "2026-05-21T05:19:43.576Z"
+    "generatedAt": "2026-05-21T10:03:23.871Z"
   },
   "blacklist": [
+    {
+      "screenName": "_oak200",
+      "displayName": "OAK",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-21T09:13:07.088Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "whyyoutouzhele",
+      "displayName": "李老师不是你老师",
+      "reason": "拉黑：规则命中：名字[内置规则:roleplay_name] 命中：老师；评论[内置规则:contact_mention] 命中：联系；评论[学习规则:dynamic_contact_lure] 命中：烟草人事快联系我；评论[学习规则:dynamic_contact_lure] 命中：烟草人事快联系我”“又要马儿跑；名字[内置规则:roleplay_name_lure] 命中：老师、联系",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "roleplay_name",
+        "contact_mention",
+        "dynamic_contact_lure",
+        "roleplay_name_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-21T08:57:32.968Z",
+      "reasonDetails": {
+        "ruleScore": 12,
+        "ruleHumanReasons": [
+          "roleplay_name [displayName] => 老师",
+          "contact_mention [commentText] => 联系",
+          "dynamic_contact_lure [commentText] => 烟草人事快联系我",
+          "dynamic_contact_lure [commentText] => 烟草人事快联系我”“又要马儿跑",
+          "roleplay_name_lure [displayName,commentText] => 老师, 联系"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "roleplay_name",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "老师"
+              }
+            ],
+            "evidence": [],
+            "reason": "Roleplay-style display name"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "联系"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "烟草人事快联系我"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:roleplay_name] 命中：老师；评论[内置规则:contact_mention] 命中：联系；名字[内置规则:roleplay_name_lure] 命中：老师、联系；评论[内置规则:roleplay_name_lure] 命中：老师、联系"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "烟草人事快联系我”“又要马儿跑"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:roleplay_name] 命中：老师；评论[内置规则:contact_mention] 命中：联系；名字[内置规则:roleplay_name_lure] 命中：老师、联系；评论[内置规则:roleplay_name_lure] 命中：老师、联系"
+          },
+          {
+            "rule": "roleplay_name_lure",
+            "fields": [
+              "displayName",
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "老师"
+              },
+              {
+                "field": "commentText",
+                "term": "联系"
+              }
+            ],
+            "evidence": [],
+            "reason": "Roleplay display name with lure comment"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "bbqbaseball62",
+      "displayName": "blake",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：bbqbaseball62；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.84,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-21T08:56:18.708Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => bbqbaseball62",
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "bbqbaseball62"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "john_reddick",
+      "displayName": "John Reddick",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-21T08:56:12.229Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "antspeaks",
+      "displayName": "Aɴᴛ",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-21T08:56:10.994Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "defendthewest17",
+      "displayName": "Crusader of Christ",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：defendthewest17；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.84,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-21T08:56:05.503Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => defendthewest17",
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "defendthewest17"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "metapoems",
+      "displayName": "Angelsors",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-21T08:56:00.809Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "grok",
+      "displayName": "Grok",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-21T08:55:57.172Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "c_barrick",
+      "displayName": "cbarrick",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-21T08:55:53.813Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "80yearpopmusic",
+      "displayName": "Äpfel.",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：80yearpopmusic；评论[内置规则:contact_mention] 命中：置顶；评论[内置规则:tg_mention] 命中：飞机；评论[内置规则:tg_contact_combo] 命中：飞机、置顶",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "tg_mention",
+        "tg_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-21T06:52:37.569Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => 80yearpopmusic",
+          "contact_mention [commentText] => 置顶",
+          "tg_mention [commentText] => 飞机",
+          "tg_contact_combo [commentText] => 飞机, 置顶"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "80yearpopmusic"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "置顶"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "tg_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "飞机"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram terms in comment"
+          },
+          {
+            "rule": "tg_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "飞机"
+              },
+              {
+                "field": "commentText",
+                "term": "置顶"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram/contact lure combination"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "anima_labs",
+      "displayName": "Anima",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-21T06:47:17.860Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
     {
       "screenName": "chloe4493116278",
       "displayName": "Chloe",
@@ -18661,6 +19550,215 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "istarteddescribingth",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T09:13:07.089Z"
+    },
+    {
+      "pattern": "烟草人事快联系我",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:roleplay_name] 命中：老师；评论[内置规则:contact_mention] 命中：联系；评论[学习规则:dynamic_contact_lure] 命中：烟草人事快联系我；评论[学习规则:dynamic_contact_lure] 命中：烟草人事快联系我”“又要马儿跑；名字[内置规则:roleplay_name_lure] 命中：老师、联系",
+      "updatedAt": "2026-05-21T08:57:32.969Z"
+    },
+    {
+      "pattern": "烟草人事快联系我”“又要马儿跑",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:roleplay_name] 命中：老师；评论[内置规则:contact_mention] 命中：联系；评论[学习规则:dynamic_contact_lure] 命中：烟草人事快联系我；评论[学习规则:dynamic_contact_lure] 命中：烟草人事快联系我”“又要马儿跑；名字[内置规则:roleplay_name_lure] 命中：老师、联系",
+      "updatedAt": "2026-05-21T08:57:32.969Z"
+    },
+    {
+      "pattern": "satwistedanddiminish",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：bbqbaseball62；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:56:18.709Z"
+    },
+    {
+      "pattern": "thechthonicgoddesses",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:56:12.230Z"
+    },
+    {
+      "pattern": "oratleastdemi-goddesses",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.79,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:56:12.230Z"
+    },
+    {
+      "pattern": "goddesses",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:56:12.229Z"
+    },
+    {
+      "pattern": "egreekgoddesses",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:56:12.229Z"
+    },
+    {
+      "pattern": "norwouldagreekgoddes",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:56:10.995Z"
+    },
+    {
+      "pattern": "saddtravisscott",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：defendthewest17；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:56:05.504Z"
+    },
+    {
+      "pattern": "nowaddarapper",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：defendthewest17；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:56:05.503Z"
+    },
+    {
+      "pattern": "aretheykidding",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:56:00.809Z"
+    },
+    {
+      "pattern": "whichhasfueleddiscus",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:55:57.173Z"
+    },
+    {
+      "pattern": "helenisindeeddepicte",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:55:57.172Z"
+    },
+    {
+      "pattern": "ddeicasting",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T08:55:53.814Z"
+    },
+    {
+      "pattern": "这架螺旋桨飞机可以承受",
+      "kind": "tg",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：80yearpopmusic；评论[内置规则:contact_mention] 命中：置顶；评论[内置规则:tg_mention] 命中：飞机；评论[内置规则:tg_contact_combo] 命中：飞机、置顶",
+      "updatedAt": "2026-05-21T06:52:37.569Z"
+    },
+    {
+      "pattern": "这架螺旋桨飞机可以承受20g",
+      "kind": "tg",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：80yearpopmusic；评论[内置规则:contact_mention] 命中：置顶；评论[内置规则:tg_mention] 命中：飞机；评论[内置规则:tg_contact_combo] 命中：飞机、置顶",
+      "updatedAt": "2026-05-21T06:52:37.569Z"
+    },
+    {
+      "pattern": "anddeeplyconnectedto",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T06:47:17.861Z"
+    },
+    {
+      "pattern": "anddeeplyconnectedtonature.",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.79,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-05-21T06:47:17.861Z"
+    },
+    {
       "pattern": "线下朋友",
       "kind": "contact_lure",
       "fields": [
@@ -21609,6 +22707,10 @@
         "count": 19
       },
       {
+        "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+        "count": 7
+      },
+      {
         "value": "soft_lure_bot_combo_admin_confirmed",
         "count": 4
       },
@@ -21647,16 +22749,12 @@
       {
         "value": "Comment contains explicit adult-lure language ('第一骚') combined with a direct external contact handle CTA. Pattern strongly matches known spam-lure examples involving sexual bait and redirecting users to another account/profile.",
         "count": 1
-      },
-      {
-        "value": "Comment contains mixed digit-letter code and profile-redirection wording, both common in lure spam.",
-        "count": 1
       }
     ],
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 244
+        "count": 255
       },
       {
         "value": "imported",
@@ -21664,15 +22762,15 @@
       },
       {
         "value": "random_handle",
-        "count": 146
-      },
-      {
-        "value": "dynamic_contact_lure",
-        "count": 79
+        "count": 149
       },
       {
         "value": "server_strong_rule",
-        "count": 76
+        "count": 87
+      },
+      {
+        "value": "dynamic_contact_lure",
+        "count": 80
       },
       {
         "value": "feedback_memory",
@@ -21707,12 +22805,16 @@
         "count": 40
       },
       {
-        "value": "contact_lure_signal",
-        "count": 29
+        "value": "contact_mention",
+        "count": 37
       },
       {
-        "value": "contact_mention",
-        "count": 26
+        "value": "obfuscated_dd_contact_combo",
+        "count": 32
+      },
+      {
+        "value": "contact_lure_signal",
+        "count": 29
       },
       {
         "value": "quark_lure_combo",
@@ -21723,12 +22825,12 @@
         "count": 25
       },
       {
-        "value": "obfuscated_dd_contact_combo",
+        "value": "quark_pan_direct_link",
         "count": 23
       },
       {
-        "value": "quark_pan_direct_link",
-        "count": 23
+        "value": "obfuscated_dd",
+        "count": 20
       },
       {
         "value": "rule:adult_lure",
@@ -21745,16 +22847,12 @@
       {
         "value": "mixed_short_code_lure",
         "count": 16
-      },
-      {
-        "value": "spam_lure",
-        "count": 15
       }
     ],
     "topRules": [
       {
         "value": "random_handle",
-        "count": 145
+        "count": 148
       },
       {
         "value": "dynamic_adult_lure",
@@ -21762,19 +22860,23 @@
       },
       {
         "value": "dynamic_contact_lure",
-        "count": 96
+        "count": 98
       },
       {
         "value": "adult_lure_combo",
         "count": 62
       },
       {
-        "value": "contact_lure_signal",
-        "count": 29
+        "value": "contact_mention",
+        "count": 37
       },
       {
-        "value": "contact_mention",
-        "count": 26
+        "value": "obfuscated_dd_contact_combo",
+        "count": 32
+      },
+      {
+        "value": "contact_lure_signal",
+        "count": 29
       },
       {
         "value": "quark_lure_combo",
@@ -21785,15 +22887,15 @@
         "count": 25
       },
       {
-        "value": "obfuscated_dd_contact_combo",
-        "count": 23
-      },
-      {
         "value": "quark_pan_direct_link",
         "count": 23
       },
       {
         "value": "dynamic_phrase",
+        "count": 14
+      },
+      {
+        "value": "obfuscated_dd",
         "count": 14
       },
       {
@@ -21825,11 +22927,11 @@
         "count": 5
       },
       {
-        "value": "obfuscated_dd",
-        "count": 5
+        "value": "resource_lure_comment",
+        "count": 4
       },
       {
-        "value": "resource_lure_comment",
+        "value": "tg_mention",
         "count": 4
       },
       {
@@ -21837,30 +22939,26 @@
         "count": 3
       },
       {
-        "value": "tg_mention",
-        "count": 3
-      },
-      {
         "value": "dynamic_url",
         "count": 2
       },
       {
-        "value": "dynamic_sexual_solicitation",
-        "count": 1
+        "value": "roleplay_name",
+        "count": 2
       }
     ],
     "topFields": [
       {
         "value": "commentText",
-        "count": 470
+        "count": 504
       },
       {
         "value": "screenName",
-        "count": 165
+        "count": 168
       },
       {
         "value": "displayName",
-        "count": 81
+        "count": 83
       }
     ],
     "topPatterns": [
@@ -22048,10 +23146,10 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 328,
+      "confirmedBlacklist": 339,
       "spamSamples": 5,
-      "approvedReports": 90,
-      "dynamicRules": 252,
+      "approvedReports": 101,
+      "dynamicRules": 271,
       "pendingReports": 0
     }
   }
