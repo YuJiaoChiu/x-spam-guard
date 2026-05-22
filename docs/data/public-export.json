@@ -1,24 +1,79 @@
 {
-  "generatedAt": "2026-05-22T00:17:22.635Z",
+  "generatedAt": "2026-05-22T05:13:05.658Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 339,
-    "blacklistConfirmed": 339,
+    "blacklistTotal": 340,
+    "blacklistConfirmed": 340,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 101,
+    "contributionTotal": 103,
     "contributionPending": 0,
-    "dynamicRuleTotal": 271,
-    "dynamicRuleActive": 271,
-    "eventsTotal": 9746,
-    "blocked24h": 23,
+    "dynamicRuleTotal": 274,
+    "dynamicRuleActive": 274,
+    "eventsTotal": 9897,
+    "blocked24h": 24,
     "blockFailed24h": 0,
-    "decisions24h": 141,
+    "decisions24h": 180,
     "blockTaskPending": 0,
-    "generatedAt": "2026-05-22T00:17:22.619Z"
+    "generatedAt": "2026-05-22T05:13:05.641Z"
   },
   "blacklist": [
+    {
+      "screenName": "dx8152",
+      "displayName": "大雄",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：dx8152；评论[内置规则:quark_lure_combo] 命中：下载",
+      "confidence": 0.84,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "quark_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-22T02:40:15.228Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => dx8152",
+          "quark_lure_combo [commentText] => 下载"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "dx8152"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "下载"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
     {
       "screenName": "_oak200",
       "displayName": "OAK",
@@ -19550,6 +19605,39 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "github.com/hero8152/infin",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.6100000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：dx8152；评论[内置规则:quark_lure_combo] 命中：下载",
+      "updatedAt": "2026-05-22T02:40:15.229Z"
+    },
+    {
+      "pattern": "下载地址",
+      "kind": "netdisk",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：dx8152；评论[内置规则:quark_lure_combo] 命中：下载",
+      "updatedAt": "2026-05-22T02:40:15.228Z"
+    },
+    {
+      "pattern": "增加了中英文切换下载地址",
+      "kind": "netdisk",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：dx8152；评论[内置规则:quark_lure_combo] 命中：下载",
+      "updatedAt": "2026-05-22T02:40:15.228Z"
+    },
+    {
       "pattern": "istarteddescribingth",
       "kind": "contact_lure",
       "fields": [
@@ -22754,7 +22842,7 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 255
+        "count": 256
       },
       {
         "value": "imported",
@@ -22762,11 +22850,11 @@
       },
       {
         "value": "random_handle",
-        "count": 149
+        "count": 150
       },
       {
         "value": "server_strong_rule",
-        "count": 87
+        "count": 88
       },
       {
         "value": "dynamic_contact_lure",
@@ -22818,7 +22906,7 @@
       },
       {
         "value": "quark_lure_combo",
-        "count": 26
+        "count": 27
       },
       {
         "value": "adult_mention",
@@ -22852,7 +22940,7 @@
     "topRules": [
       {
         "value": "random_handle",
-        "count": 148
+        "count": 149
       },
       {
         "value": "dynamic_adult_lure",
@@ -22880,7 +22968,7 @@
       },
       {
         "value": "quark_lure_combo",
-        "count": 26
+        "count": 27
       },
       {
         "value": "adult_mention",
@@ -22950,11 +23038,11 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 504
+        "count": 505
       },
       {
         "value": "screenName",
-        "count": 168
+        "count": 169
       },
       {
         "value": "displayName",
@@ -23146,10 +23234,10 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 339,
+      "confirmedBlacklist": 340,
       "spamSamples": 5,
-      "approvedReports": 101,
-      "dynamicRules": 271,
+      "approvedReports": 103,
+      "dynamicRules": 274,
       "pendingReports": 0
     }
   }
