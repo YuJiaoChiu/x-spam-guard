@@ -1,24 +1,63 @@
 {
-  "generatedAt": "2026-05-26T23:33:26.266Z",
+  "generatedAt": "2026-05-27T04:47:51.759Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 342,
-    "blacklistConfirmed": 342,
+    "blacklistTotal": 343,
+    "blacklistConfirmed": 343,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 105,
+    "contributionTotal": 106,
     "contributionPending": 0,
     "dynamicRuleTotal": 277,
     "dynamicRuleActive": 277,
-    "eventsTotal": 10187,
-    "blocked24h": 0,
+    "eventsTotal": 10247,
+    "blocked24h": 25,
     "blockFailed24h": 0,
-    "decisions24h": 0,
+    "decisions24h": 16,
     "blockTaskPending": 0,
-    "generatedAt": "2026-05-26T23:33:26.250Z"
+    "generatedAt": "2026-05-27T04:47:51.743Z"
   },
   "blacklist": [
+    {
+      "screenName": "jackpot202011",
+      "displayName": "妳们很敏感",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：jackpot202011；AI(feedback-memory(fallback))判spam 0.94：历史上报样本命中",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-05-27T03:23:18.572Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => jackpot202011"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "jackpot202011"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
     {
       "screenName": "jinchenma_ai",
       "displayName": "金尘马",
@@ -23021,7 +23060,7 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 258
+        "count": 259
       },
       {
         "value": "imported",
@@ -23029,7 +23068,7 @@
       },
       {
         "value": "random_handle",
-        "count": 150
+        "count": 151
       },
       {
         "value": "server_strong_rule",
@@ -23041,7 +23080,7 @@
       },
       {
         "value": "feedback_memory",
-        "count": 70
+        "count": 71
       },
       {
         "value": "dynamic_adult_lure",
@@ -23119,7 +23158,7 @@
     "topRules": [
       {
         "value": "random_handle",
-        "count": 149
+        "count": 150
       },
       {
         "value": "dynamic_adult_lure",
@@ -23221,7 +23260,7 @@
       },
       {
         "value": "screenName",
-        "count": 169
+        "count": 170
       },
       {
         "value": "displayName",
@@ -23413,9 +23452,9 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 342,
+      "confirmedBlacklist": 343,
       "spamSamples": 5,
-      "approvedReports": 105,
+      "approvedReports": 106,
       "dynamicRules": 277,
       "pendingReports": 0
     }
