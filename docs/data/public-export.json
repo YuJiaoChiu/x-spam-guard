@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-01T23:09:16.610Z",
+  "generatedAt": "2026-06-02T01:36:17.564Z",
   "project": "X Spam Guard",
   "stats": {
     "blacklistTotal": 608,
@@ -11,12 +11,12 @@
     "contributionPending": 25,
     "dynamicRuleTotal": 793,
     "dynamicRuleActive": 793,
-    "eventsTotal": 14520,
-    "blocked24h": 243,
+    "eventsTotal": 14631,
+    "blocked24h": 214,
     "blockFailed24h": 44,
-    "decisions24h": 802,
+    "decisions24h": 750,
     "blockTaskPending": 6,
-    "generatedAt": "2026-06-01T23:09:16.564Z"
+    "generatedAt": "2026-06-02T01:36:17.515Z"
   },
   "blacklist": [
     {
