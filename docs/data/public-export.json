@@ -1,24 +1,293 @@
 {
-  "generatedAt": "2026-06-06T05:04:44.369Z",
+  "generatedAt": "2026-06-06T08:02:09.501Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 746,
-    "blacklistConfirmed": 746,
+    "blacklistTotal": 750,
+    "blacklistConfirmed": 750,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 536,
+    "contributionTotal": 540,
     "contributionPending": 25,
-    "dynamicRuleTotal": 964,
-    "dynamicRuleActive": 964,
+    "dynamicRuleTotal": 969,
+    "dynamicRuleActive": 969,
     "eventsTotal": 15000,
-    "blocked24h": 292,
+    "blocked24h": 299,
     "blockFailed24h": 0,
-    "decisions24h": 984,
+    "decisions24h": 997,
     "blockTaskPending": 0,
-    "generatedAt": "2026-06-06T05:04:44.304Z"
+    "generatedAt": "2026-06-06T08:02:09.416Z"
   },
   "blacklist": [
+    {
+      "screenName": "liangdabanzi",
+      "displayName": "大梁板子",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：d1；其他[内置规则:link_drop] 命中：抖音小程序-游戏发行人课程：带你玩转游戏任务变现，单条视频赚取25...；评论[学习规则:dynamic_url] 命中：vip.xueden.com/30261.html",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "link_drop",
+        "dynamic_url",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-06T07:19:05.927Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => d1",
+          "link_drop [unknown] => 抖音小程序-游戏发行人课程：带你玩转游戏任务变现，单条视频赚取25whttps://vip.xueden.com/30261.html?feed_id=6208&_unique_id=66a0d1aa402a3…",
+          "dynamic_url [commentText] => vip.xueden.com/30261.html"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "d1"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "dynamic_url",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "vip.xueden.com/30261.html"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：d1；其他[内置规则:link_drop] 命中：抖音小程序-游戏发行人课程：带你玩转游戏任务变现，单条视频赚取25...；评论[学习规则:dynamic_url] 命中：vip.xueden.com/30261.html"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "mrzhenjia",
+      "displayName": "小亮网创",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；其他[内置规则:link_drop] 命中：抖音小程序-游戏发行人课程：带你玩转游戏任务变现，单条视频赚取25...；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.84,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "link_drop",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-06T07:04:10.284Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "link_drop [unknown] => 抖音小程序-游戏发行人课程：带你玩转游戏任务变现，单条视频赚取25whttps://vip.xueden.com/30261.html?feed_id=6207&_unique_id=66a0cd6253ddd…",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "t1fqy",
+      "displayName": "𝓢𝓽𝓪𝓻𝓼𝓴𝔂",
+      "reason": "拉黑：规则命中：评论[内置规则:quark_lure_combo] 命中：下载",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "quark_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-06T07:04:09.413Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "quark_lure_combo [commentText] => 下载"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "下载"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "hzlzh",
+      "displayName": "自力6XStudio",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；其他[内置规则:link_drop] 命中：小程序跳转小程序（半屏模式）beta来咯，刚在健康码+行程码体验到...；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.84,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "link_drop",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-06T07:04:09.087Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "link_drop [unknown] => 小程序跳转小程序（半屏模式）beta来咯，刚在健康码+行程码体验到了~https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/openembeddedminiprogram.html…",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
     {
       "screenName": "gczsmkv",
       "displayName": "阿尼欧Tiffany",
@@ -56278,6 +56547,61 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "vip.xueden.com/30261.html",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.6100000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：d1；其他[内置规则:link_drop] 命中：抖音小程序-游戏发行人课程：带你玩转游戏任务变现，单条视频赚取25...；评论[学习规则:dynamic_url] 命中：vip.xueden.com/30261.html",
+      "updatedAt": "2026-06-06T07:19:05.928Z"
+    },
+    {
+      "pattern": "66a0cd6253ddd",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；其他[内置规则:link_drop] 命中：抖音小程序-游戏发行人课程：带你玩转游戏任务变现，单条视频赚取25...；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-06T07:04:10.285Z"
+    },
+    {
+      "pattern": "tinywow.com",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:quark_lure_combo] 命中：下载",
+      "updatedAt": "2026-06-06T07:04:09.414Z"
+    },
+    {
+      "pattern": "打开网页处理完直接下载",
+      "kind": "netdisk",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:quark_lure_combo] 命中：下载",
+      "updatedAt": "2026-06-06T07:04:09.413Z"
+    },
+    {
+      "pattern": "openembeddedminiprog",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；其他[内置规则:link_drop] 命中：小程序跳转小程序（半屏模式）beta来咯，刚在健康码+行程码体验到...；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-06T07:04:09.088Z"
+    },
+    {
       "pattern": "u.jd.com/7godzrz",
       "kind": "url",
       "fields": [
@@ -67200,7 +67524,7 @@
       },
       {
         "value": "拉黑：规则命中：评论[内置规则:quark_lure_combo] 命中：下载",
-        "count": 7
+        "count": 8
       },
       {
         "value": "拉黑：规则命中：评论[学习规则:dynamic_netdisk] 命中：视频下载；评论[内置规则:quark_lure_combo] 命中：下载",
@@ -67222,11 +67546,11 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 662
+        "count": 666
       },
       {
         "value": "server_strong_rule",
-        "count": 478
+        "count": 482
       },
       {
         "value": "random_handle",
@@ -67238,7 +67562,7 @@
       },
       {
         "value": "contact_mention",
-        "count": 254
+        "count": 257
       },
       {
         "value": "imported",
@@ -67266,7 +67590,7 @@
       },
       {
         "value": "quark_lure_combo",
-        "count": 76
+        "count": 77
       },
       {
         "value": "admin_confirmed",
@@ -67282,7 +67606,7 @@
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 55
+        "count": 57
       },
       {
         "value": "rule:contact_lure",
@@ -67294,7 +67618,7 @@
       },
       {
         "value": "obfuscated_dd",
-        "count": 43
+        "count": 45
       },
       {
         "value": "quark_pan_direct_link",
@@ -67332,7 +67656,7 @@
       },
       {
         "value": "contact_mention",
-        "count": 254
+        "count": 257
       },
       {
         "value": "adult_lure_combo",
@@ -67352,7 +67676,7 @@
       },
       {
         "value": "quark_lure_combo",
-        "count": 76
+        "count": 77
       },
       {
         "value": "contact_lure_signal",
@@ -67360,7 +67684,7 @@
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 55
+        "count": 57
       },
       {
         "value": "dynamic_resource_lure",
@@ -67372,7 +67696,7 @@
       },
       {
         "value": "obfuscated_dd",
-        "count": 37
+        "count": 39
       },
       {
         "value": "mixed_short_code_lure",
@@ -67383,11 +67707,11 @@
         "count": 25
       },
       {
-        "value": "dynamic_tg",
-        "count": 11
+        "value": "link_drop",
+        "count": 14
       },
       {
-        "value": "link_drop",
+        "value": "dynamic_tg",
         "count": 11
       },
       {
@@ -67418,7 +67742,7 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 1858
+        "count": 1867
       },
       {
         "value": "screenName",
@@ -67614,10 +67938,10 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 746,
+      "confirmedBlacklist": 750,
       "spamSamples": 5,
-      "approvedReports": 511,
-      "dynamicRules": 964,
+      "approvedReports": 515,
+      "dynamicRules": 969,
       "pendingReports": 25
     }
   }
