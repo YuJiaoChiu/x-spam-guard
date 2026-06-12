@@ -1,24 +1,204 @@
 {
-  "generatedAt": "2026-06-11T23:54:55.302Z",
+  "generatedAt": "2026-06-12T05:02:13.515Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 750,
-    "blacklistConfirmed": 750,
+    "blacklistTotal": 752,
+    "blacklistConfirmed": 752,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 540,
+    "contributionTotal": 542,
     "contributionPending": 25,
-    "dynamicRuleTotal": 969,
-    "dynamicRuleActive": 969,
+    "dynamicRuleTotal": 971,
+    "dynamicRuleActive": 971,
     "eventsTotal": 15000,
-    "blocked24h": 0,
+    "blocked24h": 4,
     "blockFailed24h": 0,
-    "decisions24h": 0,
+    "decisions24h": 34,
     "blockTaskPending": 0,
-    "generatedAt": "2026-06-11T23:54:55.247Z"
+    "generatedAt": "2026-06-12T05:02:13.449Z"
   },
   "blacklist": [
+    {
+      "screenName": "op7418",
+      "displayName": "歸藏(guizang.ai)",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：op7418；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[学习规则:dynamic_contact_lure] 命中：workbuddy；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "obfuscated_dd",
+        "dynamic_contact_lure",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-12T00:35:57.163Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => op7418",
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "dynamic_contact_lure [commentText] => workbuddy",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "op7418"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "workbuddy"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "arvinral",
+      "displayName": "Arvin",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-12T00:32:58.750Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
     {
       "screenName": "liangdabanzi",
       "displayName": "大梁板子",
@@ -56547,6 +56727,39 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "workbuddy",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：op7418；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[学习规则:dynamic_contact_lure] 命中：workbuddy；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-12T00:35:57.164Z"
+    },
+    {
+      "pattern": "感谢腾讯云和workbuddy",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：op7418；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[学习规则:dynamic_contact_lure] 命中：workbuddy；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-12T00:35:57.164Z"
+    },
+    {
+      "pattern": "pdd又被约谈了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-12T00:32:58.750Z"
+    },
+    {
       "pattern": "vip.xueden.com/30261.html",
       "kind": "url",
       "fields": [
@@ -58309,17 +58522,6 @@
       "confidence": 0.8500000000000001,
       "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：juandiegogalle3；评论[内置规则:tg_mention] 命中：tg；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_tg] 命中：ttglv1q；评论[学习规则:dynamic_tg] 命中：30+的sao货rl没人比她sao@ttglv1q",
       "updatedAt": "2026-06-05T10:20:48.944Z"
-    },
-    {
-      "pattern": "workbuddy",
-      "kind": "contact_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.8500000000000001,
-      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
-      "updatedAt": "2026-06-05T10:20:28.842Z"
     },
     {
       "pattern": "刚用腾讯的workbuddy安装了微信读书skills",
@@ -67499,15 +67701,15 @@
         "count": 21
       },
       {
+        "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+        "count": 20
+      },
+      {
         "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[学习规则:dynamic_phrase] 命中：货没人比她；评论[内置规则:adult_lure_combo] 命中：sao、线下",
         "count": 20
       },
       {
         "value": "admin_submitted_spam",
-        "count": 19
-      },
-      {
-        "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
         "count": 19
       },
       {
@@ -67546,23 +67748,23 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 666
+        "count": 668
       },
       {
         "value": "server_strong_rule",
-        "count": 482
+        "count": 484
       },
       {
         "value": "random_handle",
-        "count": 342
+        "count": 343
       },
       {
         "value": "dynamic_contact_lure",
-        "count": 310
+        "count": 311
       },
       {
         "value": "contact_mention",
-        "count": 257
+        "count": 259
       },
       {
         "value": "imported",
@@ -67601,11 +67803,11 @@
         "count": 59
       },
       {
-        "value": "ai_rule_ingest",
-        "count": 57
+        "value": "obfuscated_dd_contact_combo",
+        "count": 59
       },
       {
-        "value": "obfuscated_dd_contact_combo",
+        "value": "ai_rule_ingest",
         "count": 57
       },
       {
@@ -67618,7 +67820,7 @@
       },
       {
         "value": "obfuscated_dd",
-        "count": 45
+        "count": 47
       },
       {
         "value": "quark_pan_direct_link",
@@ -67644,11 +67846,11 @@
     "topRules": [
       {
         "value": "dynamic_contact_lure",
-        "count": 521
+        "count": 522
       },
       {
         "value": "random_handle",
-        "count": 341
+        "count": 342
       },
       {
         "value": "dynamic_adult_lure",
@@ -67656,7 +67858,7 @@
       },
       {
         "value": "contact_mention",
-        "count": 257
+        "count": 259
       },
       {
         "value": "adult_lure_combo",
@@ -67684,19 +67886,19 @@
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 57
+        "count": 59
       },
       {
         "value": "dynamic_resource_lure",
         "count": 47
       },
       {
-        "value": "quark_pan_direct_link",
+        "value": "obfuscated_dd",
         "count": 41
       },
       {
-        "value": "obfuscated_dd",
-        "count": 39
+        "value": "quark_pan_direct_link",
+        "count": 41
       },
       {
         "value": "mixed_short_code_lure",
@@ -67742,11 +67944,11 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 1867
+        "count": 1874
       },
       {
         "value": "screenName",
-        "count": 367
+        "count": 368
       },
       {
         "value": "displayName",
@@ -67938,10 +68140,10 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 750,
+      "confirmedBlacklist": 752,
       "spamSamples": 5,
-      "approvedReports": 515,
-      "dynamicRules": 969,
+      "approvedReports": 517,
+      "dynamicRules": 971,
       "pendingReports": 25
     }
   }
