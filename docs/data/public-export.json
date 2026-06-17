@@ -1,24 +1,2752 @@
 {
-  "generatedAt": "2026-06-16T23:47:39.257Z",
+  "generatedAt": "2026-06-17T05:15:58.391Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 752,
-    "blacklistConfirmed": 752,
+    "blacklistTotal": 781,
+    "blacklistConfirmed": 781,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 542,
+    "contributionTotal": 571,
     "contributionPending": 25,
-    "dynamicRuleTotal": 971,
-    "dynamicRuleActive": 971,
+    "dynamicRuleTotal": 1010,
+    "dynamicRuleActive": 1010,
     "eventsTotal": 15000,
-    "blocked24h": 0,
+    "blocked24h": 258,
     "blockFailed24h": 0,
-    "decisions24h": 0,
+    "decisions24h": 433,
     "blockTaskPending": 0,
-    "generatedAt": "2026-06-16T23:47:39.194Z"
+    "generatedAt": "2026-06-17T05:15:58.322Z"
   },
   "blacklist": [
+    {
+      "screenName": "ann_hamlet6630",
+      "displayName": "专业牵线全国1-5线覆盖看主页",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：ann_hamlet6630；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：专业牵线全国1-5线覆盖看主页；名字[学习规则:dynamic_contact_lure] 命中：线覆盖看主页；评论[内置规则:short_bot_code] 命中：$8",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_resource_lure",
+        "dynamic_contact_lure",
+        "short_bot_code",
+        "resource_lure_comment",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T03:46:10.076Z",
+      "reasonDetails": {
+        "ruleScore": 21,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => ann_hamlet6630",
+          "dynamic_resource_lure [displayName] => 1-5线覆盖",
+          "dynamic_resource_lure [displayName] => 专业牵线全国1-5线覆盖看主页",
+          "dynamic_contact_lure [displayName] => 线覆盖看主页",
+          "short_bot_code [commentText] => $8",
+          "resource_lure_comment [displayName] => 1-5线覆盖"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "ann_hamlet6630"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "1-5线覆盖"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_flo3866；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "专业牵线全国1-5线覆盖看主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：mcoddingto38631；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：专业牵线全国1-5线覆盖看主页；名字[学习规则:dynamic_contact_lure] 命中：线覆盖看主页；名字[内置规则:resource_lure_comment] 命中：1-5线覆盖"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "线覆盖看主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：mcoddingto38631；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：专业牵线全国1-5线覆盖看主页；名字[学习规则:dynamic_contact_lure] 命中：线覆盖看主页；名字[内置规则:resource_lure_comment] 命中：1-5线覆盖"
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "$8"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "1-5线覆盖"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "ann_geordi37082",
+      "displayName": "同城牵线真实可靠对接点我头像",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：ann_geordi37082；名字[学习规则:dynamic_contact_lure] 命中：同城牵线真实可靠对接点我；名字[学习规则:dynamic_resource_lure] 命中：同城牵线真实可靠对接点我头像；评论[内置规则:short_bot_code] 命中：il；名字[内置规则:contact_lure_signal] 命中：同城",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_contact_lure",
+        "dynamic_resource_lure",
+        "short_bot_code",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T03:46:08.738Z",
+      "reasonDetails": {
+        "ruleScore": 13,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => ann_geordi37082",
+          "dynamic_contact_lure [displayName] => 同城牵线真实可靠对接点我",
+          "dynamic_resource_lure [displayName] => 同城牵线真实可靠对接点我头像",
+          "short_bot_code [commentText] => il",
+          "contact_lure_signal [displayName] => 同城"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "ann_geordi37082"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城牵线真实可靠对接点我"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ann_geordi37082；评论[内置规则:short_bot_code] 命中：il；名字[内置规则:contact_lure_signal] 命中：同城"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城牵线真实可靠对接点我头像"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ann_geordi37082；评论[内置规则:short_bot_code] 命中：il；名字[内置规则:contact_lure_signal] 命中：同城"
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "il"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "baozidada010",
+      "displayName": "Jackie | Game严厉的父亲",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：baozidada010；AI(feedback-memory(fallback))判spam 0.94：历史上报样本命中",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T03:45:40.627Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => baozidada010"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "baozidada010"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "mellcarbajal1",
+      "displayName": "Pocha",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：mellcarbajal1；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xvd就她的主页能打了",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "dynamic_contact_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T03:42:35.751Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => mellcarbajal1",
+          "contact_mention [commentText] => 主页",
+          "dynamic_contact_lure [commentText] => 就她的主页能打了",
+          "dynamic_contact_lure [commentText] => 刷了半天的xvd就她的主页能打了"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "mellcarbajal1"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天xn的x就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天xn的x就她的主页能打了@xhs2777g；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天的xvd就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[内置规则:tg_mention] 命中：tg；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[内置规则:tg_contact_combo] 命中：tg、主页"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "sameeralizaidi2",
+      "displayName": "Sameer Ali Zaidi",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：sameeralizaidi2；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了",
+      "confidence": 0.84,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "dynamic_contact_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T03:42:33.229Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => sameeralizaidi2",
+          "contact_mention [commentText] => 主页",
+          "dynamic_contact_lure [commentText] => 就她主页能打了"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "sameeralizaidi2"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdu就她主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdu就她主页能打了@yunbaoit5v；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "b_vimalraj",
+      "displayName": "விமல்",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天xn的x就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天xn的x就她的主页能打了@xhs2777g；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "dynamic_contact_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T03:42:25.920Z",
+      "reasonDetails": {
+        "ruleScore": 13,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => 主页",
+          "dynamic_contact_lure [commentText] => 刷了半天xn的x就她的主页能打了",
+          "dynamic_contact_lure [commentText] => 刷了半天xn的x就她的主页能打了@xhs2777g",
+          "dynamic_contact_lure [commentText] => 就她的主页能打了"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天xn的x就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天xn的x就她的主页能打了@xhs2777g"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "wobushimiao",
+      "displayName": "我不是喵",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：私信；其他[内置规则:link_drop] 命中：七年前，那会儿我还在用我的微信朋友圈。在上面发了一条支持反送中的。...；评论[学习规则:dynamic_contact_lure] 命中：突然私信我；评论[学习规则:dynamic_url] 命中：x.com/whyyoutouzhele；评论[内置规则:contact_lure_signal] 命中：私信",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "link_drop",
+        "dynamic_contact_lure",
+        "dynamic_url",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T03:07:37.056Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => 私信",
+          "link_drop [unknown] => 七年前，那会儿我还在用我的微信朋友圈。在上面发了一条支持反送中的。我的一个不能算发小，但也是认识了二十多年的闺蜜，突然私信我，劈头盖脸给我骂一通。大概意思，“平时你发什么我不管你，这个事上你胡说八道就是不行，布拉布拉布拉……第一感觉，并不是生气，是可笑。什么话？“不管你”？https://x.com/whyyoutouzhele/whyyoutouzhele/status/2066824641184776602…",
+          "dynamic_contact_lure [commentText] => 突然私信我",
+          "dynamic_url [commentText] => x.com/whyyoutouzhele",
+          "contact_lure_signal [commentText] => 私信"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "私信"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "突然私信我"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：私信；其他[内置规则:link_drop] 命中：七年前，那会儿我还在用我的微信朋友圈。在上面发了一条支持反送中的。...；评论[内置规则:contact_lure_signal] 命中：私信"
+          },
+          {
+            "rule": "dynamic_url",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "x.com/whyyoutouzhele"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：私信；其他[内置规则:link_drop] 命中：七年前，那会儿我还在用我的微信朋友圈。在上面发了一条支持反送中的。...；评论[内置规则:contact_lure_signal] 命中：私信"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "私信"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "amelia_jan71393",
+      "displayName": "附近真实的都在这点我主页自取",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_jan71393；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_contact_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:30:36.231Z",
+      "reasonDetails": {
+        "ruleScore": 18,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => amelia_jan71393",
+          "dynamic_contact_lure [displayName] => 附近真实的都在这点我主页自取",
+          "dynamic_contact_lure [displayName] => 附近真实的都在这点我主页",
+          "dynamic_contact_lure [displayName] => 点我主页自取",
+          "dynamic_contact_lure [displayName] => 附近真实的都在这"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "amelia_jan71393"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "附近真实的都在这点我主页自取"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：hughphoebe19833；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "附近真实的都在这点我主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：hughphoebe19833；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "点我主页自取"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：johnsoncha13843；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这-点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "附近真实的都在这"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：johnsoncha13843；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这-点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "amelia_bri64946",
+      "displayName": "看我主页全是附近真实约见资源",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_bri64946；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_resource_lure",
+        "resource_lure_comment",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:30:32.624Z",
+      "reasonDetails": {
+        "ruleScore": 21,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => amelia_bri64946",
+          "dynamic_resource_lure [displayName] => 真实约见",
+          "dynamic_resource_lure [displayName] => 看我主页全是附近真实约见资源",
+          "dynamic_resource_lure [displayName] => 看我主页全是附近真实约见",
+          "resource_lure_comment [displayName] => 真实约见"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "amelia_bri64946"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_flo39225；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我简介；名字[学习规则:dynamic_resource_lure] 命中：同城资源自取"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "看我主页全是附近真实约见资源"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_dai7545；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；评论[内置规则:emoji_flood] 命中：emoji_count=16"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "看我主页全是附近真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_dai7545；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；评论[内置规则:emoji_flood] 命中：emoji_count=16"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "amelia_flo39225",
+      "displayName": "真实约见同城资源自取看我简介",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_flo39225；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我简介；名字[学习规则:dynamic_resource_lure] 命中：同城资源自取",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_resource_lure",
+        "resource_lure_comment",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:30:30.087Z",
+      "reasonDetails": {
+        "ruleScore": 27,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => amelia_flo39225",
+          "dynamic_resource_lure [displayName] => 真实约见",
+          "dynamic_resource_lure [displayName] => 真实约见同城资源自取看我",
+          "dynamic_resource_lure [displayName] => 真实约见同城资源自取看我简介",
+          "dynamic_resource_lure [displayName] => 同城资源自取",
+          "resource_lure_comment [displayName] => 真实约见, 同城资源自取, 看我简介",
+          "contact_lure_signal [displayName] => 同城"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "amelia_flo39225"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_dai7545；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；评论[内置规则:emoji_flood] 命中：emoji_count=16"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见同城资源自取看我"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：stephaniem10475；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见、同城资源自取、看我简介；名字[内置规则:contact_lure_signal] 命中：同城"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见同城资源自取看我简介"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：stephaniem10475；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见、同城资源自取、看我简介；名字[内置规则:contact_lure_signal] 命中：同城"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城资源自取"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：stephaniem10475；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见、同城资源自取、看我简介；名字[内置规则:contact_lure_signal] 命中：同城"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              },
+              {
+                "field": "displayName",
+                "term": "同城资源自取"
+              },
+              {
+                "field": "displayName",
+                "term": "看我简介"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "amelia_flo3866",
+      "displayName": "想见同城的点我全国1-5线覆盖",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_flo3866；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_resource_lure",
+        "dynamic_contact_lure",
+        "resource_lure_comment",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:30:27.463Z",
+      "reasonDetails": {
+        "ruleScore": 25,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => amelia_flo3866",
+          "dynamic_resource_lure [displayName] => 想见同城的点我全国1-5线覆盖",
+          "dynamic_resource_lure [displayName] => 1-5线覆盖",
+          "dynamic_contact_lure [displayName] => 想见同城的点我全国",
+          "dynamic_contact_lure [displayName] => 想见同城的点我",
+          "resource_lure_comment [displayName] => 1-5线覆盖",
+          "contact_lure_signal [displayName] => 同城"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "amelia_flo3866"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "想见同城的点我全国1-5线覆盖"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：aprilzeigl17913；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "1-5线覆盖"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：aprilzeigl17913；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "想见同城的点我全国"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：aprilzeigl17913；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "想见同城的点我"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：annemorgan13604；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[内置规则:resource_lure_comment] 命中：1-5线覆盖；名字[内置规则:contact_lure_signal] 命中：同城"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "1-5线覆盖"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "amelia_dai7545",
+      "displayName": "看我主页全是附近真实约见资源",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_dai7545；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；评论[内置规则:emoji_flood] 命中：emoji_count=16",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_resource_lure",
+        "emoji_flood",
+        "resource_lure_comment",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:30:25.386Z",
+      "reasonDetails": {
+        "ruleScore": 22,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => amelia_dai7545",
+          "dynamic_resource_lure [displayName] => 真实约见",
+          "dynamic_resource_lure [displayName] => 看我主页全是附近真实约见资源",
+          "dynamic_resource_lure [displayName] => 看我主页全是附近真实约见",
+          "emoji_flood [commentText] => emoji_count=16",
+          "resource_lure_comment [displayName] => 真实约见"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "amelia_dai7545"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_daisy4757；名字[学习规则:dynamic_resource_lure] 命中：真实约见；评论[内置规则:short_bot_code] 命中：o\"；名字[内置规则:resource_lure_comment] 命中：真实约见；名字[内置规则:contact_lure_signal] 命中：主页、线下"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "看我主页全是附近真实约见资源"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ameliarich38389；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；评论[内置规则:emoji_flood] 命中：emoji_count=16"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "看我主页全是附近真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ameliarich38389；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；评论[内置规则:emoji_flood] 命中：emoji_count=16"
+          },
+          {
+            "rule": "emoji_flood",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "emoji_count=16"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment has emoji flood pattern"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "amelia_jan61765",
+      "displayName": "诗琳母狗找主人点我主页自取",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_jan61765；名字[内置规则:explicit_adult_name] 命中：母狗；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "explicit_adult_name",
+        "dynamic_contact_lure",
+        "emoji_flood",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:30:24.170Z",
+      "reasonDetails": {
+        "ruleScore": 18,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => amelia_jan61765",
+          "explicit_adult_name [displayName] => 母狗",
+          "dynamic_contact_lure [displayName] => 诗琳母狗找主人点我主页自",
+          "dynamic_contact_lure [displayName] => 诗琳母狗找主人点我主页自取",
+          "dynamic_contact_lure [displayName] => 点我主页自取",
+          "emoji_flood [commentText] => emoji_count=16"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "amelia_jan61765"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "explicit_adult_name",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "母狗"
+              }
+            ],
+            "evidence": [],
+            "reason": "Explicit adult display name terms"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "诗琳母狗找主人点我主页自"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：khinton17311；名字[内置规则:explicit_adult_name] 命中：母狗；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "诗琳母狗找主人点我主页自取"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：khinton17311；名字[内置规则:explicit_adult_name] 命中：母狗；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "点我主页自取"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：johnsoncha13843；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这-点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取"
+          },
+          {
+            "rule": "emoji_flood",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "emoji_count=16"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment has emoji flood pattern"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "anna_morse17855",
+      "displayName": "全网首创线下资源牵线主页进群",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_morse17855；名字[学习规则:dynamic_netdisk] 命中：全网首创线下资源牵线主页；名字[学习规则:dynamic_netdisk] 命中：全网首创线下资源牵线主页进群；评论[内置规则:short_bot_code] 命中：iu；名字[内置规则:contact_lure_signal] 命中：主页、线下",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_netdisk",
+        "short_bot_code",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:30:21.790Z",
+      "reasonDetails": {
+        "ruleScore": 10,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => anna_morse17855",
+          "dynamic_netdisk [displayName] => 全网首创线下资源牵线主页",
+          "dynamic_netdisk [displayName] => 全网首创线下资源牵线主页进群",
+          "short_bot_code [commentText] => iu",
+          "contact_lure_signal [displayName] => 主页, 线下"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "anna_morse17855"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_netdisk",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "全网首创线下资源牵线主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_morse17855；评论[内置规则:short_bot_code] 命中：iu；名字[内置规则:contact_lure_signal] 命中：主页、线下"
+          },
+          {
+            "rule": "dynamic_netdisk",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "全网首创线下资源牵线主页进群"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_morse17855；评论[内置规则:short_bot_code] 命中：iu；名字[内置规则:contact_lure_signal] 命中：主页、线下"
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "iu"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "主页"
+              },
+              {
+                "field": "displayName",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "anna_dobbi62823",
+      "displayName": "线下资源入口点我头像进群选人",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_dobbi62823；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_resource_lure",
+        "short_bot_code",
+        "resource_lure_comment",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:30:19.435Z",
+      "reasonDetails": {
+        "ruleScore": 28,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => anna_dobbi62823",
+          "dynamic_resource_lure [displayName] => 线下资源入口",
+          "dynamic_resource_lure [displayName] => 点我头像进群选人",
+          "dynamic_resource_lure [displayName] => 线下资源入口点我头像进群",
+          "dynamic_resource_lure [displayName] => 线下资源入口点我头像进群选人",
+          "short_bot_code [commentText] => _i",
+          "resource_lure_comment [displayName] => 线下资源入口, 资源入口, 点我头像进群选人, 进群选人",
+          "contact_lure_signal [displayName] => 线下"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "anna_dobbi62823"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "线下资源入口"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：reid342169；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "点我头像进群选人"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：reid342169；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "线下资源入口点我头像进群"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：reid342169；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "线下资源入口点我头像进群选人"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：reid342169；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口"
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "_i"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "线下资源入口"
+              },
+              {
+                "field": "displayName",
+                "term": "资源入口"
+              },
+              {
+                "field": "displayName",
+                "term": "点我头像进群选人"
+              },
+              {
+                "field": "displayName",
+                "term": "进群选人"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "anna_daisy4757",
+      "displayName": "线下牵线附近真实约见点我主页",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_daisy4757；名字[学习规则:dynamic_resource_lure] 命中：真实约见；评论[内置规则:short_bot_code] 命中：o\"；名字[内置规则:resource_lure_comment] 命中：真实约见；名字[内置规则:contact_lure_signal] 命中：主页、线下",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_resource_lure",
+        "short_bot_code",
+        "resource_lure_comment",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:30:17.894Z",
+      "reasonDetails": {
+        "ruleScore": 13,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => anna_daisy4757",
+          "dynamic_resource_lure [displayName] => 真实约见",
+          "short_bot_code [commentText] => o\"",
+          "resource_lure_comment [displayName] => 真实约见",
+          "contact_lure_signal [displayName] => 主页, 线下"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "anna_daisy4757"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ameliarich38389；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；评论[内置规则:emoji_flood] 命中：emoji_count=16"
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "o\""
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "主页"
+              },
+              {
+                "field": "displayName",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "anna_evely63849",
+      "displayName": "同城约见真实资源入口看我置顶",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_evely63849；评论[内置规则:short_bot_code] 命中：aq；名字[内置规则:resource_lure_comment] 命中：资源入口、看我置顶；名字[内置规则:contact_lure_signal] 命中：置顶、同城",
+      "confidence": 0.96,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "short_bot_code",
+        "resource_lure_comment",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:30:16.618Z",
+      "reasonDetails": {
+        "ruleScore": 8,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => anna_evely63849",
+          "short_bot_code [commentText] => aq",
+          "resource_lure_comment [displayName] => 资源入口, 看我置顶",
+          "contact_lure_signal [displayName] => 置顶, 同城"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "anna_evely63849"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "short_bot_code",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "aq"
+              }
+            ],
+            "evidence": [],
+            "reason": "Bot-like short code/emoji comment"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "资源入口"
+              },
+              {
+                "field": "displayName",
+                "term": "看我置顶"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "置顶"
+              },
+              {
+                "field": "displayName",
+                "term": "同城"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "larrypolle48694",
+      "displayName": "母狗冰儿真实（找主人接任务",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：larrypolle48694；名字[内置规则:explicit_adult_name] 命中：母狗",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "explicit_adult_name",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:16:16.709Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => larrypolle48694",
+          "explicit_adult_name [displayName] => 母狗"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "larrypolle48694"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "explicit_adult_name",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "母狗"
+              }
+            ],
+            "evidence": [],
+            "reason": "Explicit adult display name terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "fatmanurakl1",
+      "displayName": "Fatmanur Çaklı",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：fatmanurakl1；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了",
+      "confidence": 0.84,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "dynamic_contact_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:16:06.713Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => fatmanurakl1",
+          "contact_mention [commentText] => 主页",
+          "dynamic_contact_lure [commentText] => 就她的主页能打了"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "fatmanurakl1"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天rs的x就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天rs的x就她的主页能打了@xhs2773c；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "ameliarich38389",
+      "displayName": "看我主页全是附近真实约见资源",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：ameliarich38389；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；评论[内置规则:emoji_flood] 命中：emoji_count=16",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_resource_lure",
+        "emoji_flood",
+        "resource_lure_comment",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:16:03.352Z",
+      "reasonDetails": {
+        "ruleScore": 22,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => ameliarich38389",
+          "dynamic_resource_lure [displayName] => 真实约见",
+          "dynamic_resource_lure [displayName] => 看我主页全是附近真实约见资源",
+          "dynamic_resource_lure [displayName] => 看我主页全是附近真实约见",
+          "emoji_flood [commentText] => emoji_count=16",
+          "resource_lure_comment [displayName] => 真实约见"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "ameliarich38389"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：needamshad20395；名字[内置规则:roleplay_name] 命中：少妇；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "看我主页全是附近真实约见资源"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：charlottei31231；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "看我主页全是附近真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：charlottei31231；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见"
+          },
+          {
+            "rule": "emoji_flood",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "emoji_count=16"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment has emoji flood pattern"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "amelia_jan94374",
+      "displayName": "同城男大无偿Kathleen",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_jan94374；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿kathleen；名字[内置规则:adult_lure_combo] 命中：男大、同城",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_contact_lure",
+        "adult_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:16:00.103Z",
+      "reasonDetails": {
+        "ruleScore": 14,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => amelia_jan94374",
+          "dynamic_contact_lure [displayName] => 同城男大无偿",
+          "dynamic_contact_lure [displayName] => 同城男大无偿kathleen",
+          "adult_lure_combo [displayName] => 男大, 同城"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "amelia_jan94374"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城男大无偿"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ameliapame95266；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿kathleen；名字[内置规则:adult_lure_combo] 命中：男大、同城"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城男大无偿kathleen"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ameliapame95266；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿kathleen；名字[内置规则:adult_lure_combo] 命中：男大、同城"
+          },
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "男大"
+              },
+              {
+                "field": "displayName",
+                "term": "同城"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "needamshad20395",
+      "displayName": "离异少妇真实约见求满足",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：needamshad20395；名字[内置规则:roleplay_name] 命中：少妇；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "roleplay_name",
+        "dynamic_resource_lure",
+        "resource_lure_comment",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:15:54.428Z",
+      "reasonDetails": {
+        "ruleScore": 12,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => needamshad20395",
+          "roleplay_name [displayName] => 少妇",
+          "dynamic_resource_lure [displayName] => 真实约见",
+          "resource_lure_comment [displayName] => 真实约见"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "needamshad20395"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "roleplay_name",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "少妇"
+              }
+            ],
+            "evidence": [],
+            "reason": "Roleplay-style display name"
+          },
+          {
+            "rule": "dynamic_resource_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：charlottei31231；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见"
+          },
+          {
+            "rule": "resource_lure_comment",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "真实约见"
+              }
+            ],
+            "evidence": [],
+            "reason": "Resource/group lure phrase in comment or display name"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "trygandersen",
+      "displayName": "Tryg Andersen",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天rs的x就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天rs的x就她的主页能打了@xhs2773c；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "dynamic_contact_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:15:04.814Z",
+      "reasonDetails": {
+        "ruleScore": 13,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => 主页",
+          "dynamic_contact_lure [commentText] => 刷了半天rs的x就她的主页能打了",
+          "dynamic_contact_lure [commentText] => 刷了半天rs的x就她的主页能打了@xhs2773c",
+          "dynamic_contact_lure [commentText] => 就她的主页能打了"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天rs的x就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天rs的x就她的主页能打了@xhs2773c"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "frompardus",
+      "displayName": "Panthera Pardus Tulliana",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的x_v就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的x_v就她的主页能打了@6qoo0m|",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "dynamic_contact_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:15:01.020Z",
+      "reasonDetails": {
+        "ruleScore": 13,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => 主页",
+          "dynamic_contact_lure [commentText] => 就她的主页能打了",
+          "dynamic_contact_lure [commentText] => 刷了半天的x_v就她的主页能打了",
+          "dynamic_contact_lure [commentText] => 刷了半天的x_v就她的主页能打了@6qoo0m|"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天的x_v就她的主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天的x_v就她的主页能打了@6qoo0m|"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "halil_ankan",
+      "displayName": "Halil Ankan",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "adult_mention",
+        "dynamic_contact_lure",
+        "adult_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:15:00.130Z",
+      "reasonDetails": {
+        "ruleScore": 10,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => 线下",
+          "adult_mention [commentText] => sao",
+          "dynamic_contact_lure [commentText] => 线下sao货没人比她sao",
+          "adult_lure_combo [commentText] => sao, 线下"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "sao"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下sao货没人比她sao"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：sedaasomuncu3；评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下"
+          },
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "sao"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "focus_entmt",
+      "displayName": "Focus Entertainment",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:14:53.473Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "ameliapame95266",
+      "displayName": "同城男大无偿Kathleen",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：ameliapame95266；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿kathleen；名字[内置规则:adult_lure_combo] 命中：男大、同城",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "dynamic_contact_lure",
+        "adult_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:03:55.150Z",
+      "reasonDetails": {
+        "ruleScore": 14,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => ameliapame95266",
+          "dynamic_contact_lure [displayName] => 同城男大无偿",
+          "dynamic_contact_lure [displayName] => 同城男大无偿kathleen",
+          "adult_lure_combo [displayName] => 男大, 同城"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "ameliapame95266"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城男大无偿"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：hinessima21181；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿kathleen；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿；名字[内置规则:adult_lure_combo] 命中：男大、同城"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "同城男大无偿kathleen"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：hinessima21181；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿kathleen；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿；名字[内置规则:adult_lure_combo] 命中：男大、同城"
+          },
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "displayName",
+                "term": "男大"
+              },
+              {
+                "field": "displayName",
+                "term": "同城"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "nolabelsorg",
+      "displayName": "No Labels",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:02:33.037Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "jackzho7941435",
+      "displayName": "jack.支",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：jackzho7941435；AI(feedback-memory(fallback))判spam 0.94：历史上报样本命中",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T02:01:35.992Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => jackzho7941435"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "jackzho7941435"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
     {
       "screenName": "op7418",
       "displayName": "歸藏(guizang.ai)",
@@ -56727,6 +59455,754 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "专业牵线全国1-5线覆盖看主页ann_hamlet6630",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ann_hamlet6630；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：专业牵线全国1-5线覆盖看主页；名字[学习规则:dynamic_contact_lure] 命中：线覆盖看主页；评论[内置规则:short_bot_code] 命中：$8",
+      "updatedAt": "2026-06-17T03:46:10.114Z"
+    },
+    {
+      "pattern": "专业牵线全国1-5线覆盖看主页",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ann_hamlet6630；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：专业牵线全国1-5线覆盖看主页；名字[学习规则:dynamic_contact_lure] 命中：线覆盖看主页；评论[内置规则:short_bot_code] 命中：$8",
+      "updatedAt": "2026-06-17T03:46:10.113Z"
+    },
+    {
+      "pattern": "1-5线覆盖",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ann_hamlet6630；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：专业牵线全国1-5线覆盖看主页；名字[学习规则:dynamic_contact_lure] 命中：线覆盖看主页；评论[内置规则:short_bot_code] 命中：$8",
+      "updatedAt": "2026-06-17T03:46:10.077Z"
+    },
+    {
+      "pattern": "线覆盖看主页",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ann_hamlet6630；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：专业牵线全国1-5线覆盖看主页；名字[学习规则:dynamic_contact_lure] 命中：线覆盖看主页；评论[内置规则:short_bot_code] 命中：$8",
+      "updatedAt": "2026-06-17T03:46:10.077Z"
+    },
+    {
+      "pattern": "同城牵线真实可靠对接点我头像ann_geordi37082",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ann_geordi37082；名字[学习规则:dynamic_contact_lure] 命中：同城牵线真实可靠对接点我；名字[学习规则:dynamic_resource_lure] 命中：同城牵线真实可靠对接点我头像；评论[内置规则:short_bot_code] 命中：il；名字[内置规则:contact_lure_signal] 命中：同城",
+      "updatedAt": "2026-06-17T03:46:08.775Z"
+    },
+    {
+      "pattern": "同城牵线真实可靠对接点我",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ann_geordi37082；名字[学习规则:dynamic_contact_lure] 命中：同城牵线真实可靠对接点我；名字[学习规则:dynamic_resource_lure] 命中：同城牵线真实可靠对接点我头像；评论[内置规则:short_bot_code] 命中：il；名字[内置规则:contact_lure_signal] 命中：同城",
+      "updatedAt": "2026-06-17T03:46:08.739Z"
+    },
+    {
+      "pattern": "同城牵线真实可靠对接点我头像",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ann_geordi37082；名字[学习规则:dynamic_contact_lure] 命中：同城牵线真实可靠对接点我；名字[学习规则:dynamic_resource_lure] 命中：同城牵线真实可靠对接点我头像；评论[内置规则:short_bot_code] 命中：il；名字[内置规则:contact_lure_signal] 命中：同城",
+      "updatedAt": "2026-06-17T03:46:08.739Z"
+    },
+    {
+      "pattern": "刷了半天的xvd就她的主页能打了@kikicez8b",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：mellcarbajal1；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xvd就她的主页能打了",
+      "updatedAt": "2026-06-17T03:42:35.788Z"
+    },
+    {
+      "pattern": "刷了半天的xvd就她的主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：mellcarbajal1；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xvd就她的主页能打了",
+      "updatedAt": "2026-06-17T03:42:35.752Z"
+    },
+    {
+      "pattern": "就她的主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：mellcarbajal1；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xvd就她的主页能打了",
+      "updatedAt": "2026-06-17T03:42:35.751Z"
+    },
+    {
+      "pattern": "刷了半天的xfj就她主页能打了@yuyuvcr3w",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：sameeralizaidi2；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了",
+      "updatedAt": "2026-06-17T03:42:33.266Z"
+    },
+    {
+      "pattern": "就她主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：sameeralizaidi2；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了",
+      "updatedAt": "2026-06-17T03:42:33.230Z"
+    },
+    {
+      "pattern": "刷了半天的xfj就她主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：sameeralizaidi2；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了",
+      "updatedAt": "2026-06-17T03:42:33.230Z"
+    },
+    {
+      "pattern": "刷了半天xn的x就她的主页能打了@xhs2777g",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天xn的x就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天xn的x就她的主页能打了@xhs2777g；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了",
+      "updatedAt": "2026-06-17T03:42:25.958Z"
+    },
+    {
+      "pattern": "刷了半天xn的x就她的主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天xn的x就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天xn的x就她的主页能打了@xhs2777g；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了",
+      "updatedAt": "2026-06-17T03:42:25.921Z"
+    },
+    {
+      "pattern": "x.com/whyyoutouzhele",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：私信；其他[内置规则:link_drop] 命中：七年前，那会儿我还在用我的微信朋友圈。在上面发了一条支持反送中的。...；评论[学习规则:dynamic_contact_lure] 命中：突然私信我；评论[学习规则:dynamic_url] 命中：x.com/whyyoutouzhele；评论[内置规则:contact_lure_signal] 命中：私信",
+      "updatedAt": "2026-06-17T03:07:37.059Z"
+    },
+    {
+      "pattern": "突然私信我",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：私信；其他[内置规则:link_drop] 命中：七年前，那会儿我还在用我的微信朋友圈。在上面发了一条支持反送中的。...；评论[学习规则:dynamic_contact_lure] 命中：突然私信我；评论[学习规则:dynamic_url] 命中：x.com/whyyoutouzhele；评论[内置规则:contact_lure_signal] 命中：私信",
+      "updatedAt": "2026-06-17T03:07:37.058Z"
+    },
+    {
+      "pattern": "附近真实的都在这点我主页自取amelia_jan71393",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_jan71393；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这",
+      "updatedAt": "2026-06-17T02:30:36.268Z"
+    },
+    {
+      "pattern": "附近真实的都在这点我主页",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_jan71393；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这",
+      "updatedAt": "2026-06-17T02:30:36.232Z"
+    },
+    {
+      "pattern": "附近真实的都在这点我主页自取",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_jan71393；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这",
+      "updatedAt": "2026-06-17T02:30:36.232Z"
+    },
+    {
+      "pattern": "看我主页全是附近真实约见资源amelia_bri64946",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_bri64946；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
+      "updatedAt": "2026-06-17T02:30:32.662Z"
+    },
+    {
+      "pattern": "看我主页全是附近真实约见资源",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_bri64946；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
+      "updatedAt": "2026-06-17T02:30:32.661Z"
+    },
+    {
+      "pattern": "真实约见",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_bri64946；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
+      "updatedAt": "2026-06-17T02:30:32.625Z"
+    },
+    {
+      "pattern": "看我主页全是附近真实约见",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_bri64946；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
+      "updatedAt": "2026-06-17T02:30:32.625Z"
+    },
+    {
+      "pattern": "真实约见同城资源自取看我简介",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_flo39225；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我简介；名字[学习规则:dynamic_resource_lure] 命中：同城资源自取",
+      "updatedAt": "2026-06-17T02:30:30.125Z"
+    },
+    {
+      "pattern": "真实约见同城资源自取看我简介amelia_flo39225",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_flo39225；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我简介；名字[学习规则:dynamic_resource_lure] 命中：同城资源自取",
+      "updatedAt": "2026-06-17T02:30:30.125Z"
+    },
+    {
+      "pattern": "真实约见同城资源自取看我",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_flo39225；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我简介；名字[学习规则:dynamic_resource_lure] 命中：同城资源自取",
+      "updatedAt": "2026-06-17T02:30:30.124Z"
+    },
+    {
+      "pattern": "同城资源自取",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_flo39225；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我；名字[学习规则:dynamic_resource_lure] 命中：真实约见同城资源自取看我简介；名字[学习规则:dynamic_resource_lure] 命中：同城资源自取",
+      "updatedAt": "2026-06-17T02:30:30.088Z"
+    },
+    {
+      "pattern": "想见同城的点我全国1-5线覆盖",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_flo3866；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我",
+      "updatedAt": "2026-06-17T02:30:27.500Z"
+    },
+    {
+      "pattern": "想见同城的点我全国1-5线覆盖amelia_flo3866",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_flo3866；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我",
+      "updatedAt": "2026-06-17T02:30:27.500Z"
+    },
+    {
+      "pattern": "想见同城的点我全国",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_flo3866；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我",
+      "updatedAt": "2026-06-17T02:30:27.464Z"
+    },
+    {
+      "pattern": "看我主页全是附近真实约见资源amelia_dai7545",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_dai7545；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；评论[内置规则:emoji_flood] 命中：emoji_count=16",
+      "updatedAt": "2026-06-17T02:30:25.424Z"
+    },
+    {
+      "pattern": "诗琳母狗找主人点我主页自取amelia_jan61765",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_jan61765；名字[内置规则:explicit_adult_name] 命中：母狗；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取",
+      "updatedAt": "2026-06-17T02:30:24.209Z"
+    },
+    {
+      "pattern": "诗琳母狗找主人点我主页自",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_jan61765；名字[内置规则:explicit_adult_name] 命中：母狗；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取",
+      "updatedAt": "2026-06-17T02:30:24.171Z"
+    },
+    {
+      "pattern": "诗琳母狗找主人点我主页自取",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_jan61765；名字[内置规则:explicit_adult_name] 命中：母狗；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取",
+      "updatedAt": "2026-06-17T02:30:24.171Z"
+    },
+    {
+      "pattern": "全网首创线下资源牵线主页进群anna_morse17855",
+      "kind": "netdisk",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 3,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_morse17855；名字[学习规则:dynamic_netdisk] 命中：全网首创线下资源牵线主页；名字[学习规则:dynamic_netdisk] 命中：全网首创线下资源牵线主页进群；评论[内置规则:short_bot_code] 命中：iu；名字[内置规则:contact_lure_signal] 命中：主页、线下",
+      "updatedAt": "2026-06-17T02:30:21.828Z"
+    },
+    {
+      "pattern": "全网首创线下资源牵线主页",
+      "kind": "netdisk",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_morse17855；名字[学习规则:dynamic_netdisk] 命中：全网首创线下资源牵线主页；名字[学习规则:dynamic_netdisk] 命中：全网首创线下资源牵线主页进群；评论[内置规则:short_bot_code] 命中：iu；名字[内置规则:contact_lure_signal] 命中：主页、线下",
+      "updatedAt": "2026-06-17T02:30:21.791Z"
+    },
+    {
+      "pattern": "全网首创线下资源牵线主页进群",
+      "kind": "netdisk",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_morse17855；名字[学习规则:dynamic_netdisk] 命中：全网首创线下资源牵线主页；名字[学习规则:dynamic_netdisk] 命中：全网首创线下资源牵线主页进群；评论[内置规则:short_bot_code] 命中：iu；名字[内置规则:contact_lure_signal] 命中：主页、线下",
+      "updatedAt": "2026-06-17T02:30:21.791Z"
+    },
+    {
+      "pattern": "线下资源入口点我头像进群",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_dobbi62823；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人",
+      "updatedAt": "2026-06-17T02:30:19.473Z"
+    },
+    {
+      "pattern": "线下资源入口点我头像进群选人",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_dobbi62823；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人",
+      "updatedAt": "2026-06-17T02:30:19.473Z"
+    },
+    {
+      "pattern": "线下资源入口点我头像进群选人anna_dobbi62823",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_dobbi62823；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人",
+      "updatedAt": "2026-06-17T02:30:19.473Z"
+    },
+    {
+      "pattern": "线下资源入口",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_dobbi62823；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人",
+      "updatedAt": "2026-06-17T02:30:19.436Z"
+    },
+    {
+      "pattern": "点我头像进群选人",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_dobbi62823；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人",
+      "updatedAt": "2026-06-17T02:30:19.436Z"
+    },
+    {
+      "pattern": "线下牵线附近真实约见点我主页anna_daisy4757",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_daisy4757；名字[学习规则:dynamic_resource_lure] 命中：真实约见；评论[内置规则:short_bot_code] 命中：o\"；名字[内置规则:resource_lure_comment] 命中：真实约见；名字[内置规则:contact_lure_signal] 命中：主页、线下",
+      "updatedAt": "2026-06-17T02:30:17.932Z"
+    },
+    {
+      "pattern": "线下牵线附近真实约见点我主页",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_daisy4757；名字[学习规则:dynamic_resource_lure] 命中：真实约见；评论[内置规则:short_bot_code] 命中：o\"；名字[内置规则:resource_lure_comment] 命中：真实约见；名字[内置规则:contact_lure_signal] 命中：主页、线下",
+      "updatedAt": "2026-06-17T02:30:17.931Z"
+    },
+    {
+      "pattern": "线下牵线附近真实约见点我",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_daisy4757；名字[学习规则:dynamic_resource_lure] 命中：真实约见；评论[内置规则:short_bot_code] 命中：o\"；名字[内置规则:resource_lure_comment] 命中：真实约见；名字[内置规则:contact_lure_signal] 命中：主页、线下",
+      "updatedAt": "2026-06-17T02:30:17.895Z"
+    },
+    {
+      "pattern": "同城约见真实资源入口看我置顶anna_evely63849",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_evely63849；评论[内置规则:short_bot_code] 命中：aq；名字[内置规则:resource_lure_comment] 命中：资源入口、看我置顶；名字[内置规则:contact_lure_signal] 命中：置顶、同城",
+      "updatedAt": "2026-06-17T02:30:16.655Z"
+    },
+    {
+      "pattern": "同城约见真实资源入口看我",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_evely63849；评论[内置规则:short_bot_code] 命中：aq；名字[内置规则:resource_lure_comment] 命中：资源入口、看我置顶；名字[内置规则:contact_lure_signal] 命中：置顶、同城",
+      "updatedAt": "2026-06-17T02:30:16.619Z"
+    },
+    {
+      "pattern": "同城约见真实资源入口看我置顶",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：anna_evely63849；评论[内置规则:short_bot_code] 命中：aq；名字[内置规则:resource_lure_comment] 命中：资源入口、看我置顶；名字[内置规则:contact_lure_signal] 命中：置顶、同城",
+      "updatedAt": "2026-06-17T02:30:16.619Z"
+    },
+    {
+      "pattern": "刷了半天的xb̸就她的主页能打了@dadi2412a?",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：fatmanurakl1；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了",
+      "updatedAt": "2026-06-17T02:16:06.752Z"
+    },
+    {
+      "pattern": "刷了半天的xb̸就她的主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：fatmanurakl1；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了",
+      "updatedAt": "2026-06-17T02:16:06.716Z"
+    },
+    {
+      "pattern": "看我主页全是附近真实约见资源ameliarich38389",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ameliarich38389；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；评论[内置规则:emoji_flood] 命中：emoji_count=16",
+      "updatedAt": "2026-06-17T02:16:03.388Z"
+    },
+    {
+      "pattern": "同城男大无偿kathleen",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_jan94374；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿kathleen；名字[内置规则:adult_lure_combo] 命中：男大、同城",
+      "updatedAt": "2026-06-17T02:16:00.104Z"
+    },
+    {
+      "pattern": "同城男大无偿",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：amelia_jan94374；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿kathleen；名字[内置规则:adult_lure_combo] 命中：男大、同城",
+      "updatedAt": "2026-06-17T02:16:00.103Z"
+    },
+    {
+      "pattern": "离异少妇真实约见求满足needamshad20395",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：needamshad20395；名字[内置规则:roleplay_name] 命中：少妇；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
+      "updatedAt": "2026-06-17T02:15:54.464Z"
+    },
+    {
+      "pattern": "离异少妇真实约见求满足",
+      "kind": "resource_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 5,
+      "confidence": 0.73,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：needamshad20395；名字[内置规则:roleplay_name] 命中：少妇；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
+      "updatedAt": "2026-06-17T02:15:54.429Z"
+    },
+    {
+      "pattern": "刷了半天rs的x就她的主页能打了@xhs2773c",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天rs的x就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天rs的x就她的主页能打了@xhs2773c；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了",
+      "updatedAt": "2026-06-17T02:15:04.851Z"
+    },
+    {
+      "pattern": "刷了半天rs的x就她的主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天rs的x就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天rs的x就她的主页能打了@xhs2773c；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了",
+      "updatedAt": "2026-06-17T02:15:04.815Z"
+    },
+    {
+      "pattern": "刷了半天的x_v就她的主页能打了@6qoo0m|",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的x_v就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的x_v就她的主页能打了@6qoo0m|",
+      "updatedAt": "2026-06-17T02:15:01.057Z"
+    },
+    {
+      "pattern": "刷了半天的x_v就她的主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的x_v就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的x_v就她的主页能打了@6qoo0m|",
+      "updatedAt": "2026-06-17T02:15:01.021Z"
+    },
+    {
+      "pattern": "线下sao货没人比她sao",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下",
+      "updatedAt": "2026-06-17T02:15:00.131Z"
+    },
+    {
+      "pattern": "线下sao货没人比她sao@dadi2412f;o",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下",
+      "updatedAt": "2026-06-17T02:15:00.131Z"
+    },
+    {
+      "pattern": "labyrinthanddefeatth",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-17T02:14:53.473Z"
+    },
+    {
+      "pattern": "fddtoldanolabelscall",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-17T02:02:33.038Z"
+    },
+    {
       "pattern": "workbuddy",
       "kind": "contact_lure",
       "fields": [
@@ -56848,18 +60324,6 @@
       "updatedAt": "2026-06-05T14:44:54.039Z"
     },
     {
-      "pattern": "看我主页全是附近真实约见资源",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：charlottei31231；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
-      "updatedAt": "2026-06-05T14:19:59.166Z"
-    },
-    {
       "pattern": "看我主页全是附近真实约见资源charlottei31231",
       "kind": "resource_lure",
       "fields": [
@@ -56870,30 +60334,6 @@
       "confidence": 0.67,
       "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：charlottei31231；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
       "updatedAt": "2026-06-05T14:19:59.166Z"
-    },
-    {
-      "pattern": "真实约见",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：charlottei31231；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
-      "updatedAt": "2026-06-05T14:19:59.132Z"
-    },
-    {
-      "pattern": "看我主页全是附近真实约见",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：charlottei31231；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见资源；名字[学习规则:dynamic_resource_lure] 命中：看我主页全是附近真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见",
-      "updatedAt": "2026-06-05T14:19:59.132Z"
     },
     {
       "pattern": "诗琳母狗找主人点我主页自取khinton17311",
@@ -56908,42 +60348,6 @@
       "updatedAt": "2026-06-05T14:19:56.607Z"
     },
     {
-      "pattern": "诗琳母狗找主人点我主页自",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：khinton17311；名字[内置规则:explicit_adult_name] 命中：母狗；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取",
-      "updatedAt": "2026-06-05T14:19:56.572Z"
-    },
-    {
-      "pattern": "诗琳母狗找主人点我主页自取",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：khinton17311；名字[内置规则:explicit_adult_name] 命中：母狗；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：诗琳母狗找主人点我主页自；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取",
-      "updatedAt": "2026-06-05T14:19:56.572Z"
-    },
-    {
-      "pattern": "想见同城的点我全国1-5线覆盖",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：aprilzeigl17913；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我",
-      "updatedAt": "2026-06-05T14:19:52.695Z"
-    },
-    {
       "pattern": "想见同城的点我全国1-5线覆盖aprilzeigl17913",
       "kind": "resource_lure",
       "fields": [
@@ -56954,30 +60358,6 @@
       "confidence": 0.67,
       "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：aprilzeigl17913；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我",
       "updatedAt": "2026-06-05T14:19:52.695Z"
-    },
-    {
-      "pattern": "1-5线覆盖",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：aprilzeigl17913；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我",
-      "updatedAt": "2026-06-05T14:19:52.661Z"
-    },
-    {
-      "pattern": "想见同城的点我全国",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：aprilzeigl17913；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：想见同城的点我全国1-5线覆盖；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我全国；名字[学习规则:dynamic_contact_lure] 命中：想见同城的点我",
-      "updatedAt": "2026-06-05T14:19:52.660Z"
     },
     {
       "pattern": "真实约见附近好友匹配wangkendra42397",
@@ -57004,18 +60384,6 @@
       "updatedAt": "2026-06-05T14:19:44.402Z"
     },
     {
-      "pattern": "专业牵线全国1-5线覆盖看主页",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：mcoddingto38631；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：专业牵线全国1-5线覆盖看主页；名字[学习规则:dynamic_contact_lure] 命中：线覆盖看主页；名字[内置规则:resource_lure_comment] 命中：1-5线覆盖",
-      "updatedAt": "2026-06-05T14:19:42.242Z"
-    },
-    {
       "pattern": "专业牵线全国1-5线覆盖看主页mcoddingto38631",
       "kind": "resource_lure",
       "fields": [
@@ -57026,18 +60394,6 @@
       "confidence": 0.67,
       "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：mcoddingto38631；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：专业牵线全国1-5线覆盖看主页；名字[学习规则:dynamic_contact_lure] 命中：线覆盖看主页；名字[内置规则:resource_lure_comment] 命中：1-5线覆盖",
       "updatedAt": "2026-06-05T14:19:42.242Z"
-    },
-    {
-      "pattern": "线覆盖看主页",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：mcoddingto38631；名字[学习规则:dynamic_resource_lure] 命中：1-5线覆盖；名字[学习规则:dynamic_resource_lure] 命中：专业牵线全国1-5线覆盖看主页；名字[学习规则:dynamic_contact_lure] 命中：线覆盖看主页；名字[内置规则:resource_lure_comment] 命中：1-5线覆盖",
-      "updatedAt": "2026-06-05T14:19:42.207Z"
     },
     {
       "pattern": "最近邮件与私信收到了好多",
@@ -57128,17 +60484,6 @@
       "updatedAt": "2026-06-05T12:42:55.391Z"
     },
     {
-      "pattern": "线下sao货没人比她sao",
-      "kind": "contact_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：sedaasomuncu3；评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下",
-      "updatedAt": "2026-06-05T12:42:55.390Z"
-    },
-    {
       "pattern": "刷了半天的x就她的主页能打了@6qoo0%]\\^",
       "kind": "contact_lure",
       "fields": [
@@ -57148,17 +60493,6 @@
       "confidence": 0.8500000000000001,
       "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：osmany149149；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了",
       "updatedAt": "2026-06-05T12:42:53.278Z"
-    },
-    {
-      "pattern": "就她的主页能打了",
-      "kind": "contact_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：osmany149149；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了",
-      "updatedAt": "2026-06-05T12:42:53.244Z"
     },
     {
       "pattern": "刷了半天的x就她的主页能打了",
@@ -57812,17 +61146,6 @@
       "updatedAt": "2026-06-05T12:37:42.610Z"
     },
     {
-      "pattern": "就她主页能打了",
-      "kind": "contact_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdu就她主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdu就她主页能打了@yunbaoit5v；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了",
-      "updatedAt": "2026-06-05T12:37:42.576Z"
-    },
-    {
       "pattern": "刷了半天的xdu就她主页能打了",
       "kind": "contact_lure",
       "fields": [
@@ -57921,30 +61244,6 @@
       "confidence": 0.8500000000000001,
       "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：hughphoebe19833；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这",
       "updatedAt": "2026-06-05T12:36:18.992Z"
-    },
-    {
-      "pattern": "附近真实的都在这点我主页自取",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：hughphoebe19833；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这",
-      "updatedAt": "2026-06-05T12:36:18.958Z"
-    },
-    {
-      "pattern": "附近真实的都在这点我主页",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：hughphoebe19833；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：点我主页自取；名字[学习规则:dynamic_contact_lure] 命中：附近真实的都在这",
-      "updatedAt": "2026-06-05T12:36:18.957Z"
     },
     {
       "pattern": "比她好看的没她骚r比她骚的没她好看",
@@ -58127,30 +61426,6 @@
       "updatedAt": "2026-06-05T10:26:39.260Z"
     },
     {
-      "pattern": "真实约见同城资源自取看我",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：stephaniem10475；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见、同城资源自取、看我简介；名字[内置规则:contact_lure_signal] 命中：同城",
-      "updatedAt": "2026-06-05T10:26:34.365Z"
-    },
-    {
-      "pattern": "真实约见同城资源自取看我简介",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：stephaniem10475；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见、同城资源自取、看我简介；名字[内置规则:contact_lure_signal] 命中：同城",
-      "updatedAt": "2026-06-05T10:26:34.365Z"
-    },
-    {
       "pattern": "真实约见同城资源自取看我简介stephaniem10475",
       "kind": "resource_lure",
       "fields": [
@@ -58161,18 +61436,6 @@
       "confidence": 0.67,
       "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：stephaniem10475；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见、同城资源自取、看我简介；名字[内置规则:contact_lure_signal] 命中：同城",
       "updatedAt": "2026-06-05T10:26:34.365Z"
-    },
-    {
-      "pattern": "同城资源自取",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：stephaniem10475；名字[学习规则:dynamic_resource_lure] 命中：真实约见；名字[内置规则:resource_lure_comment] 命中：真实约见、同城资源自取、看我简介；名字[内置规则:contact_lure_signal] 命中：同城",
-      "updatedAt": "2026-06-05T10:26:34.331Z"
     },
     {
       "pattern": "想见同城的点我全国1-5线覆盖ross_jenn99880",
@@ -58456,17 +61719,6 @@
       "confidence": 0.8500000000000001,
       "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[内置规则:tg_mention] 命中：tg；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[内置规则:tg_contact_combo] 命中：tg、主页",
       "updatedAt": "2026-06-05T10:21:26.037Z"
-    },
-    {
-      "pattern": "刷了半天的xvd就她的主页能打了",
-      "kind": "contact_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[内置规则:tg_mention] 命中：tg；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[内置规则:tg_contact_combo] 命中：tg、主页",
-      "updatedAt": "2026-06-05T10:21:26.003Z"
     },
     {
       "pattern": "刷了半天的xym就她主页能打了@yuyuvcr4s",
@@ -61771,30 +65023,6 @@
       "updatedAt": "2026-06-01T01:59:31.527Z"
     },
     {
-      "pattern": "同城男大无偿",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：hinessima21181；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿kathleen；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿；名字[内置规则:adult_lure_combo] 命中：男大、同城",
-      "updatedAt": "2026-06-01T01:59:23.389Z"
-    },
-    {
-      "pattern": "同城男大无偿kathleen",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：hinessima21181；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿kathleen；名字[学习规则:dynamic_contact_lure] 命中：同城男大无偿；名字[内置规则:adult_lure_combo] 命中：男大、同城",
-      "updatedAt": "2026-06-01T01:59:23.389Z"
-    },
-    {
       "pattern": "刷了半天的xƈ就她的主页能打了",
       "kind": "contact_lure",
       "fields": [
@@ -61899,54 +65127,6 @@
       "confidence": 0.67,
       "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：reid342169；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口",
       "updatedAt": "2026-06-01T01:58:37.296Z"
-    },
-    {
-      "pattern": "线下资源入口",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：reid342169；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口",
-      "updatedAt": "2026-06-01T01:58:37.295Z"
-    },
-    {
-      "pattern": "点我头像进群选人",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：reid342169；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口",
-      "updatedAt": "2026-06-01T01:58:37.295Z"
-    },
-    {
-      "pattern": "线下资源入口点我头像进群",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：reid342169；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口",
-      "updatedAt": "2026-06-01T01:58:37.295Z"
-    },
-    {
-      "pattern": "线下资源入口点我头像进群选人",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：reid342169；名字[学习规则:dynamic_resource_lure] 命中：点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口点我头像进群选人；名字[学习规则:dynamic_resource_lure] 命中：线下资源入口",
-      "updatedAt": "2026-06-01T01:58:37.295Z"
     },
     {
       "pattern": "线下sao货没人比她sao@acrmrve~?",
@@ -67546,136 +70726,6 @@
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
       "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "看我主页",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.74,
-      "reason": "Profile-click redirection is common in spam, but phrase is broader and should be reviewed before standalone blocking.",
-      "updatedAt": "2026-05-19T16:47:33.175Z"
-    },
-    {
-      "pattern": "真实约见",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.72,
-      "reason": "Common spam lure in meetup/resource scams, but somewhat broader and may need contextual pairing.",
-      "updatedAt": "2026-05-19T16:47:33.175Z"
-    },
-    {
-      "pattern": "处男免费",
-      "kind": "adult_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.92,
-      "reason": "Sexual bait phrasing targeting virgins/free offer; highly suspicious though may appear in varied formatting.",
-      "updatedAt": "2026-05-19T16:47:33.175Z"
-    },
-    {
-      "pattern": "免费破处",
-      "kind": "adult_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.97,
-      "reason": "Explicit sexual bait phrase with very low benign usage likelihood.",
-      "updatedAt": "2026-05-19T16:47:33.175Z"
-    },
-    {
-      "pattern": "今晚准时涩播",
-      "kind": "phrase",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 3,
-      "confidence": 0.87,
-      "reason": "Sexualized live-broadcast teaser phrase that appears promotional and spam-oriented.",
-      "updatedAt": "2026-05-19T16:47:33.175Z"
-    },
-    {
-      "pattern": "全是附近真实约见资源",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.93,
-      "reason": "Composite phrase combining nearby, real meetup, and resource claims; highly specific spam lure.",
-      "updatedAt": "2026-05-19T16:47:33.175Z"
-    },
-    {
-      "pattern": "线下资源入口",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.9,
-      "reason": "Explicit offline-resource access wording, strongly associated with illicit lead-generation spam.",
-      "updatedAt": "2026-05-19T16:47:33.175Z"
-    },
-    {
-      "pattern": "同城资源自取",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.88,
-      "reason": "Specific local-resource solicitation wording commonly used in adult/spam acquisition posts.",
-      "updatedAt": "2026-05-19T16:47:33.175Z"
-    },
-    {
-      "pattern": "点我头像进群选人",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.95,
-      "reason": "Strong call-to-action to enter a group and choose people; highly indicative of recruitment or trafficking-style spam.",
-      "updatedAt": "2026-05-19T16:47:33.175Z"
-    },
-    {
-      "pattern": "1-5线覆盖",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.73,
-      "reason": "pattern_candidate:known_pattern",
-      "updatedAt": "2026-05-19T16:47:33.174Z"
     }
   ],
   "analysis": {
@@ -67697,12 +70747,12 @@
         "count": 22
       },
       {
-        "value": "拉黑：规则命中：评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打；评论[学习规则:dynamic_phrase] 命中：刷了半天的",
-        "count": 21
+        "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+        "count": 22
       },
       {
-        "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
-        "count": 20
+        "value": "拉黑：规则命中：评论[动态规则:dynamic_contact_lure] 命中：就她的主页能打；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打；评论[学习规则:dynamic_phrase] 命中：刷了半天的",
+        "count": 21
       },
       {
         "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[学习规则:dynamic_phrase] 命中：货没人比她；评论[内置规则:adult_lure_combo] 命中：sao、线下",
@@ -67718,7 +70768,7 @@
       },
       {
         "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下",
-        "count": 11
+        "count": 12
       },
       {
         "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：这个骚货；评论[学习规则:dynamic_contact_lure] 命中：线下我就曰过；评论[内置规则:adult_lure_combo] 命中：骚、线下",
@@ -67748,23 +70798,23 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 668
+        "count": 697
       },
       {
         "value": "server_strong_rule",
-        "count": 484
+        "count": 511
       },
       {
         "value": "random_handle",
-        "count": 343
+        "count": 365
       },
       {
         "value": "dynamic_contact_lure",
-        "count": 311
+        "count": 326
       },
       {
         "value": "contact_mention",
-        "count": 259
+        "count": 269
       },
       {
         "value": "imported",
@@ -67772,11 +70822,11 @@
       },
       {
         "value": "adult_lure_combo",
-        "count": 181
+        "count": 184
       },
       {
         "value": "adult_mention",
-        "count": 175
+        "count": 176
       },
       {
         "value": "dynamic_adult_lure",
@@ -67788,27 +70838,31 @@
       },
       {
         "value": "feedback_memory",
-        "count": 86
+        "count": 88
       },
       {
         "value": "quark_lure_combo",
         "count": 77
       },
       {
+        "value": "contact_lure_signal",
+        "count": 67
+      },
+      {
         "value": "admin_confirmed",
         "count": 61
       },
       {
-        "value": "contact_lure_signal",
-        "count": 59
-      },
-      {
         "value": "obfuscated_dd_contact_combo",
-        "count": 59
+        "count": 61
       },
       {
         "value": "ai_rule_ingest",
         "count": 57
+      },
+      {
+        "value": "obfuscated_dd",
+        "count": 49
       },
       {
         "value": "rule:contact_lure",
@@ -67819,10 +70873,6 @@
         "count": 48
       },
       {
-        "value": "obfuscated_dd",
-        "count": 47
-      },
-      {
         "value": "quark_pan_direct_link",
         "count": 41
       },
@@ -67831,26 +70881,26 @@
         "count": 40
       },
       {
-        "value": "dynamic_netdisk",
-        "count": 31
-      },
-      {
-        "value": "mixed_short_code_lure",
-        "count": 31
-      },
-      {
         "value": "dynamic_resource_lure",
-        "count": 27
+        "count": 37
+      },
+      {
+        "value": "resource_lure_comment",
+        "count": 35
+      },
+      {
+        "value": "dynamic_netdisk",
+        "count": 32
       }
     ],
     "topRules": [
       {
         "value": "dynamic_contact_lure",
-        "count": 522
+        "count": 552
       },
       {
         "value": "random_handle",
-        "count": 342
+        "count": 364
       },
       {
         "value": "dynamic_adult_lure",
@@ -67858,19 +70908,19 @@
       },
       {
         "value": "contact_mention",
-        "count": 259
+        "count": 269
       },
       {
         "value": "adult_lure_combo",
-        "count": 180
+        "count": 183
       },
       {
         "value": "adult_mention",
-        "count": 175
+        "count": 176
       },
       {
         "value": "dynamic_netdisk",
-        "count": 100
+        "count": 102
       },
       {
         "value": "dynamic_phrase",
@@ -67881,44 +70931,44 @@
         "count": 77
       },
       {
+        "value": "dynamic_resource_lure",
+        "count": 71
+      },
+      {
         "value": "contact_lure_signal",
-        "count": 59
+        "count": 67
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 59
-      },
-      {
-        "value": "dynamic_resource_lure",
-        "count": 47
+        "count": 61
       },
       {
         "value": "obfuscated_dd",
-        "count": 41
+        "count": 43
       },
       {
         "value": "quark_pan_direct_link",
         "count": 41
       },
       {
+        "value": "resource_lure_comment",
+        "count": 35
+      },
+      {
         "value": "mixed_short_code_lure",
         "count": 27
       },
       {
-        "value": "resource_lure_comment",
-        "count": 25
+        "value": "short_bot_code",
+        "count": 16
       },
       {
         "value": "link_drop",
-        "count": 14
+        "count": 15
       },
       {
         "value": "dynamic_tg",
         "count": 11
-      },
-      {
-        "value": "short_bot_code",
-        "count": 10
       },
       {
         "value": "adult_name_bot_comment_combo",
@@ -67933,26 +70983,26 @@
         "count": 7
       },
       {
-        "value": "soft_lure_bot_combo",
+        "value": "explicit_adult_name",
         "count": 7
       },
       {
-        "value": "tg_contact_combo",
-        "count": 6
+        "value": "soft_lure_bot_combo",
+        "count": 7
       }
     ],
     "topFields": [
       {
         "value": "commentText",
-        "count": 1874
+        "count": 1916
       },
       {
         "value": "screenName",
-        "count": 368
+        "count": 390
       },
       {
         "value": "displayName",
-        "count": 250
+        "count": 313
       }
     ],
     "topPatterns": [
@@ -68140,10 +71190,10 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 752,
+      "confirmedBlacklist": 781,
       "spamSamples": 5,
-      "approvedReports": 517,
-      "dynamicRules": 971,
+      "approvedReports": 546,
+      "dynamicRules": 1000,
       "pendingReports": 25
     }
   }
