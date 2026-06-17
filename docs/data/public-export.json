@@ -1,24 +1,63 @@
 {
-  "generatedAt": "2026-06-17T05:15:58.391Z",
+  "generatedAt": "2026-06-17T10:06:17.617Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 781,
-    "blacklistConfirmed": 781,
+    "blacklistTotal": 782,
+    "blacklistConfirmed": 782,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 571,
+    "contributionTotal": 573,
     "contributionPending": 25,
     "dynamicRuleTotal": 1010,
     "dynamicRuleActive": 1010,
     "eventsTotal": 15000,
-    "blocked24h": 258,
+    "blocked24h": 261,
     "blockFailed24h": 0,
-    "decisions24h": 433,
+    "decisions24h": 592,
     "blockTaskPending": 0,
-    "generatedAt": "2026-06-17T05:15:58.322Z"
+    "generatedAt": "2026-06-17T10:06:17.541Z"
   },
   "blacklist": [
+    {
+      "screenName": "jackie516891",
+      "displayName": "貓葛-|||||∆×別跟一隻豬談未來，牠只在乎有沒有飼料×∆|||||8964",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：jackie516891；AI(feedback-memory(fallback))判spam 0.94：历史上报样本命中",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-17T06:22:28.993Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => jackie516891"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "jackie516891"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
     {
       "screenName": "ann_hamlet6630",
       "displayName": "专业牵线全国1-5线覆盖看主页",
@@ -70798,7 +70837,7 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 697
+        "count": 698
       },
       {
         "value": "server_strong_rule",
@@ -70806,7 +70845,7 @@
       },
       {
         "value": "random_handle",
-        "count": 365
+        "count": 366
       },
       {
         "value": "dynamic_contact_lure",
@@ -70838,7 +70877,7 @@
       },
       {
         "value": "feedback_memory",
-        "count": 88
+        "count": 89
       },
       {
         "value": "quark_lure_combo",
@@ -70900,7 +70939,7 @@
       },
       {
         "value": "random_handle",
-        "count": 364
+        "count": 365
       },
       {
         "value": "dynamic_adult_lure",
@@ -70998,7 +71037,7 @@
       },
       {
         "value": "screenName",
-        "count": 390
+        "count": 391
       },
       {
         "value": "displayName",
@@ -71190,9 +71229,9 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 781,
+      "confirmedBlacklist": 782,
       "spamSamples": 5,
-      "approvedReports": 546,
+      "approvedReports": 548,
       "dynamicRules": 1000,
       "pendingReports": 25
     }
