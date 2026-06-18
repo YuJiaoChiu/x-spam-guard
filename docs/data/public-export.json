@@ -1,24 +1,428 @@
 {
-  "generatedAt": "2026-06-18T01:41:33.124Z",
+  "generatedAt": "2026-06-18T07:05:48.218Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 782,
-    "blacklistConfirmed": 782,
+    "blacklistTotal": 788,
+    "blacklistConfirmed": 788,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 573,
+    "contributionTotal": 579,
     "contributionPending": 25,
-    "dynamicRuleTotal": 1010,
-    "dynamicRuleActive": 1010,
+    "dynamicRuleTotal": 1014,
+    "dynamicRuleActive": 1014,
     "eventsTotal": 15000,
-    "blocked24h": 261,
+    "blocked24h": 12,
     "blockFailed24h": 0,
-    "decisions24h": 601,
+    "decisions24h": 414,
     "blockTaskPending": 0,
-    "generatedAt": "2026-06-18T01:41:33.068Z"
+    "generatedAt": "2026-06-18T07:05:48.147Z"
   },
   "blacklist": [
+    {
+      "screenName": "newszg_official",
+      "displayName": "中国悲剧档案",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-18T06:49:41.799Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "zhu0588",
+      "displayName": "朱韵和",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：zhu0588；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.84,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-18T06:36:16.659Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => zhu0588",
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "zhu0588"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "jackfeng1919",
+      "displayName": "嘎达一蹦",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：jackfeng1919；AI(feedback-memory(fallback))判spam 0.94：历史上报样本命中",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-18T02:15:04.629Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => jackfeng1919"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "jackfeng1919"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "jacklee46966950",
+      "displayName": "整个国家都洋溢着乐观向上的氛围",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：jacklee46966950；AI(feedback-memory(fallback))判spam 0.94：历史上报样本命中",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-18T02:14:55.905Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => jacklee46966950"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "jacklee46966950"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "linda_fraim",
+      "displayName": "linda fraim",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "adult_mention",
+        "dynamic_contact_lure",
+        "adult_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-18T02:14:10.067Z",
+      "reasonDetails": {
+        "ruleScore": 10,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => 线下",
+          "adult_mention [commentText] => sao",
+          "dynamic_contact_lure [commentText] => 线下sao货没人比她sao",
+          "adult_lure_combo [commentText] => sao, 线下"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "sao"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下sao货没人比她sao"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下"
+          },
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "sao"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "or_connects",
+      "displayName": "Oregon Connects",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-18T01:57:59.901Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
     {
       "screenName": "jackie516891",
       "displayName": "貓葛-|||||∆×別跟一隻豬談未來，牠只在乎有沒有飼料×∆|||||8964",
@@ -59494,6 +59898,61 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "dda6779",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-18T06:49:41.800Z"
+    },
+    {
+      "pattern": "forbiddencity",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：zhu0588；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-18T06:36:16.660Z"
+    },
+    {
+      "pattern": "线下sao货没人比她sao@rumeysaaunaldoo",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下",
+      "updatedAt": "2026-06-18T02:14:10.069Z"
+    },
+    {
+      "pattern": "线下sao货没人比她sao",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下",
+      "updatedAt": "2026-06-18T02:14:10.068Z"
+    },
+    {
+      "pattern": "anddigitalservicesth",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-18T01:57:59.902Z"
+    },
+    {
       "pattern": "专业牵线全国1-5线覆盖看主页ann_hamlet6630",
       "kind": "resource_lure",
       "fields": [
@@ -60196,17 +60655,6 @@
       "confidence": 0.91,
       "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的x_v就她的主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的x_v就她的主页能打了@6qoo0m|",
       "updatedAt": "2026-06-17T02:15:01.021Z"
-    },
-    {
-      "pattern": "线下sao货没人比她sao",
-      "kind": "contact_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下",
-      "updatedAt": "2026-06-17T02:15:00.131Z"
     },
     {
       "pattern": "线下sao货没人比她sao@dadi2412f;o",
@@ -70713,58 +71161,6 @@
       "confidence": 0.91,
       "reason": "pattern_candidate:line",
       "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "\\线下sao货没人比她sao",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "*线下我就曰过z这个骚货👉",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "l线下sao货没人比她sao",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "线下我就曰过^这个骚货👉",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
     }
   ],
   "analysis": {
@@ -70782,11 +71178,11 @@
         "count": 57
       },
       {
-        "value": "high_rule_score",
-        "count": 22
+        "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+        "count": 24
       },
       {
-        "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+        "value": "high_rule_score",
         "count": 22
       },
       {
@@ -70807,7 +71203,7 @@
       },
       {
         "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：sao；评论[学习规则:dynamic_contact_lure] 命中：线下sao货没人比她sao；评论[内置规则:adult_lure_combo] 命中：sao、线下",
-        "count": 12
+        "count": 13
       },
       {
         "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：这个骚货；评论[学习规则:dynamic_contact_lure] 命中：线下我就曰过；评论[内置规则:adult_lure_combo] 命中：骚、线下",
@@ -70837,23 +71233,23 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 698
+        "count": 704
       },
       {
         "value": "server_strong_rule",
-        "count": 511
+        "count": 515
       },
       {
         "value": "random_handle",
-        "count": 366
+        "count": 369
       },
       {
         "value": "dynamic_contact_lure",
-        "count": 326
+        "count": 327
       },
       {
         "value": "contact_mention",
-        "count": 269
+        "count": 273
       },
       {
         "value": "imported",
@@ -70861,22 +71257,22 @@
       },
       {
         "value": "adult_lure_combo",
-        "count": 184
+        "count": 185
       },
       {
         "value": "adult_mention",
-        "count": 176
+        "count": 177
       },
       {
         "value": "dynamic_adult_lure",
         "count": 156
       },
       {
-        "value": "dynamic_phrase",
-        "count": 89
+        "value": "feedback_memory",
+        "count": 91
       },
       {
-        "value": "feedback_memory",
+        "value": "dynamic_phrase",
         "count": 89
       },
       {
@@ -70888,11 +71284,11 @@
         "count": 67
       },
       {
-        "value": "admin_confirmed",
-        "count": 61
+        "value": "obfuscated_dd_contact_combo",
+        "count": 64
       },
       {
-        "value": "obfuscated_dd_contact_combo",
+        "value": "admin_confirmed",
         "count": 61
       },
       {
@@ -70901,7 +71297,7 @@
       },
       {
         "value": "obfuscated_dd",
-        "count": 49
+        "count": 52
       },
       {
         "value": "rule:contact_lure",
@@ -70935,11 +71331,11 @@
     "topRules": [
       {
         "value": "dynamic_contact_lure",
-        "count": 552
+        "count": 553
       },
       {
         "value": "random_handle",
-        "count": 365
+        "count": 368
       },
       {
         "value": "dynamic_adult_lure",
@@ -70947,15 +71343,15 @@
       },
       {
         "value": "contact_mention",
-        "count": 269
+        "count": 273
       },
       {
         "value": "adult_lure_combo",
-        "count": 183
+        "count": 184
       },
       {
         "value": "adult_mention",
-        "count": 176
+        "count": 177
       },
       {
         "value": "dynamic_netdisk",
@@ -70979,11 +71375,11 @@
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 61
+        "count": 64
       },
       {
         "value": "obfuscated_dd",
-        "count": 43
+        "count": 46
       },
       {
         "value": "quark_pan_direct_link",
@@ -71033,11 +71429,11 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 1916
+        "count": 1929
       },
       {
         "value": "screenName",
-        "count": 391
+        "count": 394
       },
       {
         "value": "displayName",
@@ -71229,9 +71625,9 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 782,
+      "confirmedBlacklist": 788,
       "spamSamples": 5,
-      "approvedReports": 548,
+      "approvedReports": 554,
       "dynamicRules": 1000,
       "pendingReports": 25
     }
