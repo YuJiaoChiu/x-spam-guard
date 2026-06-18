@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T11:16:54.500Z",
+  "generatedAt": "2026-06-18T14:25:01.472Z",
   "project": "X Spam Guard",
   "stats": {
     "blacklistTotal": 792,
@@ -16,7 +16,7 @@
     "blockFailed24h": 0,
     "decisions24h": 548,
     "blockTaskPending": 0,
-    "generatedAt": "2026-06-18T11:16:54.438Z"
+    "generatedAt": "2026-06-18T14:25:01.406Z"
   },
   "blacklist": [
     {
