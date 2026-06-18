@@ -1,24 +1,434 @@
 {
-  "generatedAt": "2026-06-18T07:05:48.218Z",
+  "generatedAt": "2026-06-18T11:16:54.500Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 788,
-    "blacklistConfirmed": 788,
+    "blacklistTotal": 792,
+    "blacklistConfirmed": 792,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 579,
+    "contributionTotal": 583,
     "contributionPending": 25,
-    "dynamicRuleTotal": 1014,
-    "dynamicRuleActive": 1014,
+    "dynamicRuleTotal": 1026,
+    "dynamicRuleActive": 1026,
     "eventsTotal": 15000,
-    "blocked24h": 12,
+    "blocked24h": 17,
     "blockFailed24h": 0,
-    "decisions24h": 414,
+    "decisions24h": 548,
     "blockTaskPending": 0,
-    "generatedAt": "2026-06-18T07:05:48.147Z"
+    "generatedAt": "2026-06-18T11:16:54.438Z"
   },
   "blacklist": [
+    {
+      "screenName": "daniela70570577",
+      "displayName": "曼波 ~",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：daniela70570577；评论[内置规则:contact_mention] 命中：线下；评论[内置规则:tg_mention] 命中：t.me；其他[内置规则:link_drop] 命中：【yjfx2026×浙江高颜值情侣xingnu×超级赛亚人】三巨头...；评论[内置规则:tg_contact_combo] 命中：t.me、线下",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "tg_mention",
+        "link_drop",
+        "tg_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-18T09:07:24.332Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => daniela70570577",
+          "contact_mention [commentText] => 线下",
+          "tg_mention [commentText] => t.me",
+          "link_drop [unknown] => 【yjfx2026×浙江高颜值情侣xingnu×超级赛亚人】三巨头同框开撩！真实本地、真实高颜、真实敢玩！浙江最野情侣+顶级约啪大神，线下资源拉满，各种玩法直接安排！想看他们最新实战？想加入本地高端约啪？想被大神带飞、资源共享？https://t.me/+rlhsp8w0g6ljmjq1…",
+          "tg_contact_combo [commentText] => t.me, 线下"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "daniela70570577"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "tg_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "t.me"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram terms in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "tg_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "t.me"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram/contact lure combination"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "hoehn_jl",
+      "displayName": "JL Hoehn",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；其他[内置规则:link_drop] 命中：哥哥竟然当着这么多人的面给妹妹弄射了线下约啪免费视频高清完整版已上...；评论[学习规则:dynamic_contact_lure] 命中：给妹妹弄射了线下约啪免费；评论[学习规则:dynamic_contact_lure] 命中：线下约啪免费视频高清完整版已上传平台；评论[内置规则:contact_lure_signal] 命中：线下",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "link_drop",
+        "dynamic_contact_lure",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-18T09:07:10.610Z",
+      "reasonDetails": {
+        "ruleScore": 12,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => 线下",
+          "link_drop [unknown] => 哥哥竟然当着这么多人的面给妹妹弄射了线下约啪免费视频高清完整版已上传平台：http://m5y8.top",
+          "dynamic_contact_lure [commentText] => 给妹妹弄射了线下约啪免费",
+          "dynamic_contact_lure [commentText] => 线下约啪免费视频高清完整版已上传平台",
+          "contact_lure_signal [commentText] => 线下"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "给妹妹弄射了线下约啪免费"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；其他[内置规则:link_drop] 命中：哥哥竟然当着这么多人的面给妹妹弄射了线下约啪免费视频高清完整版已上...；评论[内置规则:contact_lure_signal] 命中：线下"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下约啪免费视频高清完整版已上传平台"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；其他[内置规则:link_drop] 命中：哥哥竟然当着这么多人的面给妹妹弄射了线下约啪免费视频高清完整版已上...；评论[内置规则:contact_lure_signal] 命中：线下"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "yscos3",
+      "displayName": "银时cos陪玩约会伴游 U 招妹",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：联系、线下；评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：反差；其他[内置规则:link_drop] 命中：银时每日推荐线下约会伴游sh060常驻：上海16397c微胖无纹身...；评论[内置规则:tg_contact_combo] 命中：tg、t.me、联系、线下",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "tg_mention",
+        "adult_mention",
+        "link_drop",
+        "tg_contact_combo",
+        "adult_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-18T09:06:56.076Z",
+      "reasonDetails": {
+        "ruleScore": 14,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => 联系, 线下",
+          "tg_mention [commentText] => tg, t.me",
+          "adult_mention [commentText] => 反差",
+          "link_drop [unknown] => 银时每日推荐线下约会伴游sh060常驻：上海16397c微胖无纹身白皮白虎女友系反差小魅魔口活超好！超级漂亮，活好的可怕，0差评约会联系：：点击头像在简介tg：https://t.me/ai1688s聊天群看更多美女资料：https://t.me/+mpsza8feia0zzgi8…",
+          "tg_contact_combo [commentText] => tg, t.me, 联系, 线下",
+          "adult_lure_combo [commentText] => 反差, 联系, 线下"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "联系"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "tg_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "tg"
+              },
+              {
+                "field": "commentText",
+                "term": "t.me"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram terms in comment"
+          },
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "反差"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "tg_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "tg"
+              },
+              {
+                "field": "commentText",
+                "term": "t.me"
+              },
+              {
+                "field": "commentText",
+                "term": "联系"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram/contact lure combination"
+          },
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "反差"
+              },
+              {
+                "field": "commentText",
+                "term": "联系"
+              },
+              {
+                "field": "commentText",
+                "term": "线下"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "espnfc",
+      "displayName": "ESPN FC",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-18T07:57:29.597Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
     {
       "screenName": "newszg_official",
       "displayName": "中国悲剧档案",
@@ -59898,6 +60308,138 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "t.me/+rlhsp8w0g6ljm",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：daniela70570577；评论[内置规则:contact_mention] 命中：线下；评论[内置规则:tg_mention] 命中：t.me；其他[内置规则:link_drop] 命中：【yjfx2026×浙江高颜值情侣xingnu×超级赛亚人】三巨头...；评论[内置规则:tg_contact_combo] 命中：t.me、线下",
+      "updatedAt": "2026-06-18T09:07:24.371Z"
+    },
+    {
+      "pattern": "想被大神带飞、资源共享",
+      "kind": "netdisk",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：daniela70570577；评论[内置规则:contact_mention] 命中：线下；评论[内置规则:tg_mention] 命中：t.me；其他[内置规则:link_drop] 命中：【yjfx2026×浙江高颜值情侣xingnu×超级赛亚人】三巨头...；评论[内置规则:tg_contact_combo] 命中：t.me、线下",
+      "updatedAt": "2026-06-18T09:07:24.370Z"
+    },
+    {
+      "pattern": "资源共享",
+      "kind": "netdisk",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：daniela70570577；评论[内置规则:contact_mention] 命中：线下；评论[内置规则:tg_mention] 命中：t.me；其他[内置规则:link_drop] 命中：【yjfx2026×浙江高颜值情侣xingnu×超级赛亚人】三巨头...；评论[内置规则:tg_contact_combo] 命中：t.me、线下",
+      "updatedAt": "2026-06-18T09:07:24.333Z"
+    },
+    {
+      "pattern": "线下资源拉满",
+      "kind": "netdisk",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：daniela70570577；评论[内置规则:contact_mention] 命中：线下；评论[内置规则:tg_mention] 命中：t.me；其他[内置规则:link_drop] 命中：【yjfx2026×浙江高颜值情侣xingnu×超级赛亚人】三巨头...；评论[内置规则:tg_contact_combo] 命中：t.me、线下",
+      "updatedAt": "2026-06-18T09:07:24.333Z"
+    },
+    {
+      "pattern": "给妹妹弄射了线下约啪免费",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；其他[内置规则:link_drop] 命中：哥哥竟然当着这么多人的面给妹妹弄射了线下约啪免费视频高清完整版已上...；评论[学习规则:dynamic_contact_lure] 命中：给妹妹弄射了线下约啪免费；评论[学习规则:dynamic_contact_lure] 命中：线下约啪免费视频高清完整版已上传平台；评论[内置规则:contact_lure_signal] 命中：线下",
+      "updatedAt": "2026-06-18T09:07:10.611Z"
+    },
+    {
+      "pattern": "线下约啪免费视频高清完整版已上传平台",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：线下；其他[内置规则:link_drop] 命中：哥哥竟然当着这么多人的面给妹妹弄射了线下约啪免费视频高清完整版已上...；评论[学习规则:dynamic_contact_lure] 命中：给妹妹弄射了线下约啪免费；评论[学习规则:dynamic_contact_lure] 命中：线下约啪免费视频高清完整版已上传平台；评论[内置规则:contact_lure_signal] 命中：线下",
+      "updatedAt": "2026-06-18T09:07:10.611Z"
+    },
+    {
+      "pattern": "银时每日推荐线下约会伴游",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：联系、线下；评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：反差；其他[内置规则:link_drop] 命中：银时每日推荐线下约会伴游sh060常驻：上海16397c微胖无纹身...；评论[内置规则:tg_contact_combo] 命中：tg、t.me、联系、线下",
+      "updatedAt": "2026-06-18T09:06:56.114Z"
+    },
+    {
+      "pattern": "t.me/ai1688s",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：联系、线下；评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：反差；其他[内置规则:link_drop] 命中：银时每日推荐线下约会伴游sh060常驻：上海16397c微胖无纹身...；评论[内置规则:tg_contact_combo] 命中：tg、t.me、联系、线下",
+      "updatedAt": "2026-06-18T09:06:56.114Z"
+    },
+    {
+      "pattern": "t.me/+mpsza8feia0zz",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：联系、线下；评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：反差；其他[内置规则:link_drop] 命中：银时每日推荐线下约会伴游sh060常驻：上海16397c微胖无纹身...；评论[内置规则:tg_contact_combo] 命中：tg、t.me、联系、线下",
+      "updatedAt": "2026-06-18T09:06:56.114Z"
+    },
+    {
+      "pattern": "差评约会联系",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：联系、线下；评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：反差；其他[内置规则:link_drop] 命中：银时每日推荐线下约会伴游sh060常驻：上海16397c微胖无纹身...；评论[内置规则:tg_contact_combo] 命中：tg、t.me、联系、线下",
+      "updatedAt": "2026-06-18T09:06:56.078Z"
+    },
+    {
+      "pattern": "约会联系",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：联系、线下；评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：反差；其他[内置规则:link_drop] 命中：银时每日推荐线下约会伴游sh060常驻：上海16397c微胖无纹身...；评论[内置规则:tg_contact_combo] 命中：tg、t.me、联系、线下",
+      "updatedAt": "2026-06-18T09:06:56.077Z"
+    },
+    {
+      "pattern": "jurgenklinsmannaddre",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-18T07:57:29.598Z"
+    },
+    {
       "pattern": "dda6779",
       "kind": "contact_lure",
       "fields": [
@@ -71005,162 +71547,6 @@
       "confidence": 0.9,
       "reason": "Precise phrase associated with fetish/used-stockings solicitation and sales spam.",
       "updatedAt": "2026-05-19T16:47:33.177Z"
-    },
-    {
-      "pattern": "来一个长期搭子",
-      "kind": "solicitation_phrase",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 3,
-      "confidence": 0.71,
-      "reason": "Common partner-seeking solicitation phrase in this context; potentially spammy but could appear in benign chat, so use cautiously.",
-      "updatedAt": "2026-05-19T16:47:33.177Z"
-    },
-    {
-      "pattern": "附近好友匹配",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.9,
-      "reason": "Precise matchmaking-style lure phrase tied to nearby-contact spam and unlikely in benign contexts.",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "点击主页",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:token",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "想找会疼人的哥哥",
-      "kind": "sexual_solicitation",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 3,
-      "confidence": 0.83,
-      "reason": "Romantic/sexual solicitation phrase that appears in spam-style bait copy; usable but broader, so moderate confidence.",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "蹲一个弟弟🍑点击主页",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.94,
-      "reason": "Repeated lure structure combining flirtatious solicitation with a profile-click CTA; more precise than matching 点击主页 alone.",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "推特，第一骚",
-      "kind": "phrase",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 3,
-      "confidence": 0.91,
-      "reason": "Precise repeated Chinese phrase with explicit promotional/spam-like wording; more distinctive than timestamps or usernames.",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "b比她好看的没她骚&比她骚的没她好看",
-      "kind": "adult_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "⁬刷了半天的x.就她的主页能打✈️了",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "c刷了半天的x*就她的主页能打✈️了",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "n比她好看的没她骚c比她骚的没她好看",
-      "kind": "adult_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "比她好看的没她骚=比她骚的没她好看",
-      "kind": "adult_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
-    },
-    {
-      "pattern": "d线下我就曰过⁯q这个骚货👉",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-19T16:47:33.176Z"
     }
   ],
   "analysis": {
@@ -71179,7 +71565,7 @@
       },
       {
         "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
-        "count": 24
+        "count": 25
       },
       {
         "value": "high_rule_score",
@@ -71233,23 +71619,23 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 704
+        "count": 708
       },
       {
         "value": "server_strong_rule",
-        "count": 515
+        "count": 519
       },
       {
         "value": "random_handle",
-        "count": 369
+        "count": 370
       },
       {
         "value": "dynamic_contact_lure",
-        "count": 327
+        "count": 328
       },
       {
         "value": "contact_mention",
-        "count": 273
+        "count": 277
       },
       {
         "value": "imported",
@@ -71257,11 +71643,11 @@
       },
       {
         "value": "adult_lure_combo",
-        "count": 185
+        "count": 186
       },
       {
         "value": "adult_mention",
-        "count": 177
+        "count": 178
       },
       {
         "value": "dynamic_adult_lure",
@@ -71281,11 +71667,11 @@
       },
       {
         "value": "contact_lure_signal",
-        "count": 67
+        "count": 68
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 64
+        "count": 65
       },
       {
         "value": "admin_confirmed",
@@ -71297,7 +71683,7 @@
       },
       {
         "value": "obfuscated_dd",
-        "count": 52
+        "count": 53
       },
       {
         "value": "rule:contact_lure",
@@ -71331,11 +71717,11 @@
     "topRules": [
       {
         "value": "dynamic_contact_lure",
-        "count": 553
+        "count": 555
       },
       {
         "value": "random_handle",
-        "count": 368
+        "count": 369
       },
       {
         "value": "dynamic_adult_lure",
@@ -71343,15 +71729,15 @@
       },
       {
         "value": "contact_mention",
-        "count": 273
+        "count": 277
       },
       {
         "value": "adult_lure_combo",
-        "count": 184
+        "count": 185
       },
       {
         "value": "adult_mention",
-        "count": 177
+        "count": 178
       },
       {
         "value": "dynamic_netdisk",
@@ -71371,15 +71757,15 @@
       },
       {
         "value": "contact_lure_signal",
-        "count": 67
+        "count": 68
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 64
+        "count": 65
       },
       {
         "value": "obfuscated_dd",
-        "count": 46
+        "count": 47
       },
       {
         "value": "quark_pan_direct_link",
@@ -71394,23 +71780,27 @@
         "count": 27
       },
       {
-        "value": "short_bot_code",
-        "count": 16
+        "value": "link_drop",
+        "count": 18
       },
       {
-        "value": "link_drop",
-        "count": 15
+        "value": "short_bot_code",
+        "count": 16
       },
       {
         "value": "dynamic_tg",
         "count": 11
       },
       {
+        "value": "tg_mention",
+        "count": 10
+      },
+      {
         "value": "adult_name_bot_comment_combo",
         "count": 9
       },
       {
-        "value": "tg_mention",
+        "value": "tg_contact_combo",
         "count": 8
       },
       {
@@ -71420,20 +71810,16 @@
       {
         "value": "explicit_adult_name",
         "count": 7
-      },
-      {
-        "value": "soft_lure_bot_combo",
-        "count": 7
       }
     ],
     "topFields": [
       {
         "value": "commentText",
-        "count": 1929
+        "count": 1944
       },
       {
         "value": "screenName",
-        "count": 394
+        "count": 395
       },
       {
         "value": "displayName",
@@ -71625,9 +72011,9 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 788,
+      "confirmedBlacklist": 792,
       "spamSamples": 5,
-      "approvedReports": 554,
+      "approvedReports": 558,
       "dynamicRules": 1000,
       "pendingReports": 25
     }
