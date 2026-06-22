@@ -1,24 +1,97 @@
 {
-  "generatedAt": "2026-06-21T23:43:59.671Z",
+  "generatedAt": "2026-06-22T05:30:07.212Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 792,
-    "blacklistConfirmed": 792,
+    "blacklistTotal": 793,
+    "blacklistConfirmed": 793,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 583,
+    "contributionTotal": 584,
     "contributionPending": 25,
     "dynamicRuleTotal": 1026,
     "dynamicRuleActive": 1026,
     "eventsTotal": 15000,
-    "blocked24h": 0,
+    "blocked24h": 5,
     "blockFailed24h": 0,
-    "decisions24h": 0,
+    "decisions24h": 220,
     "blockTaskPending": 0,
-    "generatedAt": "2026-06-21T23:43:59.604Z"
+    "generatedAt": "2026-06-22T05:30:07.141Z"
   },
   "blacklist": [
+    {
+      "screenName": "espn",
+      "displayName": "ESPN",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-22T02:10:02.226Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
     {
       "screenName": "daniela70570577",
       "displayName": "曼波 ~",
@@ -71565,7 +71638,7 @@
       },
       {
         "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
-        "count": 25
+        "count": 26
       },
       {
         "value": "high_rule_score",
@@ -71619,11 +71692,11 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 708
+        "count": 709
       },
       {
         "value": "server_strong_rule",
-        "count": 519
+        "count": 520
       },
       {
         "value": "random_handle",
@@ -71635,7 +71708,7 @@
       },
       {
         "value": "contact_mention",
-        "count": 277
+        "count": 278
       },
       {
         "value": "imported",
@@ -71671,7 +71744,7 @@
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 65
+        "count": 66
       },
       {
         "value": "admin_confirmed",
@@ -71683,7 +71756,7 @@
       },
       {
         "value": "obfuscated_dd",
-        "count": 53
+        "count": 54
       },
       {
         "value": "rule:contact_lure",
@@ -71729,7 +71802,7 @@
       },
       {
         "value": "contact_mention",
-        "count": 277
+        "count": 278
       },
       {
         "value": "adult_lure_combo",
@@ -71761,11 +71834,11 @@
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 65
+        "count": 66
       },
       {
         "value": "obfuscated_dd",
-        "count": 47
+        "count": 48
       },
       {
         "value": "quark_pan_direct_link",
@@ -71815,7 +71888,7 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 1944
+        "count": 1947
       },
       {
         "value": "screenName",
@@ -72011,9 +72084,9 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 792,
+      "confirmedBlacklist": 793,
       "spamSamples": 5,
-      "approvedReports": 558,
+      "approvedReports": 559,
       "dynamicRules": 1000,
       "pendingReports": 25
     }
