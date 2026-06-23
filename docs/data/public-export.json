@@ -1,24 +1,108 @@
 {
-  "generatedAt": "2026-06-23T05:14:10.200Z",
+  "generatedAt": "2026-06-23T08:38:06.274Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 795,
-    "blacklistConfirmed": 795,
+    "blacklistTotal": 796,
+    "blacklistConfirmed": 796,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 586,
+    "contributionTotal": 587,
     "contributionPending": 25,
-    "dynamicRuleTotal": 1028,
-    "dynamicRuleActive": 1028,
+    "dynamicRuleTotal": 1029,
+    "dynamicRuleActive": 1029,
     "eventsTotal": 15000,
-    "blocked24h": 2,
+    "blocked24h": 4,
     "blockFailed24h": 4,
-    "decisions24h": 497,
+    "decisions24h": 614,
     "blockTaskPending": 1,
-    "generatedAt": "2026-06-23T05:14:10.132Z"
+    "generatedAt": "2026-06-23T08:38:06.223Z"
   },
   "blacklist": [
+    {
+      "screenName": "russiaspivot",
+      "displayName": "Russia's Pivot to Asia",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：d1；评论[内置规则:tg_mention] 命中：tg；其他[内置规则:link_drop] 命中：russia-asean/southeastasiarelatio...；评论[内置规则:tg_contact_combo] 命中：tg、d1",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "tg_mention",
+        "link_drop",
+        "tg_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-23T05:55:48.723Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => d1",
+          "tg_mention [commentText] => tg",
+          "link_drop [unknown] => russia-asean/southeastasiarelationsin2026:energy,tradediversification,defenseandstrategicrealignmenthttps://russiaspivottoasia.com/the-russia-asean-business-forum-a-new-2030-strategic-partnership-the-multilateral-agreements-and-a-country-by-country-development-analysis/?twclid=26tcd1dk7ag11v0kgnpxhyux2p…therussia-aseanbusinessforumwasheldlastweekwithimportantgeopoliticalstrategicagreementssignedinenergy,supplychains,finance,",
+          "tg_contact_combo [commentText] => tg, d1"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "d1"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "tg_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "tg"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram terms in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "tg_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "tg"
+              },
+              {
+                "field": "commentText",
+                "term": "d1"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram/contact lure combination"
+          }
+        ]
+      }
+    },
     {
       "screenName": "browatchingme",
       "displayName": "世界观察者",
@@ -60527,6 +60611,17 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "ortantgeopoliticalst",
+      "kind": "tg",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：d1；评论[内置规则:tg_mention] 命中：tg；其他[内置规则:link_drop] 命中：russia-asean/southeastasiarelatio...；评论[内置规则:tg_contact_combo] 命中：tg、d1",
+      "updatedAt": "2026-06-23T05:55:48.724Z"
+    },
+    {
       "pattern": "europeisfinishedduet",
       "kind": "contact_lure",
       "fields": [
@@ -71749,19 +71844,6 @@
       "confidence": 0.87,
       "reason": "Combination of a local meetup lure phrase with a social handle strongly indicates off-platform contact solicitation spam.",
       "updatedAt": "2026-05-19T16:47:33.177Z"
-    },
-    {
-      "pattern": "欣艺~❀同城上门",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.78,
-      "reason": "Specific display-name style variant combining a persona name with a local meetup lure; likely spam but narrower and based on one sample.",
-      "updatedAt": "2026-05-19T16:47:33.177Z"
     }
   ],
   "analysis": {
@@ -71834,11 +71916,11 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 711
+        "count": 712
       },
       {
         "value": "server_strong_rule",
-        "count": 522
+        "count": 523
       },
       {
         "value": "random_handle",
@@ -71850,7 +71932,7 @@
       },
       {
         "value": "contact_mention",
-        "count": 280
+        "count": 281
       },
       {
         "value": "imported",
@@ -71944,7 +72026,7 @@
       },
       {
         "value": "contact_mention",
-        "count": 280
+        "count": 281
       },
       {
         "value": "adult_lure_combo",
@@ -71996,7 +72078,7 @@
       },
       {
         "value": "link_drop",
-        "count": 18
+        "count": 19
       },
       {
         "value": "short_bot_code",
@@ -72008,7 +72090,7 @@
       },
       {
         "value": "tg_mention",
-        "count": 10
+        "count": 11
       },
       {
         "value": "adult_name_bot_comment_combo",
@@ -72016,7 +72098,7 @@
       },
       {
         "value": "tg_contact_combo",
-        "count": 8
+        "count": 9
       },
       {
         "value": "dynamic_sexual_solicitation",
@@ -72030,7 +72112,7 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 1953
+        "count": 1956
       },
       {
         "value": "screenName",
@@ -72226,9 +72308,9 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 795,
+      "confirmedBlacklist": 796,
       "spamSamples": 5,
-      "approvedReports": 561,
+      "approvedReports": 562,
       "dynamicRules": 1000,
       "pendingReports": 25
     }
