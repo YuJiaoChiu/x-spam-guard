@@ -1,24 +1,319 @@
 {
-  "generatedAt": "2026-06-24T00:11:24.814Z",
+  "generatedAt": "2026-06-24T04:35:06.125Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 796,
-    "blacklistConfirmed": 796,
+    "blacklistTotal": 800,
+    "blacklistConfirmed": 800,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 587,
+    "contributionTotal": 591,
     "contributionPending": 25,
-    "dynamicRuleTotal": 1029,
-    "dynamicRuleActive": 1029,
+    "dynamicRuleTotal": 1034,
+    "dynamicRuleActive": 1034,
     "eventsTotal": 15000,
-    "blocked24h": 4,
-    "blockFailed24h": 4,
-    "decisions24h": 614,
+    "blocked24h": 10,
+    "blockFailed24h": 0,
+    "decisions24h": 355,
     "blockTaskPending": 1,
-    "generatedAt": "2026-06-24T00:11:24.745Z"
+    "generatedAt": "2026-06-24T04:35:06.045Z"
   },
   "blacklist": [
+    {
+      "screenName": "jack_chen222",
+      "displayName": "morningstar",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：jack_chen222；AI(feedback-memory(fallback))判spam 0.94：历史上报样本命中",
+      "confidence": 0.88,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "feedback_memory"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-24T03:19:09.104Z",
+      "reasonDetails": {
+        "ruleScore": 2,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => jack_chen222"
+        ],
+        "aiProvider": "feedback-memory(fallback)",
+        "aiReason": "reported_spam_pattern",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "jack_chen222"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "confa28",
+      "displayName": "Marco Confa ★ ★ ★",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdf就她主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdf就她主页能打了@nynczw2l；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "dynamic_contact_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-24T03:16:09.529Z",
+      "reasonDetails": {
+        "ruleScore": 13,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => 主页",
+          "dynamic_contact_lure [commentText] => 刷了半天的xdf就她主页能打了",
+          "dynamic_contact_lure [commentText] => 刷了半天的xdf就她主页能打了@nynczw2l",
+          "dynamic_contact_lure [commentText] => 就她主页能打了"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天的xdf就她主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "刷了半天的xdf就她主页能打了@nynczw2l"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了"
+          },
+          {
+            "rule": "dynamic_contact_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "就她主页能打了"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "jam79922967",
+      "displayName": "Petrichor",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：jam79922967；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.84,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-24T03:05:30.745Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => jam79922967",
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "jam79922967"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "1999_eth",
+      "displayName": "老叶",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：1999_eth；评论[内置规则:contact_mention] 命中：私信；其他[内置规则:link_drop] 命中：我做了一个ai中转站，今天正式开放：https://apikey....；评论[内置规则:contact_lure_signal] 命中：私信",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "contact_mention",
+        "link_drop",
+        "contact_lure_signal",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-24T02:15:13.561Z",
+      "reasonDetails": {
+        "ruleScore": 6,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => 1999_eth",
+          "contact_mention [commentText] => 私信",
+          "link_drop [unknown] => 我做了一个ai中转站，今天正式开放：https://apikey.fun/?twclid=23ieurahnv1ja2pfid84es5blq一开始做这个站，想法很简单。主要是我自己平时token消耗量大，身边也有不少朋友一直用不上稳定的claude/gpt。不是订阅麻烦，就是各种限制；去找别的中转站，又总担心不靠谱、信息不安全。所以干脆自己搭了一个。很多人问：为什么敢用老叶的？这个问题我也理解。毕竟ai中转站这东西，大家最怕的不是贵一点，而是不知道对面是谁。我在币圈这么多年，别的不敢吹，信用两字一直是招牌。前两年比特币生态火的时候，做过ybot铸造工具。起初也有人担心资产安全。ybot到现在跑了两年多，上万人用过，很多人甚至直接在网站里填过钱包私钥，总资产少说也有几千万。到今天为止，没有出过一次因为网站原因导致的资产事故。这次做ai中转站也是一样，稳定靠谱依然是我们的标签。目前站里支持gpt、claude等模型，底层用的是官方正规订阅账号池，不是乱七八糟的灰产号。价格这块也尽量压到较低，最低大概0.7折。过去10天，我们做了一轮小范围内测：200+小伙伴参与累计消耗超过420亿token整体运行稳定，没出明显故障内测跑完之后，我觉得可以正式放出来给更多人用了。需要稳定、便宜、靠谱的claude/gpt中转站的，可以试试：https://apikey.fun/?twclid=23ieurahnv1ja2pfid84es5blq有问题可以直接私信我，或者进群找我。老叶不跑路，真出问题我负责。用完觉得值，帮我转一下。需要进群的朋友，可以看一下评论区一楼！",
+          "contact_lure_signal [commentText] => 私信"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "1999_eth"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "私信"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "contact_lure_signal",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "私信"
+              }
+            ],
+            "evidence": [],
+            "reason": "High-intent contact lure terms"
+          }
+        ]
+      }
+    },
     {
       "screenName": "russiaspivot",
       "displayName": "Russia's Pivot to Asia",
@@ -60611,6 +60906,72 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "刷了半天的xdf就她主页能打了@nynczw2l",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdf就她主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdf就她主页能打了@nynczw2l；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了",
+      "updatedAt": "2026-06-24T03:16:09.568Z"
+    },
+    {
+      "pattern": "刷了半天的xdf就她主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdf就她主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdf就她主页能打了@nynczw2l；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了",
+      "updatedAt": "2026-06-24T03:16:09.531Z"
+    },
+    {
+      "pattern": "就她主页能打了",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdf就她主页能打了；评论[学习规则:dynamic_contact_lure] 命中：刷了半天的xdf就她主页能打了@nynczw2l；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了",
+      "updatedAt": "2026-06-24T03:16:09.530Z"
+    },
+    {
+      "pattern": "suddenlyappearedbesi",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：jam79922967；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-24T03:05:30.747Z"
+    },
+    {
+      "pattern": "whofireddirectlyathe",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：jam79922967；评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-06-24T03:05:30.747Z"
+    },
+    {
+      "pattern": "有问题可以直接私信我",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：1999_eth；评论[内置规则:contact_mention] 命中：私信；其他[内置规则:link_drop] 命中：我做了一个ai中转站，今天正式开放：https://apikey....；评论[内置规则:contact_lure_signal] 命中：私信",
+      "updatedAt": "2026-06-24T02:15:13.563Z"
+    },
+    {
       "pattern": "ortantgeopoliticalst",
       "kind": "tg",
       "fields": [
@@ -60957,17 +61318,6 @@
       "confidence": 0.8500000000000001,
       "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：sameeralizaidi2；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了",
       "updatedAt": "2026-06-17T03:42:33.266Z"
-    },
-    {
-      "pattern": "就她主页能打了",
-      "kind": "contact_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：sameeralizaidi2；评论[内置规则:contact_mention] 命中：主页；评论[学习规则:dynamic_contact_lure] 命中：就她主页能打了",
-      "updatedAt": "2026-06-17T03:42:33.230Z"
     },
     {
       "pattern": "刷了半天的xfj就她主页能打了",
@@ -71779,71 +72129,6 @@
       "confidence": 0.88,
       "reason": "Longer redirect phrase is more specific than the shorter fragment and suggests profile-click bait.",
       "updatedAt": "2026-05-19T16:47:33.177Z"
-    },
-    {
-      "pattern": "就她的主页能打",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.83,
-      "reason": "Profile-redirection wording suggests directing users to a target profile, common in lure spam.",
-      "updatedAt": "2026-05-19T16:47:33.177Z"
-    },
-    {
-      "pattern": "线下我就曰过.*这个骚货",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.95,
-      "reason": "Combined offline-contact boast with sexualized insult appears highly specific to abusive adult-spam bait.",
-      "updatedAt": "2026-05-19T16:47:33.177Z"
-    },
-    {
-      "pattern": "线下我就曰过",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.92,
-      "reason": "Explicit offline sexual/contact claim; precise and strongly indicative of lure/spam language.",
-      "updatedAt": "2026-05-19T16:47:33.177Z"
-    },
-    {
-      "pattern": "个线下的哥哥",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.8500000000000001,
-      "reason": "seen 1 time(s), kind=contact_lure, aggregateScore=6",
-      "updatedAt": "2026-05-19T16:47:33.177Z"
-    },
-    {
-      "pattern": "同城上门+@handle",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.87,
-      "reason": "Combination of a local meetup lure phrase with a social handle strongly indicates off-platform contact solicitation spam.",
-      "updatedAt": "2026-05-19T16:47:33.177Z"
     }
   ],
   "analysis": {
@@ -71916,23 +72201,23 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 712
+        "count": 716
       },
       {
         "value": "server_strong_rule",
-        "count": 523
+        "count": 526
       },
       {
         "value": "random_handle",
-        "count": 370
+        "count": 373
       },
       {
         "value": "dynamic_contact_lure",
-        "count": 328
+        "count": 329
       },
       {
         "value": "contact_mention",
-        "count": 281
+        "count": 284
       },
       {
         "value": "imported",
@@ -71952,7 +72237,7 @@
       },
       {
         "value": "feedback_memory",
-        "count": 91
+        "count": 92
       },
       {
         "value": "dynamic_phrase",
@@ -71964,11 +72249,11 @@
       },
       {
         "value": "contact_lure_signal",
-        "count": 68
+        "count": 69
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 68
+        "count": 69
       },
       {
         "value": "admin_confirmed",
@@ -71980,7 +72265,7 @@
       },
       {
         "value": "obfuscated_dd",
-        "count": 56
+        "count": 57
       },
       {
         "value": "rule:contact_lure",
@@ -72014,11 +72299,11 @@
     "topRules": [
       {
         "value": "dynamic_contact_lure",
-        "count": 555
+        "count": 558
       },
       {
         "value": "random_handle",
-        "count": 369
+        "count": 372
       },
       {
         "value": "dynamic_adult_lure",
@@ -72026,7 +72311,7 @@
       },
       {
         "value": "contact_mention",
-        "count": 281
+        "count": 284
       },
       {
         "value": "adult_lure_combo",
@@ -72054,15 +72339,15 @@
       },
       {
         "value": "contact_lure_signal",
-        "count": 68
+        "count": 69
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 68
+        "count": 69
       },
       {
         "value": "obfuscated_dd",
-        "count": 50
+        "count": 51
       },
       {
         "value": "quark_pan_direct_link",
@@ -72078,7 +72363,7 @@
       },
       {
         "value": "link_drop",
-        "count": 19
+        "count": 20
       },
       {
         "value": "short_bot_code",
@@ -72112,11 +72397,11 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 1956
+        "count": 1965
       },
       {
         "value": "screenName",
-        "count": 395
+        "count": 398
       },
       {
         "value": "displayName",
@@ -72308,9 +72593,9 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 796,
+      "confirmedBlacklist": 800,
       "spamSamples": 5,
-      "approvedReports": 562,
+      "approvedReports": 566,
       "dynamicRules": 1000,
       "pendingReports": 25
     }
