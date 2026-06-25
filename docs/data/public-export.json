@@ -1,24 +1,112 @@
 {
-  "generatedAt": "2026-06-25T04:33:33.825Z",
+  "generatedAt": "2026-06-25T08:31:03.396Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 804,
-    "blacklistConfirmed": 804,
+    "blacklistTotal": 805,
+    "blacklistConfirmed": 805,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 595,
+    "contributionTotal": 596,
     "contributionPending": 25,
-    "dynamicRuleTotal": 1038,
-    "dynamicRuleActive": 1038,
+    "dynamicRuleTotal": 1040,
+    "dynamicRuleActive": 1040,
     "eventsTotal": 15000,
-    "blocked24h": 7,
+    "blocked24h": 9,
     "blockFailed24h": 0,
-    "decisions24h": 453,
+    "decisions24h": 576,
     "blockTaskPending": 1,
-    "generatedAt": "2026-06-25T04:33:33.764Z"
+    "generatedAt": "2026-06-25T08:31:03.343Z"
   },
   "blacklist": [
+    {
+      "screenName": "torontobigface",
+      "displayName": "多伦多方脸",
+      "reason": "拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：上门骚扰；评论[学习规则:dynamic_adult_lure] 命中：3.上门骚扰（图3）；评论[内置规则:marketing_combo] 命中：投稿、骚",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "marketing_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-25T07:22:44.020Z",
+      "reasonDetails": {
+        "ruleScore": 12,
+        "ruleHumanReasons": [
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 上门骚扰",
+          "dynamic_adult_lure [commentText] => 3.上门骚扰（图3）",
+          "marketing_combo [commentText] => 投稿, 骚"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "上门骚扰"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[内置规则:marketing_combo] 命中：投稿、骚"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "3.上门骚扰（图3）"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[内置规则:marketing_combo] 命中：投稿、骚"
+          },
+          {
+            "rule": "marketing_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "投稿"
+              },
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Marketing terms with spam context"
+          }
+        ]
+      }
+    },
     {
       "screenName": "pressurethefilm",
       "displayName": "Pressure",
@@ -61216,6 +61304,28 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "上门骚扰",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：上门骚扰；评论[学习规则:dynamic_adult_lure] 命中：3.上门骚扰（图3）；评论[内置规则:marketing_combo] 命中：投稿、骚",
+      "updatedAt": "2026-06-25T07:22:44.021Z"
+    },
+    {
+      "pattern": "3.上门骚扰（图3）",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：上门骚扰；评论[学习规则:dynamic_adult_lure] 命中：3.上门骚扰（图3）；评论[内置规则:marketing_combo] 命中：投稿、骚",
+      "updatedAt": "2026-06-25T07:22:44.021Z"
+    },
+    {
       "pattern": "hindd",
       "kind": "contact_lure",
       "fields": [
@@ -72405,32 +72515,6 @@
       "confidence": 0.91,
       "reason": "pattern_candidate:token",
       "updatedAt": "2026-05-19T16:47:33.177Z"
-    },
-    {
-      "pattern": "这个骚货",
-      "kind": "adult_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:token",
-      "updatedAt": "2026-05-19T16:47:33.177Z"
-    },
-    {
-      "pattern": "她好涩.*我不行了",
-      "kind": "adult_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.74,
-      "reason": "Sexual arousal bait phrasing may indicate adult-engagement spam, but standalone use can be organic.",
-      "updatedAt": "2026-05-19T16:47:33.177Z"
     }
   ],
   "analysis": {
@@ -72503,11 +72587,11 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 720
+        "count": 721
       },
       {
         "value": "server_strong_rule",
-        "count": 530
+        "count": 531
       },
       {
         "value": "random_handle",
@@ -72531,11 +72615,11 @@
       },
       {
         "value": "adult_mention",
-        "count": 178
+        "count": 179
       },
       {
         "value": "dynamic_adult_lure",
-        "count": 156
+        "count": 157
       },
       {
         "value": "feedback_memory",
@@ -72609,7 +72693,7 @@
       },
       {
         "value": "dynamic_adult_lure",
-        "count": 311
+        "count": 313
       },
       {
         "value": "contact_mention",
@@ -72621,7 +72705,7 @@
       },
       {
         "value": "adult_mention",
-        "count": 178
+        "count": 179
       },
       {
         "value": "dynamic_netdisk",
@@ -72699,7 +72783,7 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 1977
+        "count": 1981
       },
       {
         "value": "screenName",
@@ -72895,9 +72979,9 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 804,
+      "confirmedBlacklist": 805,
       "spamSamples": 5,
-      "approvedReports": 570,
+      "approvedReports": 571,
       "dynamicRules": 1000,
       "pendingReports": 25
     }
