@@ -1,24 +1,658 @@
 {
-  "generatedAt": "2026-06-25T08:31:03.396Z",
+  "generatedAt": "2026-06-25T11:49:27.895Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 805,
-    "blacklistConfirmed": 805,
+    "blacklistTotal": 812,
+    "blacklistConfirmed": 812,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 596,
+    "contributionTotal": 603,
     "contributionPending": 25,
-    "dynamicRuleTotal": 1040,
-    "dynamicRuleActive": 1040,
+    "dynamicRuleTotal": 1063,
+    "dynamicRuleActive": 1063,
     "eventsTotal": 15000,
-    "blocked24h": 9,
+    "blocked24h": 21,
     "blockFailed24h": 0,
-    "decisions24h": 576,
+    "decisions24h": 557,
     "blockTaskPending": 1,
-    "generatedAt": "2026-06-25T08:31:03.343Z"
+    "generatedAt": "2026-06-25T11:49:27.820Z"
   },
   "blacklist": [
+    {
+      "screenName": "fenmantoubi",
+      "displayName": "粉馒头",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：加我；评论[内置规则:tg_mention] 命中：电报、t.me；其他[内置规则:link_drop] 命中：不用找我要了，独家原創作品永久更新！凡是今天加我电报的将不收取任何...；评论[内置规则:tg_contact_combo] 命中：电报、t.me、加我",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "tg_mention",
+        "link_drop",
+        "tg_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-25T09:15:52.384Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => 加我",
+          "tg_mention [commentText] => 电报, t.me",
+          "link_drop [unknown] => 不用找我要了，独家原創作品永久更新！凡是今天加我电报的将不收取任何费用，24h免费对我的粉丝们限时无门槛國进入，可免费观看所有视频和写真！入口通道：https://t.me/yuxiaoyemao暗号：馒头",
+          "tg_contact_combo [commentText] => 电报, t.me, 加我"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "加我"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "tg_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "电报"
+              },
+              {
+                "field": "commentText",
+                "term": "t.me"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram terms in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "tg_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "电报"
+              },
+              {
+                "field": "commentText",
+                "term": "t.me"
+              },
+              {
+                "field": "commentText",
+                "term": "加我"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram/contact lure combination"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "91chiguaxianc",
+      "displayName": "91吃瓜现场",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：91chiguaxianc；评论[内置规则:quark_lure_combo] 命中：下载",
+      "confidence": 0.84,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "quark_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-25T09:15:14.024Z",
+      "reasonDetails": {
+        "ruleScore": 7,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => 91chiguaxianc",
+          "quark_lure_combo [commentText] => 下载"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "91chiguaxianc"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "quark_lure_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "下载"
+              }
+            ],
+            "evidence": [],
+            "reason": "Quark/netdisk lure with contact or URL"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "md_and_tx",
+      "displayName": "麻了个豆",
+      "reason": "拉黑：规则命中：评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊#熟女#岳母#勾引#成人短剧全...；评论[学习规则:dynamic_adult_lure] 命中：这个风骚熟女丈母娘瘦弱女；评论[学习规则:dynamic_adult_lure] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "tg_mention",
+        "adult_mention",
+        "link_drop",
+        "dynamic_adult_lure",
+        "dynamic_url",
+        "dynamic_tg",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-25T09:11:22.666Z",
+      "reasonDetails": {
+        "ruleScore": 18,
+        "ruleHumanReasons": [
+          "tg_mention [commentText] => tg, t.me",
+          "adult_mention [commentText] => 骚",
+          "link_drop [unknown] => 这个风骚熟女丈母娘瘦弱女婿招架不住啊#熟女#岳母#勾引#成人短剧全网热播成人短剧抢先看未删减版tg频道https://t.me/+i-dx3wxozhs5nmnl…高清无码在线观影http://se103.cc",
+          "dynamic_adult_lure [commentText] => 这个风骚熟女丈母娘瘦弱女",
+          "dynamic_adult_lure [commentText] => 这个风骚熟女丈母娘瘦弱女婿招架不住啊",
+          "dynamic_url [commentText] => t.me/+i-dx3wxozhs5n",
+          "dynamic_tg [commentText] => 未删减版tg频道"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "tg_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "tg"
+              },
+              {
+                "field": "commentText",
+                "term": "t.me"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram terms in comment"
+          },
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "这个风骚熟女丈母娘瘦弱女"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊#熟女#岳母#勾引#成人短剧全..."
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "这个风骚熟女丈母娘瘦弱女婿招架不住啊"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊#熟女#岳母#勾引#成人短剧全..."
+          },
+          {
+            "rule": "dynamic_url",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "t.me/+i-dx3wxozhs5n"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊#熟女#岳母#勾引#成人短剧全..."
+          },
+          {
+            "rule": "dynamic_tg",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "未删减版tg频道"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊#熟女#岳母#勾引#成人短剧全..."
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "lottamarijke",
+      "displayName": "热带鱼（主页完整）",
+      "reason": "拉黑：规则命中：评论[内置规则:adult_mention] 命中：反差；评论[内置规则:adult_lure_combo] 命中：反差、主页；名字[内置规则:adult_lure_combo] 命中：反差、主页",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "adult_mention",
+        "adult_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-25T09:11:21.083Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "adult_mention [commentText] => 反差",
+          "adult_lure_combo [commentText,displayName] => 反差, 主页"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "反差"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText",
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "反差"
+              },
+              {
+                "field": "displayName",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "jinlovekkk",
+      "displayName": "苹果AI",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:tg_mention] 命中：t.me；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；其他[内置规则:link_drop] 命中：被领导操过一次后彻底回不去了…现在看到大屌就腿软，必须自己骑上去！...；评论[内置规则:tg_contact_combo] 命中：t.me、dd",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "tg_mention",
+        "obfuscated_dd",
+        "link_drop",
+        "tg_contact_combo",
+        "obfuscated_dd_contact_combo",
+        "roleplay_name_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-25T09:10:35.928Z",
+      "reasonDetails": {
+        "ruleScore": 15,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "tg_mention [commentText] => t.me",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "link_drop [unknown] => 被领导操过一次后彻底回不去了…现在看到大屌就腿软，必须自己骑上去！只有上位疯狂扭腰，才能让粗屌顶到最敏感的地方，直击灵魂，爽得我眼泪直流～app直达，完全免费。。。完整版→https://aiacg.vip/r/btwfdd95完全免费→app直达少妇集中地→https://t.me/+3k1mmbehvfmzymi9…#二次元#里番#r18",
+          "tg_contact_combo [commentText] => t.me, dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd",
+          "roleplay_name_lure [commentText] => 少妇, dd, t.me"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "tg_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "t.me"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "tg_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "t.me"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram/contact lure combination"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          },
+          {
+            "rule": "roleplay_name_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "少妇"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              },
+              {
+                "field": "commentText",
+                "term": "t.me"
+              }
+            ],
+            "evidence": [],
+            "reason": "Roleplay display name with lure comment"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "beehivejim",
+      "displayName": "卡尔没有肌肉（完整版在主页）",
+      "reason": "拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[内置规则:adult_lure_combo] 命中：骚、主页；名字[内置规则:adult_lure_combo] 命中：骚、主页",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "adult_mention",
+        "adult_lure_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-25T09:10:34.906Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "adult_mention [commentText] => 骚",
+          "adult_lure_combo [commentText,displayName] => 骚, 主页"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "adult_lure_combo",
+            "fields": [
+              "commentText",
+              "displayName"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              },
+              {
+                "field": "displayName",
+                "term": "主页"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult lure terms with contact CTA"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "dongqingcos",
+      "displayName": "冬晴",
+      "reason": "拉黑：规则命中：评论[内置规则:tg_mention] 命中：t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：《射雕英雄传之重生大闹郭伯母》第1集杨过夜闯浴室，误撞黄蓉沐浴。蓉...；评论[学习规则:dynamic_adult_lure] 命中：粗屌猛操骚穴；评论[学习规则:dynamic_url] 命中：t.me/+vpi2erwz75s5y",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "tg_mention",
+        "adult_mention",
+        "link_drop",
+        "dynamic_adult_lure",
+        "dynamic_url",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-06-25T09:10:31.359Z",
+      "reasonDetails": {
+        "ruleScore": 11,
+        "ruleHumanReasons": [
+          "tg_mention [commentText] => t.me",
+          "adult_mention [commentText] => 骚",
+          "link_drop [unknown] => 《射雕英雄传之重生大闹郭伯母》第1集杨过夜闯浴室，误撞黄蓉沐浴。蓉儿娇喘误认夫君：“靖哥哥……快进来～”杨过难忍，粗屌猛操骚穴，狂干浪叫连连，浓精射满郭伯母子宫！未删减http://se102.cc更多精彩视频https://t.me/+vpi2erwz75s5yjhl…#ai短剧#成人短剧#免费短剧#热播短剧",
+          "dynamic_adult_lure [commentText] => 粗屌猛操骚穴",
+          "dynamic_url [commentText] => t.me/+vpi2erwz75s5y"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "tg_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "t.me"
+              }
+            ],
+            "evidence": [],
+            "reason": "Telegram terms in comment"
+          },
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "link_drop",
+            "fields": [],
+            "hits": [],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Comment includes URL plus contact/TG terms"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "粗屌猛操骚穴"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：《射雕英雄传之重生大闹郭伯母》第1集杨过夜闯浴室，误撞黄蓉沐浴。蓉..."
+          },
+          {
+            "rule": "dynamic_url",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "t.me/+vpi2erwz75s5y"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：《射雕英雄传之重生大闹郭伯母》第1集杨过夜闯浴室，误撞黄蓉沐浴。蓉..."
+          }
+        ]
+      }
+    },
     {
       "screenName": "torontobigface",
       "displayName": "多伦多方脸",
@@ -61304,6 +61938,264 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "t.me/yuxiaoyemao",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：加我；评论[内置规则:tg_mention] 命中：电报、t.me；其他[内置规则:link_drop] 命中：不用找我要了，独家原創作品永久更新！凡是今天加我电报的将不收取任何...；评论[内置规则:tg_contact_combo] 命中：电报、t.me、加我",
+      "updatedAt": "2026-06-25T09:15:52.424Z"
+    },
+    {
+      "pattern": "凡是今天加我电报的将不收",
+      "kind": "tg",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：加我；评论[内置规则:tg_mention] 命中：电报、t.me；其他[内置规则:link_drop] 命中：不用找我要了，独家原創作品永久更新！凡是今天加我电报的将不收取任何...；评论[内置规则:tg_contact_combo] 命中：电报、t.me、加我",
+      "updatedAt": "2026-06-25T09:15:52.387Z"
+    },
+    {
+      "pattern": "凡是今天加我电报的将不收取任何费用",
+      "kind": "tg",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：加我；评论[内置规则:tg_mention] 命中：电报、t.me；其他[内置规则:link_drop] 命中：不用找我要了，独家原創作品永久更新！凡是今天加我电报的将不收取任何...；评论[内置规则:tg_contact_combo] 命中：电报、t.me、加我",
+      "updatedAt": "2026-06-25T09:15:52.387Z"
+    },
+    {
+      "pattern": "无需下载",
+      "kind": "netdisk",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：91chiguaxianc；评论[内置规则:quark_lure_combo] 命中：下载",
+      "updatedAt": "2026-06-25T09:15:14.025Z"
+    },
+    {
+      "pattern": "简介查看→无需下载→永久免费观看",
+      "kind": "netdisk",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：91chiguaxianc；评论[内置规则:quark_lure_combo] 命中：下载",
+      "updatedAt": "2026-06-25T09:15:14.025Z"
+    },
+    {
+      "pattern": "这个风骚熟女丈母娘瘦弱女婿招架不住啊",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊#熟女#岳母#勾引#成人短剧全...；评论[学习规则:dynamic_adult_lure] 命中：这个风骚熟女丈母娘瘦弱女；评论[学习规则:dynamic_adult_lure] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊",
+      "updatedAt": "2026-06-25T09:11:22.706Z"
+    },
+    {
+      "pattern": "t.me/+i-dx3wxozhs5n",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊#熟女#岳母#勾引#成人短剧全...；评论[学习规则:dynamic_adult_lure] 命中：这个风骚熟女丈母娘瘦弱女；评论[学习规则:dynamic_adult_lure] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊",
+      "updatedAt": "2026-06-25T09:11:22.706Z"
+    },
+    {
+      "pattern": "未删减版tg频道",
+      "kind": "tg",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊#熟女#岳母#勾引#成人短剧全...；评论[学习规则:dynamic_adult_lure] 命中：这个风骚熟女丈母娘瘦弱女；评论[学习规则:dynamic_adult_lure] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊",
+      "updatedAt": "2026-06-25T09:11:22.668Z"
+    },
+    {
+      "pattern": "这个风骚熟女丈母娘瘦弱女",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：tg、t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊#熟女#岳母#勾引#成人短剧全...；评论[学习规则:dynamic_adult_lure] 命中：这个风骚熟女丈母娘瘦弱女；评论[学习规则:dynamic_adult_lure] 命中：这个风骚熟女丈母娘瘦弱女婿招架不住啊",
+      "updatedAt": "2026-06-25T09:11:22.668Z"
+    },
+    {
+      "pattern": "热带鱼（主页完整）",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：反差；评论[内置规则:adult_lure_combo] 命中：反差、主页；名字[内置规则:adult_lure_combo] 命中：反差、主页",
+      "updatedAt": "2026-06-25T09:11:21.084Z"
+    },
+    {
+      "pattern": "主页完整",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：反差；评论[内置规则:adult_lure_combo] 命中：反差、主页；名字[内置规则:adult_lure_combo] 命中：反差、主页",
+      "updatedAt": "2026-06-25T09:11:21.083Z"
+    },
+    {
+      "pattern": "t.me/+3k1mmbehvfmzy",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:tg_mention] 命中：t.me；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；其他[内置规则:link_drop] 命中：被领导操过一次后彻底回不去了…现在看到大屌就腿软，必须自己骑上去！...；评论[内置规则:tg_contact_combo] 命中：t.me、dd",
+      "updatedAt": "2026-06-25T09:10:35.967Z"
+    },
+    {
+      "pattern": "btwfdd95",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:tg_mention] 命中：t.me；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；其他[内置规则:link_drop] 命中：被领导操过一次后彻底回不去了…现在看到大屌就腿软，必须自己骑上去！...；评论[内置规则:tg_contact_combo] 命中：t.me、dd",
+      "updatedAt": "2026-06-25T09:10:35.929Z"
+    },
+    {
+      "pattern": "aiacg.vip/r/btwfdd95",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:tg_mention] 命中：t.me；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；其他[内置规则:link_drop] 命中：被领导操过一次后彻底回不去了…现在看到大屌就腿软，必须自己骑上去！...；评论[内置规则:tg_contact_combo] 命中：t.me、dd",
+      "updatedAt": "2026-06-25T09:10:35.929Z"
+    },
+    {
+      "pattern": "各种姿势操的小骚货连连高潮",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[内置规则:adult_lure_combo] 命中：骚、主页；名字[内置规则:adult_lure_combo] 命中：骚、主页",
+      "updatedAt": "2026-06-25T09:10:34.945Z"
+    },
+    {
+      "pattern": "逼紧水多从小娇生惯养在我身下就是被大力抽插的骚母狗",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[内置规则:adult_lure_combo] 命中：骚、主页；名字[内置规则:adult_lure_combo] 命中：骚、主页",
+      "updatedAt": "2026-06-25T09:10:34.945Z"
+    },
+    {
+      "pattern": "卡尔没有肌肉（完整版在主页）beehivejim",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[内置规则:adult_lure_combo] 命中：骚、主页；名字[内置规则:adult_lure_combo] 命中：骚、主页",
+      "updatedAt": "2026-06-25T09:10:34.944Z"
+    },
+    {
+      "pattern": "身下就是被大力抽插的骚母",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[内置规则:adult_lure_combo] 命中：骚、主页；名字[内置规则:adult_lure_combo] 命中：骚、主页",
+      "updatedAt": "2026-06-25T09:10:34.944Z"
+    },
+    {
+      "pattern": "各种姿势操的小骚货连连高",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[内置规则:adult_lure_combo] 命中：骚、主页；名字[内置规则:adult_lure_combo] 命中：骚、主页",
+      "updatedAt": "2026-06-25T09:10:34.944Z"
+    },
+    {
+      "pattern": "卡尔没有肌肉（完整版在主页）",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[内置规则:adult_lure_combo] 命中：骚、主页；名字[内置规则:adult_lure_combo] 命中：骚、主页",
+      "updatedAt": "2026-06-25T09:10:34.907Z"
+    },
+    {
+      "pattern": "完整版在主页",
+      "kind": "contact_lure",
+      "fields": [
+        "displayName",
+        "screenName"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[内置规则:adult_lure_combo] 命中：骚、主页；名字[内置规则:adult_lure_combo] 命中：骚、主页",
+      "updatedAt": "2026-06-25T09:10:34.906Z"
+    },
+    {
+      "pattern": "粗屌猛操骚穴",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：《射雕英雄传之重生大闹郭伯母》第1集杨过夜闯浴室，误撞黄蓉沐浴。蓉...；评论[学习规则:dynamic_adult_lure] 命中：粗屌猛操骚穴；评论[学习规则:dynamic_url] 命中：t.me/+vpi2erwz75s5y",
+      "updatedAt": "2026-06-25T09:10:31.360Z"
+    },
+    {
+      "pattern": "t.me/+vpi2erwz75s5y",
+      "kind": "url",
+      "fields": [
+        "commentText"
+      ],
+      "score": 3,
+      "confidence": 0.67,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:tg_mention] 命中：t.me；评论[内置规则:adult_mention] 命中：骚；其他[内置规则:link_drop] 命中：《射雕英雄传之重生大闹郭伯母》第1集杨过夜闯浴室，误撞黄蓉沐浴。蓉...；评论[学习规则:dynamic_adult_lure] 命中：粗屌猛操骚穴；评论[学习规则:dynamic_url] 命中：t.me/+vpi2erwz75s5y",
+      "updatedAt": "2026-06-25T09:10:31.360Z"
+    },
+    {
       "pattern": "上门骚扰",
       "kind": "adult_lure",
       "fields": [
@@ -72238,283 +73130,6 @@
       "confidence": 0.8500000000000001,
       "reason": "absorbed_from:strong_rule_direct_block",
       "updatedAt": "2026-05-19T16:53:29.447Z"
-    },
-    {
-      "pattern": "pan.quark.cn/s/d33730b17f05",
-      "kind": "url",
-      "fields": [
-        "commentText"
-      ],
-      "score": 3,
-      "confidence": 0.6100000000000001,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:27.397Z"
-    },
-    {
-      "pattern": "pan.quark.cn/s/006d9fffe097",
-      "kind": "url",
-      "fields": [
-        "commentText"
-      ],
-      "score": 3,
-      "confidence": 0.6100000000000001,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:25.845Z"
-    },
-    {
-      "pattern": "3d3a783dd9dd",
-      "kind": "contact_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.8500000000000001,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:24.225Z"
-    },
-    {
-      "pattern": "pan.quark.cn/s/3d3a783dd9dd",
-      "kind": "url",
-      "fields": [
-        "commentText"
-      ],
-      "score": 3,
-      "confidence": 0.6100000000000001,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:24.225Z"
-    },
-    {
-      "pattern": "pan.quark.cn/s/07dfee998012",
-      "kind": "url",
-      "fields": [
-        "commentText"
-      ],
-      "score": 3,
-      "confidence": 0.6100000000000001,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:23.483Z"
-    },
-    {
-      "pattern": "\"比她好看的没她骚/比她骚的没她好看",
-      "kind": "adult_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:16.740Z"
-    },
-    {
-      "pattern": "\"比她好看的没她骚/比她骚的没她好看@2018d1/",
-      "kind": "adult_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.8500000000000001,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:16.740Z"
-    },
-    {
-      "pattern": "比她好看的没她骚)比她骚的没她好看",
-      "kind": "adult_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:15.273Z"
-    },
-    {
-      "pattern": "|比她好看的没她骚)比她骚的没她好看@danitinahd[",
-      "kind": "adult_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.8500000000000001,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:15.273Z"
-    },
-    {
-      "pattern": "若熙~❀同城上门",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:09.892Z"
-    },
-    {
-      "pattern": "语梦~❀同城上门",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:08.624Z"
-    },
-    {
-      "pattern": "无任何套路",
-      "kind": "phrase",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 3,
-      "confidence": 0.73,
-      "reason": "absorbed_from:admin_submitted_spam",
-      "updatedAt": "2026-05-19T16:52:10.235Z"
-    },
-    {
-      "pattern": "伊甜绮免费破处",
-      "kind": "adult_lure",
-      "fields": [
-        "displayName",
-        "screenName"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:48:52.037Z"
-    },
-    {
-      "pattern": "1-5线真实对接",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.86,
-      "reason": "admin_resource_lure_cleanup",
-      "updatedAt": "2026-05-19T16:47:33.197Z"
-    },
-    {
-      "pattern": "真实可靠约见",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.86,
-      "reason": "admin_resource_lure_cleanup",
-      "updatedAt": "2026-05-19T16:47:33.195Z"
-    },
-    {
-      "pattern": "婷婷原味丝袜",
-      "kind": "adult_goods_solicitation",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 3,
-      "confidence": 0.93,
-      "reason": "Specific fetish-oriented sales phrase indicating used stockings content; highly indicative of spam/solicitation.",
-      "updatedAt": "2026-05-19T16:47:33.178Z"
-    },
-    {
-      "pattern": "筠瑾~❀同城上门",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:line",
-      "updatedAt": "2026-05-19T16:47:33.178Z"
-    },
-    {
-      "pattern": "下app是木马",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.81,
-      "reason": "Specific warning-like phrase tied to app-download bait context; potentially useful but less clearly a standalone spam trigger.",
-      "updatedAt": "2026-05-19T16:47:33.178Z"
-    },
-    {
-      "pattern": "同城约泡主页进群",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.98,
-      "reason": "Combined hookup-solicitation plus profile/group redirection is a highly specific spam pattern.",
-      "updatedAt": "2026-05-19T16:47:33.178Z"
-    },
-    {
-      "pattern": "主页进群",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.92,
-      "reason": "Direct call to visit profile and join a group, a common redirection tactic in spam/contact-lure content.",
-      "updatedAt": "2026-05-19T16:47:33.178Z"
-    },
-    {
-      "pattern": "同城约泡",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.96,
-      "reason": "Explicit local hookup solicitation phrase strongly associated with spam/adult contact lures.",
-      "updatedAt": "2026-05-19T16:47:33.178Z"
-    },
-    {
-      "pattern": "同城约p",
-      "kind": "resource_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 5,
-      "confidence": 0.86,
-      "reason": "admin_resource_lure_cleanup",
-      "updatedAt": "2026-05-19T16:47:33.178Z"
-    },
-    {
-      "pattern": "分钟线下我就曰过",
-      "kind": "contact_lure",
-      "fields": [
-        "displayName",
-        "commentText",
-        "profileBio"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "pattern_candidate:token",
-      "updatedAt": "2026-05-19T16:47:33.177Z"
     }
   ],
   "analysis": {
@@ -72587,15 +73202,15 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 721
+        "count": 728
       },
       {
         "value": "server_strong_rule",
-        "count": 531
+        "count": 538
       },
       {
         "value": "random_handle",
-        "count": 374
+        "count": 375
       },
       {
         "value": "dynamic_contact_lure",
@@ -72603,7 +73218,7 @@
       },
       {
         "value": "contact_mention",
-        "count": 288
+        "count": 290
       },
       {
         "value": "imported",
@@ -72611,15 +73226,15 @@
       },
       {
         "value": "adult_lure_combo",
-        "count": 186
+        "count": 188
       },
       {
         "value": "adult_mention",
-        "count": 179
+        "count": 183
       },
       {
         "value": "dynamic_adult_lure",
-        "count": 157
+        "count": 159
       },
       {
         "value": "feedback_memory",
@@ -72631,22 +73246,22 @@
       },
       {
         "value": "quark_lure_combo",
-        "count": 77
+        "count": 78
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 73
+        "count": 74
       },
       {
         "value": "contact_lure_signal",
         "count": 69
       },
       {
-        "value": "admin_confirmed",
-        "count": 61
+        "value": "obfuscated_dd",
+        "count": 62
       },
       {
-        "value": "obfuscated_dd",
+        "value": "admin_confirmed",
         "count": 61
       },
       {
@@ -72689,23 +73304,23 @@
       },
       {
         "value": "random_handle",
-        "count": 373
+        "count": 374
       },
       {
         "value": "dynamic_adult_lure",
-        "count": 313
+        "count": 316
       },
       {
         "value": "contact_mention",
-        "count": 288
+        "count": 290
       },
       {
         "value": "adult_lure_combo",
-        "count": 185
+        "count": 187
       },
       {
         "value": "adult_mention",
-        "count": 179
+        "count": 183
       },
       {
         "value": "dynamic_netdisk",
@@ -72717,11 +73332,11 @@
       },
       {
         "value": "quark_lure_combo",
-        "count": 77
+        "count": 78
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 73
+        "count": 74
       },
       {
         "value": "dynamic_resource_lure",
@@ -72733,7 +73348,7 @@
       },
       {
         "value": "obfuscated_dd",
-        "count": 55
+        "count": 56
       },
       {
         "value": "quark_pan_direct_link",
@@ -72749,18 +73364,22 @@
       },
       {
         "value": "link_drop",
-        "count": 20
+        "count": 24
       },
       {
         "value": "short_bot_code",
         "count": 16
       },
       {
-        "value": "dynamic_tg",
-        "count": 11
+        "value": "tg_mention",
+        "count": 15
       },
       {
-        "value": "tg_mention",
+        "value": "dynamic_tg",
+        "count": 12
+      },
+      {
+        "value": "tg_contact_combo",
         "count": 11
       },
       {
@@ -72768,30 +73387,26 @@
         "count": 9
       },
       {
-        "value": "tg_contact_combo",
-        "count": 9
-      },
-      {
         "value": "dynamic_sexual_solicitation",
         "count": 7
       },
       {
-        "value": "explicit_adult_name",
+        "value": "dynamic_url",
         "count": 7
       }
     ],
     "topFields": [
       {
         "value": "commentText",
-        "count": 1981
+        "count": 2005
       },
       {
         "value": "screenName",
-        "count": 399
+        "count": 400
       },
       {
         "value": "displayName",
-        "count": 313
+        "count": 315
       }
     ],
     "topPatterns": [
@@ -72979,9 +73594,9 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 805,
+      "confirmedBlacklist": 812,
       "spamSamples": 5,
-      "approvedReports": 571,
+      "approvedReports": 578,
       "dynamicRules": 1000,
       "pendingReports": 25
     }
