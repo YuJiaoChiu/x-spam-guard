@@ -1,24 +1,1058 @@
 {
-  "generatedAt": "2026-09-09T11:21:11.842Z",
+  "generatedAt": "2026-09-09T16:37:35.081Z",
   "project": "X Spam Guard",
   "stats": {
-    "blacklistTotal": 812,
-    "blacklistConfirmed": 812,
+    "blacklistTotal": 823,
+    "blacklistConfirmed": 823,
     "blacklistSuspected": 0,
     "blacklistReported": 0,
     "blacklistWhitelist": 0,
-    "contributionTotal": 603,
+    "contributionTotal": 614,
     "contributionPending": 25,
-    "dynamicRuleTotal": 1063,
-    "dynamicRuleActive": 1063,
+    "dynamicRuleTotal": 1067,
+    "dynamicRuleActive": 1067,
     "eventsTotal": 15000,
-    "blocked24h": 0,
+    "blocked24h": 43,
     "blockFailed24h": 0,
-    "decisions24h": 0,
+    "decisions24h": 38,
     "blockTaskPending": 1,
-    "generatedAt": "2026-09-09T11:21:11.778Z"
+    "generatedAt": "2026-09-09T16:37:35.008Z"
   },
   "blacklist": [
+    {
+      "screenName": "sugarwaladaddy",
+      "displayName": "asim🎧🐉",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-09-09T13:50:46.483Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "fahadalijaved",
+      "displayName": "Fahad Ali Javed",
+      "reason": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "confidence": 0.8,
+      "tags": [
+        "auto_ai_review",
+        "contact_mention",
+        "obfuscated_dd",
+        "obfuscated_dd_contact_combo",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-09-09T13:49:28.893Z",
+      "reasonDetails": {
+        "ruleScore": 5,
+        "ruleHumanReasons": [
+          "contact_mention [commentText] => dd",
+          "obfuscated_dd [commentText] => D.D / obfuscated dd",
+          "obfuscated_dd_contact_combo [commentText] => D.D / obfuscated dd, dd"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "contact_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Contact lure terms in comment"
+          },
+          {
+            "rule": "obfuscated_dd",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token in comment"
+          },
+          {
+            "rule": "obfuscated_dd_contact_combo",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "D.D / obfuscated dd"
+              },
+              {
+                "field": "commentText",
+                "term": "dd"
+              }
+            ],
+            "evidence": [],
+            "reason": "Obfuscated DD token with offline/contact lure"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "mil_boi",
+      "displayName": "M",
+      "reason": "拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-09-09T13:34:18.358Z",
+      "reasonDetails": {
+        "ruleScore": 17,
+        "ruleHumanReasons": [
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ashfaqs75751050；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：ashfaqs75751050；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "ashfaqs75751050",
+      "displayName": "Jean-Marc Sylvestre",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：ashfaqs75751050；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-09-09T13:32:59.840Z",
+      "reasonDetails": {
+        "ruleScore": 19,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => ashfaqs75751050",
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "ashfaqs75751050"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：moezilla75；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：名字[内置规则:random_handle] 命中：moezilla75；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "moezilla75",
+      "displayName": "Moezilla",
+      "reason": "拉黑：规则命中：名字[内置规则:random_handle] 命中：moezilla75；评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "random_handle",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-09-09T13:32:52.574Z",
+      "reasonDetails": {
+        "ruleScore": 19,
+        "ruleHumanReasons": [
+          "random_handle [screenName] => moezilla75",
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "random_handle",
+            "fields": [
+              "screenName"
+            ],
+            "hits": [
+              {
+                "field": "screenName",
+                "term": "moezilla75"
+              }
+            ],
+            "evidence": [
+              "redacted"
+            ],
+            "reason": "Screen name looks machine-generated or digit-heavy"
+          },
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "izqiah",
+      "displayName": "Izaiah Cathey",
+      "reason": "拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-09-09T13:32:52.121Z",
+      "reasonDetails": {
+        "ruleScore": 17,
+        "ruleHumanReasons": [
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "lorenbethww",
+      "displayName": "皮皮",
+      "reason": "拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-09-09T13:32:52.004Z",
+      "reasonDetails": {
+        "ruleScore": 17,
+        "ruleHumanReasons": [
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "_devonroderique",
+      "displayName": "Devon Roderique",
+      "reason": "拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-09-09T13:32:51.889Z",
+      "reasonDetails": {
+        "ruleScore": 17,
+        "ruleHumanReasons": [
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "shumpeek4",
+      "displayName": "Shyama Balachandra",
+      "reason": "拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-09-09T13:32:51.769Z",
+      "reasonDetails": {
+        "ruleScore": 17,
+        "ruleHumanReasons": [
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "amorgi222",
+      "displayName": "Gin✨🍃✨🍃",
+      "reason": "拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-09-09T13:32:51.643Z",
+      "reasonDetails": {
+        "ruleScore": 17,
+        "ruleHumanReasons": [
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的没她好看",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚比她骚的",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚比她骚的"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          }
+        ]
+      }
+    },
+    {
+      "screenName": "baalakmahadevka",
+      "displayName": "भवदेव सिंह चारण ( शिव पुत्र )",
+      "reason": "拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "confidence": 0.98,
+      "tags": [
+        "auto_ai_review",
+        "adult_mention",
+        "dynamic_adult_lure",
+        "server_strong_rule"
+      ],
+      "source": "auto_ai_contribution",
+      "updatedAt": "2026-09-09T13:32:51.516Z",
+      "reasonDetails": {
+        "ruleScore": 9,
+        "ruleHumanReasons": [
+          "adult_mention [commentText] => 骚",
+          "dynamic_adult_lure [commentText] => 比她好看的没她骚",
+          "dynamic_adult_lure [commentText] => 比她骚的没她好看"
+        ],
+        "aiProvider": "none",
+        "aiReason": "skipped_strong_rule",
+        "ruleMatchDetails": [
+          {
+            "rule": "adult_mention",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "Adult terms in comment"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她好看的没她骚"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          },
+          {
+            "rule": "dynamic_adult_lure",
+            "fields": [
+              "commentText"
+            ],
+            "hits": [
+              {
+                "field": "commentText",
+                "term": "比她骚的没她好看"
+              }
+            ],
+            "evidence": [],
+            "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看"
+          }
+        ]
+      }
+    },
     {
       "screenName": "fenmantoubi",
       "displayName": "粉馒头",
@@ -61938,6 +62972,72 @@
   ],
   "dynamicRules": [
     {
+      "pattern": "areanddecidedtostepb",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-09-09T13:50:46.484Z"
+    },
+    {
+      "pattern": "mdmorworklockeddevice?",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.79,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-09-09T13:49:28.933Z"
+    },
+    {
+      "pattern": "mdmorworklockeddevice",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.79,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-09-09T13:49:28.895Z"
+    },
+    {
+      "pattern": "mdmorworklockeddevic",
+      "kind": "contact_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.8500000000000001,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
+      "updatedAt": "2026-09-09T13:49:28.894Z"
+    },
+    {
+      "pattern": "比她好看的没她骚比她骚的",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "updatedAt": "2026-09-09T13:34:18.362Z"
+    },
+    {
+      "pattern": "比她好看的没她骚比她骚的没她好看",
+      "kind": "adult_lure",
+      "fields": [
+        "commentText"
+      ],
+      "score": 4,
+      "confidence": 0.91,
+      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看",
+      "updatedAt": "2026-09-09T13:34:18.362Z"
+    },
+    {
       "pattern": "t.me/yuxiaoyemao",
       "kind": "url",
       "fields": [
@@ -70456,17 +71556,6 @@
       "updatedAt": "2026-05-31T09:38:45.044Z"
     },
     {
-      "pattern": "比她好看的没她骚比她骚的没她好看",
-      "kind": "adult_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看",
-      "updatedAt": "2026-05-31T09:38:45.033Z"
-    },
-    {
       "pattern": "比她好看的没她骚比她骚的没她好看@rumeysaaunal~",
       "kind": "adult_lure",
       "fields": [
@@ -70476,17 +71565,6 @@
       "confidence": 0.8500000000000001,
       "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看",
       "updatedAt": "2026-05-31T09:38:45.033Z"
-    },
-    {
-      "pattern": "比她好看的没她骚比她骚的",
-      "kind": "adult_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:拉黑：规则命中：评论[内置规则:adult_mention] 命中：骚；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚；评论[学习规则:dynamic_adult_lure] 命中：比她骚的没她好看；评论[学习规则:dynamic_adult_lure] 命中：比她好看的没她骚比她骚的；评论[动态规则:dynamic_adult_lure] 命中：比她骚的没她好看",
-      "updatedAt": "2026-05-31T09:38:45.032Z"
     },
     {
       "pattern": "线下sao货没人比她sao@ugur_tas19_03npu",
@@ -73086,50 +74164,6 @@
       "confidence": 0.91,
       "reason": "absorbed_from:strong_rule_direct_block",
       "updatedAt": "2026-05-19T16:53:32.793Z"
-    },
-    {
-      "pattern": ".比她好看的没她骚^比她骚的没她好看@danitinahd(",
-      "kind": "adult_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.8500000000000001,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:32.793Z"
-    },
-    {
-      "pattern": "pan.quark.cn/s/daed82b5e083",
-      "kind": "url",
-      "fields": [
-        "commentText"
-      ],
-      "score": 3,
-      "confidence": 0.6100000000000001,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:31.537Z"
-    },
-    {
-      "pattern": "+刷了半天的x[就她的主页能打了",
-      "kind": "contact_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.91,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:29.447Z"
-    },
-    {
-      "pattern": "+刷了半天的x[就她的主页能打了@xliggins!",
-      "kind": "contact_lure",
-      "fields": [
-        "commentText"
-      ],
-      "score": 4,
-      "confidence": 0.8500000000000001,
-      "reason": "absorbed_from:strong_rule_direct_block",
-      "updatedAt": "2026-05-19T16:53:29.447Z"
     }
   ],
   "analysis": {
@@ -73148,7 +74182,7 @@
       },
       {
         "value": "拉黑：规则命中：评论[内置规则:contact_mention] 命中：dd；评论[内置规则:obfuscated_dd] 命中：D.D / obfuscated dd；评论[内置规则:obfuscated_dd_contact_combo] 命中：D.D / obfuscated dd、dd",
-        "count": 31
+        "count": 33
       },
       {
         "value": "high_rule_score",
@@ -73202,15 +74236,15 @@
     "topTags": [
       {
         "value": "auto_ai_review",
-        "count": 728
+        "count": 739
       },
       {
         "value": "server_strong_rule",
-        "count": 538
+        "count": 549
       },
       {
         "value": "random_handle",
-        "count": 375
+        "count": 377
       },
       {
         "value": "dynamic_contact_lure",
@@ -73218,23 +74252,23 @@
       },
       {
         "value": "contact_mention",
-        "count": 290
+        "count": 292
       },
       {
         "value": "imported",
         "count": 229
       },
       {
+        "value": "adult_mention",
+        "count": 192
+      },
+      {
         "value": "adult_lure_combo",
         "count": 188
       },
       {
-        "value": "adult_mention",
-        "count": 183
-      },
-      {
         "value": "dynamic_adult_lure",
-        "count": 159
+        "count": 168
       },
       {
         "value": "feedback_memory",
@@ -73250,7 +74284,7 @@
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 74
+        "count": 76
       },
       {
         "value": "contact_lure_signal",
@@ -73258,7 +74292,7 @@
       },
       {
         "value": "obfuscated_dd",
-        "count": 62
+        "count": 64
       },
       {
         "value": "admin_confirmed",
@@ -73304,23 +74338,23 @@
       },
       {
         "value": "random_handle",
-        "count": 374
+        "count": 376
       },
       {
         "value": "dynamic_adult_lure",
-        "count": 316
+        "count": 350
       },
       {
         "value": "contact_mention",
-        "count": 290
+        "count": 292
+      },
+      {
+        "value": "adult_mention",
+        "count": 192
       },
       {
         "value": "adult_lure_combo",
         "count": 187
-      },
-      {
-        "value": "adult_mention",
-        "count": 183
       },
       {
         "value": "dynamic_netdisk",
@@ -73336,7 +74370,7 @@
       },
       {
         "value": "obfuscated_dd_contact_combo",
-        "count": 74
+        "count": 76
       },
       {
         "value": "dynamic_resource_lure",
@@ -73348,7 +74382,7 @@
       },
       {
         "value": "obfuscated_dd",
-        "count": 56
+        "count": 58
       },
       {
         "value": "quark_pan_direct_link",
@@ -73398,11 +74432,11 @@
     "topFields": [
       {
         "value": "commentText",
-        "count": 2005
+        "count": 2054
       },
       {
         "value": "screenName",
-        "count": 400
+        "count": 402
       },
       {
         "value": "displayName",
@@ -73594,9 +74628,9 @@
       }
     ],
     "totals": {
-      "confirmedBlacklist": 812,
+      "confirmedBlacklist": 823,
       "spamSamples": 5,
-      "approvedReports": 578,
+      "approvedReports": 589,
       "dynamicRules": 1000,
       "pendingReports": 25
     }
